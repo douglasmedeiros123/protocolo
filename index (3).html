@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocolo da Resposta Garantida — Faça o cliente que visualizou te responder</title>
+<meta name="description" content="Mensagens prontas de copiar e colar para destravar conversas paradas no WhatsApp, recuperar clientes que sumiram e transformar 'vou pensar' em Pix na conta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080f14;
+  --bg2:#0d1a22;
+  --panel:#112030;
+  --panel2:#0f1c29;
+  --green:#25D366;
+  --green2:#1aad50;
+  --check:#53BDEB;
+  --amber:#FFC24B;
+  --danger:#F15C6D;
+  --text:#E9EDEF;
+  --muted:#7a9aaa;
+  --line:#1a3040;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+::selection{background:var(--green);color:#04120b}
+h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;line-height:1.06}
+a{text-decoration:none;color:inherit}
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+section{padding:96px 0}
+
+/* TOPBAR */
+.topbar{
+  background:linear-gradient(90deg,#051a10 0%,#0a2818 50%,#051a10 100%);
+  border-bottom:1px solid rgba(37,211,102,.2);
+  padding:13px 20px;
+  text-align:center;
+  font-size:.88rem;
+  font-weight:600;
+  letter-spacing:.01em;
+}
+.topbar .ticks{color:var(--check);font-weight:800;font-size:1rem}
+
+/* CTA BTN */
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(160deg,#30e87a 0%,#18b84e 60%,#0fa040 100%);
+  color:#03100a;
+  font-weight:800;
+  font-size:1rem;
+  letter-spacing:.03em;
+  text-decoration:none;
+  padding:20px 42px;
+  border-radius:999px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.15) inset, 0 12px 40px rgba(37,211,102,.38);
+  transition:transform .18s ease, box-shadow .18s ease;
+  text-align:center;
+  text-transform:uppercase;
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset, 0 20px 50px rgba(37,211,102,.5)}
+.cta-note{display:block;margin-top:13px;font-size:.82rem;color:var(--muted)}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.07);padding:8px 18px;border-radius:999px;margin-bottom:22px}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:100px 0 80px;
+  position:relative;
+  overflow:hidden;
+  background:var(--bg);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 70% -10%, rgba(37,211,102,.11) 0%, transparent 65%),
+    radial-gradient(ellipse 600px 500px at -5% 60%, rgba(83,189,235,.07) 0%, transparent 60%);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+.hero h1{
+  font-size:clamp(2.6rem,5.5vw,4.4rem);
+  margin-bottom:24px;
+  line-height:1.04;
+}
+.hero h1 .accent{color:var(--green)}
+.hero h1 .amber{color:var(--amber)}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:500px;margin-bottom:36px;line-height:1.75}
+.hero-sub strong{color:var(--text)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 14px;border-radius:999px;letter-spacing:.05em}
+.scroll-hint{margin-top:28px;color:var(--muted);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.scroll-hint span{display:block;font-size:1.5rem;margin-top:6px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ═══ MOCKUP CINEMATOGRÁFICO ═══ */
+.cinema-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+/* Glow ambiental */
+.cinema-wrap::before{
+  content:'';
+  position:absolute;
+  width:380px;height:380px;
+  background:radial-gradient(circle, rgba(37,211,102,.18) 0%, transparent 70%);
+  border-radius:50%;
+  z-index:0;
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+
+.phone-cinema{
+  position:relative;
+  z-index:2;
+  width:295px;
+  background:linear-gradient(180deg,#0d1f2b 0%,#091520 100%);
+  border:1.5px solid rgba(255,255,255,.12);
+  border-radius:46px;
+  padding:16px 12px;
+  box-shadow:
+    0 0 0 1px rgba(37,211,102,.15),
+    0 40px 100px rgba(0,0,0,.8),
+    0 0 60px rgba(37,211,102,.1),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  transform:perspective(1000px) rotateY(-6deg) rotateX(2deg);
+  transition:transform .4s ease;
+}
+.phone-cinema:hover{transform:perspective(1000px) rotateY(0deg) rotateX(0deg)}
+.phone-notch{
+  position:absolute;top:16px;left:50%;transform:translateX(-50%);
+  width:90px;height:20px;
+  background:linear-gradient(180deg,#060e14,#091520);
+  border-radius:12px;
+  z-index:5;
+  border:1px solid rgba(255,255,255,.06);
+}
+.phone-screen{
+  background:#0a1820;
+  border-radius:34px;
+  overflow:hidden;
+  min-height:540px;
+}
+.chat-header{
+  background:linear-gradient(180deg,#1a3040,#142535);
+  padding:34px 14px 14px;
+  display:flex;align-items:center;gap:11px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.chat-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#30e87a,#128C7E);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;color:#04120b;font-weight:800;
+  box-shadow:0 0 12px rgba(37,211,102,.4);
+}
+.chat-info .name{font-size:.82rem;font-weight:700;color:var(--text)}
+.chat-info .status{font-size:.65rem;color:var(--green)}
+.chat-body{padding:14px 12px 18px;display:flex;flex-direction:column;gap:9px}
+.msg-day{
+  align-self:center;
+  background:rgba(255,255,255,.05);
+  color:var(--muted);font-size:.58rem;
+  padding:4px 10px;border-radius:8px;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.msg{
+  max-width:84%;padding:9px 12px;
+  border-radius:14px;font-size:.76rem;line-height:1.5;
+  position:relative;
+  animation:msgpop .5s ease both;
+}
+.msg.out{
+  align-self:flex-end;
+  background:linear-gradient(135deg,#005C4B,#004a3c);
+  border-top-right-radius:4px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.msg.in{
+  align-self:flex-start;
+  background:linear-gradient(135deg,#1a2f3d,#152635);
+  border-top-left-radius:4px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.msg-meta{display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:4px;font-size:.58rem;color:rgba(255,255,255,.4)}
+.msg-meta .vv{color:var(--check);font-weight:800;font-size:.65rem}
+@keyframes msgpop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+
+/* card Pix */
+.pix-card{
+  align-self:flex-end;
+  background:linear-gradient(135deg,#052a1a,#093d25);
+  border:1px solid rgba(37,211,102,.45);
+  border-radius:13px;
+  padding:11px 14px;
+  font-size:.75rem;
+  animation:msgpop .5s .15s ease both;
+  box-shadow:0 8px 24px rgba(0,0,0,.4), 0 0 20px rgba(37,211,102,.12);
+}
+.pix-amount{display:block;font-size:1.05rem;font-weight:800;color:var(--green);margin-top:3px}
+.pix-icon{font-size:.7rem;color:var(--muted);margin-bottom:2px}
+
+/* card "gap" entre mensagens */
+.gap-card{
+  align-self:center;
+  background:rgba(241,92,109,.08);
+  border:1px solid rgba(241,92,109,.25);
+  border-radius:10px;
+  padding:6px 14px;
+  font-size:.62rem;
+  font-weight:700;
+  color:var(--danger);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+/* floating cards decorativos */
+.float-card{
+  position:absolute;
+  background:rgba(13,32,44,.92);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(37,211,102,.25);
+  border-radius:14px;
+  padding:12px 16px;
+  font-size:.72rem;
+  font-weight:700;
+  box-shadow:0 16px 40px rgba(0,0,0,.5);
+  z-index:3;
+  white-space:nowrap;
+}
+.float-card.fc1{top:12%;right:-90px;animation:float1 5s ease-in-out infinite}
+.float-card.fc2{bottom:20%;left:-80px;animation:float2 6s ease-in-out infinite}
+.float-card .fc-val{font-size:1.15rem;color:var(--green);font-family:'Anton',sans-serif;display:block;margin-top:2px}
+.float-card .fc-label{color:var(--muted);font-size:.62rem;font-weight:400}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ═══ TICKER ═══ */
+.ticker{
+  overflow:hidden;
+  background:rgba(37,211,102,.05);
+  border-top:1px solid rgba(37,211,102,.12);
+  border-bottom:1px solid rgba(37,211,102,.12);
+  padding:14px 0;
+}
+.ticker-inner{
+  display:flex;gap:0;white-space:nowrap;
+  animation:tick 28s linear infinite;
+}
+.ticker-inner span{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:0 36px;font-size:.8rem;font-weight:600;letter-spacing:.05em;
+  color:var(--muted);
+}
+.ticker-inner span::before{content:"✓✓";color:var(--check);font-size:.72rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══ RUMINAÇÃO ═══ */
+.rumina{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rumina h2{font-size:clamp(1.8rem,4vw,2.9rem);text-align:center;margin-bottom:14px}
+.rumina .lead{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 52px;line-height:1.75}
+.chat-wall{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.chat-wall .msg{max-width:100%;font-size:.98rem;padding:16px 20px;border-left:3px solid var(--danger)}
+.wall-close{text-align:center;margin-top:52px}
+.wall-close p{font-size:1.15rem;color:var(--muted);margin-bottom:10px}
+.wall-close .display{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--green)}
+
+/* ═══ TRANSIÇÃO ═══ */
+.transicao{text-align:center}
+.trans-card{
+  max-width:740px;margin:0 auto;
+  background:linear-gradient(135deg,var(--panel) 0%,var(--panel2) 100%);
+  border:1px solid var(--line);border-radius:22px;
+  padding:52px 48px;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+  position:relative;overflow:hidden;
+}
+.trans-card::before{
+  content:'';position:absolute;top:-1px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+}
+.trans-card .warn{font-size:2.8rem;margin-bottom:18px}
+.trans-card h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:20px}
+.trans-card p{color:var(--muted);margin-bottom:14px;max-width:580px;margin-left:auto;margin-right:auto}
+.trans-card .reveal-truth{
+  margin-top:30px;padding:22px 28px;
+  background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.2);border-radius:14px;
+  font-size:1.1rem;font-weight:700;line-height:1.65;
+}
+.trans-card .reveal-truth b{color:var(--green)}
+
+/* ═══ PASSOS ═══ */
+.passos h2{font-size:clamp(1.9rem,4vw,2.8rem);text-align:center;margin-bottom:14px}
+.passos .lead{text-align:center;color:var(--muted);max-width:660px;margin:0 auto 56px;line-height:1.75}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step-card{
+  background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 28px;
+  position:relative;overflow:hidden;
+  transition:transform .25s ease, border-color .25s ease;
+}
+.step-card:hover{transform:translateY(-6px);border-color:rgba(37,211,102,.4)}
+.step-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .25s}
+.step-card:hover::after{opacity:1}
+.step-n{font-family:'Anton',sans-serif;font-size:4rem;color:rgba(37,211,102,.12);line-height:1;margin-bottom:16px;display:block}
+.step-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--text)}
+.step-card p{color:var(--muted);font-size:.9rem}
+.fastfood{text-align:center;margin-top:44px;padding:22px 28px;background:rgba(37,211,102,.05);border:1px solid rgba(37,211,102,.15);border-radius:14px;max-width:720px;margin-left:auto;margin-right:auto}
+.fastfood b{color:var(--amber)}
+
+/* ═══ ENTREGÁVEIS ═══ */
+.entrega{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.entrega h2{font-size:clamp(1.9rem,4vw,2.8rem);text-align:center;margin-bottom:56px}
+.itens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.item-card{
+  background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;display:flex;flex-direction:column;gap:16px;
+  transition:transform .25s ease, border-color .25s ease;
+}
+.item-card:hover{transform:translateY(-4px);border-color:rgba(37,211,102,.3)}
+.item-mock{
+  height:160px;border-radius:12px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+/* mock vídeo */
+.mock-vid{background:linear-gradient(135deg,#0a2a1a,#062015)}
+.mock-vid .play-btn{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,#30e87a,#18b84e);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 30px rgba(37,211,102,.5), 0 8px 20px rgba(0,0,0,.4);
+  position:relative;z-index:2;
+}
+.mock-vid .play-btn::after{content:'';border-left:18px solid #04120b;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.mock-vid::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%, rgba(37,211,102,.15) 0%, transparent 70%);
+}
+/* mock chat */
+.mock-chat{
+  background:linear-gradient(135deg,#091820,#060f18);
+  flex-direction:column;gap:8px;padding:16px;
+}
+.mc{font-size:.65rem;font-weight:600;padding:7px 11px;border-radius:10px;line-height:1.4}
+.mc.out{align-self:flex-end;background:linear-gradient(135deg,#005C4B,#003d32);color:var(--text)}
+.mc.in{align-self:flex-start;background:var(--panel);color:var(--text)}
+/* mock doc */
+.mock-doc{background:linear-gradient(135deg,#0f2030,#091520)}
+.paper-stack{position:relative;width:90px;height:115px}
+.paper-stack .paper{
+  position:absolute;width:90px;height:115px;
+  background:linear-gradient(160deg,#e9edef,#d8e4e9);
+  border-radius:7px;
+  display:flex;flex-direction:column;gap:7px;
+  padding:12px 10px;
+}
+.paper-stack .paper:nth-child(1){transform:rotate(5deg) translate(8px,6px);opacity:.5}
+.paper-stack .paper:nth-child(2){transform:rotate(2deg) translate(4px,2px);opacity:.75}
+.paper-stack .paper:nth-child(3){transform:rotate(0deg);z-index:3;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.paper i{display:block;height:5px;border-radius:3px;background:#0B141A;opacity:.7}
+.paper i.accent{background:var(--green2);opacity:1;width:65%}
+.paper i.light{opacity:.2}
+/* mock checklist */
+.mock-check{background:linear-gradient(135deg,#1a2010,#121a09)}
+.check-list{display:flex;flex-direction:column;gap:9px}
+.check-item{display:flex;align-items:center;gap:8px;font-size:.65rem;font-weight:700;color:var(--text)}
+.check-item .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,#30e87a,#18b84e);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:.5rem;color:#04120b;font-weight:800;
+}
+.item-card h3{font-size:1.05rem;line-height:1.45}
+.item-card p{color:var(--muted);font-size:.88rem;flex:1;line-height:1.65}
+.pill{align-self:flex-start;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(255,194,75,.08);border:1px solid rgba(255,194,75,.25);padding:5px 13px;border-radius:999px}
+.pill.green{color:#04120b;background:var(--green);border-color:var(--green)}
+.tangivel-note{text-align:center;max-width:700px;margin:52px auto 0;font-size:1.05rem;line-height:1.75;color:var(--muted)}
+.tangivel-note strong{color:var(--green)}
+
+/* ═══ PARA QUEM ═══ */
+.quem h2{font-size:clamp(1.9rem,4vw,2.8rem);text-align:center}
+.quem .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px}
+.qcard{background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+.qcard.yes{border-top:3px solid var(--green)}
+.qcard.no{border-top:3px solid var(--danger)}
+.qcard h3{font-size:1rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px}
+.qcard ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.qcard li{padding-left:28px;position:relative;font-size:.92rem;color:var(--muted);line-height:1.55}
+.qcard.yes li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.qcard.no li::before{content:"✕";position:absolute;left:0;color:var(--danger);font-weight:800}
+
+/* ═══ ANCORAGEM ═══ */
+.ancora{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.ancora h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:48px}
+.stack-box{max-width:620px;margin:0 auto;background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.stack-row{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid var(--line);font-size:.95rem}
+.stack-row:last-child{border-bottom:none;background:rgba(37,211,102,.06);font-weight:800}
+.stack-row .v{color:var(--muted);text-decoration:line-through;font-size:.9rem}
+.stack-row:last-child .v{text-decoration:none;color:var(--amber);font-size:1.2rem}
+.ancora .mas{margin-top:36px;font-size:1.1rem;color:var(--muted);max-width:600px;margin-left:auto;margin-right:auto}
+.ancora .mas b{color:var(--text)}
+
+/* ═══ OFERTA ═══ */
+.oferta{
+  background:
+    radial-gradient(ellipse 800px 500px at 50% -5%, rgba(37,211,102,.13) 0%, transparent 65%),
+    var(--bg);
+  text-align:center;
+}
+.oferta h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:48px}
+.price-box{
+  max-width:580px;margin:0 auto;
+  background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid rgba(37,211,102,.35);
+  border-radius:24px;padding:48px 40px;
+  box-shadow:0 40px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(37,211,102,.08);
+  position:relative;overflow:hidden;
+}
+.price-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+}
+.price-strike{color:var(--muted);text-decoration:line-through;font-size:1rem;margin-bottom:8px}
+.price-big{font-family:'Anton',sans-serif;font-size:clamp(4rem,9vw,5.5rem);color:var(--green);line-height:1;margin-bottom:6px;text-shadow:0 0 40px rgba(37,211,102,.35)}
+.price-parc{color:var(--muted);font-size:.9rem;margin-bottom:32px}
+.inc-list{list-style:none;text-align:left;margin:0 auto 32px;max-width:420px;display:flex;flex-direction:column;gap:11px}
+.inc-list li{padding-left:32px;position:relative;font-size:.92rem}
+.inc-list li::before{content:"✓✓";position:absolute;left:0;color:var(--check);font-weight:800;font-size:.76rem;top:4px}
+.secure-note{margin-top:14px;font-size:.78rem;color:var(--muted)}
+.mini-garantia{
+  display:flex;align-items:center;gap:20px;
+  max-width:580px;margin:28px auto 0;
+  background:rgba(37,211,102,.05);border:1px solid rgba(37,211,102,.2);border-radius:16px;
+  padding:20px 24px;text-align:left;
+}
+.mini-selo{
+  flex:0 0 68px;height:68px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#30e87a,#128C7E 70%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#04120b;font-weight:800;box-shadow:0 8px 24px rgba(37,211,102,.4);
+}
+.mini-selo b{font-family:'Anton',sans-serif;font-size:1.5rem;line-height:1}
+.mini-selo span{font-size:.48rem;letter-spacing:.1em;text-transform:uppercase}
+.mini-garantia p{font-size:.86rem;color:var(--muted);line-height:1.6}
+.mini-garantia p b{color:var(--text)}
+
+/* ═══ CONVERSA SÉRIA ═══ */
+.seria{
+  background:#050b10;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  text-align:center;
+}
+.seria h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:10px}
+.seria .danger-label{color:var(--danger);font-weight:800;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:36px;display:block}
+.seria p{max-width:640px;margin:0 auto 18px;color:var(--muted);font-size:1.02rem;line-height:1.75}
+.seria p b{color:var(--text)}
+.seria .escolha{margin-top:40px;font-size:1.15rem;font-weight:700}
+.seria .escolha .display{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.2vw,2rem);color:var(--green);display:block;margin-top:10px;text-transform:uppercase}
+
+/* ═══ AUTORIDADE ═══ */
+.autoridade .card{
+  display:flex;gap:44px;align-items:center;
+  max-width:880px;margin:0 auto;
+  background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);border-radius:22px;padding:44px;
+}
+.autoridade .foto-wrap{
+  flex:0 0 200px;
+  position:relative;
+}
+.autoridade .foto-img{
+  width:200px;height:200px;border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(37,211,102,.45);
+  box-shadow:0 0 0 6px rgba(37,211,102,.08), 0 20px 50px rgba(0,0,0,.5);
+  display:block;
+}
+.autoridade h2{font-size:1.65rem;margin-bottom:16px}
+.autoridade p{color:var(--muted);margin-bottom:14px;line-height:1.7}
+.autoridade p b{color:var(--text)}
+
+/* ═══ FAQ ═══ */
+.faq{background:var(--bg2);border-top:1px solid var(--line)}
+.faq h2{text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:48px}
+.faq details{max-width:780px;margin:0 auto 12px;background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:22px 26px;transition:border-color .2s}
+.faq details[open]{border-color:rgba(37,211,102,.3)}
+.faq summary{cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::after{content:"+";color:var(--green);font-size:1.5rem;font-weight:300;transition:transform .2s;flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:16px;color:var(--muted);font-size:.92rem;line-height:1.7}
+
+/* ═══ RODAPÉ ═══ */
+footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--muted);font-size:.78rem}
+footer .container{display:flex;flex-direction:column;gap:8px}
+footer .brand{font-family:'Anton',sans-serif;font-size:1rem;color:var(--text);letter-spacing:.06em;text-transform:uppercase}
+footer .brand span{color:var(--green)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.msg,.pix-card{animation:none}.cinema-wrap::before{animation:none}.phone-cinema{transform:none}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:52px}
+  .phone-cinema{transform:none}
+  .cinema-wrap::before{width:280px;height:280px}
+  .float-card{display:none}
+  .steps-grid,.itens-grid,.quem .cols{grid-template-columns:1fr}
+  .autoridade .card{flex-direction:column;text-align:center}
+  .autoridade .foto-img{margin:0 auto}
+  section{padding:68px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Cliente <span class="ticks">✓✓</span> visualiza seu orçamento e nunca responde? Manda o preço e ele <strong>desaparece</strong>?
+</div>
+
+<!-- ═══ BLOCO 01 — HERO ═══ -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Protocolo da Resposta Garantida</span>
+      <h1>Faça o cliente que te deixou no <span class="accent">vácuo</span> responder <span class="amber">ainda hoje</span></h1>
+      <p class="hero-sub">Mensagens prontas de <strong>copiar e colar</strong> para destravar conversas paradas, recuperar quem sumiu depois do preço e transformar o "vou pensar" em <strong>Pix na conta</strong> — sem parecer insistente.</p>
+      <div class="hero-badges">
+        <span class="badge">✓✓ +40 scripts prontos</span>
+        <span class="badge">✓✓ Acesso imediato</span>
+        <span class="badge">✓✓ Garantia 7 dias</span>
+      </div>
+      <p class="scroll-hint">Continue lendo <span>↓</span></p>
+    </div>
+
+    <!-- MOCKUP CINEMATOGRÁFICO -->
+    <div class="cinema-wrap">
+      <!-- Cards flutuantes -->
+      <div class="float-card fc1">
+        <span class="fc-label">Pix recebido</span>
+        <span class="fc-val">R$ 450,00</span>
+      </div>
+      <div class="float-card fc2">
+        <span class="fc-label">Conversa destravada</span>
+        <span class="fc-val" style="color:var(--check)">✓✓ Lido</span>
+      </div>
+
+      <div class="phone-cinema">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="chat-header">
+            <div class="chat-avatar">C</div>
+            <div class="chat-info">
+              <div class="name">Cliente</div>
+              <div class="status">● online agora</div>
+            </div>
+          </div>
+          <div class="chat-body">
+            <div class="msg-day">Terça-feira</div>
+            <div class="msg out">
+              O valor fica R$ 450 😊
+              <div class="msg-meta">14:02 <span class="vv">✓✓</span></div>
+            </div>
+            <div class="gap-card">⏱ 3 dias no vácuo</div>
+            <div class="msg out">
+              Mensagem nº 2 do Protocolo ✂️
+              <div class="msg-meta">09:15 <span class="vv">✓✓</span></div>
+            </div>
+            <div class="msg in">
+              Nossa, desculpa a demora! 🙈 Pode fechar sim!
+              <div class="msg-meta">09:17</div>
+            </div>
+            <div class="pix-card">
+              <span class="pix-icon">💰 Pix recebido</span>
+              <span class="pix-amount">R$ 450,00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Visualizou e não respondeu</span><span>Sumiu depois do preço</span><span>Vou pensar e te aviso</span><span>Conversa parada há dias</span><span>Orçamento no vácuo</span><span>Cliente que só visualiza</span>
+    <span>Visualizou e não respondeu</span><span>Sumiu depois do preço</span><span>Vou pensar e te aviso</span><span>Conversa parada há dias</span><span>Orçamento no vácuo</span><span>Cliente que só visualiza</span>
+  </div>
+</div>
+
+<!-- ═══ BLOCO 03 — DOR LATENTE ═══ -->
+<section class="rumina">
+  <div class="container">
+    <h2 class="reveal">Se você vende pelo WhatsApp,<br>essa conversa acontece na sua cabeça <span style="color:var(--green)">todo dia</span></h2>
+    <p class="lead reveal">Leia com calma. Se você se reconhecer em 2 ou mais dessas frases, essa página foi escrita para você.</p>
+    <div class="chat-wall">
+      <div class="msg in reveal">"Visualizou… de novo. Impressionante."</div>
+      <div class="msg in reveal">"Meu WhatsApp vive cheio, mas meu Pix continua vazio."</div>
+      <div class="msg in reveal">"Se eu mandar outra mensagem vou parecer desesperada. Se eu não mandar, perco a venda."</div>
+      <div class="msg in reveal">"A pessoa pediu todas as informações… pra quê?"</div>
+      <div class="msg in reveal">"Não sei mais o que fazer quando falam 'vou pensar'."</div>
+      <div class="msg in reveal">"Cansei de ficar olhando esses dois tracinhos azuis."</div>
+    </div>
+    <div class="wall-close reveal">
+      <p>O pior não é o cliente dizer "não".</p>
+      <div class="display">É ele desaparecer e te deixar sem saber o que fazer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 04 — TRANSIÇÃO ═══ -->
+<section class="transicao">
+  <div class="container">
+    <div class="trans-card reveal">
+      <div class="warn">⚠️</div>
+      <h2>É horrível se sentir assim, né?</h2>
+      <p>Você já tentou de tudo: responder mais rápido, mandar áudio, caprichar no atendimento, até dar desconto sem o cliente pedir…</p>
+      <p>Mas a conversa continua morrendo no visualizado.</p>
+      <div class="reveal-truth">
+        A verdade é que… <b>o problema NÃO é você</b> — nem seu produto, nem seu preço.<br>
+        Você só nunca recebeu <b>a mensagem certa</b> para cada momento em que a conversa trava.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 05 — PASSO A PASSO ═══ -->
+<section class="passos">
+  <div class="container">
+    <h2 class="reveal">Destravar uma conversa leva <span style="color:var(--green)">3 passos</span></h2>
+    <p class="lead reveal">Sem curso de 40 horas. Sem decorar técnica de vendas. O Protocolo funciona assim:</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <span class="step-n">1</span>
+        <h3>Localize a cena</h3>
+        <p>Abra o Pack e encontre a situação exata do seu cliente: visualizou e sumiu, sumiu depois do preço, disse "vou pensar" ou conversa parada há dias.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-n">2</span>
+        <h3>Copie e personalize</h3>
+        <p>Copie a mensagem pronta e troque o que está entre [colchetes] — nome, produto, valor. 30 segundos e ela fica com a sua cara.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-n">3</span>
+        <h3>Envie e acompanhe</h3>
+        <p>Envie e siga o checklist da cadência (5 min · 24h · 7 dias). A conversa volta a andar — sem você parecer insistente.</p>
+      </div>
+    </div>
+    <div class="fastfood reveal">Você pode fazer isso <b>hoje, na primeira conversa parada do seu WhatsApp</b> — em menos de 1 hora depois do acesso.</div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 06 — ENTREGÁVEIS ═══ -->
+<section class="entrega">
+  <div class="container">
+    <h2 class="reveal">Tudo que você vai <span style="color:var(--green)">receber</span></h2>
+    <div class="itens-grid">
+      <div class="item-card reveal">
+        <div class="item-mock mock-chat">
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%">
+            <div class="mc in">Vou pensar…</div>
+            <div class="mc out">Script 3.1 ✂️📋</div>
+            <div class="mc in">Fechado! 🤝</div>
+          </div>
+        </div>
+        <h3>Pack Anti-Vácuo: +40 mensagens prontas</h3>
+        <p>Scripts de copiar e colar para as 4 cenas, organizados por situação. Abriu a conversa travada? É só localizar a cena, copiar e enviar.</p>
+        <span class="pill green">O coração do protocolo</span>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-mock mock-vid">
+          <div class="play-btn"></div>
+        </div>
+        <h3>Mini curso: 5 aulas de até 10 minutos</h3>
+        <p>Uma aula por cena + a aula da cadência. Direto ao ponto: quando usar cada mensagem, o que nunca enviar e como conduzir até o Pix.</p>
+        <span class="pill">Assista hoje, aplique hoje</span>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-mock mock-doc">
+          <div class="paper-stack">
+            <div class="paper"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="paper"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="paper"><i class="accent"></i><i></i><i></i><i class="light"></i><i class="light"></i></div>
+          </div>
+        </div>
+        <h3>Bônus 1 — Cartilha Anti-Vácuo imprimível</h3>
+        <p>Todos os scripts em PDF para imprimir e deixar do lado do celular. O cliente travou? Bate o olho na cartilha e responde na hora.</p>
+        <span class="pill">Bônus físico-digital</span>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-mock mock-check">
+          <div class="check-list">
+            <div class="check-item"><span class="dot">✓</span> Até 4 horas</div>
+            <div class="check-item"><span class="dot">✓</span> 24 horas</div>
+            <div class="check-item"><span class="dot">✓</span> 7 dias</div>
+            <div class="check-item"><span class="dot">✓</span> Encerramento</div>
+          </div>
+        </div>
+        <h3>Bônus 2 — Checklist da Cadência de Follow-up</h3>
+        <p>O mapa do quando enviar: primeira retomada, segunda, terceira e a hora certa de encerrar com classe.</p>
+        <span class="pill">Bônus</span>
+      </div>
+    </div>
+    <p class="tangivel-note reveal">O Protocolo não é mais um curso que fica esquecido: é uma ferramenta <strong>física, imprimível, que vive do lado do seu celular</strong> — pronta para agir no segundo em que o cliente travar.</p>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 07 — PARA QUEM ═══ -->
+<section class="quem">
+  <div class="container">
+    <h2 class="reveal">O Protocolo é <span style="color:var(--green)">para você que…</span></h2>
+    <div class="cols">
+      <div class="qcard yes reveal">
+        <h3 style="color:var(--green)">É para você que</h3>
+        <ul>
+          <li>Vende produto ou serviço pelo WhatsApp todos os dias</li>
+          <li>Recebe pedidos de orçamento que terminam em silêncio</li>
+          <li>Trava na hora de fazer follow-up com medo de parecer chato</li>
+          <li>Quer respostas prontas na ponta da língua, não teoria de vendas</li>
+          <li>Tem conversas paradas no WhatsApp valendo dinheiro agora</li>
+        </ul>
+      </div>
+      <div class="qcard no reveal">
+        <h3 style="color:var(--danger)">Não é para quem</h3>
+        <ul>
+          <li>Procura fórmula mágica sem enviar nenhuma mensagem</li>
+          <li>Não atende clientes por WhatsApp</li>
+          <li>Prefere um curso longo e teórico de 40 horas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 08 — ANCORAGEM ═══ -->
+<section class="ancora">
+  <div class="container">
+    <h2 class="reveal">Recapitulando tudo que você vai <span style="color:var(--green)">receber</span></h2>
+    <div class="stack-box reveal">
+      <div class="stack-row"><span>Pack Anti-Vácuo — +40 mensagens prontas</span><span class="v">R$ 97</span></div>
+      <div class="stack-row"><span>Mini curso — 5 aulas direto ao ponto</span><span class="v">R$ 147</span></div>
+      <div class="stack-row"><span>Bônus 1 — Cartilha Anti-Vácuo imprimível</span><span class="v">R$ 47</span></div>
+      <div class="stack-row"><span>Bônus 2 — Checklist da Cadência de Follow-up</span><span class="v">R$ 27</span></div>
+      <div class="stack-row"><span>Valor de tudo isso</span><span class="v">R$ 318</span></div>
+    </div>
+    <p class="mas reveal">Mas você não vai pagar nada perto disso. <b>Recuperar UMA única venda já pagaria o Protocolo — olha o valor de hoje:</b> ↓</p>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 09 — BOTÃO 1 ═══ -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <span class="eyebrow reveal">Oferta de lançamento</span>
+    <h2 class="reveal">Acesso completo, <span style="color:var(--green)">hoje</span></h2>
+    <div class="price-box reveal">
+      <div class="price-strike">De R$ 318 por apenas</div>
+      <div class="price-big">R$ 67</div>
+      <div class="price-parc">ou 9x de R$ 8,63 · pagamento único · acesso vitalício</div>
+      <ul class="inc-list">
+        <li>Pack Anti-Vácuo com +40 mensagens prontas</li>
+        <li>Mini curso — 5 aulas de até 10 minutos</li>
+        <li>Bônus 1 — Cartilha Anti-Vácuo imprimível (PDF)</li>
+        <li>Bônus 2 — Checklist da cadência (5 min · 24h · 7 dias)</li>
+        <li>Acesso imediato na área de membros</li>
+      </ul>
+      <a class="cta-btn" href="https://pay.hotmart.com/K106688952W" style="width:100%">SIM, QUERO DESTRAVAR MEU WHATSAPP →</a>
+      <p class="secure-note">🔒 Compra 100% segura · Acesso enviado no seu e-mail em minutos</p>
+    </div>
+    <div class="mini-garantia reveal">
+      <div class="mini-selo"><b>7</b><span>dias</span></div>
+      <p><b>Garantia incondicional de 7 dias:</b> entre, copie os scripts e teste nas suas conversas paradas. Não gostou? Devolvemos 100% do valor, sem perguntas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 10 — CONVERSA SÉRIA ═══ -->
+<section class="seria">
+  <div class="container">
+    <h2 class="reveal">Me responda somente <span style="color:var(--danger)">a verdade</span></h2>
+    <span class="danger-label reveal">Quantas vendas você perdeu essa semana para o vácuo?</span>
+    <p class="reveal">Duas? Cinco? Você nem sabe ao certo — porque venda que morre em silêncio <b>não avisa que morreu</b>. Ela só some, junto com o cliente.</p>
+    <p class="reveal">Enquanto isso, seu concorrente que sabe o que responder está fechando <b>exatamente os clientes que te deixaram no visualizado</b>.</p>
+    <div class="escolha reveal">
+      Amanhã você vai abrir o WhatsApp de novo.
+      <span class="display">A pergunta é: com ou sem as mensagens certas?</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 11 — AUTORIDADE ═══ -->
+<section class="autoridade">
+  <div class="container">
+    <div class="card reveal">
+      <div class="foto-wrap">
+        <img class="foto-img" src="data:image/jpeg;base64,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" alt="Doda Medeiros">
+      </div>
+      <div>
+        <h2>Quem criou o Protocolo</h2>
+        <p><b>Doda Medeiros</b> vive o WhatsApp de vendas todos os dias — e conhece cada vácuo, cada "vou pensar" e cada orçamento que morre no visualizado.</p>
+        <p>O Protocolo da Resposta Garantida nasceu depois de ajudar dezenas de clientes a estruturarem seus processos de venda, reunindo as mensagens que comprovadamente fazem a conversa voltar a andar.</p>
+        <p>Agora, quero ajudar você a nunca mais perder venda por não saber o que responder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 12 — BOTÃO 2 ═══ -->
+<section class="oferta">
+  <div class="container" style="text-align:center">
+    <h2 class="reveal">Seu WhatsApp está cheio de conversas paradas.<br><span style="color:var(--green)">Cada uma delas vale dinheiro.</span></h2>
+    <div class="price-box reveal" style="margin-top:48px">
+      <div class="price-strike">De R$ 318 por apenas</div>
+      <div class="price-big">R$ 67</div>
+      <div class="price-parc">ou 9x de R$ 8,63 · acesso imediato · garantia de 7 dias</div>
+      <a class="cta-btn" href="https://pay.hotmart.com/K106688952W" style="width:100%">DESTRAVAR MINHAS VENDAS AGORA →</a>
+      <p class="secure-note">🔒 Compra 100% segura · Se não for para você, devolvemos tudo em até 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 13 — FAQ ═══ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="reveal">Perguntas frequentes</h2>
+    <details class="reveal"><summary>Qual é a forma de pagamento?</summary><p>Pix ou cartão de crédito (em até 9x). O pagamento é processado pela Hotmart, uma das maiores plataformas de produtos digitais do Brasil.</p></details>
+    <details class="reveal"><summary>O pagamento é seguro?</summary><p>Totalmente. A transação acontece no ambiente seguro da Hotmart, com criptografia — nós nem temos acesso aos dados do seu cartão.</p></details>
+    <details class="reveal"><summary>Funciona para o meu tipo de negócio?</summary><p>Se você atende e negocia com clientes pelo WhatsApp — produto físico, serviço, estética, consultoria, loja, delivery — as 4 cenas do vácuo são as mesmas. Os scripts têm espaços para adaptar ao seu produto em segundos.</p></details>
+    <details class="reveal"><summary>Vou parecer insistente mandando essas mensagens?</summary><p>Esse é exatamente o problema que o Protocolo resolve. Cada mensagem foi construída para reabrir a conversa agregando um motivo novo — nunca cobrando resposta. É o oposto do "oi, tudo bem? conseguiu ver?".</p></details>
+    <details class="reveal"><summary>Tem garantia?</summary><p>Sim: 7 dias incondicionais. Entre, teste os scripts nas suas conversas paradas e, se achar que não é para você, pedimos reembolso de 100% do valor direto na plataforma — sem perguntas e sem burocracia.</p></details>
+    <details class="reveal"><summary>Como vou receber o acesso?</summary><p>Imediatamente após a confirmação do pagamento, a Hotmart envia um e-mail com seu login da área de membros — lá estão o Pack, as aulas, a Cartilha e o Checklist. Em minutos você já pode enviar a primeira mensagem.</p></details>
+  </div>
+</section>
+
+<!-- ═══ BLOCO 14 — RODAPÉ ═══ -->
+<footer>
+  <div class="container">
+    <span class="brand">Protocolo da <span>Resposta Garantida</span></span>
+    <span>Tem dúvidas? douglasdamotamedeiros@gmail.com · CNPJ: 46.105.751/0001-73</span>
+    <span>Este produto não garante resultados financeiros específicos. Resultados variam conforme aplicação. · Termos de uso · Política de privacidade</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
