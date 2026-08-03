@@ -1,9 +1,10 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
+      "src": "/(.*)",
       "has": [{ "type": "host", "value": "teste-b.ojogodolucro.com.br" }],
-      "destination": "/teste-b/$1"
-    }
+      "dest": "/teste-b/$1"
+    },
+    { "handle": "filesystem" }
   ]
 }
