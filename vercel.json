@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "teste-b.ojogodolucro.com.br" }],
+      "destination": "/teste-b/$1"
+    }
+  ]
+}
