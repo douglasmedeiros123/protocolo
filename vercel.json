@@ -5,6 +5,11 @@
       "has": [{ "type": "host", "value": "teste-b.ojogodolucro.com.br" }],
       "dest": "/teste-b/$1"
     },
+    {
+      "src": "/(.*)",
+      "has": [{ "type": "host", "value": "anti-vacuo.ojogodolucro.com.br" }],
+      "dest": "/teste-b/$1"
+    },
     { "handle": "filesystem" }
   ]
 }
