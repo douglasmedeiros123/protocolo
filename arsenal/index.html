@@ -29,6 +29,17 @@ section{padding:70px 0}
 
 .topbar{background:var(--green);color:#04120b;text-align:center;padding:12px 16px;font-weight:700;font-size:.9rem}
 
+.processing-banner{background:#e6141f;color:#fff;text-align:center;font-weight:800;font-size:.85rem;letter-spacing:.02em;padding:12px 16px}
+.processing-status{background:#0a0a0a;padding:16px 16px 22px;text-align:center}
+.processing-status .msg{font-size:1rem;font-weight:700;color:#fff;margin-bottom:12px}
+.processing-status .msg .hl{color:#ff3b3b}
+.processing-bar-track{max-width:520px;margin:0 auto;background:#3a3a3a;border-radius:999px;height:26px;overflow:hidden}
+.processing-bar-fill{background:linear-gradient(90deg,#ffd23f,#ffb800);height:100%;width:0%;border-radius:999px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#1a1200;font-weight:800;font-size:.8rem;transition:width 2.4s ease-out;white-space:nowrap}
+
+.decline-row{margin-top:14px}
+.decline-btn{display:inline-block;color:var(--danger);font-weight:800;font-size:.85rem;text-decoration:underline;letter-spacing:.02em;text-transform:uppercase}
+.decline-btn:hover{opacity:.8}
+
 .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.07);padding:8px 18px;border-radius:999px;margin-bottom:22px}
 
 .hero{padding:90px 0 60px}
@@ -96,6 +107,20 @@ footer a{color:var(--green)}
 </head>
 <body>
 
+<div class="processing-banner">⚠️ ATENÇÃO: NÃO FECHE OU ATUALIZE ESSA PÁGINA!</div>
+<div class="processing-status">
+  <div class="msg"><span class="hl">ESPERE!</span> SUA COMPRA AINDA NÃO ESTÁ COMPLETA.</div>
+  <div class="processing-bar-track"><div class="processing-bar-fill" id="procFill">0%</div></div>
+</div>
+<script>
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    var f=document.getElementById('procFill');
+    if(f){f.style.width='87%';f.textContent='87%';}
+  },400);
+});
+</script>
+
 <div class="topbar">Você já resolve o vácuo. Agora domine QUALQUER etapa da conversa que vende.</div>
 
 <section class="hero">
@@ -109,6 +134,7 @@ footer a{color:var(--green)}
       <span class="badge">✓ Garantia Incondicional de 7 Dias</span>
     </div>
     <a href="#oferta" class="cta">QUERO O ARSENAL COMPLETO</a>
+    <div class="decline-row"><a href="https://ojogodolucro.com.br/essencial/" class="decline-btn">❌ Não quero o Arsenal</a></div>
     <span class="cta-note">Acesso imediato após a confirmação do pagamento</span>
   </div>
 </section>
@@ -203,7 +229,7 @@ footer a{color:var(--green)}
         <div class="price-big">R$ 147,00</div>
         <div class="price-installment">ou 12x de R$ 15,20</div>
         <a href="https://pay.hotmart.com/M107016651K" target="_blank" rel="noopener" class="cta">QUERO O ARSENAL COMPLETO AGORA</a>
-        <div style="margin-top:16px"><a href="https://ojogodolucro.com.br/essencial/" style="color:var(--muted);font-size:.85rem;text-decoration:underline">Não, prefiro ver uma opção mais em conta</a></div>
+        <div class="decline-row"><a href="https://ojogodolucro.com.br/essencial/" class="decline-btn">❌ Não quero o Arsenal</a></div>
         <span class="cta-note">Acesso imediato aos 15 packs · Super Bônus libera no 8º dia</span>
       </div>
     </div>
