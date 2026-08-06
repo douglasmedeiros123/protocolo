@@ -611,7 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="stack-row"><span>Regras de Ouro e Mapa de cada pack</span><span class="v">incluso</span></div>
       <div class="stack-row"><span>Acesso imediato</span><span class="v">incluso</span></div>
     </div>
-    <div class="price-box reveal" style="margin-top:40px">
+    <div class="price-box" style="margin-top:40px">
       <div class="price-strike">O Arsenal completo sai por R$ 147</div>
       <div class="price-big">R$ 97</div>
       <div class="price-parc">ou 12x de R$ 10,03 · pagamento único · acesso vitalício</div>
@@ -651,6 +651,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal:not(.on)').forEach(el=>el.classList.add('on')),2500);
 </script>
 </body>
 </html>
