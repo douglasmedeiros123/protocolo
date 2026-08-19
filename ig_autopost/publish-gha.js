@@ -73,9 +73,25 @@ async function waitFinished(containerId, maxTries = 30) {
   throw new Error('timeout esperando processamento do video');
 }
 
+// O Instagram às vezes ainda não terminou de processar o container quando
+// tentamos publicar (error_subcode 2207027, "Media ID is not available").
+// Tenta de novo com espera curta antes de desistir.
+async function publishWithRetry(creationId, maxTries = 6) {
+  for (let i = 0; i < maxTries; i++) {
+    try {
+      return await igPost(`${IG_ID}/media_publish`, { creation_id: creationId });
+    } catch (err) {
+      const notReady = err.message.includes('2207027') || err.message.includes('not available');
+      if (!notReady || i === maxTries - 1) throw err;
+      await new Promise(r => setTimeout(r, 5000));
+    }
+  }
+}
+
 async function publishImage(publicUrl, caption) {
   const container = await igPost(`${IG_ID}/media`, { image_url: publicUrl, caption });
-  return igPost(`${IG_ID}/media_publish`, { creation_id: container.id });
+  await waitFinished(container.id);
+  return publishWithRetry(container.id);
 }
 
 async function publishCarousel(urls, caption) {
@@ -85,13 +101,14 @@ async function publishCarousel(urls, caption) {
     children.push(item.id);
   }
   const container = await igPost(`${IG_ID}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption });
-  return igPost(`${IG_ID}/media_publish`, { creation_id: container.id });
+  await waitFinished(container.id);
+  return publishWithRetry(container.id);
 }
 
 async function publishVideo(publicUrl, caption) {
   const container = await igPost(`${IG_ID}/media`, { media_type: 'REELS', video_url: publicUrl, caption });
   await waitFinished(container.id);
-  return igPost(`${IG_ID}/media_publish`, { creation_id: container.id });
+  return publishWithRetry(container.id);
 }
 
 async function run(slotName, idxOverride) {
