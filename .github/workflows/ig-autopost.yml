@@ -1,0 +1,77 @@
+name: IG Autopost
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 08:00 BRT — video de Follow-up
+    - cron: "30 15 * * *"  # 12:30 BRT — estatico motivacional
+    - cron: "0 19 * * *"   # 16:00 BRT — carrossel
+    - cron: "0 23 * * *"   # 20:00 BRT — video Joel J
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Slot pra publicar manualmente"
+        required: true
+        type: choice
+        options:
+          - video_followup
+          - static
+          - carousel
+          - video_joelj
+      idx:
+        description: "Indice manual (opcional, deixe vazio pra usar o proximo pendente)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-autopost
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Determina o slot
+        id: slot
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
+            echo "idx=${{ inputs.idx }}" >> "$GITHUB_OUTPUT"
+          else
+            case "${{ github.event.schedule }}" in
+              "0 11 * * *") echo "slot=video_followup" >> "$GITHUB_OUTPUT" ;;
+              "30 15 * * *") echo "slot=static" >> "$GITHUB_OUTPUT" ;;
+              "0 19 * * *") echo "slot=carousel" >> "$GITHUB_OUTPUT" ;;
+              "0 23 * * *") echo "slot=video_joelj" >> "$GITHUB_OUTPUT" ;;
+            esac
+            echo "idx=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publica
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_ID: "17841405622876405"
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -n "${{ steps.slot.outputs.idx }}" ]; then
+            node ig_autopost/publish-gha.js "${{ steps.slot.outputs.slot }}" "${{ steps.slot.outputs.idx }}"
+          else
+            node ig_autopost/publish-gha.js "${{ steps.slot.outputs.slot }}"
+          fi
+
+      - name: Salva o progresso (posted-state.json e log)
+        if: always()
+        run: |
+          git config user.name "autopost-bot"
+          git config user.email "autopost-bot@users.noreply.github.com"
+          git add ig_autopost/posted-state.json ig_autopost/publish.log
+          git diff --staged --quiet || git commit -m "autopost: atualiza estado (${{ steps.slot.outputs.slot }})"
+          git push
