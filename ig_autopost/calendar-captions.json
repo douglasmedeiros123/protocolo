@@ -1,0 +1,780 @@
+{
+  "TOTAL_DAYS": 26,
+  "days": {
+    "0": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_0.mp4",
+        "caption": "Contexto, lembrança e ritmo — o tripé do follow-up\n\nSaber em qual etapa o lead parou é o primeiro passo antes de mandar qualquer mensagem de novo.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_0.png",
+        "caption": "“Vou pensar” não é uma objeção. É um pedido de mais um motivo.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Talvez não seja o preço\n\nO motivo mais repetido pra perder venda é também o mais fácil de aceitar sem investigar.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_0.mp4",
+        "caption": "Talvez não seja o preço\n\nO motivo mais repetido pra perder venda é também o mais fácil de aceitar sem investigar.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "1": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_1.mp4",
+        "caption": "8 ativações é o número que muda sua conversão\n\n3 nas primeiras 24h, depois semana a semana — sem isso, a régua de follow-up não sustenta.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_1.png",
+        "caption": "Todo “não” que você não investigou continua sendo um “talvez”.\n\nMarca alguém que precisa ler isso hoje.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Preencha o CRM na hora\n\nSem preencher o CRM na hora, toda a sua lista de objeções vira achismo.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_1.mp4",
+        "caption": "Preencha o CRM na hora\n\nSem preencher o CRM na hora, toda a sua lista de objeções vira achismo.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "2": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_2.mp4",
+        "caption": "Quem domina o follow-up domina o dinheiro escondido no funil\n\nA maioria dos leads não some por falta de interesse — some por falta de acompanhamento.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_2.png",
+        "caption": "A venda não morre quando o cliente some. Morre quando você para de procurar.\n\nComenta aqui se você já passou por isso.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Ligue com o motivo declarado\n\nAnotar não é suficiente. Às vezes é preciso voltar e ligar pra perguntar direto.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_2.mp4",
+        "caption": "Ligue com o motivo declarado\n\nAnotar não é suficiente. Às vezes é preciso voltar e ligar pra perguntar direto.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "3": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_3.mp4",
+        "caption": "Insistência errada é motivo de bloqueio no WhatsApp\n\nSe o lead te bloqueia ou denuncia, o problema não é o produto — é a ativação sem contexto.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_3.png",
+        "caption": "Follow-up não é insistência. É a diferença entre lembrar e ser esquecido.\n\nCompartilha com quem tá começando agora.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Não ligue pra vender de novo\n\nA intenção por trás da ligação muda completamente a resposta que você recebe.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_3.mp4",
+        "caption": "Não ligue pra vender de novo\n\nA intenção por trás da ligação muda completamente a resposta que você recebe.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "4": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_4.mp4",
+        "caption": "Persistência inteligente segue um plano\n\nRespeita a etapa, usa mensagens diferentes, e sempre sabe o porquê de cada ativação.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_4.png",
+        "caption": "O preço não foi a objeção. Foi a desculpa mais fácil de dizer.\n\nGuarda esse pra ler antes da próxima ligação difícil.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Marketing e comercial, um só\n\nSeparar marketing e comercial é um dos erros mais caros que uma empresa comete.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_4.mp4",
+        "caption": "Marketing e comercial, um só\n\nSeparar marketing e comercial é um dos erros mais caros que uma empresa comete.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "5": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_5.mp4",
+        "caption": "Cada etapa pede uma mensagem diferente\n\nO follow-up precisa lembrar exatamente onde a negociação parou — nunca a mesma frase genérica.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_5.png",
+        "caption": "Quem só vende pro “sim fácil” está deixando a parte mais lucrativa na mesa.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "O marketing precisa viver no CRM\n\nSe seu marketing não entra no CRM, ele está criando campanha no escuro.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_5.mp4",
+        "caption": "O marketing precisa viver no CRM\n\nSe seu marketing não entra no CRM, ele está criando campanha no escuro.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "6": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_6.mp4",
+        "caption": "Cuidado com o bot que manda a mesma mensagem por 10 dias seguidos\n\nAutomação sem supervisão é a receita mais rápida pra tomar bloqueio.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_6.png",
+        "caption": "Todo lead que te ignorou já te disse tudo sobre o que precisa ouvir de novo.\n\nMarca alguém que precisa ler isso hoje.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Campanhas baseadas em objeção\n\nSe a objeção mais comum é preço, sua página precisa provar valor antes do preço aparecer.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_6.mp4",
+        "caption": "Campanhas baseadas em objeção\n\nSe a objeção mais comum é preço, sua página precisa provar valor antes do preço aparecer.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "7": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_7.mp4",
+        "caption": "A diferença entre insistência burra e persistência com valor\n\n“Viu meu contato?” não converte. Trazer uma solução pro problema dele, sim.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_7.png",
+        "caption": "A objeção que você não sabe quebrar hoje é a venda que você não fecha o mês inteiro.\n\nComenta aqui se você já passou por isso.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "A objeção é uma arma\n\nQuando você entende a objeção, ela vira o caminho de volta pra negociação.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_7.mp4",
+        "caption": "A objeção é uma arma\n\nQuando você entende a objeção, ela vira o caminho de volta pra negociação.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "8": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_8.mp4",
+        "caption": "Quem fecha grandes volumes faz follow-up contextual\n\nA maioria faz follow-up genérico — e é exatamente aí que perde a venda.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_8.png",
+        "caption": "Ninguém compra na primeira mensagem. Compra na mensagem que prova que você não esqueceu dele.\n\nCompartilha com quem tá começando agora.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Tire o bônus, não o produto\n\nExiste uma forma de baixar o preço sem desvalorizar o que você vende.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_8.mp4",
+        "caption": "Tire o bônus, não o produto\n\nExiste uma forma de baixar o preço sem desvalorizar o que você vende.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "9": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_9.mp4",
+        "caption": "De onde o lead veio já muda como você deve abordar ele\n\nQuem chegou direto no WhatsApp está mais frio que quem passou por uma página de vendas.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_9.png",
+        "caption": "O erro não é o cliente sumir. É você aceitar o sumiço como resposta final.\n\nGuarda esse pra ler antes da próxima ligação difícil.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Se pode quebrar, quebra na hora\n\nQuem mapeia a quebra de antemão fecha muito mais rápido na hora H.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_9.mp4",
+        "caption": "Se pode quebrar, quebra na hora\n\nQuem mapeia a quebra de antemão fecha muito mais rápido na hora H.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "10": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_10.mp4",
+        "caption": "Cada etapa do funil pede um tipo de follow-up diferente\n\nEntrada, primeiro contato, negociação — cada uma tem sua própria cadência.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_10.png",
+        "caption": "Toda venda difícil hoje é um script pronto pra amanhã.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Tem mais gente falando não do que sim\n\nE é exatamente por isso que aprender a quebrar objeção muda todo o seu negócio.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_10.mp4",
+        "caption": "Tem mais gente falando não do que sim\n\nE é exatamente por isso que aprender a quebrar objeção muda todo o seu negócio.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "11": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_11.mp4",
+        "caption": "Lead interessado não é sempre lead pronto pra fechar\n\nSaber o nível de interesse muda completamente a próxima mensagem que você manda.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_11.png",
+        "caption": "Insistir errado afasta. Voltar com valor novo aproxima.\n\nMarca alguém que precisa ler isso hoje.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Sai do achismo\n\nSua máquina de quebra de objeções precisa ser baseada em dado real, não em suposição.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_11.mp4",
+        "caption": "Sai do achismo\n\nSua máquina de quebra de objeções precisa ser baseada em dado real, não em suposição.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "12": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_12.mp4",
+        "caption": "O erro de trocar de atendente sem passar o contexto\n\nSe o lead sente que está falando com alguém que não sabe de nada, a negociação quebra.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_12.png",
+        "caption": "A venda que mais ensina é sempre a que quase não aconteceu.\n\nComenta aqui se você já passou por isso.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Crie um mapa mental de objeções\n\nO vendedor nunca mais fica sem resposta durante a negociação.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_12.mp4",
+        "caption": "Crie um mapa mental de objeções\n\nO vendedor nunca mais fica sem resposta durante a negociação.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "13": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_13.mp4",
+        "caption": "Todo follow-up precisa de um objetivo declarado\n\nPra onde você quer levar esse lead? A mensagem só funciona se você souber a resposta.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_13.png",
+        "caption": "Enquanto você desiste no primeiro silêncio, seu concorrente está aprendendo a quebrar esse mesmo silêncio.\n\nCompartilha com quem tá começando agora.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Até virar repertório\n\nNo começo é consulta. Depois, vira habilidade própria do vendedor.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_13.mp4",
+        "caption": "Até virar repertório\n\nNo começo é consulta. Depois, vira habilidade própria do vendedor.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "14": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_14.mp4",
+        "caption": "Quanto mais contextual você for, mais vende sem parecer vendedor\n\nToda mensagem de follow-up precisa bater na dor real do cliente.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_14.png",
+        "caption": "Todo cliente indeciso só está esperando alguém mostrar o motivo que falta.\n\nGuarda esse pra ler antes da próxima ligação difícil.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Separe os clientes por grupo\n\nPreço, tempo, confiança — cada grupo de objeção pede uma ativação diferente.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_14.mp4",
+        "caption": "Separe os clientes por grupo\n\nPreço, tempo, confiança — cada grupo de objeção pede uma ativação diferente.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "15": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_15.mp4",
+        "caption": "Follow-up sem objetivo é só mensagem solta\n\nRégua genérica pra toda a base de leads performa muito menos que uma régua bem estruturada.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_15.png",
+        "caption": "Quem tem processo não depende de sorte pra fechar. Depende de repetição.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Devolva a lista pro marketing\n\nNome, e-mail e telefone por grupo de objeção viram campanha certeira.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_15.mp4",
+        "caption": "Devolva a lista pro marketing\n\nNome, e-mail e telefone por grupo de objeção viram campanha certeira.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "16": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_16.mp4",
+        "caption": "Mensagem longa demais? Ninguém lê\n\nSe não dá pra entender só arrastando a tela, a taxa de abertura despenca.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_16.png",
+        "caption": "O lead esfriou porque parou de ouvir de você. Não porque parou de precisar.\n\nMarca alguém que precisa ler isso hoje.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Nem todo cliente vale a pena perseguir\n\nAlgumas objeções são específicas demais pra virar produto — e tá tudo bem.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_16.mp4",
+        "caption": "Nem todo cliente vale a pena perseguir\n\nAlgumas objeções são específicas demais pra virar produto — e tá tudo bem.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "17": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_17.mp4",
+        "caption": "Precisa explicar algo complexo? Manda um áudio, não um textão\n\nMensagem que exige explicação longa no WhatsApp quase nunca é lida até o fim.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_17.png",
+        "caption": "Sua próxima venda pode estar exatamente na conversa que você já achou que tinha acabado.\n\nComenta aqui se você já passou por isso.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Marketing precisa saber onde parar\n\nEntender o público que não compra é tão importante quanto entender o que compra.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_17.mp4",
+        "caption": "Marketing precisa saber onde parar\n\nEntender o público que não compra é tão importante quanto entender o que compra.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "18": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_18.mp4",
+        "caption": "Pressão funciona cara a cara. No WhatsApp, só afasta\n\nÉ fácil demais o lead te bloquear quando a mensagem parece cobrança.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_18.png",
+        "caption": "Disciplina não é motivação todo dia. É continuar nos dias em que a motivação não vem.\n\nCompartilha com quem tá começando agora.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Qualifique antes de avançar\n\nNem todo lead que entra no funil merece seguir até o fim dele.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_18.mp4",
+        "caption": "Qualifique antes de avançar\n\nNem todo lead que entra no funil merece seguir até o fim dele.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "19": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_19.mp4",
+        "caption": "Follow-up é acompanhamento, não cobrança\n\nO foco sempre precisa ser o interesse do lead — nunca o seu número de fechamento.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_19.png",
+        "caption": "Ninguém vê os “nãos” que vieram antes do “sim” que virou história.\n\nGuarda esse pra ler antes da próxima ligação difícil.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "A venda começa no não\n\nQuando o lead diz não e traz uma objeção, é aí que a negociação de verdade começa.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_19.mp4",
+        "caption": "A venda começa no não\n\nQuando o lead diz não e traz uma objeção, é aí que a negociação de verdade começa.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "20": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_20.mp4",
+        "caption": "Lead que acabou de chegar ainda não te conhece\n\nNo topo de funil, o follow-up precisa gerar autoridade antes de qualquer coisa.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_20.png",
+        "caption": "O medo de começar errado trava mais gente do que o erro em si.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Mostre um case do mesmo nicho\n\nProva social genérica não converte. Prova social específica, sim.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_20.mp4",
+        "caption": "Mostre um case do mesmo nicho\n\nProva social genérica não converte. Prova social específica, sim.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "21": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_21.mp4",
+        "caption": "Cliente quente não aguenta mensagem a cada 10 minutos\n\nQuanto mais avançada a negociação, mais personalizada e mais espaçada precisa ser a ativação.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_21.png",
+        "caption": "Você não precisa estar pronto. Precisa estar disposto a corrigir andando.\n\nMarca alguém que precisa ler isso hoje.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "A tática dos 28 dias\n\nQuatro períodos de sete dias pra reconquistar quem disse não.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_21.mp4",
+        "caption": "A tática dos 28 dias\n\nQuatro períodos de sete dias pra reconquistar quem disse não.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "22": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_22.mp4",
+        "caption": "Não cobre antes da hora combinada\n\nSe vocês combinaram retorno em dois dias, gerar valor é diferente de cobrar antes do prazo.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_22.png",
+        "caption": "Recomeçar não é fracasso. É a prova de que você aprendeu algo que valia a pena.\n\nComenta aqui se você já passou por isso.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Páginas com depoimentos convertem\n\nDepois da autoridade, é hora de mostrar quem já confiou e teve resultado.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_22.mp4",
+        "caption": "Páginas com depoimentos convertem\n\nDepois da autoridade, é hora de mostrar quem já confiou e teve resultado.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "23": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_23.mp4",
+        "caption": "O resumo do módulo 1 inteiro sobre follow-up\n\nMotor do funil, persistência inteligente, contexto e o que nunca fazer — tudo o que você viu até aqui.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_23.png",
+        "caption": "Quem para no primeiro “não” nunca descobre quantos “sim” vieram depois.\n\nCompartilha com quem tá começando agora.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "A escassez muda tudo\n\nO último dos quatro blocos é o que finalmente leva à decisão.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_23.mp4",
+        "caption": "A escassez muda tudo\n\nO último dos quatro blocos é o que finalmente leva à decisão.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "24": {
+      "video_followup": {
+        "type": "video",
+        "file": "video_followup_24.mp4",
+        "caption": "Isso foi só a teoria. Agora vem o script de cada etapa\n\nTexto, áudio, vídeo — o que mandar, quando mandar e como falar em cada etapa do funil.\n\nSegue pra não perder as próximas aulas do módulo.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "static": {
+        "type": "image",
+        "file": "static_24.png",
+        "caption": "Ninguém se orgulha do dia fácil. Se orgulha do dia em que quase desistiu e não desistiu.\n\nGuarda esse pra ler antes da próxima ligação difícil.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Premie quem trouxe mais objeções\n\nO plano de ação final começa valorizando quem já fez o trabalho de campo.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_24.mp4",
+        "caption": "Premie quem trouxe mais objeções\n\nO plano de ação final começa valorizando quem já fez o trabalho de campo.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    },
+    "25": {
+      "static": {
+        "type": "image",
+        "file": "static_25.png",
+        "caption": "A objeção que se repete toda semana não é coincidência. É um script que ainda não existe.\n\nSalva esse post pra reler quando bater a dúvida.\n\n#vendas #objecoes #motivacao #empreendedorismo #vendasonline"
+      },
+      "carousel": {
+        "type": "carousel",
+        "files": [
+          "01_cover.png",
+          "02_content.png",
+          "03_content.png",
+          "04_content.png",
+          "05_content.png",
+          "06_content.png",
+          "07_close.png"
+        ],
+        "caption": "Tem mina de ouro em quem fala não\n\nA frase que resume o curso inteiro — e o próximo passo do seu negócio.\n\nArrasta pro lado e confere os 5 pontos.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      },
+      "video_joelj": {
+        "type": "video",
+        "file": "video_joelj_25.mp4",
+        "caption": "Tem mina de ouro em quem fala não\n\nA frase que resume o curso inteiro — e o próximo passo do seu negócio.\n\nAssiste até o final.\n\n#followup #vendas #objecoes #processocomercial #vendasonline #crm #empreendedorismo"
+      }
+    }
+  }
+}
