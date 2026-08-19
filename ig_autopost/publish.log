@@ -2,3 +2,5 @@
 [2026-08-19T14:24:12.964Z] ERRO no slot static idx=3: 17841405622876405/media_publish -> {"message":"Media ID is not available","type":"OAuthException","code":9007,"error_subcode":2207027,"is_transient":false,"error_user_title":"Não é possível publicar","error_user_msg":"A mídia não está pronta para ser publicada. Aguarde um momento.","fbtrace_id":"AfKAUh8lTMg4G3iobH1bKYo"}
 [2026-08-19T14:29:48.323Z] slot=static idx=3
 [2026-08-19T14:29:55.126Z] SUCESSO image: {"id":"18104580062233620"}
+[2026-08-19T16:02:10.637Z] slot=static idx=4
+[2026-08-19T16:02:19.307Z] SUCESSO image: {"id":"18335253706281814"}
