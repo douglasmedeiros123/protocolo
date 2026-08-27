@@ -1,95 +1,95 @@
 {
-  "source": "hotmart",
   "date": "2026-08-25",
-  "fetched_at": "2026-08-27T20:30:17.307Z",
-  "window": {
-    "startMs": 1787626800000,
-    "endMs": 1787713199999
-  },
+  "fetched_at": "2026-08-27T20:31:33.540Z",
   "items": [
     {
-      "producer": {
-        "name": "Douglas da Mota Medeiros",
-        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
-      },
-      "purchase": {
-        "status": "CANCELLED",
-        "hotmart_fee": {
-          "base": 67,
-          "fixed": 1,
-          "total": 7.63,
-          "percentage": 9.9,
-          "currency_code": "BRL"
-        },
-        "order_date": 1787682230000,
-        "commission_as": "PRODUCER",
-        "transaction": "HP3162266456",
-        "is_subscription": false,
-        "payment": {
-          "type": "APPLE_PAY",
-          "method": "APPLE_PAY",
-          "installments_number": 1
-        },
-        "offer": {
-          "code": "orlqy9yk",
-          "payment_mode": "UNIQUE_PAYMENT"
-        },
-        "price": {
-          "currency_code": "BRL",
-          "value": 67
-        }
-      },
       "buyer": {
         "email": "maaprroyo@outlook.com",
         "name": "Mariá Arroyo Pettenazzi",
         "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77"
       },
-      "product": {
-        "name": "Protocolo da Resposta Garantida",
-        "id": 8207308
-      }
-    },
-    {
       "producer": {
-        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73",
-        "name": "Douglas da Mota Medeiros"
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
       },
       "product": {
         "id": 8207308,
         "name": "Protocolo da Resposta Garantida"
       },
-      "buyer": {
-        "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77",
-        "email": "maaprroyo@outlook.com",
-        "name": "Mariá Arroyo Pettenazzi"
-      },
       "purchase": {
-        "hotmart_fee": {
-          "percentage": 9.9,
-          "fixed": 1,
-          "base": 67,
-          "total": 7.63,
-          "currency_code": "BRL"
-        },
-        "order_date": 1787682222000,
         "commission_as": "PRODUCER",
-        "transaction": "HP3170346182",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
         "is_subscription": false,
         "offer": {
           "code": "orlqy9yk",
           "payment_mode": "UNIQUE_PAYMENT"
         },
+        "order_date": 1787682230000,
+        "payment": {
+          "installments_number": 1,
+          "method": "APPLE_PAY",
+          "type": "APPLE_PAY"
+        },
         "price": {
           "currency_code": "BRL",
           "value": 67
         },
-        "payment": {
-          "type": "APPLE_PAY",
-          "method": "APPLE_PAY",
-          "installments_number": 1
+        "status": "CANCELLED",
+        "transaction": "HP3162266456"
+      }
+    },
+    {
+      "buyer": {
+        "email": "maaprroyo@outlook.com",
+        "name": "Mariá Arroyo Pettenazzi",
+        "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
         },
-        "status": "EXPIRED"
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787682222000,
+        "payment": {
+          "installments_number": 1,
+          "method": "APPLE_PAY",
+          "type": "APPLE_PAY"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "EXPIRED",
+        "transaction": "HP3170346182"
       }
     }
-  ]
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1787713199999,
+    "startMs": 1787626800000
+  }
 }

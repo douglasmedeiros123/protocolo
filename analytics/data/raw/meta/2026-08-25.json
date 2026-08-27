@@ -1,21 +1,9 @@
 {
-  "source": "meta",
-  "date": "2026-08-25",
-  "fetched_at": "2026-08-27T20:30:16.767Z",
   "ad_account_id": "act_837771300886167",
+  "date": "2026-08-25",
+  "fetched_at": "2026-08-27T20:31:33.165Z",
   "rows": [
     {
-      "campaign_name": "Low - Follow",
-      "campaign_id": "120249959548500738",
-      "adset_name": "Conjunto - Doda",
-      "adset_id": "120249959548510738",
-      "ad_name": "Criativo 01 - Print da Dor",
-      "ad_id": "120249959548520738",
-      "spend": "1.6",
-      "impressions": "57",
-      "clicks": "2",
-      "cpm": "28.070175",
-      "ctr": "3.508772",
       "actions": [
         {
           "action_type": "link_click",
@@ -58,21 +46,51 @@
           "value": "18"
         }
       ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "2",
+      "cpm": "28.070175",
+      "ctr": "3.508772",
       "date_start": "2026-08-25",
-      "date_stop": "2026-08-25"
+      "date_stop": "2026-08-25",
+      "impressions": "57",
+      "spend": "1.6"
     },
     {
-      "campaign_name": "Low - Follow",
-      "campaign_id": "120249959548500738",
-      "adset_name": "Conjunto - Doda",
-      "adset_id": "120249959548510738",
-      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
-      "ad_id": "120250561849960738",
-      "spend": "28.94",
-      "impressions": "996",
-      "clicks": "26",
-      "cpm": "29.056225",
-      "ctr": "2.610442",
+      "action_values": [
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "113.76"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "113.76"
+        },
+        {
+          "action_type": "purchase",
+          "value": "113.76"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "0.01"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "113.76"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "113.76"
+        },
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "113.76"
+        }
+      ],
       "actions": [
         {
           "action_type": "web_in_store_purchase",
@@ -163,68 +181,50 @@
           "value": "2"
         }
       ],
-      "action_values": [
-        {
-          "action_type": "onsite_web_app_purchase",
-          "value": "113.76"
-        },
-        {
-          "action_type": "onsite_web_purchase",
-          "value": "113.76"
-        },
-        {
-          "action_type": "purchase",
-          "value": "113.76"
-        },
-        {
-          "action_type": "web_app_in_store_purchase",
-          "value": "0.01"
-        },
-        {
-          "action_type": "offsite_conversion.fb_pixel_purchase",
-          "value": "113.76"
-        },
-        {
-          "action_type": "omni_purchase",
-          "value": "113.76"
-        },
-        {
-          "action_type": "web_in_store_purchase",
-          "value": "113.76"
-        }
-      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "26",
+      "cpm": "29.056225",
+      "ctr": "2.610442",
       "date_start": "2026-08-25",
-      "date_stop": "2026-08-25"
+      "date_stop": "2026-08-25",
+      "impressions": "996",
+      "spend": "28.94"
     },
     {
-      "campaign_name": "Low - Follow",
-      "campaign_id": "120249959548500738",
-      "adset_name": "Conjunto - Doda",
-      "adset_id": "120249959548510738",
-      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
       "ad_id": "120250561880450738",
-      "spend": "0.11",
-      "impressions": "5",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
       "clicks": "0",
       "cpm": "22",
       "ctr": "0",
       "date_start": "2026-08-25",
-      "date_stop": "2026-08-25"
+      "date_stop": "2026-08-25",
+      "impressions": "5",
+      "spend": "0.11"
     },
     {
-      "campaign_name": "Low - Follow",
-      "campaign_id": "120249959548500738",
-      "adset_name": "Conjunto - Doda",
-      "adset_id": "120249959548510738",
-      "ad_name": "Criativo 08 - Vou Pensar",
       "ad_id": "120250561881540738",
-      "spend": "0.15",
-      "impressions": "7",
+      "ad_name": "Criativo 08 - Vou Pensar",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
       "clicks": "0",
       "cpm": "21.428571",
       "ctr": "0",
       "date_start": "2026-08-25",
-      "date_stop": "2026-08-25"
+      "date_stop": "2026-08-25",
+      "impressions": "7",
+      "spend": "0.15"
     }
-  ]
+  ],
+  "source": "meta"
 }

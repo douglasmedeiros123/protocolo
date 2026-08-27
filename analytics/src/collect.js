@@ -5,6 +5,7 @@ const path = require('path');
 const { dateRange, todayBRT, isValidDateStr } = require('./utils/dates');
 const { writeJson, readJson, exists } = require('./utils/fs');
 const { redactDeep } = require('./utils/redact');
+const { canonicalize } = require('./utils/canonical');
 
 const { collectMeta } = require('./collectors/meta');
 const { collectHotmart } = require('./collectors/hotmart');
@@ -56,8 +57,9 @@ async function collectOneDay(dateStr) {
   }
 
   // RAW — salva exatamente o que a API devolveu (com redação defensiva), uma camada por fonte.
+  // canonicalize() só reordena chaves pra estabilizar diff — não muda nenhum valor/estrutura.
   for (const r of [metaRes, hotmartRes, clarityRes, githubRes]) {
-    if (r.raw) writeJson(path.join(DATA_DIR, 'raw', r.label, `${dateStr}.json`), redactDeep(r.raw));
+    if (r.raw) writeJson(path.join(DATA_DIR, 'raw', r.label, `${dateStr}.json`), canonicalize(redactDeep(r.raw)));
   }
 
   // NORMALIZED
