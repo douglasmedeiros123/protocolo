@@ -54,12 +54,19 @@ async function collectHotmart(dateStr) {
     byTransaction.set(item.purchase.transaction, item);
   }
 
+  // A API da Hotmart não garante ordem estável entre chamadas para o mesmo intervalo — sem essa
+  // ordenação, duas coletas idênticas produziriam arquivos com diff textual (itens em ordem
+  // diferente) mesmo sem nenhuma mudança real, quebrando a checagem de "só commitar se mudou".
+  const items = [...byTransaction.values()].sort((a, b) =>
+    a.purchase.transaction.localeCompare(b.purchase.transaction)
+  );
+
   return {
     source: 'hotmart',
     date: dateStr,
     fetched_at: new Date().toISOString(),
     window: { startMs, endMs },
-    items: [...byTransaction.values()],
+    items,
   };
 }
 
