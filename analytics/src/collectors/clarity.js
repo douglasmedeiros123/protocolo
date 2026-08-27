@@ -1,47 +1,33 @@
 'use strict';
 
 const env = require('../../config/env');
-const { todayBRT } = require('../utils/dates');
 
 const EXPORT_URL = 'https://www.clarity.ms/export-data/api/v1/project-live-insights';
 
-// LIMITAÇÕES REAIS DA API DO CLARITY (confirmadas nesta sessão, não documentação lida por cima):
-//  1. Só devolve os últimos 1-3 dias a partir de HOJE — não existe parâmetro de data histórica.
-//     numOfDays=1 == hoje; numOfDays=3 == os últimos 3 dias AGREGADOS (não d3 separado de d2/d1).
-//  2. Limite de 10 chamadas/dia/projeto. Este collector faz só 1 chamada por execução
-//     (sem breakdown por dimensão) para não gastar a cota à toa.
-// Por isso: só coletamos Clarity quando a data pedida é HOJE (BRT). Para qualquer outra data,
-// devolvemos available:false em vez de fingir que temos o dado — nunca atribua o agregado de
-// "últimos 3 dias" a um dia específico do passado.
+// O Clarity não é um "snapshot diário" — é uma janela corrente (últimos 1-3 dias a partir de
+// AGORA, sem parâmetro de data histórica) com limite de 10 chamadas/dia/projeto. Por isso ele
+// não faz mais parte do daily business snapshot (Meta/Hotmart/GitHub, que têm uma data-alvo
+// real): é coletado separadamente, sempre representando "agora", nunca atribuído a um dia
+// específico do passado. Ver analytics/README.md.
+const WINDOW_DESCRIPTION = 'últimos 1 dia a partir do momento da coleta (janela corrente do Clarity, não um dia calendário fixo)';
 
-async function collectClarity(dateStr) {
-  if (dateStr !== todayBRT()) {
-    return {
-      source: 'clarity',
-      date: dateStr,
-      fetched_at: new Date().toISOString(),
-      available: false,
-      reason: 'A API do Clarity só cobre os últimos 1-3 dias a partir de hoje — não dá pra buscar esta data retroativamente.',
-      metrics: null,
-    };
-  }
-
+async function collectClarity() {
   const { CLARITY_API_TOKEN } = env.get('clarity');
   const url = new URL(EXPORT_URL);
   url.searchParams.set('numOfDays', '1');
 
+  const collected_at = new Date().toISOString();
   const res = await fetch(url, { headers: { Authorization: `Bearer ${CLARITY_API_TOKEN}` } });
   const json = await res.json();
   if (json.error) throw new Error(`Clarity API error: ${JSON.stringify(json.error)}`);
 
   return {
     source: 'clarity',
-    date: dateStr,
-    fetched_at: new Date().toISOString(),
-    available: true,
-    numOfDays: 1,
+    collected_at,
+    window_supported_by_api: WINDOW_DESCRIPTION,
+    source_status: 'available',
     metrics: json,
   };
 }
 
-module.exports = { collectClarity };
+module.exports = { collectClarity, WINDOW_DESCRIPTION };

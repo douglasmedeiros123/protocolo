@@ -5,11 +5,22 @@ function group(metrics, name) {
   return found ? found.information : null;
 }
 
-function normalizeClarity(raw) {
-  if (!raw.available) {
-    return { date: raw.date, available: false, reason: raw.reason, sessions: null, behavior: null };
-  }
+// A API do Clarity devolve o MESMO campo às vezes como string ("125") e às vezes como number
+// (125) em chamadas diferentes, mesmo quando o valor não mudou (confirmado empiricamente:
+// derrubava a idempotência sem nenhuma mudança real de tráfego por trás). Normaliza pra number
+// sempre — nunca deixa a inconsistência de tipo da API virar "mudança" no nosso diff.
+function num(value) {
+  if (value === null || value === undefined) return null;
+  const n = Number(value);
+  return Number.isNaN(n) ? null : n;
+}
 
+/**
+ * Normaliza um "Clarity behavior snapshot" (independente de data-alvo — ver collectors/clarity.js).
+ * `raw` vem do collector em caso de sucesso; em caso de falha na coleta, `normalizeClarityFailure`
+ * monta o mesmo formato com source_status:'unavailable'|'error', sem inventar métrica nenhuma.
+ */
+function normalizeClarity(raw) {
   const metrics = raw.metrics;
   const traffic = (group(metrics, 'Traffic') || [{}])[0];
   const scroll = (group(metrics, 'ScrollDepth') || [{}])[0];
@@ -20,24 +31,38 @@ function normalizeClarity(raw) {
   const browser = group(metrics, 'Browser') || [];
 
   return {
-    date: raw.date,
-    available: true,
-    window_days: raw.numOfDays,
+    collected_at: raw.collected_at,
+    window_supported_by_api: raw.window_supported_by_api,
+    source_status: raw.source_status,
     sessions: {
-      total: traffic.totalSessionCount ?? null,
-      bots: traffic.totalBotSessionCount ?? null,
-      distinct_users: traffic.distinctUserCount ?? null,
+      total: num(traffic.totalSessionCount),
+      bots: num(traffic.totalBotSessionCount),
+      distinct_users: num(traffic.distinctUserCount),
     },
     behavior: {
-      scroll_depth_avg_pct: scroll.averageScrollDepth ?? null,
-      engagement_total_time_s: engagement.totalTime ?? null,
-      engagement_active_time_s: engagement.activeTime ?? null,
-      dead_click_pct: deadClick.sessionsWithMetricPercentage ?? null,
-      rage_click_pct: rageClick.sessionsWithMetricPercentage ?? null,
+      scroll_depth_avg_pct: num(scroll.averageScrollDepth),
+      engagement_total_time_s: num(engagement.totalTime),
+      engagement_active_time_s: num(engagement.activeTime),
+      dead_click_pct: num(deadClick.sessionsWithMetricPercentage),
+      rage_click_pct: num(rageClick.sessionsWithMetricPercentage),
     },
-    device: device.map((d) => ({ name: d.name, sessions: Number(d.sessionsCount) })),
-    browser: browser.map((b) => ({ name: b.name, sessions: Number(b.sessionsCount) })),
+    device: device.map((d) => ({ name: d.name, sessions: num(d.sessionsCount) })),
+    browser: browser.map((b) => ({ name: b.name, sessions: num(b.sessionsCount) })),
   };
 }
 
-module.exports = { normalizeClarity };
+/** Usado quando a coleta falha (token ausente, API fora do ar, etc.) — nunca inventa métrica. */
+function normalizeClarityFailure(reason, status = 'error') {
+  return {
+    collected_at: new Date().toISOString(),
+    window_supported_by_api: null,
+    source_status: status, // 'unavailable' (limitação conhecida) ou 'error' (falha real)
+    reason,
+    sessions: null,
+    behavior: null,
+    device: null,
+    browser: null,
+  };
+}
+
+module.exports = { normalizeClarity, normalizeClarityFailure };

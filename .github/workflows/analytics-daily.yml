@@ -1,0 +1,84 @@
+name: Analytics Daily
+
+on:
+  schedule:
+    # 09:00 UTC = 06:00 America/Sao_Paulo (BRT, sem DST atualmente).
+    # Roda de madrugada, coletando o dia ANTERIOR já fechado havia 6h — ver justificativa no PR.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Data a coletar (YYYY-MM-DD). Deixe vazio para coletar ontem (BRT)."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analytics-daily
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instala dependências
+        run: npm ci --prefix analytics
+
+      - name: Roda os testes (não prossegue se algo quebrou)
+        run: npm test --prefix analytics
+
+      - name: Calcula e valida a data alvo (ontem em America/Sao_Paulo, salvo se informada manualmente)
+        id: target
+        run: |
+          set -e
+          DATE=$(node analytics/src/resolveDate.js "${{ inputs.date }}")
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          echo "Data alvo: $DATE"
+        # resolveDate.js falha (exit 1) e escreve na stderr se o input manual não for uma data
+        # YYYY-MM-DD válida — `set -e` garante que o job para aqui, ANTES de qualquer collector
+        # rodar e sem chegar perto do passo de commit.
+
+      - name: Coleta o Data Agent
+        id: collect
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: "act_837771300886167"
+          HOTMART_CLIENT_ID: ${{ secrets.HOTMART_CLIENT_ID }}
+          HOTMART_CLIENT_SECRET: ${{ secrets.HOTMART_CLIENT_SECRET }}
+          CLARITY_API_TOKEN: ${{ secrets.CLARITY_API_TOKEN }}
+          ANALYTICS_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: node analytics/src/collect.js --date "${{ steps.target.outputs.date }}"
+
+      - name: Valida o snapshot e imprime o log estruturado
+        id: validate
+        run: node analytics/src/validate.js "${{ steps.target.outputs.date }}"
+
+      - name: Verifica se há mudança real (ignora timestamps voláteis)
+        id: diff
+        run: |
+          if git diff -I'"(fetched_at|generated_at|collected_at)"' --quiet -- analytics/data; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Sem mudança real nos dados — nada a commitar."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Arquivos alterados:"
+            git diff -I'"(fetched_at|generated_at|collected_at)"' --stat -- analytics/data
+          fi
+
+      - name: Commit e push (só se houve mudança real)
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "analytics-bot"
+          git config user.email "analytics-bot@users.noreply.github.com"
+          git add analytics/data
+          git commit -m "analytics: snapshot ${{ steps.target.outputs.date }}"
+          git push

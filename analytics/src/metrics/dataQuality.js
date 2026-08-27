@@ -69,16 +69,15 @@ function checkCpaInconsistent(economics) {
   return null;
 }
 
-function checkMissingData({ meta, hotmart, clarity, github }) {
+// Clarity não entra mais aqui — deixou de ser uma "fonte do dia-alvo" (ver collectors/clarity.js
+// e a seção "Clarity" do README). Data quality do snapshot de negócio só cobre Meta/Hotmart/GitHub.
+function checkMissingData({ meta, hotmart, github }) {
   const flags = [];
   if (!meta || meta.by_ad.length === 0) {
     flags.push({ code: 'MISSING_DATA', severity: 'info', message: 'Meta não retornou nenhuma linha de anúncio para este dia (pode ser campanha pausada, ou realmente sem veiculação).', details: { source: 'meta' } });
   }
   if (!hotmart) {
     flags.push({ code: 'MISSING_DATA', severity: 'critical', message: 'Coleta da Hotmart falhou ou não foi executada.', details: { source: 'hotmart' } });
-  }
-  if (clarity && clarity.available === false) {
-    flags.push({ code: 'MISSING_DATA', severity: 'info', message: `Clarity indisponível para este dia: ${clarity.reason}`, details: { source: 'clarity' } });
   }
   if (!github) {
     flags.push({ code: 'MISSING_DATA', severity: 'info', message: 'Coleta do histórico de commits (GitHub) não executada.', details: { source: 'github' } });
@@ -126,7 +125,7 @@ function checkSuddenMetricChange(economics, previousDaySnapshot) {
 }
 
 /** Roda todos os checks e devolve uma lista achatada de flags (nunca lança erro). */
-function runDataQualityChecks({ meta, hotmart, clarity, github, economics, previousDaySnapshot }) {
+function runDataQualityChecks({ meta, hotmart, github, economics, previousDaySnapshot }) {
   const flags = [];
   const pushIf = (result) => {
     if (!result) return;
@@ -134,7 +133,7 @@ function runDataQualityChecks({ meta, hotmart, clarity, github, economics, previ
     else flags.push(result);
   };
 
-  pushIf(checkMissingData({ meta, hotmart, clarity, github }));
+  pushIf(checkMissingData({ meta, hotmart, github }));
   if (meta && hotmart) {
     pushIf(checkMetaPurchaseWithoutHotmartSale(meta, hotmart));
     pushIf(checkSuspiciousRepeatedPurchaseValue(meta, hotmart));

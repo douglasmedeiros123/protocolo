@@ -7,8 +7,17 @@
 
 const BRT_OFFSET_MS = 3 * 60 * 60 * 1000;
 
+// `Date.parse` sozinho NÃO basta: ele aceita datas de calendário impossíveis fazendo rollover
+// silencioso (ex: '2026-02-30' vira 2 de março, sem erro nenhum) — confirmado testando direto
+// no Node antes de escrever isso. Por isso reconstruímos a data a partir dos componentes e
+// conferimos que voltou exatamente o que foi informado, não uma versão "corrigida".
 function isValidDateStr(s) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(s + 'T00:00:00Z'));
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  if (!m) return false;
+  const [, y, mo, d] = m.map(Number);
+  if (mo < 1 || mo > 12 || d < 1 || d > 31) return false;
+  const dt = new Date(Date.UTC(y, mo - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === mo - 1 && dt.getUTCDate() === d;
 }
 
 /** Converte um timestamp (ISO string, epoch ms, ou epoch ms como string) para 'YYYY-MM-DD' em BRT. */
