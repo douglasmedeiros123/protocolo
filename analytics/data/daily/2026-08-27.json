@@ -1,0 +1,103 @@
+{
+  "date": "2026-08-27",
+  "generated_at": "2026-08-27T20:06:11.371Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "clarity": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-27",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [],
+    "totals": {
+      "spend": 0,
+      "impressions": 0,
+      "clicks": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-27",
+    "transactions": [],
+    "totals": {
+      "orders_count": 0,
+      "order_bumps_count": 0,
+      "gross_revenue": 0,
+      "net_revenue": 0,
+      "hotmart_fee_total": 0,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "clarity": {
+    "date": "2026-08-27",
+    "available": true,
+    "window_days": 1,
+    "sessions": {
+      "total": "9",
+      "bots": "2",
+      "distinct_users": "6"
+    },
+    "behavior": {
+      "scroll_depth_avg_pct": 26.89,
+      "engagement_total_time_s": "212",
+      "engagement_active_time_s": "125",
+      "dead_click_pct": 11.11,
+      "rage_click_pct": 0
+    },
+    "device": [
+      {
+        "name": "PC",
+        "sessions": 9
+      }
+    ],
+    "browser": [
+      {
+        "name": "Chrome",
+        "sessions": 9
+      }
+    ]
+  },
+  "github": {
+    "date": "2026-08-27",
+    "lp_changes": []
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": null,
+      "cpm": null,
+      "cpc": null,
+      "custo_por_lpv": null,
+      "taxa_lpv_checkout": null,
+      "taxa_checkout_compra": null
+    },
+    "economics": {
+      "cpa_meta": null,
+      "cpa_financeiro": null,
+      "roas_meta": null,
+      "roas_financeiro": null,
+      "aov_bruto": null,
+      "aov_liquido": null,
+      "receita_por_visitante": null,
+      "taxa_reembolso": null,
+      "order_bump_attach_rate": null
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "MISSING_DATA",
+      "severity": "info",
+      "message": "Meta não retornou nenhuma linha de anúncio para este dia (pode ser campanha pausada, ou realmente sem veiculação).",
+      "details": {
+        "source": "meta"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "source": "hotmart",
+  "date": "2026-08-25",
+  "fetched_at": "2026-08-27T20:06:54.136Z",
+  "window": {
+    "startMs": 1787626800000,
+    "endMs": 1787713199999
+  },
+  "items": [
+    {
+      "purchase": {
+        "commission_as": "PRODUCER",
+        "order_date": 1787682230000,
+        "hotmart_fee": {
+          "currency_code": "BRL",
+          "total": 7.63,
+          "percentage": 9.9,
+          "base": 67,
+          "fixed": 1
+        },
+        "transaction": "HP3162266456",
+        "status": "CANCELLED",
+        "is_subscription": false,
+        "price": {
+          "value": 67,
+          "currency_code": "BRL"
+        },
+        "payment": {
+          "type": "APPLE_PAY",
+          "method": "APPLE_PAY",
+          "installments_number": 1
+        },
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        }
+      },
+      "producer": {
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73",
+        "name": "Douglas da Mota Medeiros"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "buyer": {
+        "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77",
+        "email": "maaprroyo@outlook.com",
+        "name": "Mariá Arroyo Pettenazzi"
+      }
+    },
+    {
+      "purchase": {
+        "hotmart_fee": {
+          "total": 7.63,
+          "fixed": 1,
+          "base": 67,
+          "percentage": 9.9,
+          "currency_code": "BRL"
+        },
+        "transaction": "HP3170346182",
+        "status": "EXPIRED",
+        "order_date": 1787682222000,
+        "is_subscription": false,
+        "price": {
+          "value": 67,
+          "currency_code": "BRL"
+        },
+        "commission_as": "PRODUCER",
+        "payment": {
+          "installments_number": 1,
+          "method": "APPLE_PAY",
+          "type": "APPLE_PAY"
+        },
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        }
+      },
+      "producer": {
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73",
+        "name": "Douglas da Mota Medeiros"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "buyer": {
+        "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77",
+        "email": "maaprroyo@outlook.com",
+        "name": "Mariá Arroyo Pettenazzi"
+      }
+    }
+  ]
+}

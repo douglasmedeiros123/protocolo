@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-27",
+  "available": true,
+  "window_days": 1,
+  "sessions": {
+    "total": "9",
+    "bots": "2",
+    "distinct_users": "6"
+  },
+  "behavior": {
+    "scroll_depth_avg_pct": 26.89,
+    "engagement_total_time_s": "212",
+    "engagement_active_time_s": "125",
+    "dead_click_pct": 11.11,
+    "rage_click_pct": 0
+  },
+  "device": [
+    {
+      "name": "PC",
+      "sessions": 9
+    }
+  ],
+  "browser": [
+    {
+      "name": "Chrome",
+      "sessions": 9
+    }
+  ]
+}
