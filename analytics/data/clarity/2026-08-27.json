@@ -1,0 +1,29 @@
+{
+  "behavior": {
+    "dead_click_pct": 11.11,
+    "engagement_active_time_s": 125,
+    "engagement_total_time_s": 212,
+    "rage_click_pct": 0,
+    "scroll_depth_avg_pct": 26.89
+  },
+  "browser": [
+    {
+      "name": "Chrome",
+      "sessions": 9
+    }
+  ],
+  "collected_at": "2026-08-27T21:11:27.976Z",
+  "device": [
+    {
+      "name": "PC",
+      "sessions": 9
+    }
+  ],
+  "sessions": {
+    "bots": 2,
+    "distinct_users": 6,
+    "total": 9
+  },
+  "source_status": "available",
+  "window_supported_by_api": "últimos 1 dia a partir do momento da coleta (janela corrente do Clarity, não um dia calendário fixo)"
+}
