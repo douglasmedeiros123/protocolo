@@ -1,4 +1,41 @@
 {
   "date": "2026-08-27",
-  "lp_changes": []
+  "lp_changes": [
+    {
+      "sha": "f4e5dfcc05a22f6452eb5069e01d7469d3f3eccd",
+      "timestamp_utc": "2026-08-28T01:44:40Z",
+      "message": "feat(analytics): Profit Engine + backfill 30 dias + Experiment Engine (capital_cycle corrigido)",
+      "author": "Douglas Medeiros"
+    },
+    {
+      "sha": "251c54c26487a2a5c51e4ba5885e981f069c7151",
+      "timestamp_utc": "2026-08-27T21:11:32Z",
+      "message": "analytics: snapshot 2026-08-25",
+      "author": "analytics-bot"
+    },
+    {
+      "sha": "3b69e91420bcb86be37c5524995877ab4f73643c",
+      "timestamp_utc": "2026-08-27T20:58:26Z",
+      "message": "feat(analytics): automatiza coleta diária via GitHub Actions + separa Clarity do snapshot de negócio",
+      "author": "Douglas Medeiros"
+    },
+    {
+      "sha": "c975a666c6153270d1cfdc29cc75d80c7ced6e21",
+      "timestamp_utc": "2026-08-27T20:31:33Z",
+      "message": "fix(analytics): canonicaliza ordem de chaves no raw para diffs estaveis",
+      "author": "Douglas Medeiros"
+    },
+    {
+      "sha": "cc506e72ae0081a4feb275abb2a0e40cde510c82",
+      "timestamp_utc": "2026-08-27T20:30:17Z",
+      "message": "chore: regenera snapshot 25/08 com ordenacao deterministica",
+      "author": "Douglas Medeiros"
+    },
+    {
+      "sha": "8d4e96897ef550314ea31cf35874c2bb5e5a6ac4",
+      "timestamp_utc": "2026-08-27T20:10:07Z",
+      "message": "feat(analytics): Data Agent — coleta, normalização e métricas determinísticas",
+      "author": "Douglas Medeiros"
+    }
+  ]
 }

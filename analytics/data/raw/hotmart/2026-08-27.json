@@ -1,10 +1,10 @@
 {
-  "source": "hotmart",
   "date": "2026-08-27",
-  "fetched_at": "2026-08-27T20:06:10.174Z",
+  "fetched_at": "2026-08-28T20:32:47.471Z",
+  "items": [],
+  "source": "hotmart",
   "window": {
-    "startMs": 1787799600000,
-    "endMs": 1787885999999
-  },
-  "items": []
+    "endMs": 1787885999999,
+    "startMs": 1787799600000
+  }
 }
