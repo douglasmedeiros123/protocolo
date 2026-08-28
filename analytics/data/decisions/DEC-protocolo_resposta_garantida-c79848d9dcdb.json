@@ -1,0 +1,230 @@
+{
+  "action_type": "RUN_EXPERIMENT",
+  "alternative_actions": [
+    {
+      "action_type": "RUN_EXPERIMENT",
+      "category": "CREATIVE",
+      "expected_value_score": 71,
+      "experiment_id": "CREATIVE-001",
+      "is_eligible": true,
+      "rank": 2,
+      "reason_lost_to_winner": "expected_value_score menor (71 vs 100) — menor impacto esperado por real/dia/risco.",
+      "target_metric": "cpa_financeiro"
+    },
+    {
+      "action_type": "RUN_EXPERIMENT",
+      "category": "MEDIA_BUYING",
+      "expected_value_score": 14,
+      "experiment_id": "MEDIA_BUYING-001",
+      "is_eligible": false,
+      "rank": 3,
+      "reason_lost_to_winner": "inelegível: budget_check reprovado: BUDGET_TOO_LARGE_FOR_CYCLE",
+      "target_metric": "cpm"
+    },
+    {
+      "action_type": "RUN_EXPERIMENT",
+      "category": "AOV",
+      "expected_value_score": 3,
+      "experiment_id": "AOV-001",
+      "is_eligible": false,
+      "rank": 4,
+      "reason_lost_to_winner": "inelegível: budget_check reprovado: EXCEEDS_CYCLE_AVAILABLE",
+      "target_metric": "order_bump_attach_rate"
+    }
+  ],
+  "attacks_path": "CONVERSION",
+  "best_use_of_next_100": {
+    "action": "RUN_EXPERIMENT",
+    "available_decision_capital": 100,
+    "capital_release_initial": 100,
+    "capital_release_max": 281.8,
+    "cycle_available": 1000,
+    "expected_value_score": 100,
+    "experiment_budget_limit": 281.8,
+    "experiment_budget_remaining": 281.8,
+    "experiment_id": "CRO-001",
+    "next_release_condition": "tranche 1 não atingiu failure_condition (\"taxa_lpv_checkout do período de teste <= baseline\") e mostrou sinal parcial válido em direção a \"taxa_lpv_checkout do período de teste >= baseline * 1.20 (alta real de 20%+)\".",
+    "reason": "Se reduzirmos a fricção da primeira dobra da LP no navegador in-app do Instagram (menos payload, hook nos 2-3s iniciais, sem depender de scroll pra ver a oferta), esperamos que a taxa LPV→Checkout aumente porque 71% do tráfego vem do Instagram in-app com scroll médio de 16,8% e só 11s de tempo ativo (dado real do Clarity), e o gap pra meta de ROAS 2 no caminho CPA precisa de 70% de redução.",
+    "recommended_tranche_size": 140.9,
+    "stop_condition": "kill_condition: failure_condition atingida (\"taxa_lpv_checkout do período de teste <= baseline\") OU tranche esgotada sem sinal de melhora no target_metric (taxa_lpv_checkout)."
+  },
+  "capital_policy": "PROTECTED",
+  "capital_required": 281.8,
+  "capital_tranches": {
+    "budget_limit_original": 281.8,
+    "capped": false,
+    "note": null,
+    "total_allocated": 281.8,
+    "tranches": [
+      {
+        "amount": 140.9,
+        "release_condition": "liberação inicial — nenhuma evidência prévia exigida (primeira tranche do experimento CRO-001).",
+        "stop_condition": "kill_condition: failure_condition atingida (\"taxa_lpv_checkout do período de teste <= baseline\") OU tranche esgotada sem sinal de melhora no target_metric (taxa_lpv_checkout).",
+        "tranche_index": 1
+      },
+      {
+        "amount": 140.9,
+        "release_condition": "tranche 1 não atingiu failure_condition (\"taxa_lpv_checkout do período de teste <= baseline\") e mostrou sinal parcial válido em direção a \"taxa_lpv_checkout do período de teste >= baseline * 1.20 (alta real de 20%+)\".",
+        "stop_condition": "kill_condition: failure_condition atingida (\"taxa_lpv_checkout do período de teste <= baseline\") OU tranche esgotada sem sinal de melhora no target_metric (taxa_lpv_checkout).",
+        "tranche_index": 2
+      }
+    ]
+  },
+  "confidence": 0.8,
+  "created_at": "2026-08-28T10:32:18.088Z",
+  "data_quality": {
+    "profit": {
+      "data_completeness": 0.9666666666666667,
+      "days_found": 29,
+      "days_missing": [
+        "2026-08-28"
+      ],
+      "days_requested": 30,
+      "days_with_critical_flags": [
+        "2026-08-19",
+        "2026-08-25"
+      ],
+      "financial_confidence": "degraded",
+      "reasons": [
+        "2026-08-19: META_PURCHASE_WITHOUT_HOTMART_SALE",
+        "2026-08-25: META_PURCHASE_WITHOUT_HOTMART_SALE",
+        "cobertura de dados incompleta: 29/30 dias com snapshot (faltando: 2026-08-28)"
+      ]
+    },
+    "tracking": {
+      "blocking_occurrences": [],
+      "confidence_score": 80,
+      "degrading_occurrences": [
+        {
+          "code": "META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "date": "2026-08-19"
+        },
+        {
+          "code": "META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "date": "2026-08-25"
+        }
+      ],
+      "is_blocking": false,
+      "reason": "2 ocorrência(s) de flag degradante (META_PURCHASE_WITHOUT_HOTMART_SALE) — Hotmart continua íntegra, confiança reduzida.",
+      "unclassified_occurrences": []
+    }
+  },
+  "decision_confidence": 76.33,
+  "decision_confidence_components": {
+    "data_coverage": 96.66666666666667,
+    "experiment_confidence": 80,
+    "financial_confidence": 60,
+    "prior_learning": 60,
+    "tracking_quality": 80
+  },
+  "decision_id": "DEC-protocolo_resposta_garantida-c79848d9dcdb",
+  "decision_mode": "RECOVERY",
+  "decision_mode_reason": "roas_financeiro(30d) (0.621) < 1.0.",
+  "decision_status": "RECOMMENDED",
+  "decision_trace": [
+    "1. DATA QUALITY/TRACKING: 2 ocorrência(s) de flag degradante (META_PURCHASE_WITHOUT_HOTMART_SALE) — Hotmart continua íntegra, confiança reduzida.",
+    "-> nenhuma flag bloqueante encontrada — segue.",
+    "2. CAPITAL SAFETY: capital_cycle.status=CONFIGURED, cycle_available=R$1000.00",
+    "-> capital disponível — segue.",
+    "3. PROFITABILITY: modo=RECOVERY (roas_financeiro(30d) (0.621) < 1.0.)",
+    "4. PRIOR LEARNING: AOV-001=NO_PRIOR_EVIDENCE, CREATIVE-001=NO_PRIOR_EVIDENCE, CRO-001=NO_PRIOR_EVIDENCE, MEDIA_BUYING-001=NO_PRIOR_EVIDENCE",
+    "5-6. EXPERIMENT PRIORITY / EXPECTED IMPACT: AOV-001=3 (inelegível: budget_check reprovado: EXCEEDS_CYCLE_AVAILABLE) | CREATIVE-001=71 | CRO-001=100 | MEDIA_BUYING-001=14 (inelegível: budget_check reprovado: BUDGET_TOO_LARGE_FOR_CYCLE)",
+    "7. SPEED / 8. RISK: desempate por time_to_evidence e depois risk quando expected_value_score empata.",
+    "Vencedor: CRO-001 — expected_value_score=100."
+  ],
+  "evidence": {
+    "baseline": {
+      "aov_liquido": 65.10909090909091,
+      "cpa_financeiro": 109.79272727272725,
+      "profit_status": "LOSS",
+      "roas_financeiro": 0.5930182492630743
+    },
+    "expected_effect": {
+      "aov_impact": {
+        "atual": 65.10909090909091,
+        "delta": 0,
+        "projetado": 65.10909090909091
+      },
+      "based_on": "profit/scenarios.js — mesmo simulador determinístico usado nos cenários A-D do Profit Engine",
+      "budget_used": 281.8,
+      "cpa_impact": {
+        "atual": 109.79272727272725,
+        "delta": -21.958545454545444,
+        "projetado": 87.8341818181818
+      },
+      "is_projection_not_guarantee": true,
+      "lucro_impact": {
+        "baseline_sem_mudanca_no_budget": -114.68745735766566,
+        "delta_vs_nao_fazer_nada": 41.77813566058359,
+        "projetado_no_budget": -72.90932169708208
+      },
+      "raw_projection": {
+        "aov_projetado": 65.10909090909091,
+        "cpa_projetado": 87.8341818181818,
+        "gasto_base": 281.8,
+        "inputs": {
+          "aovChangePct": 0,
+          "cpaChangePct": -0.2
+        },
+        "label": null,
+        "lucro_prejuizo_projetado": -72.90932169708208,
+        "receita_projetada": 208.89067830291793,
+        "roas_projetado": 0.741272811578843,
+        "vendas_necessarias": 3.208318153214322
+      },
+      "roas_impact": {
+        "atual": 0.5930182492630743,
+        "delta": 0.1482545623157686,
+        "projetado": 0.741272811578843
+      }
+    }
+  },
+  "expected_impact": {
+    "expected_profit_delta": 41.77813566058359,
+    "expected_roas_delta": 0.1482545623157686
+  },
+  "experiment_id": "CRO-001",
+  "fingerprint": "c79848d9dcdb6354c005f5f8dcd3d977db8778575687daa5da9e36fdce50c0af",
+  "kill_condition": "failure_condition do experimento: \"taxa_lpv_checkout do período de teste <= baseline\"",
+  "north_star": {
+    "current_roas": 0.6207530162252116,
+    "milestones": [
+      1,
+      1.5,
+      2,
+      3
+    ],
+    "next_milestone": 1,
+    "reason": "roas_financeiro atual: 0.621. Próximo marco: 1. North Star permanece 3.",
+    "roas_gap_absolute": 2.3792469837747885,
+    "roas_gap_percent": 0.7930823279249295,
+    "target_roas": 3
+  },
+  "prior_learning_status": "NO_PRIOR_EVIDENCE",
+  "priority_score": 100,
+  "product_id": "protocolo_resposta_garantida",
+  "reason": "Se reduzirmos a fricção da primeira dobra da LP no navegador in-app do Instagram (menos payload, hook nos 2-3s iniciais, sem depender de scroll pra ver a oferta), esperamos que a taxa LPV→Checkout aumente porque 71% do tráfego vem do Instagram in-app com scroll médio de 16,8% e só 11s de tempo ativo (dado real do Clarity), e o gap pra meta de ROAS 2 no caminho CPA precisa de 70% de redução.",
+  "recommended_action": "Rodar experimento CRO-001 (CRO) visando taxa_lpv_checkout",
+  "release_conditions": [
+    "liberação inicial — nenhuma evidência prévia exigida (primeira tranche do experimento CRO-001).",
+    "tranche 1 não atingiu failure_condition (\"taxa_lpv_checkout do período de teste <= baseline\") e mostrou sinal parcial válido em direção a \"taxa_lpv_checkout do período de teste >= baseline * 1.20 (alta real de 20%+)\"."
+  ],
+  "risk": 1,
+  "roas_calculation": {
+    "data_completeness": 0.9666666666666667,
+    "days_found": 29,
+    "days_requested": 30,
+    "formula": "roas_financeiro = receita_liquida_hotmart / gasto_meta, ambos somados sobre o período (nunca média de razões diárias — ver profit/financials.js e profit/aggregate.js).",
+    "net_revenue": 716.2,
+    "period_from": "2026-07-30",
+    "period_to": "2026-08-28",
+    "roas_financeiro": 0.6207530162252116,
+    "spend": 1153.7599999999998,
+    "window": "last_30d"
+  },
+  "running_experiments": [],
+  "snapshot_date_used": "2026-08-28",
+  "snapshot_is_stale": false,
+  "target_metric": "taxa_lpv_checkout",
+  "updated_at": "2026-08-28T10:32:23.039Z"
+}

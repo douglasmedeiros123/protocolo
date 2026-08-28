@@ -1,0 +1,731 @@
+{
+  "capital_status": {
+    "budget_remaining": null,
+    "configured": false,
+    "limits": {
+      "max_daily_spend": null,
+      "max_monthly_loss": null,
+      "max_test_budget_percent": null
+    },
+    "monthly_budget": null,
+    "monthly_budget_source": null,
+    "note": "monthly_budget não configurado em analytics/config/capital.js — só spent_this_month é real, o restante fica null até você definir um valor.",
+    "spent_this_month": 1091.0199999999998
+  },
+  "generated_at": "2026-08-28T10:12:56.039Z",
+  "reference_date": "2026-08-28",
+  "target_roas": 2,
+  "windows": {
+    "current_month": {
+      "current_financials": {
+        "aov_bruto": 74.155,
+        "aov_liquido": 65.683,
+        "cpa_financeiro": 109.10199999999998,
+        "cpa_meta": 83.92461538461536,
+        "gasto_meta": 1091.0199999999998,
+        "lucro_prejuizo": -434.1899999999997,
+        "numero_compradores_reais": 10,
+        "order_bump_attach_rate": 0.3,
+        "order_bump_revenue_bruto": 54.699999999999996,
+        "order_bump_revenue_liquido": 46.28,
+        "receita_bruta_hotmart": 741.5500000000001,
+        "receita_liquida_hotmart": 656.83,
+        "refund_rate": 0.09035129121434832,
+        "refunds_count": 1,
+        "refunds_value": 67,
+        "roas_financeiro": 0.6020329599824019,
+        "roas_marketing": 0.6800333632747338
+      },
+      "data_quality": {
+        "data_completeness": 0.9642857142857143,
+        "days_found": 27,
+        "days_missing": [
+          "2026-08-28"
+        ],
+        "days_requested": 28,
+        "days_with_critical_flags": [
+          "2026-08-19",
+          "2026-08-25"
+        ],
+        "financial_confidence": "degraded",
+        "reasons": [
+          "2026-08-19: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "2026-08-25: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "cobertura de dados incompleta: 27/28 dias com snapshot (faltando: 2026-08-28)"
+        ]
+      },
+      "gaps": {
+        "aov_path": {
+          "aov_min_for_target": 218.20399999999995,
+          "increase_needed_percent": 2.3220772498211097,
+          "increase_needed_value": 152.52099999999996
+        },
+        "cpa_path": {
+          "cpa_max_for_target": 32.8415,
+          "reduction_needed_percent": 0.698983520008799,
+          "reduction_needed_value": 76.26049999999998
+        },
+        "current": {
+          "aov_liquido": 65.683,
+          "cpa_financeiro": 109.10199999999998,
+          "roas_financeiro": 0.6020329599824019
+        },
+        "target_roas": 2
+      },
+      "period": {
+        "days_requested": 28,
+        "from": "2026-08-01",
+        "label": "Mês atual",
+        "to": "2026-08-28"
+      },
+      "profit_status": {
+        "reason": "0.5 <= roas_financeiro (0.602) < 0.9",
+        "status": "LOSS"
+      },
+      "scenarios": {
+        "A": {
+          "aov_projetado": 65.683,
+          "cpa_projetado": 98.19179999999999,
+          "gasto_base": 1091.0199999999998,
+          "inputs": {
+            "aovChangePct": 0,
+            "cpaChangePct": -0.1
+          },
+          "label": "CPA -10%, AOV igual",
+          "lucro_prejuizo_projetado": -361.2088888888886,
+          "receita_projetada": 729.8111111111111,
+          "roas_projetado": 0.6689255110915577,
+          "vendas_necessarias": 11.11111111111111
+        },
+        "B": {
+          "aov_projetado": 72.25130000000001,
+          "cpa_projetado": 87.28159999999998,
+          "gasto_base": 1091.0199999999998,
+          "inputs": {
+            "aovChangePct": 0.1,
+            "cpaChangePct": -0.2
+          },
+          "label": "CPA -20%, AOV +10%",
+          "lucro_prejuizo_projetado": -187.87874999999963,
+          "receita_projetada": 903.1412500000001,
+          "roas_projetado": 0.8277953199758028,
+          "vendas_necessarias": 12.5
+        },
+        "C": {
+          "aov_projetado": 78.81960000000001,
+          "cpa_projetado": 76.37139999999998,
+          "gasto_base": 1091.0199999999998,
+          "inputs": {
+            "aovChangePct": 0.2,
+            "cpaChangePct": -0.3
+          },
+          "label": "CPA -30%, AOV +20%",
+          "lucro_prejuizo_projetado": 34.974285714286225,
+          "receita_projetada": 1125.994285714286,
+          "roas_projetado": 1.0320565028269748,
+          "vendas_necessarias": 14.285714285714286
+        },
+        "D": {
+          "aov_projetado": 85.38790000000002,
+          "cpa_projetado": 65.46119999999998,
+          "gasto_base": 1091.0199999999998,
+          "inputs": {
+            "aovChangePct": 0.3,
+            "cpaChangePct": -0.4
+          },
+          "label": "CPA -40%, AOV +30%",
+          "lucro_prejuizo_projetado": 332.11166666666736,
+          "receita_projetada": 1423.1316666666671,
+          "roas_projetado": 1.304404746628538,
+          "vendas_necessarias": 16.666666666666668
+        }
+      },
+      "targets": {
+        "target_roas": 2
+      },
+      "unit_economics": {
+        "aov_necessario_mantendo_cpa_atual": 218.20399999999995,
+        "aov_necessario_por_cpa": {
+          "30": 60,
+          "40": 80,
+          "50": 100,
+          "60": 120,
+          "70": 140,
+          "atual": 218.20399999999995
+        },
+        "cpa_equilibrio": 65.683,
+        "cpa_maximo_por_roas": {
+          "1": 65.683,
+          "2": 32.8415,
+          "3": 21.894333333333336,
+          "1.2": 54.73583333333334,
+          "1.5": 43.78866666666667,
+          "2.5": 26.273200000000003
+        },
+        "cpa_necessario_mantendo_aov_atual": 32.8415,
+        "target_roas_usado_nas_tabelas": 2
+      }
+    },
+    "day": {
+      "current_financials": {
+        "aov_bruto": null,
+        "aov_liquido": null,
+        "cpa_financeiro": null,
+        "cpa_meta": null,
+        "gasto_meta": 0,
+        "lucro_prejuizo": 0,
+        "numero_compradores_reais": 0,
+        "order_bump_attach_rate": null,
+        "order_bump_revenue_bruto": 0,
+        "order_bump_revenue_liquido": 0,
+        "receita_bruta_hotmart": 0,
+        "receita_liquida_hotmart": 0,
+        "refund_rate": null,
+        "refunds_count": 0,
+        "refunds_value": 0,
+        "roas_financeiro": null,
+        "roas_marketing": null
+      },
+      "data_quality": {
+        "data_completeness": 0,
+        "days_found": 0,
+        "days_missing": [
+          "2026-08-28"
+        ],
+        "days_requested": 1,
+        "days_with_critical_flags": [],
+        "financial_confidence": "degraded",
+        "reasons": [
+          "cobertura de dados incompleta: 0/1 dias com snapshot (faltando: 2026-08-28)"
+        ]
+      },
+      "gaps": {
+        "aov_path": {
+          "aov_min_for_target": null,
+          "increase_needed_percent": null,
+          "increase_needed_value": null
+        },
+        "cpa_path": {
+          "cpa_max_for_target": null,
+          "reduction_needed_percent": null,
+          "reduction_needed_value": null
+        },
+        "current": {
+          "aov_liquido": null,
+          "cpa_financeiro": null,
+          "roas_financeiro": null
+        },
+        "target_roas": 2
+      },
+      "period": {
+        "days_requested": 1,
+        "from": "2026-08-28",
+        "label": "Dia",
+        "to": "2026-08-28"
+      },
+      "profit_status": {
+        "reason": "roas_financeiro indisponível (sem gasto ou sem venda confirmada no período).",
+        "status": "INSUFFICIENT_DATA"
+      },
+      "scenarios": {
+        "A": {
+          "aovChangePct": 0,
+          "cpaChangePct": -0.1,
+          "error": "Sem CPA/AOV atual válido para simular (sem vendas no período).",
+          "label": "CPA -10%, AOV igual"
+        },
+        "B": {
+          "aovChangePct": 0.1,
+          "cpaChangePct": -0.2,
+          "error": "Sem CPA/AOV atual válido para simular (sem vendas no período).",
+          "label": "CPA -20%, AOV +10%"
+        },
+        "C": {
+          "aovChangePct": 0.2,
+          "cpaChangePct": -0.3,
+          "error": "Sem CPA/AOV atual válido para simular (sem vendas no período).",
+          "label": "CPA -30%, AOV +20%"
+        },
+        "D": {
+          "aovChangePct": 0.3,
+          "cpaChangePct": -0.4,
+          "error": "Sem CPA/AOV atual válido para simular (sem vendas no período).",
+          "label": "CPA -40%, AOV +30%"
+        }
+      },
+      "targets": {
+        "target_roas": 2
+      },
+      "unit_economics": {
+        "aov_necessario_mantendo_cpa_atual": null,
+        "aov_necessario_por_cpa": {
+          "30": 60,
+          "40": 80,
+          "50": 100,
+          "60": 120,
+          "70": 140,
+          "atual": null
+        },
+        "cpa_equilibrio": null,
+        "cpa_maximo_por_roas": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "1.2": null,
+          "1.5": null,
+          "2.5": null
+        },
+        "cpa_necessario_mantendo_aov_atual": null,
+        "target_roas_usado_nas_tabelas": 2
+      }
+    },
+    "last_14d": {
+      "current_financials": {
+        "aov_bruto": 68.8,
+        "aov_liquido": 61.17,
+        "cpa_financeiro": 105.2475,
+        "cpa_meta": 60.14142857142857,
+        "gasto_meta": 420.99,
+        "lucro_prejuizo": -176.31,
+        "numero_compradores_reais": 4,
+        "order_bump_attach_rate": 0,
+        "order_bump_revenue_bruto": 0,
+        "order_bump_revenue_liquido": 0,
+        "receita_bruta_hotmart": 275.2,
+        "receita_liquida_hotmart": 244.68,
+        "refund_rate": 0.2434593023255814,
+        "refunds_count": 1,
+        "refunds_value": 67,
+        "roas_financeiro": 0.5812014537162403,
+        "roas_marketing": 0.9457706833891542
+      },
+      "data_quality": {
+        "data_completeness": 0.9285714285714286,
+        "days_found": 13,
+        "days_missing": [
+          "2026-08-28"
+        ],
+        "days_requested": 14,
+        "days_with_critical_flags": [
+          "2026-08-19",
+          "2026-08-25"
+        ],
+        "financial_confidence": "degraded",
+        "reasons": [
+          "2026-08-19: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "2026-08-25: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "cobertura de dados incompleta: 13/14 dias com snapshot (faltando: 2026-08-28)"
+        ]
+      },
+      "gaps": {
+        "aov_path": {
+          "aov_min_for_target": 210.495,
+          "increase_needed_percent": 2.4411476213830308,
+          "increase_needed_value": 149.325
+        },
+        "cpa_path": {
+          "cpa_max_for_target": 30.585,
+          "reduction_needed_percent": 0.7093992731418798,
+          "reduction_needed_value": 74.6625
+        },
+        "current": {
+          "aov_liquido": 61.17,
+          "cpa_financeiro": 105.2475,
+          "roas_financeiro": 0.5812014537162403
+        },
+        "target_roas": 2
+      },
+      "period": {
+        "days_requested": 14,
+        "from": "2026-08-15",
+        "label": "Últimos 14 dias",
+        "to": "2026-08-28"
+      },
+      "profit_status": {
+        "reason": "0.5 <= roas_financeiro (0.581) < 0.9",
+        "status": "LOSS"
+      },
+      "scenarios": {
+        "A": {
+          "aov_projetado": 61.17,
+          "cpa_projetado": 94.72275,
+          "gasto_base": 420.99,
+          "inputs": {
+            "aovChangePct": 0,
+            "cpaChangePct": -0.1
+          },
+          "label": "CPA -10%, AOV igual",
+          "lucro_prejuizo_projetado": -149.12333333333333,
+          "receita_projetada": 271.8666666666667,
+          "roas_projetado": 0.6457793930180448,
+          "vendas_necessarias": 4.444444444444445
+        },
+        "B": {
+          "aov_projetado": 67.287,
+          "cpa_projetado": 84.19800000000001,
+          "gasto_base": 420.99,
+          "inputs": {
+            "aovChangePct": 0.1,
+            "cpaChangePct": -0.2
+          },
+          "label": "CPA -20%, AOV +10%",
+          "lucro_prejuizo_projetado": -84.55499999999995,
+          "receita_projetada": 336.43500000000006,
+          "roas_projetado": 0.7991519988598303,
+          "vendas_necessarias": 5
+        },
+        "C": {
+          "aov_projetado": 73.404,
+          "cpa_projetado": 73.67325,
+          "gasto_base": 420.99,
+          "inputs": {
+            "aovChangePct": 0.2,
+            "cpaChangePct": -0.3
+          },
+          "label": "CPA -30%, AOV +20%",
+          "lucro_prejuizo_projetado": -1.5385714285714585,
+          "receita_projetada": 419.45142857142855,
+          "roas_projetado": 0.9963453492278405,
+          "vendas_necessarias": 5.714285714285714
+        },
+        "D": {
+          "aov_projetado": 79.521,
+          "cpa_projetado": 63.1485,
+          "gasto_base": 420.99,
+          "inputs": {
+            "aovChangePct": 0.3,
+            "cpaChangePct": -0.4
+          },
+          "label": "CPA -40%, AOV +30%",
+          "lucro_prejuizo_projetado": 109.14999999999998,
+          "receita_projetada": 530.14,
+          "roas_projetado": 1.2592698163851874,
+          "vendas_necessarias": 6.666666666666667
+        }
+      },
+      "targets": {
+        "target_roas": 2
+      },
+      "unit_economics": {
+        "aov_necessario_mantendo_cpa_atual": 210.495,
+        "aov_necessario_por_cpa": {
+          "30": 60,
+          "40": 80,
+          "50": 100,
+          "60": 120,
+          "70": 140,
+          "atual": 210.495
+        },
+        "cpa_equilibrio": 61.17,
+        "cpa_maximo_por_roas": {
+          "1": 61.17,
+          "2": 30.585,
+          "3": 20.39,
+          "1.2": 50.975,
+          "1.5": 40.78,
+          "2.5": 24.468
+        },
+        "cpa_necessario_mantendo_aov_atual": 30.585,
+        "target_roas_usado_nas_tabelas": 2
+      }
+    },
+    "last_30d": {
+      "current_financials": {
+        "aov_bruto": 73.50454545454546,
+        "aov_liquido": 65.10909090909091,
+        "cpa_financeiro": 104.8872727272727,
+        "cpa_meta": 82.41142857142856,
+        "gasto_meta": 1153.7599999999998,
+        "lucro_prejuizo": -437.5599999999997,
+        "numero_compradores_reais": 11,
+        "order_bump_attach_rate": 0.2727272727272727,
+        "order_bump_revenue_bruto": 54.699999999999996,
+        "order_bump_revenue_liquido": 46.28,
+        "receita_bruta_hotmart": 808.5500000000001,
+        "receita_liquida_hotmart": 716.2,
+        "refund_rate": 0.08286438686537628,
+        "refunds_count": 1,
+        "refunds_value": 67,
+        "roas_financeiro": 0.6207530162252116,
+        "roas_marketing": 0.6945118568853142
+      },
+      "data_quality": {
+        "data_completeness": 0.9666666666666667,
+        "days_found": 29,
+        "days_missing": [
+          "2026-08-28"
+        ],
+        "days_requested": 30,
+        "days_with_critical_flags": [
+          "2026-08-19",
+          "2026-08-25"
+        ],
+        "financial_confidence": "degraded",
+        "reasons": [
+          "2026-08-19: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "2026-08-25: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "cobertura de dados incompleta: 29/30 dias com snapshot (faltando: 2026-08-28)"
+        ]
+      },
+      "gaps": {
+        "aov_path": {
+          "aov_min_for_target": 209.7745454545454,
+          "increase_needed_percent": 2.221893325886623,
+          "increase_needed_value": 144.6654545454545
+        },
+        "cpa_path": {
+          "cpa_max_for_target": 32.554545454545455,
+          "reduction_needed_percent": 0.6896234918873942,
+          "reduction_needed_value": 72.33272727272725
+        },
+        "current": {
+          "aov_liquido": 65.10909090909091,
+          "cpa_financeiro": 104.8872727272727,
+          "roas_financeiro": 0.6207530162252116
+        },
+        "target_roas": 2
+      },
+      "period": {
+        "days_requested": 30,
+        "from": "2026-07-30",
+        "label": "Últimos 30 dias",
+        "to": "2026-08-28"
+      },
+      "profit_status": {
+        "reason": "0.5 <= roas_financeiro (0.621) < 0.9",
+        "status": "LOSS"
+      },
+      "scenarios": {
+        "A": {
+          "aov_projetado": 65.10909090909091,
+          "cpa_projetado": 94.39854545454543,
+          "gasto_base": 1153.7599999999998,
+          "inputs": {
+            "aovChangePct": 0,
+            "cpaChangePct": -0.1
+          },
+          "label": "CPA -10%, AOV igual",
+          "lucro_prejuizo_projetado": -357.98222222222194,
+          "receita_projetada": 795.7777777777778,
+          "roas_projetado": 0.6897255735835686,
+          "vendas_necessarias": 12.222222222222223
+        },
+        "B": {
+          "aov_projetado": 71.62,
+          "cpa_projetado": 83.90981818181817,
+          "gasto_base": 1153.7599999999998,
+          "inputs": {
+            "aovChangePct": 0.1,
+            "cpaChangePct": -0.2
+          },
+          "label": "CPA -20%, AOV +10%",
+          "lucro_prejuizo_projetado": -168.98499999999967,
+          "receita_projetada": 984.7750000000001,
+          "roas_projetado": 0.853535397309666,
+          "vendas_necessarias": 13.75
+        },
+        "C": {
+          "aov_projetado": 78.13090909090909,
+          "cpa_projetado": 73.42109090909089,
+          "gasto_base": 1153.7599999999998,
+          "inputs": {
+            "aovChangePct": 0.2,
+            "cpaChangePct": -0.3
+          },
+          "label": "CPA -30%, AOV +20%",
+          "lucro_prejuizo_projetado": 74.01142857142872,
+          "receita_projetada": 1227.7714285714285,
+          "roas_projetado": 1.0641480278146485,
+          "vendas_necessarias": 15.714285714285715
+        },
+        "D": {
+          "aov_projetado": 84.64181818181818,
+          "cpa_projetado": 62.93236363636362,
+          "gasto_base": 1153.7599999999998,
+          "inputs": {
+            "aovChangePct": 0.3,
+            "cpaChangePct": -0.4
+          },
+          "label": "CPA -40%, AOV +30%",
+          "lucro_prejuizo_projetado": 398.0066666666671,
+          "receita_projetada": 1551.7666666666669,
+          "roas_projetado": 1.3449648684879585,
+          "vendas_necessarias": 18.333333333333336
+        }
+      },
+      "targets": {
+        "target_roas": 2
+      },
+      "unit_economics": {
+        "aov_necessario_mantendo_cpa_atual": 209.7745454545454,
+        "aov_necessario_por_cpa": {
+          "30": 60,
+          "40": 80,
+          "50": 100,
+          "60": 120,
+          "70": 140,
+          "atual": 209.7745454545454
+        },
+        "cpa_equilibrio": 65.10909090909091,
+        "cpa_maximo_por_roas": {
+          "1": 65.10909090909091,
+          "2": 32.554545454545455,
+          "3": 21.703030303030303,
+          "1.2": 54.25757575757576,
+          "1.5": 43.406060606060606,
+          "2.5": 26.043636363636363
+        },
+        "cpa_necessario_mantendo_aov_atual": 32.554545454545455,
+        "target_roas_usado_nas_tabelas": 2
+      }
+    },
+    "last_7d": {
+      "current_financials": {
+        "aov_bruto": 67,
+        "aov_liquido": 59.37,
+        "cpa_financeiro": 149.92,
+        "cpa_meta": 49.97333333333333,
+        "gasto_meta": 149.92,
+        "lucro_prejuizo": -90.54999999999998,
+        "numero_compradores_reais": 1,
+        "order_bump_attach_rate": 0,
+        "order_bump_revenue_bruto": 0,
+        "order_bump_revenue_liquido": 0,
+        "receita_bruta_hotmart": 67,
+        "receita_liquida_hotmart": 59.37,
+        "refund_rate": 0,
+        "refunds_count": 0,
+        "refunds_value": 0,
+        "roas_financeiro": 0.39601120597652084,
+        "roas_marketing": 1.1382070437566705
+      },
+      "data_quality": {
+        "data_completeness": 0.8571428571428571,
+        "days_found": 6,
+        "days_missing": [
+          "2026-08-28"
+        ],
+        "days_requested": 7,
+        "days_with_critical_flags": [
+          "2026-08-25"
+        ],
+        "financial_confidence": "degraded",
+        "reasons": [
+          "2026-08-25: META_PURCHASE_WITHOUT_HOTMART_SALE",
+          "cobertura de dados incompleta: 6/7 dias com snapshot (faltando: 2026-08-28)"
+        ]
+      },
+      "gaps": {
+        "aov_path": {
+          "aov_min_for_target": 299.84,
+          "increase_needed_percent": 4.0503621357588,
+          "increase_needed_value": 240.46999999999997
+        },
+        "cpa_path": {
+          "cpa_max_for_target": 29.685,
+          "reduction_needed_percent": 0.8019943970117396,
+          "reduction_needed_value": 120.23499999999999
+        },
+        "current": {
+          "aov_liquido": 59.37,
+          "cpa_financeiro": 149.92,
+          "roas_financeiro": 0.39601120597652084
+        },
+        "target_roas": 2
+      },
+      "period": {
+        "days_requested": 7,
+        "from": "2026-08-22",
+        "label": "Últimos 7 dias",
+        "to": "2026-08-28"
+      },
+      "profit_status": {
+        "reason": "roas_financeiro (0.396) < 0.5",
+        "status": "CRITICAL_LOSS"
+      },
+      "scenarios": {
+        "A": {
+          "aov_projetado": 59.37,
+          "cpa_projetado": 134.928,
+          "gasto_base": 149.92,
+          "inputs": {
+            "aovChangePct": 0,
+            "cpaChangePct": -0.1
+          },
+          "label": "CPA -10%, AOV igual",
+          "lucro_prejuizo_projetado": -83.95333333333333,
+          "receita_projetada": 65.96666666666665,
+          "roas_projetado": 0.4400124510850231,
+          "vendas_necessarias": 1.111111111111111
+        },
+        "B": {
+          "aov_projetado": 65.307,
+          "cpa_projetado": 119.93599999999999,
+          "gasto_base": 149.92,
+          "inputs": {
+            "aovChangePct": 0.1,
+            "cpaChangePct": -0.2
+          },
+          "label": "CPA -20%, AOV +10%",
+          "lucro_prejuizo_projetado": -68.28624999999998,
+          "receita_projetada": 81.63375,
+          "roas_projetado": 0.5445154082177162,
+          "vendas_necessarias": 1.25
+        },
+        "C": {
+          "aov_projetado": 71.244,
+          "cpa_projetado": 104.94399999999999,
+          "gasto_base": 149.92,
+          "inputs": {
+            "aovChangePct": 0.2,
+            "cpaChangePct": -0.3
+          },
+          "label": "CPA -30%, AOV +20%",
+          "lucro_prejuizo_projetado": -48.142857142857125,
+          "receita_projetada": 101.77714285714286,
+          "roas_projetado": 0.6788763531026072,
+          "vendas_necessarias": 1.4285714285714286
+        },
+        "D": {
+          "aov_projetado": 77.181,
+          "cpa_projetado": 89.95199999999998,
+          "gasto_base": 149.92,
+          "inputs": {
+            "aovChangePct": 0.3,
+            "cpaChangePct": -0.4
+          },
+          "label": "CPA -40%, AOV +30%",
+          "lucro_prejuizo_projetado": -21.284999999999997,
+          "receita_projetada": 128.635,
+          "roas_projetado": 0.8580242796157952,
+          "vendas_necessarias": 1.6666666666666667
+        }
+      },
+      "targets": {
+        "target_roas": 2
+      },
+      "unit_economics": {
+        "aov_necessario_mantendo_cpa_atual": 299.84,
+        "aov_necessario_por_cpa": {
+          "30": 60,
+          "40": 80,
+          "50": 100,
+          "60": 120,
+          "70": 140,
+          "atual": 299.84
+        },
+        "cpa_equilibrio": 59.37,
+        "cpa_maximo_por_roas": {
+          "1": 59.37,
+          "2": 29.685,
+          "3": 19.79,
+          "1.2": 49.475,
+          "1.5": 39.58,
+          "2.5": 23.747999999999998
+        },
+        "cpa_necessario_mantendo_aov_atual": 29.685,
+        "target_roas_usado_nas_tabelas": 2
+      }
+    }
+  }
+}
