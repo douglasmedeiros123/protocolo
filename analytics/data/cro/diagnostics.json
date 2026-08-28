@@ -1,0 +1,104 @@
+[
+  {
+    "affected_layer": "INTENT",
+    "causal_status": "OBSERVED",
+    "confidence": 100,
+    "diagnostic_id": "CRO-DIAG-DUPLICATE-ID-OFERTA",
+    "diagnostic_type": "TECHNICAL_ISSUE",
+    "evidence": {
+      "duplicate_id": "oferta",
+      "occurrences": 2,
+      "source": "teste-b/index.html (parseado por htmlParser.js)"
+    },
+    "existence_confidence": "HIGH",
+    "impact_confidence": "LOW",
+    "observation": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+    "possible_causes": [
+      "O link \"#oferta\" pode navegar até a PRIMEIRA ocorrência (não necessariamente a seção de preço/CTA), adicionando um passo extra de scroll antes da oferta."
+    ],
+    "recommended_investigation": "FUNCTIONAL_TEST barato (quase R$0): testar manualmente o clique no CTA do hero em mobile e desktop pra confirmar onde o scroll para — não precisa de experimento pago pra essa primeira validação.",
+    "severity": "MEDIUM",
+    "validation_method": "STATIC_CODE_CHECK"
+  },
+  {
+    "affected_layer": "INTENT",
+    "causal_status": "HYPOTHESIZED",
+    "confidence": 70,
+    "diagnostic_id": "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+    "diagnostic_type": "FUNCTIONAL_FRICTION",
+    "evidence": {
+      "faq_questions": [
+        "Qual é a forma de pagamento?",
+        "O pagamento é seguro?",
+        "Funciona para o meu segmento?",
+        "Vou parecer chato mandando essas mensagens?",
+        "Como acesso o material?",
+        "Como funciona a garantia?"
+      ],
+      "source": "teste-b/index.html (parseado)"
+    },
+    "existence_confidence": "HIGH",
+    "impact_confidence": "LOW",
+    "observation": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte).",
+    "possible_causes": [
+      "Conteúdo carrega via JS após hidratação (comportamento normal de SPA) e funciona no navegador real.",
+      "Falha real de implementação onde a resposta nunca aparece."
+    ],
+    "recommended_investigation": "Abrir a LP num navegador real (mobile e desktop) e clicar em cada pergunta pra confirmar se a resposta realmente aparece (FUNCTIONAL_TEST, custo ~R$0).",
+    "severity": "LOW",
+    "validation_method": "FUNCTIONAL_TEST"
+  },
+  {
+    "affected_layer": "INTENT",
+    "causal_status": "OBSERVED",
+    "confidence": 100,
+    "diagnostic_id": "CRO-DIAG-INTENT-BASELINE",
+    "diagnostic_type": "CONVERSION_HYPOTHESIS",
+    "evidence": {
+      "checkout": 44,
+      "clicks": 726,
+      "gross_revenue": 808.5500000000001,
+      "low_intent_threshold": 0.15,
+      "lpv": 490,
+      "meta_purchases": 14,
+      "net_revenue": 716.2,
+      "orders_count": 11,
+      "source": "funnelMetrics.js (analytics/data/daily)",
+      "spend": 1153.7599999999998
+    },
+    "existence_confidence": null,
+    "impact_confidence": null,
+    "observation": "lpv_to_checkout_rate histórico (29 dias com dado): 8.98%.",
+    "possible_causes": [
+      "Fricção na primeira dobra (hipótese já registrada em CRO-001).",
+      "Descompasso entre promessa do anúncio e a LP (ver messageMatch.js).",
+      "Falta de prova/confiança suficiente antes da oferta.",
+      "Fricção técnica de navegação (ver CRO-DIAG-DUPLICATE-ID-OFERTA) — ainda não medida isoladamente."
+    ],
+    "recommended_investigation": "Isolar UMA variável por vez (ver cro001Analysis.js) pra testar causalmente uma das possible_causes — mas validar tecnicamente as causas de custo ~R$0 primeiro (ver technicalActions).",
+    "severity": "HIGH",
+    "validation_method": "CONTROLLED_EXPERIMENT"
+  },
+  {
+    "affected_layer": "ENGAGEMENT",
+    "causal_status": "HYPOTHESIZED",
+    "confidence": 50,
+    "diagnostic_id": "CRO-DIAG-LONG-PAGE-MOBILE-TRAFFIC",
+    "diagnostic_type": "BEHAVIORAL_HYPOTHESIS",
+    "evidence": {
+      "cro_001_historical_citation": "71% do tráfego via Instagram in-app, scroll médio 16,8%, tempo ativo 11s — citado como \"dado real do Clarity\" na criação do CRO-001 (analytics/data/experiments/CRO-001.json, 2026-08-27). NÃO reconfirmado nesta execução — Clarity está indisponível agora (ver claritySnapshot).",
+      "page_length_sections": 13,
+      "source": "section map real (teste-b/index.html)"
+    },
+    "existence_confidence": null,
+    "impact_confidence": null,
+    "observation": "A LP tem 13 seções reais de conteúdo servindo um público majoritariamente mobile/in-app (dado do Data Agent).",
+    "possible_causes": [
+      "Página longa demais pro tempo de atenção real do público in-app.",
+      "Conteúdo bem estruturado, mas primeira dobra não retém quem não rola."
+    ],
+    "recommended_investigation": "Reconfirmar engajamento via nova coleta do Clarity assim que o limite diário da API resetar (BEHAVIORAL_DATA, custo ~R$0 — só esperar o dado).",
+    "severity": "MEDIUM",
+    "validation_method": "BEHAVIORAL_DATA"
+  }
+]

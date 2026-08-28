@@ -1,0 +1,270 @@
+[
+  {
+    "asset_origin": "UNKNOWN",
+    "created_at": "2026-08-28T12:01:46.830Z",
+    "cro_dna": {
+      "authority": {
+        "section_heading": "Doda Medeiros"
+      },
+      "benefits": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "bonuses": "ver offer — itens com rótulo \"Bônus\" dentro da seção OFFER_STACK",
+      "checkout_transition": {
+        "links": [
+          "https://pay.hotmart.com/O106918070H?checkoutMode=10"
+        ],
+        "type": "EXTERNAL_HOTMART"
+      },
+      "cta_repetition": 3,
+      "desire": null,
+      "desktop_experience": null,
+      "discount": [
+        "R$ 97,00",
+        "R$ 147,00",
+        "R$ 47,00",
+        "R$ 27,00",
+        "R$ 318,00"
+      ],
+      "faq": {
+        "answers_visible_in_static_html": false,
+        "questions": [
+          "Qual é a forma de pagamento?",
+          "O pagamento é seguro?",
+          "Funciona para o meu segmento?",
+          "Vou parecer chato mandando essas mensagens?",
+          "Como acesso o material?",
+          "Como funciona a garantia?"
+        ]
+      },
+      "features": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "guarantee": "Menção de garantia encontrada em pelo menos 1 seção",
+      "headline": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "hero": {
+        "has_cta": true,
+        "heading": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+        "order": 1
+      },
+      "mechanism": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+      "mobile_experience": null,
+      "objections": [
+        "Qual é a forma de pagamento?",
+        "O pagamento é seguro?",
+        "Funciona para o meu segmento?",
+        "Vou parecer chato mandando essas mensagens?",
+        "Como acesso o material?",
+        "Como funciona a garantia?"
+      ],
+      "offer": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "page_length": 13,
+      "pain": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+      "price": [
+        "R$ 8,63",
+        "R$ 67,00"
+      ],
+      "primary_cta": [
+        "Quero destravar meus leads agora",
+        "Sim! Quero destravar meu WhatsApp agora",
+        "Destravar minhas vendas agora"
+      ],
+      "problem": "Mandou o preço ✓✓ e o cliente sumiu? Isso tem explicação e tem solução em menos de 5 minutos.",
+      "promise": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "proof": {
+        "section": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+        "type": "chat_mockup_before_after"
+      },
+      "risk_reversal": "Mesmo elemento de garantia (ver guarantee)",
+      "scarcity": null,
+      "secondary_cta": null,
+      "social_proof": null,
+      "subheadline": "Copie e cole mensagens testadas para destravar clientes que sumiram no WhatsApp sem parecer chato e sem dar desconto. Acesso imediato.",
+      "testimonials": null,
+      "urgency": null
+    },
+    "diagnostics": [
+      "CRO-DIAG-DUPLICATE-ID-OFERTA",
+      "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+      "CRO-DIAG-LONG-PAGE-MOBILE-TRAFFIC",
+      "CRO-DIAG-INTENT-BASELINE"
+    ],
+    "experiment_id": "CRO-001",
+    "hypotheses": [
+      "CRO-HYP-CTA_VISIBILITY-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-HEADLINE-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-GUARANTEE-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-PROOF-LPV_TO_CHECKOUT_RATE"
+    ],
+    "landing_page_id": "LP-V1",
+    "parent_version": null,
+    "path": "teste-b/index.html",
+    "performance": {
+      "checkout_to_meta_purchase_rate": 0.3181818181818182,
+      "click_to_lpv_rate": 0.6749311294765841,
+      "confidence": 100,
+      "financial_attribution_note": "financial_buyers/financial_revenue/financial_roas são do FUNIL INTEIRO (toda a conta), nunca atribuídos a uma seção específica da LP, versão de LP ou criativo — não existe granularidade suficiente pra isso hoje. meta_purchases (Meta) e financial_buyers (Hotmart) são contagens DIFERENTES, nunca tratadas como sinônimos.",
+      "financial_buyers": 11,
+      "financial_revenue_net": 716.2,
+      "financial_roas": 0.6207530162252116,
+      "lpv_to_checkout_rate": 0.08979591836734693,
+      "period": {
+        "data_completeness": 0.9666666666666667,
+        "dates_requested": 30,
+        "days_found": 29,
+        "days_missing": [
+          "2026-08-28"
+        ]
+      },
+      "raw": {
+        "checkout": 44,
+        "clicks": 726,
+        "gross_revenue": 808.5500000000001,
+        "lpv": 490,
+        "meta_purchases": 14,
+        "net_revenue": 716.2,
+        "orders_count": 11,
+        "spend": 1153.7599999999998
+      },
+      "type": "HISTORICAL_FUNNEL_METRICS"
+    },
+    "product_id": "protocolo_resposta_garantida",
+    "sections": [
+      {
+        "cta_texts": [
+          "Quero destravar meus leads agora"
+        ],
+        "has_cta": true,
+        "heading_text": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 1,
+        "semantic_name": "HERO"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 2,
+        "semantic_name": "BEFORE_AFTER_PROOF"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 3,
+        "semantic_name": "PAIN"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Não é falta de cliente... É falta da mensagem certa pro momento certo.",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 4,
+        "semantic_name": "REFRAME_MECHANISM_INTRO"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 5,
+        "semantic_name": "MECHANISM_STEPS"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": true,
+        "order": 6,
+        "semantic_name": "OFFER_STACK"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Para quem serve (e para quem não serve)",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 7,
+        "semantic_name": "ICP_QUALIFICATION"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Recapitulando o valor de tudo o que você vai receber hoje:",
+        "id": "oferta",
+        "mentions_guarantee": false,
+        "mentions_price": true,
+        "order": 8,
+        "semantic_name": "VALUE_RECAP"
+      },
+      {
+        "cta_texts": [
+          "Sim! Quero destravar meu WhatsApp agora"
+        ],
+        "has_cta": true,
+        "heading_text": null,
+        "id": "oferta",
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 9,
+        "semantic_name": "PRICE_OFFER"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Me responda somente a verdade:",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 10,
+        "semantic_name": "URGENCY_OBJECTION"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Doda Medeiros",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 11,
+        "semantic_name": "AUTHORITY_CANDIDATE"
+      },
+      {
+        "cta_texts": [
+          "Destravar minhas vendas agora"
+        ],
+        "has_cta": true,
+        "heading_text": "Seu WhatsApp está cheio de conversas paradas. Cada uma delas vale dinheiro real.",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 12,
+        "semantic_name": "FINAL_CTA"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Perguntas frequentes",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": false,
+        "order": 13,
+        "semantic_name": "FAQ"
+      }
+    ],
+    "status": "BASELINE",
+    "updated_at": "2026-08-28T12:18:17.056Z",
+    "version": 1
+  }
+]

@@ -1,0 +1,1322 @@
+{
+  "candidates": [
+    {
+      "budget_estimate": 278.49,
+      "budget_estimate_based_on": "ritmo real de gasto/lpv/checkout do funil histórico (ver funnelMetrics.js)",
+      "candidate_id": "CRO-CAND-001",
+      "category": "CRO",
+      "causality": {
+        "reason": "CTA_VISIBILITY -> lpv_to_checkout_rate: se a chamada pra ação está visível sem esforço, afeta diretamente a intenção de avançar.",
+        "status": "VALID"
+      },
+      "confidence": 0.6,
+      "cro_brief": {
+        "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 20).",
+        "current_state": "Oferta/CTA de conversão só aparece depois de rolar a página (hero não expõe preço/oferta direto) — ver CRO DNA e section map.",
+        "desktop_requirements": "Manter paridade visual com a versão mobile; não é o viewport prioritário pra esta LP.",
+        "expected_direction": "INCREASE",
+        "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline.",
+        "hypothesis": "Se alterarmos CTA_VISIBILITY, esperamos que lpv_to_checkout_rate aumente porque refinamento do CRO-001 real (MULTI_VARIABLE_TEST detectado — ver cro001Analysis) isolando a variável com relação causal mais direta a lpv_to_checkout_rate.",
+        "measurement_plan": "Comparar lpv_to_checkout_rate da LP com a mudança vs baseline da LP atual, mesmo período mínimo de evidência.",
+        "minimum_evidence": "Ver minimum_evidence da categoria CRO (lpv>=100, checkouts>=10, 7 dias) — mesmo padrão do CRO-001.",
+        "mobile_requirements": "Tráfego majoritariamente mobile/in-app (Instagram) — validar a mudança primeiro no viewport mobile antes do desktop.",
+        "objective": "Testar isoladamente \"CTA_VISIBILITY\" na LP atual, preservando as demais variáveis principais.",
+        "observation": "Oferta/CTA de conversão só aparece depois de rolar a página (hero não expõe preço/oferta direto) — ver CRO DNA e section map.",
+        "preserve": [
+          "HEADLINE",
+          "GUARANTEE",
+          "PRICE_PRESENTATION",
+          "HERO",
+          "PROOF",
+          "MOBILE_LAYOUT",
+          "PAGE_SPEED"
+        ],
+        "proposed_change": "Reduzir a dependência de scroll pra alcançar a oferta/CTA principal na primeira dobra, sem remover o conteúdo de qualificação/prova.",
+        "rollback_condition": "Reverter pra versão anterior da LP se failure_condition for atingida antes do minimum_evidence completo, ou se uma métrica de camada anterior (ARRIVAL/FIRST_VIEW) piorar drasticamente.",
+        "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "days_to_evidence_estimated": 7,
+      "evidence_sources": [
+        {
+          "source": "CRO-001 hypothesis.change — citação de Clarity histórica, não reconfirmada nesta execução.",
+          "type": "HISTORICAL_HYPOTHESIS"
+        },
+        {
+          "source": "CRO-DIAG-DUPLICATE-ID-OFERTA (HTML real, existence_confidence HIGH).",
+          "type": "TECHNICAL_OBSERVATION"
+        }
+      ],
+      "expected_effect": {
+        "baseline_value": 0.08979591836734693,
+        "expected_direction": "INCREASE",
+        "note": "Proxy determinístico (gap vs limiar documentado) — NÃO é projeção financeira nem número garantido.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline do LP-V1.",
+      "final_rank_reason": "Vence CRO-CAND-002 no fator \"evidence_quality\" (2 vs 1).",
+      "hypothesis": {
+        "causality": "VALID",
+        "confidence": 0.6,
+        "current_state": "Oferta/CTA de conversão só aparece depois de rolar a página (hero não expõe preço/oferta direto) — ver CRO DNA e section map.",
+        "evidence": "cro001Analysis.js: CRO-001 combina 3 variáveis; CTA_VISIBILITY validado como relação causal direta; id=\"oferta\" duplicado no HTML real (ver diagnostics.js) reforça que a navegação até a oferta pode ter fricção extra.",
+        "expected_direction": "INCREASE",
+        "hypothesis_id": "CRO-HYP-CTA_VISIBILITY-LPV_TO_CHECKOUT_RATE",
+        "landing_page_id": "LP-V1",
+        "prior_learning_status": "NO_PRIOR_EVIDENCE",
+        "product_id": "protocolo_resposta_garantida",
+        "proposed_direction": "Reduzir a dependência de scroll pra alcançar a oferta/CTA principal na primeira dobra, sem remover o conteúdo de qualificação/prova.",
+        "reason": "refinamento do CRO-001 real (MULTI_VARIABLE_TEST detectado — ver cro001Analysis) isolando a variável com relação causal mais direta a lpv_to_checkout_rate",
+        "statement": "Se alterarmos CTA_VISIBILITY, esperamos que lpv_to_checkout_rate aumente porque refinamento do CRO-001 real (MULTI_VARIABLE_TEST detectado — ver cro001Analysis) isolando a variável com relação causal mais direta a lpv_to_checkout_rate.",
+        "target_metric": "lpv_to_checkout_rate",
+        "variable_changed": "CTA_VISIBILITY"
+      },
+      "implementation_cost": "LOW",
+      "information_gain_per_real": 60,
+      "is_tie": false,
+      "learning_value": "MEDIUM",
+      "minimum_evidence": {
+        "checkouts": 10,
+        "compras": null,
+        "duration_days": 7,
+        "lpv": 100,
+        "spend": null
+      },
+      "mode": "EXPLOIT",
+      "parent_landing_page_version": "LP-V1",
+      "pre_experiment_validation": {
+        "estimated_validation_cost_reais": 0,
+        "note": "Pode ser pré-validado via FUNCTIONAL_TEST antes de qualquer gasto de mídia (custo ~R$0).",
+        "validation_method": "FUNCTIONAL_TEST"
+      },
+      "preserved_elements": [
+        "HEADLINE",
+        "GUARANTEE",
+        "PRICE_PRESENTATION",
+        "HERO",
+        "PROOF",
+        "MOBILE_LAYOUT",
+        "PAGE_SPEED"
+      ],
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "priority_score": 100,
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_change": {
+        "direction": "Reduzir a dependência de scroll pra alcançar a oferta/CTA principal na primeira dobra, sem remover o conteúdo de qualificação/prova.",
+        "note": "Direção conceitual, não copy final — ver PASSO 9 item 32 (não inventar copy definitiva)."
+      },
+      "proposed_version": "LP-V1-V2",
+      "rank": 1,
+      "risk": 1,
+      "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline do LP-V1.",
+      "target_metric": "lpv_to_checkout_rate",
+      "tie_break_components": {
+        "causal_strength": 2,
+        "confidence": 0.6,
+        "evidence_quality": 2,
+        "implementation_cost_rank": 3,
+        "information_gain_per_real": 60,
+        "learning_value_rank": 1,
+        "priority_score": 100,
+        "risk_rank": -1
+      },
+      "validation_method": "FUNCTIONAL_TEST",
+      "variable_changed": "CTA_VISIBILITY"
+    },
+    {
+      "budget_estimate": 278.49,
+      "budget_estimate_based_on": "ritmo real de gasto/lpv/checkout do funil histórico (ver funnelMetrics.js)",
+      "candidate_id": "CRO-CAND-002",
+      "category": "CRO",
+      "causality": {
+        "reason": "HEADLINE -> lpv_to_checkout_rate: primeiros segundos de compreensão — afeta diretamente se quem chega entende a promessa antes de rolar a página.",
+        "status": "VALID"
+      },
+      "confidence": 0.6,
+      "cro_brief": {
+        "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 20).",
+        "current_state": "Headline atual: \"A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar\" — promessa focada na entrega (scripts prontos), sem citar diretamente o problema específico do visitante nos primeiros segundos.",
+        "desktop_requirements": "Manter paridade visual com a versão mobile; não é o viewport prioritário pra esta LP.",
+        "expected_direction": "INCREASE",
+        "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline.",
+        "hypothesis": "Se alterarmos HEADLINE, esperamos que lpv_to_checkout_rate aumente porque segunda variável bundlada no CRO-001 real (hook nos 2-3s iniciais), agora isolada pra permitir aprendizado causal limpo.",
+        "measurement_plan": "Comparar lpv_to_checkout_rate da LP com a mudança vs baseline da LP atual, mesmo período mínimo de evidência.",
+        "minimum_evidence": "Ver minimum_evidence da categoria CRO (lpv>=100, checkouts>=10, 7 dias) — mesmo padrão do CRO-001.",
+        "mobile_requirements": "Tráfego majoritariamente mobile/in-app (Instagram) — validar a mudança primeiro no viewport mobile antes do desktop.",
+        "objective": "Testar isoladamente \"HEADLINE\" na LP atual, preservando as demais variáveis principais.",
+        "observation": "Headline atual: \"A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar\" — promessa focada na entrega (scripts prontos), sem citar diretamente o problema específico do visitante nos primeiros segundos.",
+        "preserve": [
+          "CTA_VISIBILITY",
+          "GUARANTEE",
+          "PRICE_PRESENTATION",
+          "HERO",
+          "PROOF",
+          "MOBILE_LAYOUT",
+          "PAGE_SPEED"
+        ],
+        "proposed_change": "Aproximar os primeiros segundos de leitura (headline/hook) do problema específico e imediato do visitante, mantendo o restante da primeira dobra igual.",
+        "rollback_condition": "Reverter pra versão anterior da LP se failure_condition for atingida antes do minimum_evidence completo, ou se uma métrica de camada anterior (ARRIVAL/FIRST_VIEW) piorar drasticamente.",
+        "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "days_to_evidence_estimated": 7,
+      "evidence_sources": [
+        {
+          "source": "CRO-001 hypothesis.change — citação de Clarity histórica, não reconfirmada nesta execução.",
+          "type": "HISTORICAL_HYPOTHESIS"
+        }
+      ],
+      "expected_effect": {
+        "baseline_value": 0.08979591836734693,
+        "expected_direction": "INCREASE",
+        "note": "Proxy determinístico (gap vs limiar documentado) — NÃO é projeção financeira nem número garantido.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline do LP-V1.",
+      "final_rank_reason": "Perde de CRO-CAND-001 no fator \"evidence_quality\" (1 vs 2).",
+      "hypothesis": {
+        "causality": "VALID",
+        "confidence": 0.6,
+        "current_state": "Headline atual: \"A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar\" — promessa focada na entrega (scripts prontos), sem citar diretamente o problema específico do visitante nos primeiros segundos.",
+        "evidence": "cro001Analysis.js: HEADLINE validado como relação causal direta com lpv_to_checkout_rate; parte do texto original de hypothesis.change do CRO-001.",
+        "expected_direction": "INCREASE",
+        "hypothesis_id": "CRO-HYP-HEADLINE-LPV_TO_CHECKOUT_RATE",
+        "landing_page_id": "LP-V1",
+        "prior_learning_status": "NO_PRIOR_EVIDENCE",
+        "product_id": "protocolo_resposta_garantida",
+        "proposed_direction": "Aproximar os primeiros segundos de leitura (headline/hook) do problema específico e imediato do visitante, mantendo o restante da primeira dobra igual.",
+        "reason": "segunda variável bundlada no CRO-001 real (hook nos 2-3s iniciais), agora isolada pra permitir aprendizado causal limpo.",
+        "statement": "Se alterarmos HEADLINE, esperamos que lpv_to_checkout_rate aumente porque segunda variável bundlada no CRO-001 real (hook nos 2-3s iniciais), agora isolada pra permitir aprendizado causal limpo.",
+        "target_metric": "lpv_to_checkout_rate",
+        "variable_changed": "HEADLINE"
+      },
+      "implementation_cost": "LOW",
+      "information_gain_per_real": 0.323,
+      "is_tie": false,
+      "learning_value": "MEDIUM",
+      "minimum_evidence": {
+        "checkouts": 10,
+        "compras": null,
+        "duration_days": 7,
+        "lpv": 100,
+        "spend": null
+      },
+      "mode": "EXPLOIT",
+      "parent_landing_page_version": "LP-V1",
+      "pre_experiment_validation": {
+        "estimated_validation_cost_reais": 278.49,
+        "note": "Sem atalho barato documentado — só se aprende rodando o experimento controlado com tráfego real.",
+        "validation_method": "CONTROLLED_EXPERIMENT"
+      },
+      "preserved_elements": [
+        "CTA_VISIBILITY",
+        "GUARANTEE",
+        "PRICE_PRESENTATION",
+        "HERO",
+        "PROOF",
+        "MOBILE_LAYOUT",
+        "PAGE_SPEED"
+      ],
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "priority_score": 100,
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_change": {
+        "direction": "Aproximar os primeiros segundos de leitura (headline/hook) do problema específico e imediato do visitante, mantendo o restante da primeira dobra igual.",
+        "note": "Direção conceitual, não copy final — ver PASSO 9 item 32 (não inventar copy definitiva)."
+      },
+      "proposed_version": "LP-V1-V2",
+      "rank": 2,
+      "risk": 1,
+      "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline do LP-V1.",
+      "target_metric": "lpv_to_checkout_rate",
+      "tie_break_components": {
+        "causal_strength": 2,
+        "confidence": 0.6,
+        "evidence_quality": 1,
+        "implementation_cost_rank": 3,
+        "information_gain_per_real": 0.323,
+        "learning_value_rank": 1,
+        "priority_score": 100,
+        "risk_rank": -1
+      },
+      "validation_method": "CONTROLLED_EXPERIMENT",
+      "variable_changed": "HEADLINE"
+    },
+    {
+      "budget_estimate": 278.49,
+      "budget_estimate_based_on": "ritmo real de gasto/lpv/checkout do funil histórico (ver funnelMetrics.js)",
+      "candidate_id": "CRO-CAND-004",
+      "category": "CRO",
+      "causality": {
+        "reason": "GUARANTEE -> lpv_to_checkout_rate: redução de risco percebido — atua perto da decisão de compra, não na atenção inicial.",
+        "status": "VALID"
+      },
+      "confidence": 0.6,
+      "cro_brief": {
+        "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 20).",
+        "current_state": "Garantia de 7 dias já existe e aparece 3x na LP (badge no hero, seção de preço, seção final) — ver croDna.guarantee.",
+        "desktop_requirements": "Manter paridade visual com a versão mobile; não é o viewport prioritário pra esta LP.",
+        "expected_direction": "INCREASE",
+        "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline.",
+        "hypothesis": "Se alterarmos GUARANTEE, esperamos que lpv_to_checkout_rate aumente porque a garantia já existe e é forte (incondicional, 7 dias) — testar se reposicioná-la mais perto da decisão de avançar reduz a fricção de risco percebido.",
+        "measurement_plan": "Comparar lpv_to_checkout_rate da LP com a mudança vs baseline da LP atual, mesmo período mínimo de evidência.",
+        "minimum_evidence": "Ver minimum_evidence da categoria CRO (lpv>=100, checkouts>=10, 7 dias) — mesmo padrão do CRO-001.",
+        "mobile_requirements": "Tráfego majoritariamente mobile/in-app (Instagram) — validar a mudança primeiro no viewport mobile antes do desktop.",
+        "objective": "Testar isoladamente \"GUARANTEE\" na LP atual, preservando as demais variáveis principais.",
+        "observation": "Garantia de 7 dias já existe e aparece 3x na LP (badge no hero, seção de preço, seção final) — ver croDna.guarantee.",
+        "preserve": [
+          "HEADLINE",
+          "CTA_VISIBILITY",
+          "PRICE_PRESENTATION",
+          "HERO",
+          "PROOF",
+          "MOBILE_LAYOUT",
+          "PAGE_SPEED"
+        ],
+        "proposed_change": "Testar destacar visualmente a garantia mais cedo/perto do CTA principal (não criar uma garantia nova, só reposicionar/reforçar a existente).",
+        "rollback_condition": "Reverter pra versão anterior da LP se failure_condition for atingida antes do minimum_evidence completo, ou se uma métrica de camada anterior (ARRIVAL/FIRST_VIEW) piorar drasticamente.",
+        "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "days_to_evidence_estimated": 7,
+      "evidence_sources": [
+        {
+          "source": "croDna.guarantee confirmado presente 3x no HTML real (extractCroDnaFromParsedPage).",
+          "type": "STRUCTURAL_OBSERVATION"
+        }
+      ],
+      "expected_effect": {
+        "baseline_value": 0.08979591836734693,
+        "expected_direction": "INCREASE",
+        "note": "Proxy determinístico (gap vs limiar documentado) — NÃO é projeção financeira nem número garantido.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline do LP-V1.",
+      "final_rank_reason": "Perde de CRO-CAND-002 no fator \"priority_score\" (33 vs 100).",
+      "hypothesis": {
+        "causality": "VALID",
+        "confidence": 0.6,
+        "current_state": "Garantia de 7 dias já existe e aparece 3x na LP (badge no hero, seção de preço, seção final) — ver croDna.guarantee.",
+        "evidence": "croDna.js: guarantee confirmado presente 3x no HTML real; causalityMap.js: GUARANTEE validado como relação causal direta.",
+        "expected_direction": "INCREASE",
+        "hypothesis_id": "CRO-HYP-GUARANTEE-LPV_TO_CHECKOUT_RATE",
+        "landing_page_id": "LP-V1",
+        "prior_learning_status": "NO_PRIOR_EVIDENCE",
+        "product_id": "protocolo_resposta_garantida",
+        "proposed_direction": "Testar destacar visualmente a garantia mais cedo/perto do CTA principal (não criar uma garantia nova, só reposicionar/reforçar a existente).",
+        "reason": "a garantia já existe e é forte (incondicional, 7 dias) — testar se reposicioná-la mais perto da decisão de avançar reduz a fricção de risco percebido.",
+        "statement": "Se alterarmos GUARANTEE, esperamos que lpv_to_checkout_rate aumente porque a garantia já existe e é forte (incondicional, 7 dias) — testar se reposicioná-la mais perto da decisão de avançar reduz a fricção de risco percebido.",
+        "target_metric": "lpv_to_checkout_rate",
+        "variable_changed": "GUARANTEE"
+      },
+      "implementation_cost": "LOW",
+      "information_gain_per_real": 40,
+      "is_tie": false,
+      "learning_value": "HIGH",
+      "minimum_evidence": {
+        "checkouts": 10,
+        "compras": null,
+        "duration_days": 7,
+        "lpv": 100,
+        "spend": null
+      },
+      "mode": "EXPLORE",
+      "parent_landing_page_version": "LP-V1",
+      "pre_experiment_validation": {
+        "estimated_validation_cost_reais": 0,
+        "note": "Pode ser pré-validado via STATIC_CODE_CHECK antes de qualquer gasto de mídia (custo ~R$0).",
+        "validation_method": "STATIC_CODE_CHECK"
+      },
+      "preserved_elements": [
+        "HEADLINE",
+        "CTA_VISIBILITY",
+        "PRICE_PRESENTATION",
+        "HERO",
+        "PROOF",
+        "MOBILE_LAYOUT",
+        "PAGE_SPEED"
+      ],
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "priority_score": 33,
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_change": {
+        "direction": "Testar destacar visualmente a garantia mais cedo/perto do CTA principal (não criar uma garantia nova, só reposicionar/reforçar a existente).",
+        "note": "Direção conceitual, não copy final — ver PASSO 9 item 32 (não inventar copy definitiva)."
+      },
+      "proposed_version": "LP-V1-V2",
+      "rank": 3,
+      "risk": 2,
+      "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline do LP-V1.",
+      "target_metric": "lpv_to_checkout_rate",
+      "tie_break_components": {
+        "causal_strength": 2,
+        "confidence": 0.6,
+        "evidence_quality": 1,
+        "implementation_cost_rank": 3,
+        "information_gain_per_real": 40,
+        "learning_value_rank": 2,
+        "priority_score": 33,
+        "risk_rank": -2
+      },
+      "validation_method": "STATIC_CODE_CHECK",
+      "variable_changed": "GUARANTEE"
+    },
+    {
+      "budget_estimate": 278.49,
+      "budget_estimate_based_on": "ritmo real de gasto/lpv/checkout do funil histórico (ver funnelMetrics.js)",
+      "candidate_id": "CRO-CAND-003",
+      "category": "CRO",
+      "causality": {
+        "reason": "PROOF -> lpv_to_checkout_rate: evidência/prova social atua na decisão de avançar pro checkout, não na chegada à página.",
+        "status": "VALID"
+      },
+      "confidence": 0.6,
+      "cro_brief": {
+        "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 20).",
+        "current_state": "A LP tem 2 mockups de \"antes e depois\" de WhatsApp como prova, mas nenhum depoimento/avaliação real de cliente (ver croDna: testimonials=null, social_proof=null).",
+        "desktop_requirements": "Manter paridade visual com a versão mobile; não é o viewport prioritário pra esta LP.",
+        "expected_direction": "INCREASE",
+        "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline.",
+        "hypothesis": "Se alterarmos PROOF, esperamos que lpv_to_checkout_rate aumente porque ângulo estruturalmente diferente do CRO-001 (que só atacava fricção/velocidade/hook) — testa se a ausência de prova social real é um fator de conversão relevante.",
+        "measurement_plan": "Comparar lpv_to_checkout_rate da LP com a mudança vs baseline da LP atual, mesmo período mínimo de evidência.",
+        "minimum_evidence": "Ver minimum_evidence da categoria CRO (lpv>=100, checkouts>=10, 7 dias) — mesmo padrão do CRO-001.",
+        "mobile_requirements": "Tráfego majoritariamente mobile/in-app (Instagram) — validar a mudança primeiro no viewport mobile antes do desktop.",
+        "objective": "Testar isoladamente \"PROOF\" na LP atual, preservando as demais variáveis principais.",
+        "observation": "A LP tem 2 mockups de \"antes e depois\" de WhatsApp como prova, mas nenhum depoimento/avaliação real de cliente (ver croDna: testimonials=null, social_proof=null).",
+        "preserve": [
+          "HEADLINE",
+          "CTA_VISIBILITY",
+          "GUARANTEE",
+          "PRICE_PRESENTATION",
+          "HERO",
+          "MOBILE_LAYOUT",
+          "PAGE_SPEED"
+        ],
+        "proposed_change": "Adicionar um elemento de prova social real (depoimento, avaliação ou contador verificável) antes da seção de oferta — só se houver material real disponível, nunca fabricado.",
+        "rollback_condition": "Reverter pra versão anterior da LP se failure_condition for atingida antes do minimum_evidence completo, ou se uma métrica de camada anterior (ARRIVAL/FIRST_VIEW) piorar drasticamente.",
+        "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "days_to_evidence_estimated": 7,
+      "evidence_sources": [
+        {
+          "source": "croDna.testimonials/social_proof confirmados ausentes na LP real (extractCroDnaFromParsedPage).",
+          "type": "STRUCTURAL_OBSERVATION"
+        }
+      ],
+      "expected_effect": {
+        "baseline_value": 0.08979591836734693,
+        "expected_direction": "INCREASE",
+        "note": "Proxy determinístico (gap vs limiar documentado) — NÃO é projeção financeira nem número garantido.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "failure_condition": "lpv_to_checkout_rate do período de teste não melhora, ou piora, vs baseline do LP-V1.",
+      "final_rank_reason": "Perde de CRO-CAND-004 no fator \"priority_score\" (23 vs 33).",
+      "hypothesis": {
+        "causality": "VALID",
+        "confidence": 0.6,
+        "current_state": "A LP tem 2 mockups de \"antes e depois\" de WhatsApp como prova, mas nenhum depoimento/avaliação real de cliente (ver croDna: testimonials=null, social_proof=null).",
+        "evidence": "croDna.js: testimonials e social_proof confirmados ausentes na LP real (busca não encontrou nenhum).",
+        "expected_direction": "INCREASE",
+        "hypothesis_id": "CRO-HYP-PROOF-LPV_TO_CHECKOUT_RATE",
+        "landing_page_id": "LP-V1",
+        "prior_learning_status": "NO_PRIOR_EVIDENCE",
+        "product_id": "protocolo_resposta_garantida",
+        "proposed_direction": "Adicionar um elemento de prova social real (depoimento, avaliação ou contador verificável) antes da seção de oferta — só se houver material real disponível, nunca fabricado.",
+        "reason": "ângulo estruturalmente diferente do CRO-001 (que só atacava fricção/velocidade/hook) — testa se a ausência de prova social real é um fator de conversão relevante.",
+        "statement": "Se alterarmos PROOF, esperamos que lpv_to_checkout_rate aumente porque ângulo estruturalmente diferente do CRO-001 (que só atacava fricção/velocidade/hook) — testa se a ausência de prova social real é um fator de conversão relevante.",
+        "target_metric": "lpv_to_checkout_rate",
+        "variable_changed": "PROOF"
+      },
+      "implementation_cost": "MEDIUM",
+      "information_gain_per_real": 0.323,
+      "is_tie": false,
+      "learning_value": "HIGH",
+      "minimum_evidence": {
+        "checkouts": 10,
+        "compras": null,
+        "duration_days": 7,
+        "lpv": 100,
+        "spend": null
+      },
+      "mode": "EXPLORE",
+      "parent_landing_page_version": "LP-V1",
+      "pre_experiment_validation": {
+        "estimated_validation_cost_reais": 278.49,
+        "note": "Sem atalho barato documentado — só se aprende rodando o experimento controlado com tráfego real.",
+        "validation_method": "CONTROLLED_EXPERIMENT"
+      },
+      "preserved_elements": [
+        "HEADLINE",
+        "CTA_VISIBILITY",
+        "GUARANTEE",
+        "PRICE_PRESENTATION",
+        "HERO",
+        "MOBILE_LAYOUT",
+        "PAGE_SPEED"
+      ],
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "priority_score": 23,
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_change": {
+        "direction": "Adicionar um elemento de prova social real (depoimento, avaliação ou contador verificável) antes da seção de oferta — só se houver material real disponível, nunca fabricado.",
+        "note": "Direção conceitual, não copy final — ver PASSO 9 item 32 (não inventar copy definitiva)."
+      },
+      "proposed_version": "LP-V1-V2",
+      "rank": 4,
+      "risk": 2,
+      "success_condition": "lpv_to_checkout_rate do período de teste melhora na direção esperada (INCREASE) vs baseline do LP-V1.",
+      "target_metric": "lpv_to_checkout_rate",
+      "tie_break_components": {
+        "causal_strength": 2,
+        "confidence": 0.6,
+        "evidence_quality": 1,
+        "implementation_cost_rank": 2,
+        "information_gain_per_real": 0.323,
+        "learning_value_rank": 2,
+        "priority_score": 23,
+        "risk_rank": -2
+      },
+      "validation_method": "CONTROLLED_EXPERIMENT",
+      "variable_changed": "PROOF"
+    }
+  ],
+  "clarity_current_behavior_snapshot": {
+    "collected_at": "2026-08-27T21:31:12.093Z",
+    "reason": "Unexpected token 'E', \"Exceeded daily limit\" is not valid JSON",
+    "snapshot_file": "2026-08-27.json",
+    "status": "UNAVAILABLE",
+    "type": "CURRENT_BEHAVIOR_SNAPSHOT"
+  },
+  "creative_lp_pairs": [
+    {
+      "creative_id": "CREATIVE-01",
+      "has_disaggregated_performance_data": false,
+      "landing_page_id": "LP-V1",
+      "note": "Sem atribuição de performance por par criativo+LP hoje (não existe granularidade suficiente nos dados coletados) — estrutura preparada pra quando houver mais de uma versão de LP.",
+      "pair_id": "CREATIVE-01+LP-V1"
+    },
+    {
+      "creative_id": "CREATIVE-05",
+      "has_disaggregated_performance_data": false,
+      "landing_page_id": "LP-V1",
+      "note": "Sem atribuição de performance por par criativo+LP hoje (não existe granularidade suficiente nos dados coletados) — estrutura preparada pra quando houver mais de uma versão de LP.",
+      "pair_id": "CREATIVE-05+LP-V1"
+    }
+  ],
+  "cro_001_analysis": {
+    "best_next_investigation": {
+      "action_type": "VALIDATE_TECHNICAL_ISSUE",
+      "reason": "Existe uma ação técnica de custo ~R$0 (CRO-DIAG-DUPLICATE-ID-OFERTA, STATIC_CODE_CHECK) relacionada à variável mais recomendada (CTA_VISIBILITY). Faz sentido validá-la ANTES de comprometer o budget do experimento (ver candidate.pre_experiment_validation.estimated_validation_cost_reais) — a correção, se confirmada necessária, é quase grátis e remove um confundidor de qualquer teste futuro.",
+      "technical_action_id": "CRO-DIAG-DUPLICATE-ID-OFERTA-ACTION"
+    },
+    "bundled_variables_detected": [
+      {
+        "matched_signal": "menos payload",
+        "variable": "PAGE_SPEED"
+      },
+      {
+        "matched_signal": "hook nos 2-3s iniciais",
+        "variable": "HEADLINE"
+      },
+      {
+        "matched_signal": "sem depender de scroll pra ver a oferta",
+        "variable": "CTA_VISIBILITY"
+      }
+    ],
+    "causal_validation_per_variable": [
+      {
+        "matched_signal": "menos payload",
+        "reason": "PAGE_SPEED -> taxa_lpv_checkout: afeta principalmente se a pessoa chega a ver a página (bounce), pouca relação direta com a decisão de comprar em si.",
+        "status": "WEAK",
+        "variable": "PAGE_SPEED"
+      },
+      {
+        "matched_signal": "hook nos 2-3s iniciais",
+        "reason": "HEADLINE -> taxa_lpv_checkout: primeiros segundos de compreensão — afeta diretamente se quem chega entende a promessa antes de rolar a página.",
+        "status": "VALID",
+        "variable": "HEADLINE"
+      },
+      {
+        "matched_signal": "sem depender de scroll pra ver a oferta",
+        "reason": "CTA_VISIBILITY -> taxa_lpv_checkout: se a chamada pra ação está visível sem esforço, afeta diretamente a intenção de avançar.",
+        "status": "VALID",
+        "variable": "CTA_VISIBILITY"
+      }
+    ],
+    "coherence_note": "A lógica geral (reduzir fricção na primeira dobra melhora conversão) continua plausível e alinhada ao target_metric — o problema identificado é de ESCOPO (variáveis demais empacotadas), não de lógica.",
+    "evidence": [
+      {
+        "claim": "71% do tráfego vem do Instagram in-app com scroll médio de 16,8% e só 11s de tempo ativo",
+        "source": "Citado como \"dado real do Clarity\" no momento da criação do CRO-001 (analytics/data/experiments/CRO-001.json, created_at 2026-08-27T21:49:33Z)",
+        "status": "HISTÓRICO — não reconfirmado nesta execução (o Clarity está indisponível agora, ver claritySnapshot.js). Era um dado real na origem, mas não foi revalidado nesta análise."
+      }
+    ],
+    "experiment_id": "CRO-001",
+    "found": true,
+    "hypothesis_still_coherent": true,
+    "inferences": [
+      {
+        "claim": "Reduzir a fricção da primeira dobra vai aumentar a taxa LPV->checkout",
+        "why_inference": "As métricas de engajamento (scroll baixo, tempo ativo curto) mostram que o público não se aprofunda na página — mas isso, sozinho, não isola QUAL elemento específico (velocidade, headline ou visibilidade do CTA) é o gargalo real. É um salto causal razoável, não uma evidência direta de mecanismo."
+      },
+      {
+        "claim": "O gap de CPA precisa de 70% de redução pra bater a meta de ROAS 2",
+        "why_inference": "É matemática real do Profit Engine (verificável), mas justifica POR QUE atacar CRO é prioritário — não QUAL variável específica resolve o problema."
+      }
+    ],
+    "is_multi_variable": true,
+    "is_too_broad": true,
+    "recommended_variable_to_isolate_first": {
+      "cheap_to_validate": true,
+      "evidence_quality": 1,
+      "matched_signal": "sem depender de scroll pra ver a oferta",
+      "reason": "CTA_VISIBILITY -> taxa_lpv_checkout: se a chamada pra ação está visível sem esforço, afeta diretamente a intenção de avançar.",
+      "status": "VALID",
+      "validation_method": "FUNCTIONAL_TEST",
+      "variable": "CTA_VISIBILITY"
+    },
+    "refinement_recommendation": "CRO-001 combina 3 variáveis principais (PAGE_SPEED, HEADLINE, CTA_VISIBILITY) num único experimento — isso reduz a qualidade do aprendizado causal (MULTI_VARIABLE_TEST). Recomendação: dividir em experimentos sequenciais. Começando por CTA_VISIBILITY (maior evidence_quality real hoje), preservando as demais variáveis como estão. IMPORTANTE: existe uma validação técnica de custo ~R$0 pendente — considere fazê-la antes de comprometer o budget do experimento (ver best_next_investigation).",
+    "status": "DRAFT",
+    "target_metric": "taxa_lpv_checkout",
+    "variable_selection_is_tie": false,
+    "variable_selection_tie_candidates": []
+  },
+  "cro_dna": {
+    "authority": {
+      "section_heading": "Doda Medeiros"
+    },
+    "benefits": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+    "bonuses": "ver offer — itens com rótulo \"Bônus\" dentro da seção OFFER_STACK",
+    "checkout_transition": {
+      "links": [
+        "https://pay.hotmart.com/O106918070H?checkoutMode=10"
+      ],
+      "type": "EXTERNAL_HOTMART"
+    },
+    "cta_repetition": 3,
+    "desire": null,
+    "desktop_experience": null,
+    "discount": [
+      "R$ 97,00",
+      "R$ 147,00",
+      "R$ 47,00",
+      "R$ 27,00",
+      "R$ 318,00"
+    ],
+    "faq": {
+      "answers_visible_in_static_html": false,
+      "questions": [
+        "Qual é a forma de pagamento?",
+        "O pagamento é seguro?",
+        "Funciona para o meu segmento?",
+        "Vou parecer chato mandando essas mensagens?",
+        "Como acesso o material?",
+        "Como funciona a garantia?"
+      ]
+    },
+    "features": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+    "guarantee": "Menção de garantia encontrada em pelo menos 1 seção",
+    "headline": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+    "hero": {
+      "has_cta": true,
+      "heading": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "order": 1
+    },
+    "mechanism": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+    "mobile_experience": null,
+    "objections": [
+      "Qual é a forma de pagamento?",
+      "O pagamento é seguro?",
+      "Funciona para o meu segmento?",
+      "Vou parecer chato mandando essas mensagens?",
+      "Como acesso o material?",
+      "Como funciona a garantia?"
+    ],
+    "offer": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+    "page_length": 13,
+    "pain": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+    "price": [
+      "R$ 8,63",
+      "R$ 67,00"
+    ],
+    "primary_cta": [
+      "Quero destravar meus leads agora",
+      "Sim! Quero destravar meu WhatsApp agora",
+      "Destravar minhas vendas agora"
+    ],
+    "problem": "Mandou o preço ✓✓ e o cliente sumiu? Isso tem explicação e tem solução em menos de 5 minutos.",
+    "promise": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+    "proof": {
+      "section": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+      "type": "chat_mockup_before_after"
+    },
+    "risk_reversal": "Mesmo elemento de garantia (ver guarantee)",
+    "scarcity": null,
+    "secondary_cta": null,
+    "social_proof": null,
+    "subheadline": "Copie e cole mensagens testadas para destravar clientes que sumiram no WhatsApp sem parecer chato e sem dar desconto. Acesso imediato.",
+    "testimonials": null,
+    "urgency": null
+  },
+  "decision_tie": false,
+  "decision_tie_candidates": [],
+  "diagnostics": [
+    {
+      "affected_layer": "INTENT",
+      "causal_status": "OBSERVED",
+      "confidence": 100,
+      "diagnostic_id": "CRO-DIAG-DUPLICATE-ID-OFERTA",
+      "diagnostic_type": "TECHNICAL_ISSUE",
+      "evidence": {
+        "duplicate_id": "oferta",
+        "occurrences": 2,
+        "source": "teste-b/index.html (parseado por htmlParser.js)"
+      },
+      "existence_confidence": "HIGH",
+      "impact_confidence": "LOW",
+      "observation": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+      "possible_causes": [
+        "O link \"#oferta\" pode navegar até a PRIMEIRA ocorrência (não necessariamente a seção de preço/CTA), adicionando um passo extra de scroll antes da oferta."
+      ],
+      "recommended_investigation": "FUNCTIONAL_TEST barato (quase R$0): testar manualmente o clique no CTA do hero em mobile e desktop pra confirmar onde o scroll para — não precisa de experimento pago pra essa primeira validação.",
+      "severity": "MEDIUM",
+      "validation_method": "STATIC_CODE_CHECK"
+    },
+    {
+      "affected_layer": "INTENT",
+      "causal_status": "HYPOTHESIZED",
+      "confidence": 70,
+      "diagnostic_id": "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+      "diagnostic_type": "FUNCTIONAL_FRICTION",
+      "evidence": {
+        "faq_questions": [
+          "Qual é a forma de pagamento?",
+          "O pagamento é seguro?",
+          "Funciona para o meu segmento?",
+          "Vou parecer chato mandando essas mensagens?",
+          "Como acesso o material?",
+          "Como funciona a garantia?"
+        ],
+        "source": "teste-b/index.html (parseado)"
+      },
+      "existence_confidence": "HIGH",
+      "impact_confidence": "LOW",
+      "observation": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte).",
+      "possible_causes": [
+        "Conteúdo carrega via JS após hidratação (comportamento normal de SPA) e funciona no navegador real.",
+        "Falha real de implementação onde a resposta nunca aparece."
+      ],
+      "recommended_investigation": "Abrir a LP num navegador real (mobile e desktop) e clicar em cada pergunta pra confirmar se a resposta realmente aparece (FUNCTIONAL_TEST, custo ~R$0).",
+      "severity": "LOW",
+      "validation_method": "FUNCTIONAL_TEST"
+    },
+    {
+      "affected_layer": "ENGAGEMENT",
+      "causal_status": "HYPOTHESIZED",
+      "confidence": 50,
+      "diagnostic_id": "CRO-DIAG-LONG-PAGE-MOBILE-TRAFFIC",
+      "diagnostic_type": "BEHAVIORAL_HYPOTHESIS",
+      "evidence": {
+        "cro_001_historical_citation": "71% do tráfego via Instagram in-app, scroll médio 16,8%, tempo ativo 11s — citado como \"dado real do Clarity\" na criação do CRO-001 (analytics/data/experiments/CRO-001.json, 2026-08-27). NÃO reconfirmado nesta execução — Clarity está indisponível agora (ver claritySnapshot).",
+        "page_length_sections": 13,
+        "source": "section map real (teste-b/index.html)"
+      },
+      "existence_confidence": null,
+      "impact_confidence": null,
+      "observation": "A LP tem 13 seções reais de conteúdo servindo um público majoritariamente mobile/in-app (dado do Data Agent).",
+      "possible_causes": [
+        "Página longa demais pro tempo de atenção real do público in-app.",
+        "Conteúdo bem estruturado, mas primeira dobra não retém quem não rola."
+      ],
+      "recommended_investigation": "Reconfirmar engajamento via nova coleta do Clarity assim que o limite diário da API resetar (BEHAVIORAL_DATA, custo ~R$0 — só esperar o dado).",
+      "severity": "MEDIUM",
+      "validation_method": "BEHAVIORAL_DATA"
+    },
+    {
+      "affected_layer": "INTENT",
+      "causal_status": "OBSERVED",
+      "confidence": 100,
+      "diagnostic_id": "CRO-DIAG-INTENT-BASELINE",
+      "diagnostic_type": "CONVERSION_HYPOTHESIS",
+      "evidence": {
+        "checkout": 44,
+        "clicks": 726,
+        "gross_revenue": 808.5500000000001,
+        "low_intent_threshold": 0.15,
+        "lpv": 490,
+        "meta_purchases": 14,
+        "net_revenue": 716.2,
+        "orders_count": 11,
+        "source": "funnelMetrics.js (analytics/data/daily)",
+        "spend": 1153.7599999999998
+      },
+      "existence_confidence": null,
+      "impact_confidence": null,
+      "observation": "lpv_to_checkout_rate histórico (29 dias com dado): 8.98%.",
+      "possible_causes": [
+        "Fricção na primeira dobra (hipótese já registrada em CRO-001).",
+        "Descompasso entre promessa do anúncio e a LP (ver messageMatch.js).",
+        "Falta de prova/confiança suficiente antes da oferta.",
+        "Fricção técnica de navegação (ver CRO-DIAG-DUPLICATE-ID-OFERTA) — ainda não medida isoladamente."
+      ],
+      "recommended_investigation": "Isolar UMA variável por vez (ver cro001Analysis.js) pra testar causalmente uma das possible_causes — mas validar tecnicamente as causas de custo ~R$0 primeiro (ver technicalActions).",
+      "severity": "HIGH",
+      "validation_method": "CONTROLLED_EXPERIMENT"
+    }
+  ],
+  "generated_at": "2026-08-28T12:18:17.049Z",
+  "historical_funnel_metrics": {
+    "checkout_to_meta_purchase_rate": 0.3181818181818182,
+    "click_to_lpv_rate": 0.6749311294765841,
+    "confidence": 100,
+    "financial_attribution_note": "financial_buyers/financial_revenue/financial_roas são do FUNIL INTEIRO (toda a conta), nunca atribuídos a uma seção específica da LP, versão de LP ou criativo — não existe granularidade suficiente pra isso hoje. meta_purchases (Meta) e financial_buyers (Hotmart) são contagens DIFERENTES, nunca tratadas como sinônimos.",
+    "financial_buyers": 11,
+    "financial_revenue_net": 716.2,
+    "financial_roas": 0.6207530162252116,
+    "lpv_to_checkout_rate": 0.08979591836734693,
+    "period": {
+      "data_completeness": 0.9666666666666667,
+      "dates_requested": 30,
+      "days_found": 29,
+      "days_missing": [
+        "2026-08-28"
+      ]
+    },
+    "raw": {
+      "checkout": 44,
+      "clicks": 726,
+      "gross_revenue": 808.5500000000001,
+      "lpv": 490,
+      "meta_purchases": 14,
+      "net_revenue": 716.2,
+      "orders_count": 11,
+      "spend": 1153.7599999999998
+    },
+    "type": "HISTORICAL_FUNNEL_METRICS"
+  },
+  "landing_page": {
+    "asset_origin": "UNKNOWN",
+    "created_at": "2026-08-28T12:18:17.049Z",
+    "cro_dna": {
+      "authority": {
+        "section_heading": "Doda Medeiros"
+      },
+      "benefits": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "bonuses": "ver offer — itens com rótulo \"Bônus\" dentro da seção OFFER_STACK",
+      "checkout_transition": {
+        "links": [
+          "https://pay.hotmart.com/O106918070H?checkoutMode=10"
+        ],
+        "type": "EXTERNAL_HOTMART"
+      },
+      "cta_repetition": 3,
+      "desire": null,
+      "desktop_experience": null,
+      "discount": [
+        "R$ 97,00",
+        "R$ 147,00",
+        "R$ 47,00",
+        "R$ 27,00",
+        "R$ 318,00"
+      ],
+      "faq": {
+        "answers_visible_in_static_html": false,
+        "questions": [
+          "Qual é a forma de pagamento?",
+          "O pagamento é seguro?",
+          "Funciona para o meu segmento?",
+          "Vou parecer chato mandando essas mensagens?",
+          "Como acesso o material?",
+          "Como funciona a garantia?"
+        ]
+      },
+      "features": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "guarantee": "Menção de garantia encontrada em pelo menos 1 seção",
+      "headline": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "hero": {
+        "has_cta": true,
+        "heading": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+        "order": 1
+      },
+      "mechanism": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+      "mobile_experience": null,
+      "objections": [
+        "Qual é a forma de pagamento?",
+        "O pagamento é seguro?",
+        "Funciona para o meu segmento?",
+        "Vou parecer chato mandando essas mensagens?",
+        "Como acesso o material?",
+        "Como funciona a garantia?"
+      ],
+      "offer": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "page_length": 13,
+      "pain": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+      "price": [
+        "R$ 8,63",
+        "R$ 67,00"
+      ],
+      "primary_cta": [
+        "Quero destravar meus leads agora",
+        "Sim! Quero destravar meu WhatsApp agora",
+        "Destravar minhas vendas agora"
+      ],
+      "problem": "Mandou o preço ✓✓ e o cliente sumiu? Isso tem explicação e tem solução em menos de 5 minutos.",
+      "promise": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "proof": {
+        "section": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+        "type": "chat_mockup_before_after"
+      },
+      "risk_reversal": "Mesmo elemento de garantia (ver guarantee)",
+      "scarcity": null,
+      "secondary_cta": null,
+      "social_proof": null,
+      "subheadline": "Copie e cole mensagens testadas para destravar clientes que sumiram no WhatsApp sem parecer chato e sem dar desconto. Acesso imediato.",
+      "testimonials": null,
+      "urgency": null
+    },
+    "diagnostics": [
+      "CRO-DIAG-DUPLICATE-ID-OFERTA",
+      "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+      "CRO-DIAG-LONG-PAGE-MOBILE-TRAFFIC",
+      "CRO-DIAG-INTENT-BASELINE"
+    ],
+    "experiment_id": "CRO-001",
+    "hypotheses": [
+      "CRO-HYP-CTA_VISIBILITY-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-HEADLINE-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-GUARANTEE-LPV_TO_CHECKOUT_RATE",
+      "CRO-HYP-PROOF-LPV_TO_CHECKOUT_RATE"
+    ],
+    "landing_page_id": "LP-V1",
+    "parent_version": null,
+    "path": "teste-b/index.html",
+    "performance": {
+      "checkout_to_meta_purchase_rate": 0.3181818181818182,
+      "click_to_lpv_rate": 0.6749311294765841,
+      "confidence": 100,
+      "financial_attribution_note": "financial_buyers/financial_revenue/financial_roas são do FUNIL INTEIRO (toda a conta), nunca atribuídos a uma seção específica da LP, versão de LP ou criativo — não existe granularidade suficiente pra isso hoje. meta_purchases (Meta) e financial_buyers (Hotmart) são contagens DIFERENTES, nunca tratadas como sinônimos.",
+      "financial_buyers": 11,
+      "financial_revenue_net": 716.2,
+      "financial_roas": 0.6207530162252116,
+      "lpv_to_checkout_rate": 0.08979591836734693,
+      "period": {
+        "data_completeness": 0.9666666666666667,
+        "dates_requested": 30,
+        "days_found": 29,
+        "days_missing": [
+          "2026-08-28"
+        ]
+      },
+      "raw": {
+        "checkout": 44,
+        "clicks": 726,
+        "gross_revenue": 808.5500000000001,
+        "lpv": 490,
+        "meta_purchases": 14,
+        "net_revenue": 716.2,
+        "orders_count": 11,
+        "spend": 1153.7599999999998
+      },
+      "type": "HISTORICAL_FUNNEL_METRICS"
+    },
+    "product_id": "protocolo_resposta_garantida",
+    "sections": [
+      {
+        "cta_texts": [
+          "Quero destravar meus leads agora"
+        ],
+        "has_cta": true,
+        "heading_text": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 1,
+        "semantic_name": "HERO"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 2,
+        "semantic_name": "BEFORE_AFTER_PROOF"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 3,
+        "semantic_name": "PAIN"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Não é falta de cliente... É falta da mensagem certa pro momento certo.",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 4,
+        "semantic_name": "REFRAME_MECHANISM_INTRO"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 5,
+        "semantic_name": "MECHANISM_STEPS"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": true,
+        "order": 6,
+        "semantic_name": "OFFER_STACK"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Para quem serve (e para quem não serve)",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 7,
+        "semantic_name": "ICP_QUALIFICATION"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Recapitulando o valor de tudo o que você vai receber hoje:",
+        "id": "oferta",
+        "mentions_guarantee": false,
+        "mentions_price": true,
+        "order": 8,
+        "semantic_name": "VALUE_RECAP"
+      },
+      {
+        "cta_texts": [
+          "Sim! Quero destravar meu WhatsApp agora"
+        ],
+        "has_cta": true,
+        "heading_text": null,
+        "id": "oferta",
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 9,
+        "semantic_name": "PRICE_OFFER"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Me responda somente a verdade:",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 10,
+        "semantic_name": "URGENCY_OBJECTION"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Doda Medeiros",
+        "id": null,
+        "mentions_guarantee": false,
+        "mentions_price": false,
+        "order": 11,
+        "semantic_name": "AUTHORITY_CANDIDATE"
+      },
+      {
+        "cta_texts": [
+          "Destravar minhas vendas agora"
+        ],
+        "has_cta": true,
+        "heading_text": "Seu WhatsApp está cheio de conversas paradas. Cada uma delas vale dinheiro real.",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": true,
+        "order": 12,
+        "semantic_name": "FINAL_CTA"
+      },
+      {
+        "cta_texts": [],
+        "has_cta": false,
+        "heading_text": "Perguntas frequentes",
+        "id": null,
+        "mentions_guarantee": true,
+        "mentions_price": false,
+        "order": 13,
+        "semantic_name": "FAQ"
+      }
+    ],
+    "status": "BASELINE",
+    "updated_at": "2026-08-28T12:18:17.049Z",
+    "version": 1
+  },
+  "landing_page_id": "LP-V1",
+  "message_match_findings": [
+    {
+      "creative_id": "CREATIVE-05",
+      "diagnostic_status": "POSSIBLE_MESSAGE_MATCH_ISSUE",
+      "finding_id": "CRO-MESSAGE-MATCH-CREATIVE-05",
+      "never_conclude": "MESSAGE_MATCH_IS_THE_CAUSE — isso só pode ser confirmado com um experimento real comparando o mesmo criativo contra versões diferentes de LP (creative/LP pair, ver buildCreativeLpPairs).",
+      "observation": "CREATIVE-05 tem sinal de aquisição forte em TRAFFIC_EFFICIENCY (ATTENTION=WEAKER, TRAFFIC_EFFICIENCY=STRONGER) mas INTENT fraco (LPV->checkout WEAKER) — ver analytics/data/creatives/assets.json (Creative Intelligence Agent, PASSO 8).",
+      "possible_causes": [
+        "Tráfego menos qualificado (o criativo atrai clique, mas não necessariamente intenção real de compra).",
+        "Promessa do anúncio diferente do que a LP entrega (descompasso de mensagem).",
+        "Curiosidade sem intenção — o hook gera clique por curiosidade, não por identificação com o problema.",
+        "Primeira dobra da LP fraca (hipótese já coberta em CRO-001).",
+        "Prova/confiança insuficiente na LP antes da oferta.",
+        "Outro fator não identificado — não é uma lista exaustiva."
+      ]
+    }
+  ],
+  "parsed_page_found": true,
+  "performance_layers": {
+    "ARRIVAL": {
+      "influence_strength": "MEDIUM",
+      "metric": "click_to_lpv_rate",
+      "note": "Depende de velocidade de carregamento e continuidade de payload entre o anúncio e a LP — problema técnico aqui derruba tudo o que vem depois.",
+      "sample_size": 726,
+      "value": 0.6749311294765841
+    },
+    "CHECKOUT_HANDOFF": {
+      "influence_strength": "MEDIUM",
+      "metric": null,
+      "note": "Checkout é EXTERNO (EXTERNAL_HOTMART) — a LP entrega o clique, mas a experiência de pagamento em si é da Hotmart, fora do controle direto deste agente.",
+      "sample_size": null,
+      "value": null
+    },
+    "ENGAGEMENT": {
+      "influence_strength": "HIGH",
+      "metric": null,
+      "note": "Sem dado do Clarity disponível nesta execução.",
+      "sample_size": null,
+      "value": null
+    },
+    "FINANCIAL_ECONOMICS": {
+      "influence_strength": "INDIRECT",
+      "metric": "financial_roas",
+      "note": "A LP influencia o resultado financeiro, mas não o determina sozinha (criativo, oferta e tráfego também pesam) — nunca atribuído a uma seção específica.",
+      "sample_size": 11,
+      "value": 0.6207530162252116
+    },
+    "FIRST_VIEW": {
+      "influence_strength": "HIGH",
+      "metric": null,
+      "note": "Sem medição comportamental direta agora (Clarity indisponível nesta execução — ver claritySnapshot) — avaliação só estrutural via HTML (hero/headline/CTA visíveis sem scroll).",
+      "sample_size": null,
+      "value": null
+    },
+    "INTENT": {
+      "influence_strength": "HIGH",
+      "metric": "lpv_to_checkout_rate",
+      "note": "Métrica mais direta de \"a LP convenceu quem chegou nela\" — é o target_metric do CRO-001 real.",
+      "sample_size": 490,
+      "value": 0.08979591836734693
+    },
+    "SALE": {
+      "influence_strength": "LOW",
+      "metric": "checkout_to_meta_purchase_rate",
+      "note": "Meta Purchase != financial buyer real (Hotmart) — usar com cautela; é sinal de mídia, não confirmação financeira.",
+      "sample_size": 44,
+      "value": 0.3181818181818182
+    }
+  },
+  "product_id": "protocolo_resposta_garantida",
+  "section_map": [
+    {
+      "cta_texts": [
+        "Quero destravar meus leads agora"
+      ],
+      "has_cta": true,
+      "heading_text": "A Cartilha Anti-Vácuo: +40 Ativações Prontas Para Fazer o Cliente Responder e Comprar",
+      "id": null,
+      "mentions_guarantee": true,
+      "mentions_price": true,
+      "order": 1,
+      "semantic_name": "HERO"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "O Antes e Depois do WhatsApp de Quem Aplica a Cartilha",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 2,
+      "semantic_name": "BEFORE_AFTER_PROOF"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Se você vende pelo WhatsApp, essa conversa acontece na sua cabeça todo santo dia...",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 3,
+      "semantic_name": "PAIN"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Não é falta de cliente... É falta da mensagem certa pro momento certo.",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 4,
+      "semantic_name": "REFRAME_MECHANISM_INTRO"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Destravar uma conversa leva menos de 30 segundos (3 Passos Simples)",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 5,
+      "semantic_name": "MECHANISM_STEPS"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Tudo o que está empacotado dentro da Cartilha Anti-Vácuo",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": true,
+      "order": 6,
+      "semantic_name": "OFFER_STACK"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Para quem serve (e para quem não serve)",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 7,
+      "semantic_name": "ICP_QUALIFICATION"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Recapitulando o valor de tudo o que você vai receber hoje:",
+      "id": "oferta",
+      "mentions_guarantee": false,
+      "mentions_price": true,
+      "order": 8,
+      "semantic_name": "VALUE_RECAP"
+    },
+    {
+      "cta_texts": [
+        "Sim! Quero destravar meu WhatsApp agora"
+      ],
+      "has_cta": true,
+      "heading_text": null,
+      "id": "oferta",
+      "mentions_guarantee": true,
+      "mentions_price": true,
+      "order": 9,
+      "semantic_name": "PRICE_OFFER"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Me responda somente a verdade:",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 10,
+      "semantic_name": "URGENCY_OBJECTION"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Doda Medeiros",
+      "id": null,
+      "mentions_guarantee": false,
+      "mentions_price": false,
+      "order": 11,
+      "semantic_name": "AUTHORITY_CANDIDATE"
+    },
+    {
+      "cta_texts": [
+        "Destravar minhas vendas agora"
+      ],
+      "has_cta": true,
+      "heading_text": "Seu WhatsApp está cheio de conversas paradas. Cada uma delas vale dinheiro real.",
+      "id": null,
+      "mentions_guarantee": true,
+      "mentions_price": true,
+      "order": 12,
+      "semantic_name": "FINAL_CTA"
+    },
+    {
+      "cta_texts": [],
+      "has_cta": false,
+      "heading_text": "Perguntas frequentes",
+      "id": null,
+      "mentions_guarantee": true,
+      "mentions_price": false,
+      "order": 13,
+      "semantic_name": "FAQ"
+    }
+  ],
+  "source_of_truth": {
+    "considered_path": "teste-b/index.html",
+    "domain_matched": "anti-vacuo.ojogodolucro.com.br",
+    "fallback_note": "Qualquer host diferente de \"anti-vacuo.ojogodolucro.com.br\" cai no fallback \"filesystem\" (serviria o index.html da raiz do repo) — não é a página usada pelo tráfego pago deste produto.",
+    "found": true,
+    "landing_page_file": "C:\\Users\\dougl\\AppData\\Local\\Temp\\claude\\C--Users-dougl-OneDrive--rea-de-Trabalho-edicaovideo\\851296c3-125e-499f-9fa8-e245c4be081c\\scratchpad\\protocolo_repo\\teste-b\\index.html",
+    "price_cross_check": {
+      "checked": true,
+      "matches_config_product": true,
+      "price_found_in_lp": 67,
+      "product_ticket_config": 67
+    },
+    "reason": "vercel.json roteia explicitamente o host \"anti-vacuo.ojogodolucro.com.br\" para \"/teste-b/$1\" (regra de host, não fallback filesystem); o preço real encontrado na página (R$67) BATE com config/product.js TICKET (R$67), confirmando que esta é a página do produto atual.",
+    "vercel_json_path": "vercel.json"
+  },
+  "technical_actions": [
+    {
+      "action_id": "CRO-DIAG-DUPLICATE-ID-OFERTA-ACTION",
+      "action_type": "VALIDATE_TECHNICAL_ISSUE",
+      "description": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP. — existence_confidence=HIGH, impact_confidence=LOW.",
+      "diagnostic_id": "CRO-DIAG-DUPLICATE-ID-OFERTA",
+      "estimated_cost_reais": 0,
+      "note": "Preparado estruturalmente — NÃO executado. Uma correção técnica evidente pode futuramente competir com RUN_EXPERIMENT no Decision Engine (integração aditiva, ver decision/croIntegration.js).",
+      "recommended_investigation": "FUNCTIONAL_TEST barato (quase R$0): testar manualmente o clique no CTA do hero em mobile e desktop pra confirmar onde o scroll para — não precisa de experimento pago pra essa primeira validação.",
+      "validation_method": "STATIC_CODE_CHECK"
+    },
+    {
+      "action_id": "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML-ACTION",
+      "action_type": "VALIDATE_TECHNICAL_ISSUE",
+      "description": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte). — existence_confidence=HIGH, impact_confidence=LOW.",
+      "diagnostic_id": "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+      "estimated_cost_reais": 0,
+      "note": "Preparado estruturalmente — NÃO executado. Uma correção técnica evidente pode futuramente competir com RUN_EXPERIMENT no Decision Engine (integração aditiva, ver decision/croIntegration.js).",
+      "recommended_investigation": "Abrir a LP num navegador real (mobile e desktop) e clicar em cada pergunta pra confirmar se a resposta realmente aparece (FUNCTIONAL_TEST, custo ~R$0).",
+      "validation_method": "FUNCTIONAL_TEST"
+    }
+  ],
+  "tie_break_factor_order": [
+    "priority_score",
+    "causal_strength",
+    "evidence_quality",
+    "confidence",
+    "implementation_cost_rank",
+    "information_gain_per_real",
+    "learning_value_rank",
+    "risk_rank"
+  ]
+}
