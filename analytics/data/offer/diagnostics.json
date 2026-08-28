@@ -1,0 +1,138 @@
+[
+  {
+    "affected_layer": "BUMP_ATTACH",
+    "causal_status": "OBSERVED",
+    "confidence": 100,
+    "diagnostic_id": "OFFER-DIAG-BUMP-BUYER-ATTRIBUTION-FLAG",
+    "diagnostic_type": "DATA_GAP",
+    "evidence": {
+      "flag": "BUMP_BUYER_ATTRIBUTION_UNAVAILABLE",
+      "status": "PARTIAL_ATTRIBUTION_LOWER_BOUND",
+      "unlinked_count": 1
+    },
+    "observation": "Atribuição buyer-level parcial: 1 de 3 transação(ões) de bump sem ligação estrutural confirmada — buyer_level_attach_rate (18.2%) é um LIMITE INFERIOR, não o valor final.",
+    "offer_id": "OFFER-V1",
+    "possible_causes": [
+      "Estrutura de transaction_id do Hotmart nem sempre expõe o pedido-base compartilhado entre item principal e bump."
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_investigation": "Reduz confidence de hipóteses/candidatos cujo target_metric dependa diretamente de attach rate buyer-level — não afeta métricas de receita agregada (gross/net revenue, AOV), que permanecem confiáveis.",
+    "severity": "LOW"
+  },
+  {
+    "affected_layer": "BUMP_ATTACH",
+    "causal_status": "OBSERVED",
+    "confidence": 100,
+    "diagnostic_id": "OFFER-DIAG-BUMP-BUYER-GRANULARITY",
+    "diagnostic_type": "DATA_GAP",
+    "evidence": {
+      "bump_transactions_without_structural_link": 1,
+      "buyer_level_attach_rate": 0.1818,
+      "buyer_level_attach_rate_status": "PARTIAL_ATTRIBUTION_LOWER_BOUND",
+      "buyers": 11,
+      "order_bumps_count": 3
+    },
+    "observation": "order_bump_attach_rate (27.3%) é um proxy no nível de TRANSAÇÃO (linhas de bump / pedidos financeiros). No nível de comprador único, a ligação estrutural (mesmo transaction_id-base do checkout) confirma 2 comprador(es) de 11 elegíveis (buyer_level_attach_rate = 18.2%), com 1 transação(ões) de bump sem ligação estrutural confirmada (status: PARTIAL_ATTRIBUTION_LOWER_BOUND).",
+    "offer_id": "OFFER-V1",
+    "possible_causes": [
+      "Nem toda transação de bump carrega um transaction_id com sufixo de pedido-base (C1/C2) que permita ligação estrutural direta ao comprador."
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_investigation": "Ver offer/buyerAttribution.js — ligação via buyer_name+data é reportada como sinal heurístico, nunca promovida a fato buyer-level confirmado (PASSO 10.1, item 3).",
+    "severity": "LOW"
+  },
+  {
+    "affected_layer": "POST_PURCHASE_UPSELL",
+    "causal_status": "OBSERVED",
+    "confidence": 100,
+    "diagnostic_id": "OFFER-DIAG-MISSING-MONETIZATION-LAYER",
+    "diagnostic_type": "MISSING_MONETIZATION_LAYER",
+    "evidence": {
+      "bundle_active": false,
+      "confirmed_active_bumps_count": 2,
+      "downsell_active": false,
+      "upsell_active": false
+    },
+    "observation": "Nenhum bundle, upsell ou downsell real existe hoje — a monetização pós-compra é NOT_IMPLEMENTED (ver sourceOfTruth.js).",
+    "offer_id": "OFFER-V1",
+    "possible_causes": [
+      "Estratégia futura ainda não implementada (item 8 — PLANNED).",
+      "Pode ou não valer a pena — impacto ainda é hipótese, nunca confirmado."
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_investigation": "Ver candidates EXPLORE (upsell/bundle) — nenhuma conclusão de que isso \"resolveria\" o ROAS.",
+    "severity": "MEDIUM"
+  },
+  {
+    "affected_layer": "REFUND",
+    "causal_status": "OBSERVED",
+    "confidence": 30,
+    "diagnostic_id": "OFFER-DIAG-REFUND-RATE",
+    "diagnostic_type": "HIGH_REFUND",
+    "evidence": {
+      "component_refund_rates": {
+        "denominators": {
+          "refund_buyer_rate": "refunded_buyer_count (buyer_name normalizado, distinto) / relevant_buyer_count (buyer_name normalizado, distinto) — mesmo universo de transações relevantes acima.",
+          "refund_transaction_rate": "refunded_transaction_count / relevant_transaction_count — relevant = status COMPLETE/APPROVED/REFUNDED, excluindo CANCELLED/EXPIRED (nunca viraram venda) e is_known_test_buyer=true.",
+          "refund_value_rate": "refunded_gross_amount / (receita bruta CONTADA do componente + refunded_gross_amount) — ou seja, receita bruta ANTES da remoção do refund."
+        },
+        "main_product": {
+          "refund_buyer_rate": 0.0833,
+          "refund_transaction_rate": 0.0833,
+          "refund_value_rate": 0.0816,
+          "refunded_buyer_count": 1,
+          "refunded_gross_amount": 67,
+          "refunded_transaction_count": 1,
+          "relevant_buyer_count": 12,
+          "relevant_transaction_count": 12
+        },
+        "main_product_refund_rate": 0.0833,
+        "note": "Atribuído via is_main_product de cada transação real — nunca distribuído proporcionalmente (item 24). Três taxas com denominadores explicitamente diferentes e documentados (PASSO 10.1, itens 6-7) — nunca um único \"refund_rate\" ambíguo.",
+        "order_bump": {
+          "refund_buyer_rate": 0,
+          "refund_transaction_rate": 0,
+          "refund_value_rate": 0,
+          "refunded_buyer_count": 0,
+          "refunded_gross_amount": 0,
+          "refunded_transaction_count": 0,
+          "relevant_buyer_count": 3,
+          "relevant_transaction_count": 3
+        },
+        "order_bump_refund_rate": 0
+      },
+      "refund_rate": 0.08286438686537628,
+      "refunds_count": 1
+    },
+    "observation": "refund_rate real do período: 8.29% (1 refund(s) em 11 compradores) — acima do limiar de atenção (5%).",
+    "offer_id": "OFFER-V1",
+    "possible_causes": [
+      "Amostra pequena (1 refund) pode não representar um padrão real.",
+      "Refund concentrado no produto principal, não no bump (ver component_refund_rates)."
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_investigation": "Acompanhar refund_rate em períodos maiores antes de tratar como padrão — 1 evento não é evidência suficiente (SUPPORTED exigiria mais observações).",
+    "severity": "LOW"
+  },
+  {
+    "affected_layer": "BUMP_ATTACH",
+    "causal_status": "OBSERVED",
+    "confidence": 70,
+    "diagnostic_id": "OFFER-DIAG-REVENUE-CONCENTRATION",
+    "diagnostic_type": "ECONOMIC_OPPORTUNITY",
+    "evidence": {
+      "buyers": 11,
+      "main_product_contribution": 68.53181818181818,
+      "order_bump_contribution_gross": 4.972727272727273
+    },
+    "observation": "Produto principal contribui 93.2% do AOV bruto; order bump contribui 6.8%.",
+    "offer_id": "OFFER-V1",
+    "possible_causes": [
+      "Attach rate do bump pode ter espaço de crescimento.",
+      "Preço/copy do bump pode não estar otimizado.",
+      "Nenhuma camada de monetização pós-compra existe ainda (upsell/downsell/bundle)."
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_investigation": "Ver MISSING_MONETIZATION_LAYER e candidates de otimização do bump atual — nenhuma causa específica confirmada ainda.",
+    "severity": "MEDIUM"
+  }
+]

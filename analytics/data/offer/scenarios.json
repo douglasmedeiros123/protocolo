@@ -1,0 +1,88 @@
+{
+  "aov_only_scenarios": [
+    {
+      "aov_change_pct": 0,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.621,
+      "label": "CPA +0%, AOV +0%",
+      "projected_cpa": 104.89,
+      "projected_net_revenue_per_buyer": 65.11,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.1,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.683,
+      "label": "CPA +0%, AOV +10%",
+      "projected_cpa": 104.89,
+      "projected_net_revenue_per_buyer": 71.62,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.2,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.745,
+      "label": "CPA +0%, AOV +20%",
+      "projected_cpa": 104.89,
+      "projected_net_revenue_per_buyer": 78.13,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.3,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.807,
+      "label": "CPA +0%, AOV +30%",
+      "projected_cpa": 104.89,
+      "projected_net_revenue_per_buyer": 84.64,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.5,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.931,
+      "label": "CPA +0%, AOV +50%",
+      "projected_cpa": 104.89,
+      "projected_net_revenue_per_buyer": 97.66,
+      "status": "SCENARIO_NOT_FORECAST"
+    }
+  ],
+  "combined_scenarios": [
+    {
+      "aov_change_pct": 0.1,
+      "cpa_change_pct": -0.1,
+      "expected_financial_roas": 0.759,
+      "label": "CPA -10%, AOV +10%",
+      "projected_cpa": 94.4,
+      "projected_net_revenue_per_buyer": 71.62,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.2,
+      "cpa_change_pct": -0.2,
+      "expected_financial_roas": 0.931,
+      "label": "CPA -20%, AOV +20%",
+      "projected_cpa": 83.91,
+      "projected_net_revenue_per_buyer": 78.13,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    {
+      "aov_change_pct": 0.3,
+      "cpa_change_pct": -0.3,
+      "expected_financial_roas": 1.153,
+      "label": "CPA -30%, AOV +30%",
+      "projected_cpa": 73.42,
+      "projected_net_revenue_per_buyer": 84.64,
+      "status": "SCENARIO_NOT_FORECAST"
+    }
+  ],
+  "current": {
+    "aov_change_pct": 0,
+    "cpa_change_pct": 0,
+    "expected_financial_roas": 0.621,
+    "label": "CPA +0%, AOV +0%",
+    "projected_cpa": 104.89,
+    "projected_net_revenue_per_buyer": 65.11,
+    "status": "SCENARIO_NOT_FORECAST"
+  },
+  "note": "Todo cenário é uma simulação determinística (fórmula ROAS = net_revenue_per_buyer / CPA aplicada aos deltas informados) — NUNCA uma previsão do que vai acontecer de fato."
+}

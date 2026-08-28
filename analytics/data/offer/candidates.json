@@ -1,0 +1,570 @@
+[
+  {
+    "action_type": "OPTIMIZE_EXISTING_COMPONENT",
+    "break_even_analysis": {
+      "minimum_attach_rate": "NOT_CALCULABLE",
+      "reason": "Componente existente já tem attach rate observado — break-even de um componente NOVO não se aplica."
+    },
+    "buyer_level_attribution": {
+      "confidence_multiplier": 0.8,
+      "note": "target_metric depende de attach rate buyer-level — confidence ajustada pelo status real de linkage (PASSO 10.1, item 11).",
+      "status": "PARTIAL_ATTRIBUTION_LOWER_BOUND",
+      "targets_buyer_level_attach": true
+    },
+    "candidate_id": "OFFER-CAND-001",
+    "category": "AOV",
+    "causality": {
+      "causal_distance": "DIRECT",
+      "reason": "BUMP_COPY -> order_bump_attach_rate (normalizado: \"bump_attach_rate\"): relação validada, efeito direto no próprio componente.",
+      "status": "VALID"
+    },
+    "confidence": 0.46,
+    "estimated_incremental_net_revenue_per_100_buyers": "NOT_ESTIMABLE",
+    "evidence_sources": [
+      {
+        "source": "AOV-001 hypothesis.change (bundle Núcleo+Objeções+Cobrança).",
+        "type": "HISTORICAL_HYPOTHESIS"
+      },
+      {
+        "source": "economics.order_bump_revenue_gross real, 30 dias (receita agregada, confiável independente de linkage).",
+        "type": "OBSERVED_REVENUE"
+      },
+      {
+        "source": "bump_transactions_per_buyer = 27.3% (buyerAttribution.js) — não é attach rate buyer-level.",
+        "type": "TRANSACTION_LEVEL_PROXY"
+      },
+      {
+        "source": "buyer_level_attach_rate = 18.2%, status=PARTIAL_ATTRIBUTION_LOWER_BOUND — ver OFFER-DIAG-BUMP-BUYER-ATTRIBUTION-FLAG.",
+        "type": "BUYER_LEVEL_ATTRIBUTION_LIMITATION"
+      }
+    ],
+    "expected_effect": {
+      "expected_direction": "INCREASE",
+      "note": "Proxy determinístico de oportunidade — NÃO é projeção financeira. Nenhum número de resultado é garantido.",
+      "target_metric": "order_bump_attach_rate"
+    },
+    "failure_condition": "order_bump_attach_rate do período de teste não melhora, ou piora, vs baseline do OFFER-V1.",
+    "final_rank_reason": "Vence OFFER-CAND-002 no fator \"evidence_quality\" (4 vs 1).",
+    "hypothesis": {
+      "causality": "VALID",
+      "confidence": 0.46399999999999997,
+      "current_state": "bump_transactions_per_buyer (proxy no nível de transação): 27.3% (Pack Objeções + Pack Cobrança, ativos hoje). buyer_level_attach_rate (ligação estrutural confirmada): 18.2% — LIMITE INFERIOR: 1 transação(ões) de bump sem ligação estrutural confirmada.",
+      "evidence": [
+        {
+          "source": "AOV-001 hypothesis.change (bundle Núcleo+Objeções+Cobrança).",
+          "type": "HISTORICAL_HYPOTHESIS"
+        },
+        {
+          "source": "economics.order_bump_revenue_gross real, 30 dias (receita agregada, confiável independente de linkage).",
+          "type": "OBSERVED_REVENUE"
+        },
+        {
+          "source": "bump_transactions_per_buyer = 27.3% (buyerAttribution.js) — não é attach rate buyer-level.",
+          "type": "TRANSACTION_LEVEL_PROXY"
+        },
+        {
+          "source": "buyer_level_attach_rate = 18.2%, status=PARTIAL_ATTRIBUTION_LOWER_BOUND — ver OFFER-DIAG-BUMP-BUYER-ATTRIBUTION-FLAG.",
+          "type": "BUYER_LEVEL_ATTRIBUTION_LIMITATION"
+        }
+      ],
+      "expected_direction": "INCREASE",
+      "hypothesis_id": "OFFER-HYP-BUMP_COPY-ORDER_BUMP_ATTACH_RATE",
+      "offer_id": "OFFER-V1",
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_direction": "Reforçar a apresentação/copy do bump existente na tela de checkout (mesmo mecanismo do AOV-001 real), sem alterar preço nem criar produto novo.",
+      "reason": "refinamento do AOV-001 real — a hipótese original já aponta o attach rate atual como ponto de partida.",
+      "statement": "Se alterarmos BUMP_COPY, esperamos que order_bump_attach_rate aumente porque refinamento do AOV-001 real — a hipótese original já aponta o attach rate atual como ponto de partida.",
+      "target_metric": "order_bump_attach_rate",
+      "variable_changed": "BUMP_COPY"
+    },
+    "implementation_cost": "LOW",
+    "information_gain_per_real": 50,
+    "is_tie": false,
+    "learning_value": "MEDIUM",
+    "minimum_evidence": {
+      "checkouts": null,
+      "compras": 15,
+      "duration_days": 14,
+      "lpv": null,
+      "spend": null
+    },
+    "mode": "EXPLOIT",
+    "offer_brief": {
+      "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 31).",
+      "cannibalization_guardrail": "Não aplicável — otimização de componente existente, sem novo componente concorrendo.",
+      "current_state": "bump_transactions_per_buyer (proxy no nível de transação): 27.3% (Pack Objeções + Pack Cobrança, ativos hoje). buyer_level_attach_rate (ligação estrutural confirmada): 18.2% — LIMITE INFERIOR: 1 transação(ões) de bump sem ligação estrutural confirmada.",
+      "expected_direction": "INCREASE",
+      "failure_condition": "order_bump_attach_rate do período de teste não melhora, ou piora, vs baseline.",
+      "financial_guardrail": "Hotmart é a fonte de verdade financeira — nunca decidir sucesso/fracasso com base em métrica de mídia (Meta Purchase != buyer financeiro).",
+      "hypothesis": "Se alterarmos BUMP_COPY, esperamos que order_bump_attach_rate aumente porque refinamento do AOV-001 real — a hipótese original já aponta o attach rate atual como ponto de partida.",
+      "kill_condition": "refund_rate do período de teste sobe de forma desproporcional ao ganho de AOV (guardrail financeiro), ou net_aov cai abaixo do baseline.",
+      "measurement_plan": "Comparar order_bump_attach_rate da oferta com a mudança vs baseline da oferta atual, mesmo período mínimo de evidência.",
+      "minimum_evidence": "Ver minimum_evidence da categoria AOV/OFFER (compras>=15, 14 dias) — mesmo padrão do AOV-001.",
+      "objective": "Testar isoladamente \"BUMP_COPY\" na oferta atual (OPTIMIZE_EXISTING_COMPONENT), preservando as demais variáveis principais.",
+      "observation": "bump_transactions_per_buyer (proxy no nível de transação): 27.3% (Pack Objeções + Pack Cobrança, ativos hoje). buyer_level_attach_rate (ligação estrutural confirmada): 18.2% — LIMITE INFERIOR: 1 transação(ões) de bump sem ligação estrutural confirmada.",
+      "preserve": [
+        "BUMP_PRICE",
+        "GUARANTEE",
+        "BUNDLE_DISCOUNT",
+        "UPSELL_OFFER_DESIGN",
+        "UPSELL_PRICE",
+        "DOWNSELL_PRICE"
+      ],
+      "proposed_change": "Reforçar a apresentação/copy do bump existente na tela de checkout (mesmo mecanismo do AOV-001 real), sem alterar preço nem criar produto novo.",
+      "refund_guardrail": "Nenhuma mudança é considerada sucesso se aumentar refund_rate a ponto de neutralizar o ganho de receita líquida.",
+      "secondary_metrics": [
+        "net_aov",
+        "refund_rate"
+      ],
+      "success_condition": "order_bump_attach_rate do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+      "target_metric": "order_bump_attach_rate"
+    },
+    "parent_offer_version": "OFFER-V1",
+    "pre_experiment_validation": {
+      "note": "Pode ser pré-validado analisando dado JÁ EXISTENTE (BEHAVIORAL_DATA) antes de comprometer capital num experimento novo.",
+      "validation_method": "BEHAVIORAL_DATA"
+    },
+    "preserved_elements": [
+      "BUMP_PRICE",
+      "GUARANTEE",
+      "BUNDLE_DISCOUNT",
+      "UPSELL_OFFER_DESIGN",
+      "UPSELL_PRICE",
+      "DOWNSELL_PRICE"
+    ],
+    "prior_learning_status": "NO_PRIOR_EVIDENCE",
+    "priority_score": 100,
+    "product_id": "protocolo_resposta_garantida",
+    "proposed_change": {
+      "direction": "Reforçar a apresentação/copy do bump existente na tela de checkout (mesmo mecanismo do AOV-001 real), sem alterar preço nem criar produto novo.",
+      "note": "Direção conceitual, não copy/nome/preço final — item 51 (não inventar produtos)."
+    },
+    "proposed_version": "OFFER-V1-V2",
+    "rank": 1,
+    "risk": 1,
+    "speed_to_evidence_days": 14,
+    "success_condition": "order_bump_attach_rate do período de teste melhora na direção esperada (INCREASE) vs baseline do OFFER-V1.",
+    "target_metric": "order_bump_attach_rate",
+    "tie_break_components": {
+      "causal_strength": 2,
+      "confidence": 0.46,
+      "evidence_quality": 4,
+      "implementation_cost_rank": 3,
+      "information_gain_per_real": 50,
+      "learning_value_rank": 1,
+      "priority_score": 100,
+      "risk_rank": -1
+    },
+    "validation_method": "BEHAVIORAL_DATA",
+    "variable_changed": "BUMP_COPY"
+  },
+  {
+    "action_type": "OPTIMIZE_EXISTING_COMPONENT",
+    "break_even_analysis": {
+      "minimum_attach_rate": "NOT_CALCULABLE",
+      "reason": "Componente existente já tem attach rate observado — break-even de um componente NOVO não se aplica."
+    },
+    "buyer_level_attribution": {
+      "confidence_multiplier": 1,
+      "note": "target_metric não depende de attach rate buyer-level (ex.: receita agregada) — não penalizado por limitação de linkage.",
+      "status": "NOT_APPLICABLE",
+      "targets_buyer_level_attach": false
+    },
+    "candidate_id": "OFFER-CAND-002",
+    "category": "AOV",
+    "causality": {
+      "causal_distance": "INDIRECT",
+      "reason": "BUMP_PRICE -> net_aov: relação validada, efeito indireto — nunca a causa única de um resultado agregado como financial_roas.",
+      "status": "VALID"
+    },
+    "confidence": 0.46,
+    "estimated_incremental_net_revenue_per_100_buyers": "NOT_ESTIMABLE",
+    "evidence_sources": [
+      {
+        "source": "sourceOfTruth.js: preço médio real dos bumps ativos.",
+        "type": "OBSERVED_METRIC"
+      }
+    ],
+    "expected_effect": {
+      "expected_direction": "INCREASE",
+      "note": "Proxy determinístico de oportunidade — NÃO é projeção financeira. Nenhum número de resultado é garantido.",
+      "target_metric": "net_aov"
+    },
+    "failure_condition": "net_aov do período de teste não melhora, ou piora, vs baseline do OFFER-V1.",
+    "final_rank_reason": "Perde de OFFER-CAND-001 no fator \"evidence_quality\" (1 vs 4).",
+    "hypothesis": {
+      "causality": "VALID",
+      "confidence": 0.46399999999999997,
+      "current_state": "Bumps ativos hoje: Pack Objeções (~R$19,90) e Pack Cobrança (~R$14,90), preço médio real observado. net_aov é receita agregada por comprador financeiro — confiável independente da limitação de linkage buyer-level do attach rate.",
+      "evidence": [
+        {
+          "source": "sourceOfTruth.js: preço médio real dos bumps ativos.",
+          "type": "OBSERVED_METRIC"
+        }
+      ],
+      "expected_direction": "INCREASE",
+      "hypothesis_id": "OFFER-HYP-BUMP_PRICE-NET_AOV",
+      "offer_id": "OFFER-V1",
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_direction": "Testar um ponto de preço diferente pro(s) bump(s) existente(s), sem criar produto novo.",
+      "reason": "ângulo de preço, distinto do ângulo de copy — variável isolada (item 31).",
+      "statement": "Se alterarmos BUMP_PRICE, esperamos que net_aov aumente porque ângulo de preço, distinto do ângulo de copy — variável isolada (item 31).",
+      "target_metric": "net_aov",
+      "variable_changed": "BUMP_PRICE"
+    },
+    "implementation_cost": "LOW",
+    "information_gain_per_real": 0.3,
+    "is_tie": false,
+    "learning_value": "MEDIUM",
+    "minimum_evidence": {
+      "checkouts": null,
+      "compras": 15,
+      "duration_days": 14,
+      "lpv": null,
+      "spend": null
+    },
+    "mode": "EXPLOIT",
+    "offer_brief": {
+      "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 31).",
+      "cannibalization_guardrail": "Não aplicável — otimização de componente existente, sem novo componente concorrendo.",
+      "current_state": "Bumps ativos hoje: Pack Objeções (~R$19,90) e Pack Cobrança (~R$14,90), preço médio real observado. net_aov é receita agregada por comprador financeiro — confiável independente da limitação de linkage buyer-level do attach rate.",
+      "expected_direction": "INCREASE",
+      "failure_condition": "net_aov do período de teste não melhora, ou piora, vs baseline.",
+      "financial_guardrail": "Hotmart é a fonte de verdade financeira — nunca decidir sucesso/fracasso com base em métrica de mídia (Meta Purchase != buyer financeiro).",
+      "hypothesis": "Se alterarmos BUMP_PRICE, esperamos que net_aov aumente porque ângulo de preço, distinto do ângulo de copy — variável isolada (item 31).",
+      "kill_condition": "refund_rate do período de teste sobe de forma desproporcional ao ganho de AOV (guardrail financeiro), ou net_aov cai abaixo do baseline.",
+      "measurement_plan": "Comparar net_aov da oferta com a mudança vs baseline da oferta atual, mesmo período mínimo de evidência.",
+      "minimum_evidence": "Ver minimum_evidence da categoria AOV/OFFER (compras>=15, 14 dias) — mesmo padrão do AOV-001.",
+      "objective": "Testar isoladamente \"BUMP_PRICE\" na oferta atual (OPTIMIZE_EXISTING_COMPONENT), preservando as demais variáveis principais.",
+      "observation": "Bumps ativos hoje: Pack Objeções (~R$19,90) e Pack Cobrança (~R$14,90), preço médio real observado. net_aov é receita agregada por comprador financeiro — confiável independente da limitação de linkage buyer-level do attach rate.",
+      "preserve": [
+        "BUMP_COPY",
+        "GUARANTEE",
+        "BUNDLE_DISCOUNT",
+        "UPSELL_OFFER_DESIGN",
+        "UPSELL_PRICE",
+        "DOWNSELL_PRICE"
+      ],
+      "proposed_change": "Testar um ponto de preço diferente pro(s) bump(s) existente(s), sem criar produto novo.",
+      "refund_guardrail": "Nenhuma mudança é considerada sucesso se aumentar refund_rate a ponto de neutralizar o ganho de receita líquida.",
+      "secondary_metrics": [
+        "net_aov",
+        "refund_rate"
+      ],
+      "success_condition": "net_aov do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+      "target_metric": "net_aov"
+    },
+    "parent_offer_version": "OFFER-V1",
+    "pre_experiment_validation": {
+      "note": "Sem atalho barato documentado — só se aprende rodando o experimento controlado.",
+      "validation_method": "CONTROLLED_EXPERIMENT"
+    },
+    "preserved_elements": [
+      "BUMP_COPY",
+      "GUARANTEE",
+      "BUNDLE_DISCOUNT",
+      "UPSELL_OFFER_DESIGN",
+      "UPSELL_PRICE",
+      "DOWNSELL_PRICE"
+    ],
+    "prior_learning_status": "NO_PRIOR_EVIDENCE",
+    "priority_score": 100,
+    "product_id": "protocolo_resposta_garantida",
+    "proposed_change": {
+      "direction": "Testar um ponto de preço diferente pro(s) bump(s) existente(s), sem criar produto novo.",
+      "note": "Direção conceitual, não copy/nome/preço final — item 51 (não inventar produtos)."
+    },
+    "proposed_version": "OFFER-V1-V2",
+    "rank": 2,
+    "risk": 1,
+    "speed_to_evidence_days": 14,
+    "success_condition": "net_aov do período de teste melhora na direção esperada (INCREASE) vs baseline do OFFER-V1.",
+    "target_metric": "net_aov",
+    "tie_break_components": {
+      "causal_strength": 2,
+      "confidence": 0.46,
+      "evidence_quality": 1,
+      "implementation_cost_rank": 3,
+      "information_gain_per_real": 0.3,
+      "learning_value_rank": 1,
+      "priority_score": 100,
+      "risk_rank": -1
+    },
+    "validation_method": "CONTROLLED_EXPERIMENT",
+    "variable_changed": "BUMP_PRICE"
+  },
+  {
+    "action_type": "ADD_NEW_COMPONENT",
+    "break_even_analysis": {
+      "minimum_attach_rate": "NOT_CALCULABLE",
+      "reason": "componentCostIfKnown (margem/custo do componente) não é rastreado por este pipeline — sem isso não dá pra calcular break-even real, só listar o componente que falta."
+    },
+    "buyer_level_attribution": {
+      "confidence_multiplier": 1,
+      "note": "target_metric não depende de attach rate buyer-level (ex.: receita agregada) — não penalizado por limitação de linkage.",
+      "status": "NOT_APPLICABLE",
+      "targets_buyer_level_attach": false
+    },
+    "candidate_id": "OFFER-CAND-003",
+    "category": "OFFER",
+    "causality": {
+      "causal_distance": "INDIRECT",
+      "reason": "Relação entre \"UPSELL_OFFER_DESIGN\" e \"net_revenue_per_buyer\" não documentada explicitamente — tratada como fraca por padrão conservador.",
+      "status": "WEAK"
+    },
+    "confidence": 0.14,
+    "estimated_incremental_net_revenue_per_100_buyers": "NOT_ESTIMABLE",
+    "evidence_sources": [
+      {
+        "source": "OFFER-DIAG-MISSING-MONETIZATION-LAYER — nenhum upsell/downsell/bundle ativo hoje.",
+        "type": "STRUCTURAL_OBSERVATION"
+      }
+    ],
+    "expected_effect": {
+      "expected_direction": "INCREASE",
+      "note": "Proxy determinístico de oportunidade — NÃO é projeção financeira. Nenhum número de resultado é garantido.",
+      "target_metric": "net_revenue_per_buyer"
+    },
+    "failure_condition": "net_revenue_per_buyer do período de teste não melhora, ou piora, vs baseline do OFFER-V1.",
+    "final_rank_reason": "Perde de OFFER-CAND-004 no fator \"priority_score\" (1 vs 4).",
+    "hypothesis": {
+      "causality": "WEAK",
+      "confidence": 0.1392,
+      "current_state": "Nenhum upsell real existe hoje (MISSING_MONETIZATION_LAYER, ver diagnostics.js).",
+      "evidence": [
+        {
+          "source": "OFFER-DIAG-MISSING-MONETIZATION-LAYER — nenhum upsell/downsell/bundle ativo hoje.",
+          "type": "STRUCTURAL_OBSERVATION"
+        }
+      ],
+      "expected_direction": "INCREASE",
+      "hypothesis_id": "OFFER-HYP-UPSELL_OFFER_DESIGN-NET_REVENUE_PER_BUYER",
+      "offer_id": "OFFER-V1",
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_direction": "Explorar estruturalmente uma oferta de upsell pós-compra — sem definir nome, copy ou preço final ainda (item 51).",
+      "reason": "lacuna de monetização estrutural observada (POST_PURCHASE_UPSELL é NOT_IMPLEMENTED) — maior valor de aprendizado, mas maior incerteza (ADD_NEW_COMPONENT).",
+      "statement": "Se alterarmos UPSELL_OFFER_DESIGN, esperamos que net_revenue_per_buyer aumente porque lacuna de monetização estrutural observada (POST_PURCHASE_UPSELL é NOT_IMPLEMENTED) — maior valor de aprendizado, mas maior incerteza (ADD_NEW_COMPONENT).",
+      "target_metric": "net_revenue_per_buyer",
+      "variable_changed": "UPSELL_OFFER_DESIGN"
+    },
+    "implementation_cost": "HIGH",
+    "information_gain_per_real": 0.3,
+    "is_tie": false,
+    "learning_value": "HIGH",
+    "minimum_evidence": {
+      "checkouts": null,
+      "compras": 15,
+      "duration_days": 14,
+      "lpv": null,
+      "spend": null
+    },
+    "mode": "EXPLORE",
+    "offer_brief": {
+      "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 31).",
+      "cannibalization_guardrail": "Medir receita dos componentes existentes durante o teste — queda nos componentes atuais deve ser descontada do ganho aparente (ver cannibalization.js).",
+      "current_state": "Nenhum upsell real existe hoje (MISSING_MONETIZATION_LAYER, ver diagnostics.js).",
+      "expected_direction": "INCREASE",
+      "failure_condition": "net_revenue_per_buyer do período de teste não melhora, ou piora, vs baseline.",
+      "financial_guardrail": "Hotmart é a fonte de verdade financeira — nunca decidir sucesso/fracasso com base em métrica de mídia (Meta Purchase != buyer financeiro).",
+      "hypothesis": "Se alterarmos UPSELL_OFFER_DESIGN, esperamos que net_revenue_per_buyer aumente porque lacuna de monetização estrutural observada (POST_PURCHASE_UPSELL é NOT_IMPLEMENTED) — maior valor de aprendizado, mas maior incerteza (ADD_NEW_COMPONENT).",
+      "kill_condition": "refund_rate do período de teste sobe de forma desproporcional ao ganho de AOV (guardrail financeiro), ou net_aov cai abaixo do baseline.",
+      "measurement_plan": "Comparar net_revenue_per_buyer da oferta com a mudança vs baseline da oferta atual, mesmo período mínimo de evidência.",
+      "minimum_evidence": "Ver minimum_evidence da categoria AOV/OFFER (compras>=15, 14 dias) — mesmo padrão do AOV-001.",
+      "objective": "Testar isoladamente \"UPSELL_OFFER_DESIGN\" na oferta atual (ADD_NEW_COMPONENT), preservando as demais variáveis principais.",
+      "observation": "Nenhum upsell real existe hoje (MISSING_MONETIZATION_LAYER, ver diagnostics.js).",
+      "preserve": [
+        "BUMP_COPY",
+        "BUMP_PRICE",
+        "GUARANTEE",
+        "BUNDLE_DISCOUNT",
+        "UPSELL_PRICE",
+        "DOWNSELL_PRICE"
+      ],
+      "proposed_change": "Explorar estruturalmente uma oferta de upsell pós-compra — sem definir nome, copy ou preço final ainda (item 51).",
+      "refund_guardrail": "Nenhuma mudança é considerada sucesso se aumentar refund_rate a ponto de neutralizar o ganho de receita líquida.",
+      "secondary_metrics": [
+        "net_aov",
+        "refund_rate"
+      ],
+      "success_condition": "net_revenue_per_buyer do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+      "target_metric": "net_revenue_per_buyer"
+    },
+    "parent_offer_version": "OFFER-V1",
+    "pre_experiment_validation": {
+      "note": "Sem atalho barato documentado — só se aprende rodando o experimento controlado.",
+      "validation_method": "CONTROLLED_EXPERIMENT"
+    },
+    "preserved_elements": [
+      "BUMP_COPY",
+      "BUMP_PRICE",
+      "GUARANTEE",
+      "BUNDLE_DISCOUNT",
+      "UPSELL_PRICE",
+      "DOWNSELL_PRICE"
+    ],
+    "prior_learning_status": "NO_PRIOR_EVIDENCE",
+    "priority_score": 1,
+    "product_id": "protocolo_resposta_garantida",
+    "proposed_change": {
+      "direction": "Explorar estruturalmente uma oferta de upsell pós-compra — sem definir nome, copy ou preço final ainda (item 51).",
+      "note": "Direção conceitual, não copy/nome/preço final — item 51 (não inventar produtos)."
+    },
+    "proposed_version": "OFFER-V1-V2",
+    "rank": 4,
+    "risk": 3,
+    "speed_to_evidence_days": 14,
+    "success_condition": "net_revenue_per_buyer do período de teste melhora na direção esperada (INCREASE) vs baseline do OFFER-V1.",
+    "target_metric": "net_revenue_per_buyer",
+    "tie_break_components": {
+      "causal_strength": 1,
+      "confidence": 0.14,
+      "evidence_quality": 1,
+      "implementation_cost_rank": 1,
+      "information_gain_per_real": 0.3,
+      "learning_value_rank": 2,
+      "priority_score": 1,
+      "risk_rank": -3
+    },
+    "validation_method": "CONTROLLED_EXPERIMENT",
+    "variable_changed": "UPSELL_OFFER_DESIGN"
+  },
+  {
+    "action_type": "ADD_NEW_COMPONENT",
+    "break_even_analysis": {
+      "minimum_attach_rate": "NOT_CALCULABLE",
+      "reason": "componentCostIfKnown (margem/custo do componente) não é rastreado por este pipeline — sem isso não dá pra calcular break-even real, só listar o componente que falta."
+    },
+    "buyer_level_attribution": {
+      "confidence_multiplier": 1,
+      "note": "target_metric não depende de attach rate buyer-level (ex.: receita agregada) — não penalizado por limitação de linkage.",
+      "status": "NOT_APPLICABLE",
+      "targets_buyer_level_attach": false
+    },
+    "candidate_id": "OFFER-CAND-004",
+    "category": "OFFER",
+    "causality": {
+      "causal_distance": "INDIRECT",
+      "reason": "BUNDLE_DISCOUNT -> net_aov: relação validada, efeito indireto — nunca a causa única de um resultado agregado como financial_roas.",
+      "status": "VALID"
+    },
+    "confidence": 0.28,
+    "estimated_incremental_net_revenue_per_100_buyers": "NOT_ESTIMABLE",
+    "evidence_sources": [
+      {
+        "source": "AOV-001 hypothesis.change menciona bundle explicitamente.",
+        "type": "HISTORICAL_HYPOTHESIS"
+      }
+    ],
+    "expected_effect": {
+      "expected_direction": "INCREASE",
+      "note": "Proxy determinístico de oportunidade — NÃO é projeção financeira. Nenhum número de resultado é garantido.",
+      "target_metric": "net_aov"
+    },
+    "failure_condition": "net_aov do período de teste não melhora, ou piora, vs baseline do OFFER-V1.",
+    "final_rank_reason": "Perde de OFFER-CAND-002 no fator \"priority_score\" (4 vs 100).",
+    "hypothesis": {
+      "causality": "VALID",
+      "confidence": 0.2784,
+      "current_state": "Nenhum bundle real existe hoje — AOV-001 já menciona um bundle conceitual (Núcleo+Objeções+Cobrança), mas nunca foi implementado (PLANNED, não ACTIVE).",
+      "evidence": [
+        {
+          "source": "AOV-001 hypothesis.change menciona bundle explicitamente.",
+          "type": "HISTORICAL_HYPOTHESIS"
+        }
+      ],
+      "expected_direction": "INCREASE",
+      "hypothesis_id": "OFFER-HYP-BUNDLE_DISCOUNT-NET_AOV",
+      "offer_id": "OFFER-V1",
+      "prior_learning_status": "NO_PRIOR_EVIDENCE",
+      "product_id": "protocolo_resposta_garantida",
+      "proposed_direction": "Explorar estruturalmente um bundle dos bumps existentes com desconto, medindo canibalização (ver cannibalization.js) antes de assumir ganho de AOV.",
+      "reason": "a própria hipótese do AOV-001 já aponta pra essa direção — nunca assumir que bundle melhora AOV automaticamente (item 14).",
+      "statement": "Se alterarmos BUNDLE_DISCOUNT, esperamos que net_aov aumente porque a própria hipótese do AOV-001 já aponta pra essa direção — nunca assumir que bundle melhora AOV automaticamente (item 14).",
+      "target_metric": "net_aov",
+      "variable_changed": "BUNDLE_DISCOUNT"
+    },
+    "implementation_cost": "MEDIUM",
+    "information_gain_per_real": 50,
+    "is_tie": false,
+    "learning_value": "HIGH",
+    "minimum_evidence": {
+      "checkouts": null,
+      "compras": 15,
+      "duration_days": 14,
+      "lpv": null,
+      "spend": null
+    },
+    "mode": "EXPLORE",
+    "offer_brief": {
+      "avoid": "Não alterar mais de uma variável principal ao mesmo tempo — isolamento causal (item 31).",
+      "cannibalization_guardrail": "Medir receita dos componentes existentes durante o teste — queda nos componentes atuais deve ser descontada do ganho aparente (ver cannibalization.js).",
+      "current_state": "Nenhum bundle real existe hoje — AOV-001 já menciona um bundle conceitual (Núcleo+Objeções+Cobrança), mas nunca foi implementado (PLANNED, não ACTIVE).",
+      "expected_direction": "INCREASE",
+      "failure_condition": "net_aov do período de teste não melhora, ou piora, vs baseline.",
+      "financial_guardrail": "Hotmart é a fonte de verdade financeira — nunca decidir sucesso/fracasso com base em métrica de mídia (Meta Purchase != buyer financeiro).",
+      "hypothesis": "Se alterarmos BUNDLE_DISCOUNT, esperamos que net_aov aumente porque a própria hipótese do AOV-001 já aponta pra essa direção — nunca assumir que bundle melhora AOV automaticamente (item 14).",
+      "kill_condition": "refund_rate do período de teste sobe de forma desproporcional ao ganho de AOV (guardrail financeiro), ou net_aov cai abaixo do baseline.",
+      "measurement_plan": "Comparar net_aov da oferta com a mudança vs baseline da oferta atual, mesmo período mínimo de evidência.",
+      "minimum_evidence": "Ver minimum_evidence da categoria AOV/OFFER (compras>=15, 14 dias) — mesmo padrão do AOV-001.",
+      "objective": "Testar isoladamente \"BUNDLE_DISCOUNT\" na oferta atual (ADD_NEW_COMPONENT), preservando as demais variáveis principais.",
+      "observation": "Nenhum bundle real existe hoje — AOV-001 já menciona um bundle conceitual (Núcleo+Objeções+Cobrança), mas nunca foi implementado (PLANNED, não ACTIVE).",
+      "preserve": [
+        "BUMP_COPY",
+        "BUMP_PRICE",
+        "GUARANTEE",
+        "UPSELL_OFFER_DESIGN",
+        "UPSELL_PRICE",
+        "DOWNSELL_PRICE"
+      ],
+      "proposed_change": "Explorar estruturalmente um bundle dos bumps existentes com desconto, medindo canibalização (ver cannibalization.js) antes de assumir ganho de AOV.",
+      "refund_guardrail": "Nenhuma mudança é considerada sucesso se aumentar refund_rate a ponto de neutralizar o ganho de receita líquida.",
+      "secondary_metrics": [
+        "net_aov",
+        "refund_rate"
+      ],
+      "success_condition": "net_aov do período de teste melhora na direção esperada (INCREASE) vs baseline.",
+      "target_metric": "net_aov"
+    },
+    "parent_offer_version": "OFFER-V1",
+    "pre_experiment_validation": {
+      "note": "Pode ser pré-validado analisando dado JÁ EXISTENTE (BEHAVIORAL_DATA) antes de comprometer capital num experimento novo.",
+      "validation_method": "BEHAVIORAL_DATA"
+    },
+    "preserved_elements": [
+      "BUMP_COPY",
+      "BUMP_PRICE",
+      "GUARANTEE",
+      "UPSELL_OFFER_DESIGN",
+      "UPSELL_PRICE",
+      "DOWNSELL_PRICE"
+    ],
+    "prior_learning_status": "NO_PRIOR_EVIDENCE",
+    "priority_score": 4,
+    "product_id": "protocolo_resposta_garantida",
+    "proposed_change": {
+      "direction": "Explorar estruturalmente um bundle dos bumps existentes com desconto, medindo canibalização (ver cannibalization.js) antes de assumir ganho de AOV.",
+      "note": "Direção conceitual, não copy/nome/preço final — item 51 (não inventar produtos)."
+    },
+    "proposed_version": "OFFER-V1-V2",
+    "rank": 3,
+    "risk": 3,
+    "speed_to_evidence_days": 14,
+    "success_condition": "net_aov do período de teste melhora na direção esperada (INCREASE) vs baseline do OFFER-V1.",
+    "target_metric": "net_aov",
+    "tie_break_components": {
+      "causal_strength": 2,
+      "confidence": 0.28,
+      "evidence_quality": 1,
+      "implementation_cost_rank": 2,
+      "information_gain_per_real": 50,
+      "learning_value_rank": 2,
+      "priority_score": 4,
+      "risk_rank": -3
+    },
+    "validation_method": "BEHAVIORAL_DATA",
+    "variable_changed": "BUNDLE_DISCOUNT"
+  }
+]
