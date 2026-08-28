@@ -1,0 +1,113 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-07",
+  "fetched_at": "2026-08-27T21:31:22.482Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "19"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "11"
+        },
+        {
+          "action_type": "onsite_conversion.messaging_conversation_replied_7d",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "18"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "18"
+        },
+        {
+          "action_type": "onsite_conversion.total_messaging_connection",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "304"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "16"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "304"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "16"
+        },
+        {
+          "action_type": "onsite_conversion.messaging_first_reply",
+          "value": "1"
+        },
+        {
+          "action_type": "post",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "11"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.messaging_conversation_started_7d",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "269"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "23",
+      "cpm": "50.772579",
+      "ctr": "2.50272",
+      "date_start": "2026-08-07",
+      "date_stop": "2026-08-07",
+      "impressions": "919",
+      "spend": "46.66"
+    }
+  ],
+  "source": "meta"
+}

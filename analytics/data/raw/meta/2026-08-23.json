@@ -1,0 +1,184 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-23",
+  "fetched_at": "2026-08-27T21:31:36.463Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "video_view",
+          "value": "2"
+        }
+      ],
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "53.75",
+      "ctr": "0",
+      "date_start": "2026-08-23",
+      "date_stop": "2026-08-23",
+      "impressions": "8",
+      "spend": "0.43"
+    },
+    {
+      "action_values": [
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "0.01"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "56.88"
+        }
+      ],
+      "actions": [
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "link_click",
+          "value": "29"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_purchase_add_20_s_calls",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "23"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "23"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "36"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "7"
+        },
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "36"
+        },
+        {
+          "action_type": "purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "7"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "3"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "30",
+      "cpm": "30.857886",
+      "ctr": "2.599653",
+      "date_start": "2026-08-23",
+      "date_stop": "2026-08-23",
+      "impressions": "1154",
+      "spend": "35.61"
+    }
+  ],
+  "source": "meta"
+}

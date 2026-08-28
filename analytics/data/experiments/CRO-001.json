@@ -1,0 +1,106 @@
+{
+  "actual_result": null,
+  "attacks_path": "CPA",
+  "baseline": {
+    "aov_liquido": 65.10909090909091,
+    "cpa_financeiro": 109.79272727272725,
+    "profit_status": "LOSS",
+    "roas_financeiro": 0.5930182492630743
+  },
+  "budget_check": {
+    "budget_percent_of_cycle": 0.2818,
+    "budget_too_large_for_cycle": false,
+    "flags": [],
+    "max_budget_percent_of_cycle": 0.3,
+    "status": "OK",
+    "valid": true,
+    "within_cycle_available": true
+  },
+  "budget_limit": 281.8,
+  "category": "CRO",
+  "conclusion": null,
+  "created_at": "2026-08-27T21:49:33.643Z",
+  "expected_effect": {
+    "aov_impact": {
+      "atual": 65.10909090909091,
+      "delta": 0,
+      "projetado": 65.10909090909091
+    },
+    "based_on": "profit/scenarios.js — mesmo simulador determinístico usado nos cenários A-D do Profit Engine",
+    "budget_used": 281.8,
+    "cpa_impact": {
+      "atual": 109.79272727272725,
+      "delta": -21.958545454545444,
+      "projetado": 87.8341818181818
+    },
+    "is_projection_not_guarantee": true,
+    "lucro_impact": {
+      "baseline_sem_mudanca_no_budget": -114.68745735766566,
+      "delta_vs_nao_fazer_nada": 41.77813566058359,
+      "projetado_no_budget": -72.90932169708208
+    },
+    "raw_projection": {
+      "aov_projetado": 65.10909090909091,
+      "cpa_projetado": 87.8341818181818,
+      "gasto_base": 281.8,
+      "inputs": {
+        "aovChangePct": 0,
+        "cpaChangePct": -0.2
+      },
+      "label": null,
+      "lucro_prejuizo_projetado": -72.90932169708208,
+      "receita_projetada": 208.89067830291793,
+      "roas_projetado": 0.741272811578843,
+      "vendas_necessarias": 3.208318153214322
+    },
+    "roas_impact": {
+      "atual": 0.5930182492630743,
+      "delta": 0.1482545623157686,
+      "projetado": 0.741272811578843
+    }
+  },
+  "experiment_id": "CRO-001",
+  "failure_condition": "taxa_lpv_checkout do período de teste <= baseline",
+  "hypothesis": {
+    "change": "reduzirmos a fricção da primeira dobra da LP no navegador in-app do Instagram (menos payload, hook nos 2-3s iniciais, sem depender de scroll pra ver a oferta)",
+    "expectedImprovement": "a taxa LPV→Checkout aumente",
+    "reason": "71% do tráfego vem do Instagram in-app com scroll médio de 16,8% e só 11s de tempo ativo (dado real do Clarity), e o gap pra meta de ROAS 2 no caminho CPA precisa de 70% de redução",
+    "statement": "Se reduzirmos a fricção da primeira dobra da LP no navegador in-app do Instagram (menos payload, hook nos 2-3s iniciais, sem depender de scroll pra ver a oferta), esperamos que a taxa LPV→Checkout aumente porque 71% do tráfego vem do Instagram in-app com scroll médio de 16,8% e só 11s de tempo ativo (dado real do Clarity), e o gap pra meta de ROAS 2 no caminho CPA precisa de 70% de redução."
+  },
+  "learning": null,
+  "minimum_evidence": {
+    "checkouts": 10,
+    "compras": null,
+    "duration_days": 7,
+    "lpv": 100,
+    "spend": null
+  },
+  "next_action": null,
+  "priority": {
+    "confidence_evidence_used": [
+      "has_specific_measured_metric",
+      "has_funnel_gap_quantified",
+      "has_corroborating_independent_source"
+    ],
+    "factors": {
+      "confidence": 0.8,
+      "costReais": 281.8,
+      "impactReais": 41.77813566058359,
+      "risk": 1,
+      "speedDias": 7
+    },
+    "formula": "score = (impact_reais * confidence) / (cost_reais * speed_dias * risk)",
+    "risk_category": "CRO",
+    "score": 0.01694337855037355,
+    "speed_dias_estimado": 7
+  },
+  "secondary_metrics": [
+    "scroll_depth_avg_pct",
+    "engagement_active_time_s"
+  ],
+  "start_condition": "nova versão da LP publicada, tráfego mantido no mesmo nível",
+  "status": "DRAFT",
+  "stop_condition": "minimum_evidence atingido ({\"lpv\":100,\"checkouts\":10,\"compras\":null,\"spend\":null,\"duration_days\":7}) OU 7.0 dias corridos (estimado no ritmo real atual), o que vier primeiro",
+  "success_condition": "taxa_lpv_checkout do período de teste >= baseline * 1.20 (alta real de 20%+)",
+  "target_metric": "taxa_lpv_checkout"
+}

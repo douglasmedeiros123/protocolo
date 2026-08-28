@@ -1,0 +1,41 @@
+{
+  "date": "2026-08-11",
+  "lp_changes": [
+    {
+      "sha": "44b06d28f36a93940a2885f1d9c703ff39888aee",
+      "timestamp_utc": "2026-08-11T21:49:16Z",
+      "message": "add prova social section before first CTA (4 real testimonials)",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "3b2b84bda548eeace0f5bcc141842f72735f1d98",
+      "timestamp_utc": "2026-08-11T21:45:03Z",
+      "message": "add prova social section before first CTA (4 real testimonials)",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "b08e418d093cddea609673e5a3debd0bc1ba608b",
+      "timestamp_utc": "2026-08-11T21:39:34Z",
+      "message": "add prova social screenshot assets/provas/prova4.jpg",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "abf3c15ff5ef51590653b0fb56aafda932aa027e",
+      "timestamp_utc": "2026-08-11T21:39:33Z",
+      "message": "add prova social screenshot assets/provas/prova3.jpg",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "3dec4d104671e3e2ed563388b11e04b32e579f51",
+      "timestamp_utc": "2026-08-11T21:39:31Z",
+      "message": "add prova social screenshot assets/provas/prova2.jpg",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "630395953b1f45233dfa7ca8d0153cc67686fe0a",
+      "timestamp_utc": "2026-08-11T21:39:29Z",
+      "message": "add prova social screenshot assets/provas/prova1.jpg",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

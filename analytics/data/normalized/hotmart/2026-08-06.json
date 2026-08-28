@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-06",
+  "transactions": [
+    {
+      "transaction_id": "HP3954229718",
+      "order_date_utc": "2026-08-06T13:00:13.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 1,
+      "hotmart_fee": 0.2,
+      "net": 0.8,
+      "payment_method": "PIX",
+      "buyer_name": "Douglas da Mota Medeiros",
+      "is_known_test_buyer": true,
+      "counted_as_revenue": false
+    },
+    {
+      "transaction_id": "HP4102266100",
+      "order_date_utc": "2026-08-06T15:49:28.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 76.65,
+      "hotmart_fee": 7.63,
+      "net": 69.02000000000001,
+      "payment_method": "CREDIT_CARD_MASTERCARD",
+      "buyer_name": "WILLIAM VIEIRA",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 0,
+    "gross_revenue": 76.65,
+    "net_revenue": 69.02000000000001,
+    "hotmart_fee_total": 7.63,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 1
+  }
+}

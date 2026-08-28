@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-19",
+  "fetched_at": "2026-08-27T21:31:32.434Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "gabiguimaraesp@gmail.com",
+        "name": "GABRIELA GUIMARAES PIMENTEL",
+        "ucode": "e75f2816-48de-4dfd-a922-a1a902eaa6ca"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1787129805000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787129795000,
+        "payment": {
+          "installments_number": 1,
+          "method": "APPLE_PAY",
+          "type": "APPLE_PAY"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP1902438213",
+        "warranty_expire_date": 1787702400000
+      }
+    },
+    {
+      "buyer": {
+        "email": "gabrielabritofotografia@gmail.com",
+        "name": "GABRIELA REIS BRITO",
+        "ucode": "dffef879-58ed-4670-9a2e-367b50f97523"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1787172636000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787172604000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "REFUNDED",
+        "transaction": "HP2882437990",
+        "warranty_expire_date": 1787702400000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1787194799999,
+    "startMs": 1787108400000
+  }
+}

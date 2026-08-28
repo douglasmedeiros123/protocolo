@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-26",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 0.02,
+      "impressions": 2,
+      "clicks": 0,
+      "cpm": 10,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "spend": 12.5,
+      "impressions": 605,
+      "clicks": 7,
+      "cpm": 20.661157,
+      "ctr": 1.157025,
+      "lpv": 4,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "spend": 0.58,
+      "impressions": 2,
+      "clicks": 0,
+      "cpm": 290,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "spend": 0.22,
+      "impressions": 1,
+      "clicks": 0,
+      "cpm": 220,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 13.32,
+    "impressions": 610,
+    "clicks": 7,
+    "lpv": 4,
+    "checkout": 0,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

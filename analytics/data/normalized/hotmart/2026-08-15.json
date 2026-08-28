@@ -1,0 +1,30 @@
+{
+  "date": "2026-08-15",
+  "transactions": [
+    {
+      "transaction_id": "HP1557336539",
+      "order_date_utc": "2026-08-15T13:30:17.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "CREDIT_CARD_MASTERCARD",
+      "buyer_name": "Roseli dos Santos Quadros Souza",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 0,
+    "gross_revenue": 67,
+    "net_revenue": 59.37,
+    "hotmart_fee_total": 7.63,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "date": "2026-07-31",
+  "transactions": [
+    {
+      "transaction_id": "HP3137773416",
+      "order_date_utc": "2026-07-31T15:26:10.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "PIX",
+      "buyer_name": "Fabrício Paulino de castilho",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 0,
+    "gross_revenue": 67,
+    "net_revenue": 59.37,
+    "hotmart_fee_total": 7.63,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 0
+  }
+}

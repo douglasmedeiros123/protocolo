@@ -1,0 +1,222 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-20",
+  "fetched_at": "2026-08-27T21:31:33.029Z",
+  "rows": [
+    {
+      "action_values": [
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "0.01"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "56.88"
+        }
+      ],
+      "actions": [
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "link_click",
+          "value": "39"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_purchase_add_20_s_calls",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "2"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "38"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "38"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "43"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "43"
+        },
+        {
+          "action_type": "purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "4"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "1"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "45",
+      "cpm": "19.1641",
+      "ctr": "1.979762",
+      "date_start": "2026-08-20",
+      "date_stop": "2026-08-20",
+      "impressions": "2273",
+      "spend": "43.56"
+    },
+    {
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "44.166667",
+      "ctr": "0",
+      "date_start": "2026-08-20",
+      "date_stop": "2026-08-20",
+      "impressions": "12",
+      "spend": "0.53"
+    },
+    {
+      "ad_id": "120250561881540738",
+      "ad_name": "Criativo 08 - Vou Pensar",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "10",
+      "ctr": "0",
+      "date_start": "2026-08-20",
+      "date_stop": "2026-08-20",
+      "impressions": "2",
+      "spend": "0.02"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "1",
+      "cpm": "44",
+      "ctr": "10",
+      "date_start": "2026-08-20",
+      "date_stop": "2026-08-20",
+      "impressions": "10",
+      "spend": "0.44"
+    }
+  ],
+  "source": "meta"
+}

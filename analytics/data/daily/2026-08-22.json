@@ -1,0 +1,105 @@
+{
+  "date": "2026-08-22",
+  "generated_at": "2026-08-27T21:31:35.573Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-22",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561849960738",
+        "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+        "spend": 34.16,
+        "impressions": 1600,
+        "clicks": 51,
+        "cpm": 21.35,
+        "ctr": 3.1875,
+        "lpv": 34,
+        "checkout": 4,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561880450738",
+        "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+        "spend": 0.29,
+        "impressions": 3,
+        "clicks": 0,
+        "cpm": 96.666667,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 34.449999999999996,
+      "impressions": 1603,
+      "clicks": 51,
+      "lpv": 34,
+      "checkout": 4,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-22",
+    "transactions": [],
+    "totals": {
+      "orders_count": 0,
+      "order_bumps_count": 0,
+      "gross_revenue": 0,
+      "net_revenue": 0,
+      "hotmart_fee_total": 0,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-22",
+    "lp_changes": []
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.031815346225826574,
+      "cpm": 21.490954460386774,
+      "cpc": 0.6754901960784313,
+      "custo_por_lpv": 1.013235294117647,
+      "taxa_lpv_checkout": 0.11764705882352941,
+      "taxa_checkout_compra": 0
+    },
+    "economics": {
+      "cpa_meta": null,
+      "cpa_financeiro": null,
+      "roas_meta": 0,
+      "roas_financeiro": 0,
+      "aov_bruto": null,
+      "aov_liquido": null,
+      "receita_por_visitante": 0,
+      "taxa_reembolso": null,
+      "order_bump_attach_rate": null
+    }
+  },
+  "tracking_flags": [],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

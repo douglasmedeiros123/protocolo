@@ -1,0 +1,106 @@
+{
+  "actual_result": null,
+  "attacks_path": "CPA",
+  "baseline": {
+    "aov_liquido": 65.10909090909091,
+    "cpa_financeiro": 109.79272727272725,
+    "profit_status": "LOSS",
+    "roas_financeiro": 0.5930182492630743
+  },
+  "budget_check": {
+    "budget_percent_of_cycle": 0.54896,
+    "budget_too_large_for_cycle": true,
+    "flags": [
+      "BUDGET_TOO_LARGE_FOR_CYCLE"
+    ],
+    "max_budget_percent_of_cycle": 0.3,
+    "status": "BUDGET_TOO_LARGE_FOR_CYCLE",
+    "valid": false,
+    "within_cycle_available": true
+  },
+  "budget_limit": 548.96,
+  "category": "MEDIA_BUYING",
+  "conclusion": null,
+  "created_at": "2026-08-27T21:49:33.643Z",
+  "expected_effect": {
+    "aov_impact": {
+      "atual": 65.10909090909091,
+      "delta": 0,
+      "projetado": 65.10909090909091
+    },
+    "based_on": "profit/scenarios.js — mesmo simulador determinístico usado nos cenários A-D do Profit Engine",
+    "budget_used": 548.96,
+    "cpa_impact": {
+      "atual": 109.79272727272725,
+      "delta": -27.44818181818181,
+      "projetado": 82.34454545454544
+    },
+    "is_projection_not_guarantee": true,
+    "lucro_impact": {
+      "baseline_sem_mudanca_no_budget": -223.4167018845427,
+      "delta_vs_nao_fazer_nada": 108.51443270515244,
+      "projetado_no_budget": -114.90226917939026
+    },
+    "raw_projection": {
+      "aov_projetado": 65.10909090909091,
+      "cpa_projetado": 82.34454545454544,
+      "gasto_base": 548.96,
+      "inputs": {
+        "aovChangePct": 0,
+        "cpaChangePct": -0.25
+      },
+      "label": null,
+      "lucro_prejuizo_projetado": -114.90226917939026,
+      "receita_projetada": 434.0577308206098,
+      "roas_projetado": 0.7906909990174324,
+      "vendas_necessarias": 6.666622506320452
+    },
+    "roas_impact": {
+      "atual": 0.5930182492630743,
+      "delta": 0.1976727497543581,
+      "projetado": 0.7906909990174324
+    }
+  },
+  "experiment_id": "MEDIA_BUYING-001",
+  "failure_condition": "cpa_financeiro do período de teste >= baseline",
+  "hypothesis": {
+    "change": "restringirmos o posicionamento dos anúncios a Instagram Reels/Stories, cortando Facebook (Feed/Reels/Stories)",
+    "expectedImprovement": "o CPM caia e, no mesmo gasto, o CPA financeiro melhore",
+    "reason": "dado real de posicionamento (breakdown Meta) mostrou R$118,48 gastos em Facebook com ZERO vendas, contra ROAS 0,87 em Instagram Reels+Stories",
+    "statement": "Se restringirmos o posicionamento dos anúncios a Instagram Reels/Stories, cortando Facebook (Feed/Reels/Stories), esperamos que o CPM caia e, no mesmo gasto, o CPA financeiro melhore porque dado real de posicionamento (breakdown Meta) mostrou R$118,48 gastos em Facebook com ZERO vendas, contra ROAS 0,87 em Instagram Reels+Stories."
+  },
+  "learning": null,
+  "minimum_evidence": {
+    "checkouts": null,
+    "compras": 5,
+    "duration_days": 5,
+    "lpv": null,
+    "spend": 300
+  },
+  "next_action": null,
+  "priority": {
+    "confidence_evidence_used": [
+      "has_specific_measured_metric",
+      "has_corroborating_independent_source"
+    ],
+    "factors": {
+      "confidence": 0.5,
+      "costReais": 548.96,
+      "impactReais": 108.51443270515244,
+      "risk": 3,
+      "speedDias": 13.636363636363637
+    },
+    "formula": "score = (impact_reais * confidence) / (cost_reais * speed_dias * risk)",
+    "risk_category": "MEDIA_BUYING",
+    "score": 0.002416000274775488,
+    "speed_dias_estimado": 13.636363636363637
+  },
+  "secondary_metrics": [
+    "cpa_financeiro"
+  ],
+  "start_condition": "conjunto de anúncios reconfigurado para posicionamento manual Instagram Reels+Stories",
+  "status": "DRAFT",
+  "stop_condition": "minimum_evidence atingido ({\"lpv\":null,\"checkouts\":null,\"compras\":5,\"spend\":300,\"duration_days\":5}) OU 13.6 dias corridos (estimado no ritmo real atual), o que vier primeiro",
+  "success_condition": "cpa_financeiro do período de teste <= baseline * 0.85",
+  "target_metric": "cpm"
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-08-13",
+  "lp_changes": [
+    {
+      "sha": "07e338a7a313c95445ae2c7426513443e70f85ac",
+      "timestamp_utc": "2026-08-13T12:33:09Z",
+      "message": "Adiciona corte vermelho nos precos riscados da recapitulacao",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "80002cf075b71d7f2012502a469245ec4b1d3a9c",
+      "timestamp_utc": "2026-08-13T12:29:13Z",
+      "message": "Reposiciona Arsenal: Agente de IA como oferta principal, 15 packs como bônus",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

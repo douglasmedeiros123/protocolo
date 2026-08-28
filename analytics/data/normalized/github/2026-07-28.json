@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-28",
+  "lp_changes": [
+    {
+      "sha": "e39e9956fe7da5806271728b612818f880791507",
+      "timestamp_utc": "2026-07-28T16:26:32Z",
+      "message": "Update payment links in index.html",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

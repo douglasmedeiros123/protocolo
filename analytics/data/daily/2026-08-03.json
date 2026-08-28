@@ -1,0 +1,299 @@
+{
+  "date": "2026-08-03",
+  "generated_at": "2026-08-27T21:31:19.186Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-03",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 13.75,
+        "impressions": 315,
+        "clicks": 6,
+        "cpm": 43.650794,
+        "ctr": 1.904762,
+        "lpv": 2,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959788910738",
+        "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+        "spend": 0.05,
+        "impressions": 2,
+        "clicks": 0,
+        "cpm": 25,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959911380738",
+        "ad_name": "Criativo 04 - O Dilema",
+        "spend": 0,
+        "impressions": 1,
+        "clicks": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250108602610738",
+        "adset_name": "Conjunto - Doda - Variante B",
+        "ad_id": "120250109010920738",
+        "ad_name": "Criativo 01 - Print da Dor - Variante B",
+        "spend": 24.14,
+        "impressions": 386,
+        "clicks": 11,
+        "cpm": 62.53886,
+        "ctr": 2.849741,
+        "lpv": 7,
+        "checkout": 4,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250108602610738",
+        "adset_name": "Conjunto - Doda - Variante B",
+        "ad_id": "120250109011170738",
+        "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio - Variante B",
+        "spend": 0.11,
+        "impressions": 1,
+        "clicks": 0,
+        "cpm": 110,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250108602610738",
+        "adset_name": "Conjunto - Doda - Variante B",
+        "ad_id": "120250109011410738",
+        "ad_name": "Criativo 03 - Antes Depois - Variante B",
+        "spend": 0.25,
+        "impressions": 10,
+        "clicks": 1,
+        "cpm": 25,
+        "ctr": 10,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250108602610738",
+        "adset_name": "Conjunto - Doda - Variante B",
+        "ad_id": "120250109011640738",
+        "ad_name": "Criativo 04 - O Dilema - Variante B",
+        "spend": 1.42,
+        "impressions": 22,
+        "clicks": 2,
+        "cpm": 64.545455,
+        "ctr": 9.090909,
+        "lpv": 1,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 39.72,
+      "impressions": 737,
+      "clicks": 20,
+      "lpv": 10,
+      "checkout": 4,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-03",
+    "transactions": [],
+    "totals": {
+      "orders_count": 0,
+      "order_bumps_count": 0,
+      "gross_revenue": 0,
+      "net_revenue": 0,
+      "hotmart_fee_total": 0,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-03",
+    "lp_changes": [
+      {
+        "sha": "03a144d95e967a88d940452ca0284dcf3be36186",
+        "timestamp_utc": "2026-08-03T17:05:22Z",
+        "message": "Botao do Hero agora rola ate a oferta em vez de ir direto ao checkout",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "9bd0499d30e3360994ead2a10e628f99260e8ca6",
+        "timestamp_utc": "2026-08-03T17:05:19Z",
+        "message": "Botao do Hero agora rola ate a oferta em vez de ir direto ao checkout",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "9ed55f83ee9af9a1b185b9326787c68fcb030ec8",
+        "timestamp_utc": "2026-08-03T15:05:19Z",
+        "message": "Remove rota teste-b (dominio descontinuado)",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "6e32803e563bf77f4075451618fdceef2d0760de",
+        "timestamp_utc": "2026-08-03T14:56:32Z",
+        "message": "Adiciona rota para anti-vacuo.ojogodolucro.com.br",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "afcd0b44e823da5db7f67e1ee68b9c7bb93b7b6e",
+        "timestamp_utc": "2026-08-03T13:20:44Z",
+        "message": "Liga link de Politica de Privacidade da Variante B",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "4b94471e53e1c856b0595d224c691c74c2d4bec9",
+        "timestamp_utc": "2026-08-03T13:20:40Z",
+        "message": "Liga link de Politica de Privacidade da Variante B",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "028e122d9065fde446328be12472176d4dc29413",
+        "timestamp_utc": "2026-08-03T13:20:05Z",
+        "message": "Adiciona pagina de Politica de Privacidade",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "0d63440f0a76f183af4c08c837e6c818e153f51f",
+        "timestamp_utc": "2026-08-03T12:47:42Z",
+        "message": "Corrige prioridade de rota do subdominio teste-b (routes + filesystem)",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "0590216af6f752a31047032c83dbea5c1dbe0a1f",
+        "timestamp_utc": "2026-08-03T11:55:14Z",
+        "message": "Liga CTA da Variante B ao checkout real",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "5eb3007158b1599676502cad1e91d44bfdda21fc",
+        "timestamp_utc": "2026-08-03T11:55:11Z",
+        "message": "Liga CTA da Variante B ao checkout real",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "35fa9cbf59c547edfb643248641c9719c9f8695f",
+        "timestamp_utc": "2026-08-03T11:52:37Z",
+        "message": "Add Variante B (teste A/B) - vercel.json",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "7be42c8e8a9fdd71e6f242a0a107d1623812b3fd",
+        "timestamp_utc": "2026-08-03T11:52:35Z",
+        "message": "Add Variante B (teste A/B) - teste-b/assets/doda-medeiros.jpeg",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "fbc95240ec4bca24e243ec4ca7aff419f931a3ab",
+        "timestamp_utc": "2026-08-03T11:52:33Z",
+        "message": "Add Variante B (teste A/B) - teste-b/assets/cartilha-mockup-CxtXIPpT.png",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "696fbac6cdd646ec60c64711dacfeda70049376c",
+        "timestamp_utc": "2026-08-03T11:52:31Z",
+        "message": "Add Variante B (teste A/B) - teste-b/assets/routes-et_ymNdo.js",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "b166bc0236d58f81ae57fbee15167a5f84b8740c",
+        "timestamp_utc": "2026-08-03T11:52:29Z",
+        "message": "Add Variante B (teste A/B) - teste-b/assets/index-DrTfhkNB.js",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "9afc20048ae5f9c0da3d193b764b80efeaa8ba43",
+        "timestamp_utc": "2026-08-03T11:52:28Z",
+        "message": "Add Variante B (teste A/B) - teste-b/assets/styles-D5pakB-q.css",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "c2c26126eb3f0a3ae87b0faccb99bdbef0edafd8",
+        "timestamp_utc": "2026-08-03T11:52:26Z",
+        "message": "Add Variante B (teste A/B) - teste-b/favicon.ico",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "c1366d7101fdce5a6d2772f1fec7a798ad442c86",
+        "timestamp_utc": "2026-08-03T11:52:25Z",
+        "message": "Add Variante B (teste A/B) - teste-b/index.html",
+        "author": "douglasmedeiros123"
+      }
+    ]
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.027137042062415198,
+      "cpm": 53.89416553595658,
+      "cpc": 1.986,
+      "custo_por_lpv": 3.972,
+      "taxa_lpv_checkout": 0.4,
+      "taxa_checkout_compra": 0
+    },
+    "economics": {
+      "cpa_meta": null,
+      "cpa_financeiro": null,
+      "roas_meta": 0,
+      "roas_financeiro": 0,
+      "aov_bruto": null,
+      "aov_liquido": null,
+      "receita_por_visitante": 0,
+      "taxa_reembolso": null,
+      "order_bump_attach_rate": null
+    }
+  },
+  "tracking_flags": [],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

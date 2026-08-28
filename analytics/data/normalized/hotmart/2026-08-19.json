@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-19",
+  "transactions": [
+    {
+      "transaction_id": "HP1902438213",
+      "order_date_utc": "2026-08-19T08:56:35.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "APPLE_PAY",
+      "buyer_name": "GABRIELA GUIMARAES PIMENTEL",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    },
+    {
+      "transaction_id": "HP2882437990",
+      "order_date_utc": "2026-08-19T20:50:04.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "REFUNDED",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "PIX",
+      "buyer_name": "GABRIELA REIS BRITO",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": false
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 0,
+    "gross_revenue": 67,
+    "net_revenue": 59.37,
+    "hotmart_fee_total": 7.63,
+    "refunds_count": 1,
+    "refunds_gross": 67,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 0
+  }
+}

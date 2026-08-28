@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-12",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 29.03,
+      "impressions": 654,
+      "clicks": 15,
+      "cpm": 44.388379,
+      "ctr": 2.293578,
+      "lpv": 11,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "ad_id": "120250397160560738",
+      "ad_name": "Anúncio - Ruminação - Vou Pensar",
+      "spend": 1.76,
+      "impressions": 92,
+      "clicks": 0,
+      "cpm": 19.130435,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "ad_id": "120250397162790738",
+      "ad_name": "Anúncio - Headline - 40 Scripts",
+      "spend": 20.58,
+      "impressions": 203,
+      "clicks": 7,
+      "cpm": 101.37931,
+      "ctr": 3.448276,
+      "lpv": 5,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "ad_id": "120250397164230738",
+      "ad_name": "Anúncio - Antes e Depois - Chat",
+      "spend": 1.58,
+      "impressions": 7,
+      "clicks": 0,
+      "cpm": 225.714286,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 52.95,
+    "impressions": 956,
+    "clicks": 22,
+    "lpv": 16,
+    "checkout": 2,
+    "compra_meta": 1,
+    "receita_meta": 56.88
+  }
+}

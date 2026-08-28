@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-13T12:33:09Z",
+      "message": "Adiciona corte vermelho nos precos riscados da recapitulacao",
+      "sha": "07e338a7a313c95445ae2c7426513443e70f85ac"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-13T12:29:13Z",
+      "message": "Reposiciona Arsenal: Agente de IA como oferta principal, 15 packs como bônus",
+      "sha": "80002cf075b71d7f2012502a469245ec4b1d3a9c"
+    }
+  ],
+  "date": "2026-08-13",
+  "fetched_at": "2026-08-27T21:31:27.050Z",
+  "repo": "douglasmedeiros123/protocolo",
+  "source": "github"
+}

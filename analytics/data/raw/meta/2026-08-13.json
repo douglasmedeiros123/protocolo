@@ -1,0 +1,182 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-13",
+  "fetched_at": "2026-08-27T21:31:27.580Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "9"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "4"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_conversion.post_unlike",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "231"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "4"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "231"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "5"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "2"
+        },
+        {
+          "action_type": "video_view",
+          "value": "218"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "11",
+      "cpm": "35.121212",
+      "ctr": "1.666667",
+      "date_start": "2026-08-13",
+      "date_stop": "2026-08-13",
+      "impressions": "660",
+      "spend": "23.18"
+    },
+    {
+      "ad_id": "120250397160560738",
+      "ad_name": "Anúncio - Ruminação - Vou Pensar",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "30",
+      "ctr": "0",
+      "date_start": "2026-08-13",
+      "date_stop": "2026-08-13",
+      "impressions": "15",
+      "spend": "0.45"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "3"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "3"
+        }
+      ],
+      "ad_id": "120250397162790738",
+      "ad_name": "Anúncio - Headline - 40 Scripts",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "4",
+      "cpm": "110",
+      "ctr": "6.060606",
+      "date_start": "2026-08-13",
+      "date_stop": "2026-08-13",
+      "impressions": "66",
+      "spend": "7.26"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "1"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_unlike",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "0"
+        }
+      ],
+      "ad_id": "120250427408420738",
+      "ad_name": "Anúncio - Carrossel Campeao",
+      "adset_id": "120250427387010738",
+      "adset_name": "Conjunto - Doda - Carrossel Campeao",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "1",
+      "cpm": "70.114286",
+      "ctr": "0.571429",
+      "date_start": "2026-08-13",
+      "date_stop": "2026-08-13",
+      "impressions": "175",
+      "spend": "12.27"
+    }
+  ],
+  "source": "meta"
+}

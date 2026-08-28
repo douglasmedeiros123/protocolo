@@ -1,0 +1,240 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-09",
+  "fetched_at": "2026-08-27T21:31:24.392Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "15"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "2"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "14"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "14"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "243"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "6"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "243"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "6"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "2"
+        },
+        {
+          "action_type": "video_view",
+          "value": "222"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "18",
+      "cpm": "71.086957",
+      "ctr": "3.26087",
+      "date_start": "2026-08-09",
+      "date_stop": "2026-08-09",
+      "impressions": "552",
+      "spend": "39.24"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "2"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "46"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "2"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "46"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "2"
+        },
+        {
+          "action_type": "video_view",
+          "value": "42"
+        }
+      ],
+      "ad_id": "120250260769310738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "adset_id": "120250260764400738",
+      "adset_name": "Conjunto Teste",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "3",
+      "cpm": "110.993377",
+      "ctr": "1.986755",
+      "date_start": "2026-08-09",
+      "date_stop": "2026-08-09",
+      "impressions": "151",
+      "spend": "16.76"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_reaction",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "9"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "9"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "8"
+        }
+      ],
+      "ad_id": "120250260770380738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "adset_id": "120250260764400738",
+      "adset_name": "Conjunto Teste",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "1",
+      "cpm": "45.555556",
+      "ctr": "5.555556",
+      "date_start": "2026-08-09",
+      "date_stop": "2026-08-09",
+      "impressions": "18",
+      "spend": "0.82"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "3"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "3"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "3"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "58"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "2"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "58"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "2"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "53"
+        }
+      ],
+      "ad_id": "120250260771590738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "adset_id": "120250260764400738",
+      "adset_name": "Conjunto Teste",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "4",
+      "cpm": "92.835821",
+      "ctr": "1.99005",
+      "date_start": "2026-08-09",
+      "date_stop": "2026-08-09",
+      "impressions": "201",
+      "spend": "18.66"
+    }
+  ],
+  "source": "meta"
+}

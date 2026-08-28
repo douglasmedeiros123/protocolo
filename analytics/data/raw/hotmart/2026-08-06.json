@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-06",
+  "fetched_at": "2026-08-27T21:31:22.008Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "douglasdamotamedeiros@gmail.com",
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1786021242000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 1,
+          "currency_code": "BRL",
+          "fixed": 0,
+          "percentage": 20,
+          "total": 0.2
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786021213000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 1
+        },
+        "status": "COMPLETE",
+        "transaction": "HP3954229718",
+        "warranty_expire_date": 1786579200000
+      }
+    },
+    {
+      "buyer": {
+        "email": "williampotter220@gmail.com",
+        "name": "WILLIAM VIEIRA",
+        "ucode": "85f64006-5c65-4a91-9250-43f2beb45889"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1786031371000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786031368000,
+        "payment": {
+          "installments_number": 7,
+          "method": "CREDIT_CARD_MASTERCARD",
+          "type": "CREDIT_CARD"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 76.65
+        },
+        "status": "COMPLETE",
+        "transaction": "HP4102266100",
+        "warranty_expire_date": 1786579200000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1786071599999,
+    "startMs": 1785985200000
+  }
+}

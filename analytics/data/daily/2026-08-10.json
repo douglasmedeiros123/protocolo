@@ -1,0 +1,196 @@
+{
+  "date": "2026-08-10",
+  "generated_at": "2026-08-27T21:31:25.349Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-10",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 37.38,
+        "impressions": 617,
+        "clicks": 19,
+        "cpm": 60.583468,
+        "ctr": 3.079417,
+        "lpv": 12,
+        "checkout": 2,
+        "compra_meta": 1,
+        "receita_meta": 56.88
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260769310738",
+        "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+        "spend": 2.67,
+        "impressions": 21,
+        "clicks": 0,
+        "cpm": 127.142857,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260770380738",
+        "ad_name": "Criativo 03 - Antes Depois",
+        "spend": 0.51,
+        "impressions": 9,
+        "clicks": 1,
+        "cpm": 56.666667,
+        "ctr": 11.111111,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260771590738",
+        "ad_name": "Criativo 04 - O Dilema",
+        "spend": 6.4,
+        "impressions": 84,
+        "clicks": 2,
+        "cpm": 76.190476,
+        "ctr": 2.380952,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 46.96,
+      "impressions": 731,
+      "clicks": 22,
+      "lpv": 12,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-10",
+    "transactions": [
+      {
+        "transaction_id": "HP3626434570C1",
+        "order_date_utc": "2026-08-11T01:03:26.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "COMPLETE",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "PIX",
+        "buyer_name": "Igor Costa Amorim",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      },
+      {
+        "transaction_id": "HP3626434570C2",
+        "order_date_utc": "2026-08-11T01:03:26.000Z",
+        "product_name": "Pack Objeções",
+        "is_main_product": false,
+        "status": "COMPLETE",
+        "gross": 19.9,
+        "hotmart_fee": 2.97,
+        "net": 16.93,
+        "payment_method": "PIX",
+        "buyer_name": "Igor Costa Amorim",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      }
+    ],
+    "totals": {
+      "orders_count": 1,
+      "order_bumps_count": 1,
+      "gross_revenue": 86.9,
+      "net_revenue": 76.3,
+      "hotmart_fee_total": 10.6,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-10",
+    "lp_changes": [
+      {
+        "sha": "43df62bb9a2f31d340a7e7202521d4f94206642d",
+        "timestamp_utc": "2026-08-10T12:56:17Z",
+        "message": "chat-wall: de-emphasize speech-bubble look (no tail radius, no whatsapp-blue bg, no pop animation) to stop dead-clicks - same copy kept",
+        "author": "douglasmedeiros123"
+      },
+      {
+        "sha": "2815a0bd088c44a2f06e9ccf29b3d956c3c8cc05",
+        "timestamp_utc": "2026-08-10T12:43:58Z",
+        "message": "revert hero to pre-08-06 headline (long pain-question, no WhatsApp mockup) - keep pointer-events:none fix",
+        "author": "douglasmedeiros123"
+      }
+    ]
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.030095759233926128,
+      "cpm": 64.24076607387141,
+      "cpc": 2.1345454545454547,
+      "custo_por_lpv": 3.9133333333333336,
+      "taxa_lpv_checkout": 0.16666666666666666,
+      "taxa_checkout_compra": 0.5
+    },
+    "economics": {
+      "cpa_meta": 46.96,
+      "cpa_financeiro": 46.96,
+      "roas_meta": 1.211243611584327,
+      "roas_financeiro": 1.6247870528109027,
+      "aov_bruto": 86.9,
+      "aov_liquido": 76.3,
+      "receita_por_visitante": 6.358333333333333,
+      "taxa_reembolso": 0,
+      "order_bump_attach_rate": 1
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "SUSPICIOUS_REPEATED_PURCHASE_VALUE",
+      "severity": "warn",
+      "message": "Valor médio de compra reportado pela Meta (R$56.88) não bate com nenhum valor bruto ou líquido de transação real da Hotmart neste dia — pode ser um valor fixo/desatualizado no evento de Purchase.",
+      "details": {
+        "meta_avg_purchase_value": 56.88,
+        "hotmart_real_values": [
+          67,
+          59.37,
+          19.9,
+          16.93
+        ]
+      }
+    }
+  ],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

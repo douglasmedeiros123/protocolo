@@ -1,0 +1,14 @@
+{
+  "commits": [
+    {
+      "author": "autopost",
+      "date": "2026-08-19T14:26:25Z",
+      "message": "Corrige corrida: espera processamento antes de publicar imagem/carrossel",
+      "sha": "5bc7a3051743755065c5bcb3b71183a650768516"
+    }
+  ],
+  "date": "2026-08-19",
+  "fetched_at": "2026-08-27T21:31:32.166Z",
+  "repo": "douglasmedeiros123/protocolo",
+  "source": "github"
+}

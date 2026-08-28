@@ -1,0 +1,234 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-12",
+  "fetched_at": "2026-08-27T21:31:26.769Z",
+  "rows": [
+    {
+      "action_values": [
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "0.01"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "56.88"
+        }
+      ],
+      "actions": [
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "link_click",
+          "value": "13"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_purchase_add_20_s_calls",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "4"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "11"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "11"
+        },
+        {
+          "action_type": "onsite_conversion.post_unlike",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "232"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "232"
+        },
+        {
+          "action_type": "purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "5"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "215"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "15",
+      "cpm": "44.388379",
+      "ctr": "2.293578",
+      "date_start": "2026-08-12",
+      "date_stop": "2026-08-12",
+      "impressions": "654",
+      "spend": "29.03"
+    },
+    {
+      "ad_id": "120250397160560738",
+      "ad_name": "Anúncio - Ruminação - Vou Pensar",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "19.130435",
+      "ctr": "0",
+      "date_start": "2026-08-12",
+      "date_stop": "2026-08-12",
+      "impressions": "92",
+      "spend": "1.76"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "6"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "5"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "5"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "7"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "7"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250397162790738",
+      "ad_name": "Anúncio - Headline - 40 Scripts",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "7",
+      "cpm": "101.37931",
+      "ctr": "3.448276",
+      "date_start": "2026-08-12",
+      "date_stop": "2026-08-12",
+      "impressions": "203",
+      "spend": "20.58"
+    },
+    {
+      "ad_id": "120250397164230738",
+      "ad_name": "Anúncio - Antes e Depois - Chat",
+      "adset_id": "120250397144340738",
+      "adset_name": "Conjunto - Doda - Teste Criativos",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "225.714286",
+      "ctr": "0",
+      "date_start": "2026-08-12",
+      "date_stop": "2026-08-12",
+      "impressions": "7",
+      "spend": "1.58"
+    }
+  ],
+  "source": "meta"
+}

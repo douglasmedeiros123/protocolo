@@ -1,0 +1,32 @@
+{
+  "date": "2026-08-16",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 37.03,
+      "impressions": 595,
+      "clicks": 13,
+      "cpm": 62.235294,
+      "ctr": 2.184874,
+      "lpv": 8,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 37.03,
+    "impressions": 595,
+    "clicks": 13,
+    "lpv": 8,
+    "checkout": 0,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-02",
+  "transactions": [],
+  "totals": {
+    "orders_count": 0,
+    "order_bumps_count": 0,
+    "gross_revenue": 0,
+    "net_revenue": 0,
+    "hotmart_fee_total": 0,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 0
+  }
+}

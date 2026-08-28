@@ -1,0 +1,66 @@
+{
+  "date": "2026-08-24",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "spend": 35.14,
+      "impressions": 1424,
+      "clicks": 29,
+      "cpm": 24.676966,
+      "ctr": 2.036517,
+      "lpv": 21,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "spend": 0.01,
+      "impressions": 1,
+      "clicks": 0,
+      "cpm": 10,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "spend": 0.16,
+      "impressions": 4,
+      "clicks": 0,
+      "cpm": 40,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 35.309999999999995,
+    "impressions": 1429,
+    "clicks": 29,
+    "lpv": 21,
+    "checkout": 0,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-22",
+  "fetched_at": "2026-08-27T21:31:34.830Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "41"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "4"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "4"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "4"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "34"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "34"
+        },
+        {
+          "action_type": "onsite_conversion.total_messaging_connection",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "47"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "6"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "47"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "6"
+        },
+        {
+          "action_type": "post",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "4"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_conversion.messaging_conversation_started_7d",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "51",
+      "cpm": "21.35",
+      "ctr": "3.1875",
+      "date_start": "2026-08-22",
+      "date_stop": "2026-08-22",
+      "impressions": "1600",
+      "spend": "34.16"
+    },
+    {
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "96.666667",
+      "ctr": "0",
+      "date_start": "2026-08-22",
+      "date_stop": "2026-08-22",
+      "impressions": "3",
+      "spend": "0.29"
+    }
+  ],
+  "source": "meta"
+}

@@ -1,0 +1,14 @@
+{
+  "commits": [
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-07-31T17:51:30Z",
+      "message": "Remove mockup do celular no Hero (teste de rolagem)",
+      "sha": "61c0491ddc34a6e4f920c730bca940563171555d"
+    }
+  ],
+  "date": "2026-07-31",
+  "fetched_at": "2026-08-27T21:31:15.428Z",
+  "repo": "douglasmedeiros123/protocolo",
+  "source": "github"
+}

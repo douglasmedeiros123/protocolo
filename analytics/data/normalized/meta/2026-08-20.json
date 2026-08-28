@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-20",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "spend": 43.56,
+      "impressions": 2273,
+      "clicks": 45,
+      "cpm": 19.1641,
+      "ctr": 1.979762,
+      "lpv": 38,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "spend": 0.53,
+      "impressions": 12,
+      "clicks": 0,
+      "cpm": 44.166667,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561881540738",
+      "ad_name": "Criativo 08 - Vou Pensar",
+      "spend": 0.02,
+      "impressions": 2,
+      "clicks": 0,
+      "cpm": 10,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "spend": 0.44,
+      "impressions": 10,
+      "clicks": 1,
+      "cpm": 44,
+      "ctr": 10,
+      "lpv": 1,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 44.550000000000004,
+    "impressions": 2297,
+    "clicks": 46,
+    "lpv": 39,
+    "checkout": 2,
+    "compra_meta": 1,
+    "receita_meta": 56.88
+  }
+}

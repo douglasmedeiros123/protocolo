@@ -1,6 +1,6 @@
 {
   "date": "2026-08-25",
-  "fetched_at": "2026-08-27T21:11:30.876Z",
+  "fetched_at": "2026-08-27T21:31:38.088Z",
   "items": [
     {
       "buyer": {
@@ -84,6 +84,48 @@
         },
         "status": "EXPIRED",
         "transaction": "HP3170346182"
+      }
+    },
+    {
+      "buyer": {
+        "email": "maaprroyo@outlook.com",
+        "name": "Mariá Arroyo Pettenazzi",
+        "ucode": "2ba249f0-70bb-44de-bdcd-ae2eda39bc77"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787682258000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "EXPIRED",
+        "transaction": "HP3237292491"
       }
     }
   ],

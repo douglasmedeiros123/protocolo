@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-17",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 6.55,
+      "impressions": 116,
+      "clicks": 1,
+      "cpm": 56.465517,
+      "ctr": 0.862069,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959911380738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "spend": 7.19,
+      "impressions": 145,
+      "clicks": 5,
+      "cpm": 49.586207,
+      "ctr": 3.448276,
+      "lpv": 2,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 13.74,
+    "impressions": 261,
+    "clicks": 6,
+    "lpv": 2,
+    "checkout": 0,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

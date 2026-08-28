@@ -1,0 +1,139 @@
+{
+  "date": "2026-08-09",
+  "generated_at": "2026-08-27T21:31:24.651Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-09",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 39.24,
+        "impressions": 552,
+        "clicks": 18,
+        "cpm": 71.086957,
+        "ctr": 3.26087,
+        "lpv": 14,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260769310738",
+        "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+        "spend": 16.76,
+        "impressions": 151,
+        "clicks": 3,
+        "cpm": 110.993377,
+        "ctr": 1.986755,
+        "lpv": 2,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260770380738",
+        "ad_name": "Criativo 03 - Antes Depois",
+        "spend": 0.82,
+        "impressions": 18,
+        "clicks": 1,
+        "cpm": 45.555556,
+        "ctr": 5.555556,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250260764400738",
+        "adset_name": "Conjunto Teste",
+        "ad_id": "120250260771590738",
+        "ad_name": "Criativo 04 - O Dilema",
+        "spend": 18.66,
+        "impressions": 201,
+        "clicks": 4,
+        "cpm": 92.835821,
+        "ctr": 1.99005,
+        "lpv": 3,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 75.48,
+      "impressions": 922,
+      "clicks": 26,
+      "lpv": 19,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-09",
+    "transactions": [],
+    "totals": {
+      "orders_count": 0,
+      "order_bumps_count": 0,
+      "gross_revenue": 0,
+      "net_revenue": 0,
+      "hotmart_fee_total": 0,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-09",
+    "lp_changes": []
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.028199566160520606,
+      "cpm": 81.8655097613883,
+      "cpc": 2.9030769230769233,
+      "custo_por_lpv": 3.9726315789473685,
+      "taxa_lpv_checkout": 0,
+      "taxa_checkout_compra": null
+    },
+    "economics": {
+      "cpa_meta": null,
+      "cpa_financeiro": null,
+      "roas_meta": 0,
+      "roas_financeiro": 0,
+      "aov_bruto": null,
+      "aov_liquido": null,
+      "receita_por_visitante": 0,
+      "taxa_reembolso": null,
+      "order_bump_attach_rate": null
+    }
+  },
+  "tracking_flags": [],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

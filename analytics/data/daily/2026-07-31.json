@@ -1,0 +1,144 @@
+{
+  "date": "2026-07-31",
+  "generated_at": "2026-08-27T21:31:15.974Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-07-31",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 24.68,
+        "impressions": 419,
+        "clicks": 24,
+        "cpm": 58.902148,
+        "ctr": 5.727924,
+        "lpv": 12,
+        "checkout": 2,
+        "compra_meta": 1,
+        "receita_meta": 59.37
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959788910738",
+        "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+        "spend": 0.44,
+        "impressions": 3,
+        "clicks": 1,
+        "cpm": 146.666667,
+        "ctr": 33.333333,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959832000738",
+        "ad_name": "Criativo 03 - Antes Depois",
+        "spend": 0.01,
+        "impressions": 1,
+        "clicks": 0,
+        "cpm": 10,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 25.130000000000003,
+      "impressions": 423,
+      "clicks": 25,
+      "lpv": 12,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 59.37
+    }
+  },
+  "hotmart": {
+    "date": "2026-07-31",
+    "transactions": [
+      {
+        "transaction_id": "HP3137773416",
+        "order_date_utc": "2026-07-31T15:26:10.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "COMPLETE",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "PIX",
+        "buyer_name": "Fabrício Paulino de castilho",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      }
+    ],
+    "totals": {
+      "orders_count": 1,
+      "order_bumps_count": 0,
+      "gross_revenue": 67,
+      "net_revenue": 59.37,
+      "hotmart_fee_total": 7.63,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-07-31",
+    "lp_changes": [
+      {
+        "sha": "61c0491ddc34a6e4f920c730bca940563171555d",
+        "timestamp_utc": "2026-07-31T17:51:30Z",
+        "message": "Remove mockup do celular no Hero (teste de rolagem)",
+        "author": "douglasmedeiros123"
+      }
+    ]
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.0591016548463357,
+      "cpm": 59.40898345153665,
+      "cpc": 1.0052,
+      "custo_por_lpv": 2.0941666666666667,
+      "taxa_lpv_checkout": 0.16666666666666666,
+      "taxa_checkout_compra": 0.5
+    },
+    "economics": {
+      "cpa_meta": 25.130000000000003,
+      "cpa_financeiro": 25.130000000000003,
+      "roas_meta": 2.3625149224035016,
+      "roas_financeiro": 2.3625149224035016,
+      "aov_bruto": 67,
+      "aov_liquido": 59.37,
+      "receita_por_visitante": 4.9475,
+      "taxa_reembolso": 0,
+      "order_bump_attach_rate": 0
+    }
+  },
+  "tracking_flags": [],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

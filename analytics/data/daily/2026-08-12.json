@@ -1,0 +1,174 @@
+{
+  "date": "2026-08-12",
+  "generated_at": "2026-08-27T21:31:26.774Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-12",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 29.03,
+        "impressions": 654,
+        "clicks": 15,
+        "cpm": 44.388379,
+        "ctr": 2.293578,
+        "lpv": 11,
+        "checkout": 2,
+        "compra_meta": 1,
+        "receita_meta": 56.88
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250397144340738",
+        "adset_name": "Conjunto - Doda - Teste Criativos",
+        "ad_id": "120250397160560738",
+        "ad_name": "Anúncio - Ruminação - Vou Pensar",
+        "spend": 1.76,
+        "impressions": 92,
+        "clicks": 0,
+        "cpm": 19.130435,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250397144340738",
+        "adset_name": "Conjunto - Doda - Teste Criativos",
+        "ad_id": "120250397162790738",
+        "ad_name": "Anúncio - Headline - 40 Scripts",
+        "spend": 20.58,
+        "impressions": 203,
+        "clicks": 7,
+        "cpm": 101.37931,
+        "ctr": 3.448276,
+        "lpv": 5,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120250397144340738",
+        "adset_name": "Conjunto - Doda - Teste Criativos",
+        "ad_id": "120250397164230738",
+        "ad_name": "Anúncio - Antes e Depois - Chat",
+        "spend": 1.58,
+        "impressions": 7,
+        "clicks": 0,
+        "cpm": 225.714286,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 52.95,
+      "impressions": 956,
+      "clicks": 22,
+      "lpv": 16,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-12",
+    "transactions": [
+      {
+        "transaction_id": "HP1038948955",
+        "order_date_utc": "2026-08-12T20:55:54.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "COMPLETE",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "CREDIT_CARD_MASTERCARD",
+        "buyer_name": "Andiara Lucia Heck dos Santos",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      }
+    ],
+    "totals": {
+      "orders_count": 1,
+      "order_bumps_count": 0,
+      "gross_revenue": 67,
+      "net_revenue": 59.37,
+      "hotmart_fee_total": 7.63,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-12",
+    "lp_changes": [
+      {
+        "sha": "ab929e5b7c2e73ab0e94eb827fe60d14c41d5f75",
+        "timestamp_utc": "2026-08-12T13:10:14Z",
+        "message": "add video assets/posts/aula1_p1.mp4",
+        "author": "douglasmedeiros123"
+      }
+    ]
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.02301255230125523,
+      "cpm": 55.387029288702934,
+      "cpc": 2.4068181818181817,
+      "custo_por_lpv": 3.309375,
+      "taxa_lpv_checkout": 0.125,
+      "taxa_checkout_compra": 0.5
+    },
+    "economics": {
+      "cpa_meta": 52.95,
+      "cpa_financeiro": 52.95,
+      "roas_meta": 1.0742209631728046,
+      "roas_financeiro": 1.1212464589235127,
+      "aov_bruto": 67,
+      "aov_liquido": 59.37,
+      "receita_por_visitante": 3.710625,
+      "taxa_reembolso": 0,
+      "order_bump_attach_rate": 0
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "SUSPICIOUS_REPEATED_PURCHASE_VALUE",
+      "severity": "warn",
+      "message": "Valor médio de compra reportado pela Meta (R$56.88) não bate com nenhum valor bruto ou líquido de transação real da Hotmart neste dia — pode ser um valor fixo/desatualizado no evento de Purchase.",
+      "details": {
+        "meta_avg_purchase_value": 56.88,
+        "hotmart_real_values": [
+          67,
+          59.37
+        ]
+      }
+    }
+  ],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

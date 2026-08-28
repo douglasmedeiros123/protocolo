@@ -1,0 +1,73 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-16",
+  "fetched_at": "2026-08-27T21:31:30.025Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "10"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "6"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "8"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "8"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "212"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "7"
+        },
+        {
+          "action_type": "comment",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "212"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "7"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_comment",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "6"
+        },
+        {
+          "action_type": "video_view",
+          "value": "195"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "13",
+      "cpm": "62.235294",
+      "ctr": "2.184874",
+      "date_start": "2026-08-16",
+      "date_stop": "2026-08-16",
+      "impressions": "595",
+      "spend": "37.03"
+    }
+  ],
+  "source": "meta"
+}

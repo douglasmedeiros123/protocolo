@@ -1,0 +1,107 @@
+{
+  "actual_result": null,
+  "attacks_path": "AOV",
+  "baseline": {
+    "aov_liquido": 65.10909090909091,
+    "cpa_financeiro": 109.79272727272725,
+    "profit_status": "LOSS",
+    "roas_financeiro": 0.5930182492630743
+  },
+  "budget_check": {
+    "budget_percent_of_cycle": 1.6468900000000002,
+    "budget_too_large_for_cycle": true,
+    "flags": [
+      "EXCEEDS_CYCLE_AVAILABLE",
+      "BUDGET_TOO_LARGE_FOR_CYCLE"
+    ],
+    "max_budget_percent_of_cycle": 0.3,
+    "status": "EXCEEDS_CYCLE_AVAILABLE",
+    "valid": false,
+    "within_cycle_available": false
+  },
+  "budget_limit": 1646.89,
+  "category": "AOV",
+  "conclusion": null,
+  "created_at": "2026-08-27T21:49:33.643Z",
+  "expected_effect": {
+    "aov_impact": {
+      "atual": 65.10909090909091,
+      "delta": 6.510909090909095,
+      "projetado": 71.62
+    },
+    "based_on": "profit/scenarios.js — mesmo simulador determinístico usado nos cenários A-D do Profit Engine",
+    "budget_used": 1646.89,
+    "cpa_impact": {
+      "atual": 109.79272727272725,
+      "delta": 0,
+      "projetado": 109.79272727272725
+    },
+    "is_projection_not_guarantee": true,
+    "lucro_impact": {
+      "baseline_sem_mudanca_no_budget": -670.2541754711355,
+      "delta_vs_nao_fazer_nada": 97.66358245288654,
+      "projetado_no_budget": -572.5905930182489
+    },
+    "raw_projection": {
+      "aov_projetado": 71.62,
+      "cpa_projetado": 109.79272727272725,
+      "gasto_base": 1646.89,
+      "inputs": {
+        "aovChangePct": 0.1,
+        "cpaChangePct": 0
+      },
+      "label": null,
+      "lucro_prejuizo_projetado": -572.5905930182489,
+      "receita_projetada": 1074.2994069817512,
+      "roas_projetado": 0.6523200741893819,
+      "vendas_necessarias": 14.999991719935089
+    },
+    "roas_impact": {
+      "atual": 0.5930182492630743,
+      "delta": 0.059301824926307534,
+      "projetado": 0.6523200741893819
+    }
+  },
+  "experiment_id": "AOV-001",
+  "failure_condition": "aov_liquido do período de teste <= baseline",
+  "hypothesis": {
+    "change": "reforçarmos a oferta de order bump (bundle Núcleo+Objeções+Cobrança) na tela de checkout",
+    "expectedImprovement": "o AOV líquido suba",
+    "reason": "o attach rate de order bump hoje é de 27.3% (real, 30 dias) e o caminho AOV pra ROAS 2 precisa de +237%",
+    "statement": "Se reforçarmos a oferta de order bump (bundle Núcleo+Objeções+Cobrança) na tela de checkout, esperamos que o AOV líquido suba porque o attach rate de order bump hoje é de 27.3% (real, 30 dias) e o caminho AOV pra ROAS 2 precisa de +237%."
+  },
+  "learning": null,
+  "minimum_evidence": {
+    "checkouts": null,
+    "compras": 15,
+    "duration_days": 14,
+    "lpv": null,
+    "spend": null
+  },
+  "next_action": null,
+  "priority": {
+    "confidence_evidence_used": [
+      "has_specific_measured_metric",
+      "has_funnel_gap_quantified"
+    ],
+    "factors": {
+      "confidence": 0.6,
+      "costReais": 1646.89,
+      "impactReais": 97.66358245288654,
+      "risk": 2,
+      "speedDias": 40.909090909090914
+    },
+    "formula": "score = (impact_reais * confidence) / (cost_reais * speed_dias * risk)",
+    "risk_category": "AOV",
+    "score": 0.0004348800494595882,
+    "speed_dias_estimado": 40.909090909090914
+  },
+  "secondary_metrics": [
+    "aov_liquido"
+  ],
+  "start_condition": "bundle configurado e ativo no checkout",
+  "status": "DRAFT",
+  "stop_condition": "minimum_evidence atingido ({\"lpv\":null,\"checkouts\":null,\"compras\":15,\"spend\":null,\"duration_days\":14}) OU 40.9 dias corridos (estimado no ritmo real atual), o que vier primeiro",
+  "success_condition": "aov_liquido do período de teste >= baseline * 1.10",
+  "target_metric": "order_bump_attach_rate"
+}

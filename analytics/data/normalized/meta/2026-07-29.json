@@ -1,0 +1,83 @@
+{
+  "date": "2026-07-29",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 28.31,
+      "impressions": 315,
+      "clicks": 19,
+      "cpm": 89.873016,
+      "ctr": 6.031746,
+      "lpv": 14,
+      "checkout": 3,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "spend": 3.56,
+      "impressions": 37,
+      "clicks": 3,
+      "cpm": 96.216216,
+      "ctr": 8.108108,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959832000738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "spend": 2.65,
+      "impressions": 39,
+      "clicks": 3,
+      "cpm": 67.948718,
+      "ctr": 7.692308,
+      "lpv": 2,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959911380738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "spend": 3.14,
+      "impressions": 76,
+      "clicks": 13,
+      "cpm": 41.315789,
+      "ctr": 17.105263,
+      "lpv": 4,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 37.66,
+    "impressions": 467,
+    "clicks": 38,
+    "lpv": 20,
+    "checkout": 3,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

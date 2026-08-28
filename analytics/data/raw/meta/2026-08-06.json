@@ -1,0 +1,228 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-06",
+  "fetched_at": "2026-08-27T21:31:21.815Z",
+  "rows": [
+    {
+      "action_values": [
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "0.01"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "56.88"
+        },
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "56.88"
+        }
+      ],
+      "actions": [
+        {
+          "action_type": "web_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "link_click",
+          "value": "23"
+        },
+        {
+          "action_type": "initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_purchase_add_20_s_calls",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "offsite_conversion.fb_pixel_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "offsite_initiate_checkout_add_20_s_calls",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "14"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "19"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "19"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "369"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "18"
+        },
+        {
+          "action_type": "onsite_web_app_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "369"
+        },
+        {
+          "action_type": "purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "18"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "4"
+        },
+        {
+          "action_type": "web_app_in_store_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "14"
+        },
+        {
+          "action_type": "onsite_web_initiate_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_initiated_checkout",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_web_purchase",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "328"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "31",
+      "cpm": "43.045852",
+      "ctr": "3.384279",
+      "date_start": "2026-08-06",
+      "date_stop": "2026-08-06",
+      "impressions": "916",
+      "spend": "39.43"
+    },
+    {
+      "ad_id": "120250178065990738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "adset_id": "120250178056820738",
+      "adset_name": "Conjunto - Criativo 02",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "142.857143",
+      "ctr": "0",
+      "date_start": "2026-08-06",
+      "date_stop": "2026-08-06",
+      "impressions": "7",
+      "spend": "1"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "6"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "6"
+        },
+        {
+          "action_type": "video_view",
+          "value": "6"
+        }
+      ],
+      "ad_id": "120250178066900738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "adset_id": "120250178059390738",
+      "adset_name": "Conjunto - Criativo 03",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "53.888889",
+      "ctr": "0",
+      "date_start": "2026-08-06",
+      "date_stop": "2026-08-06",
+      "impressions": "18",
+      "spend": "0.97"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "3"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "3"
+        },
+        {
+          "action_type": "video_view",
+          "value": "3"
+        }
+      ],
+      "ad_id": "120250178068060738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "adset_id": "120250178060460738",
+      "adset_name": "Conjunto - Criativo 04",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "139.62963",
+      "ctr": "0",
+      "date_start": "2026-08-06",
+      "date_stop": "2026-08-06",
+      "impressions": "27",
+      "spend": "3.77"
+    }
+  ],
+  "source": "meta"
+}

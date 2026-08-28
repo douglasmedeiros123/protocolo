@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-10",
+  "fetched_at": "2026-08-27T21:31:25.237Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "igoramorimjornalismo@hotmail.com",
+        "name": "Igor Costa Amorim",
+        "ucode": "ff5f41a2-7a81-458b-b326-efbdc774c65a"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1786410332000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786410206000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP3626434570C1",
+        "warranty_expire_date": 1786924800000
+      }
+    },
+    {
+      "buyer": {
+        "email": "igoramorimjornalismo@hotmail.com",
+        "name": "Igor Costa Amorim",
+        "ucode": "ff5f41a2-7a81-458b-b326-efbdc774c65a"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207846,
+        "name": "Pack Objeções"
+      },
+      "purchase": {
+        "approved_date": 1786410332000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 19.9,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 2.97
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "mkb1tdhs",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786410206000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 19.9
+        },
+        "status": "COMPLETE",
+        "transaction": "HP3626434570C2",
+        "warranty_expire_date": 1786924800000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1786417199999,
+    "startMs": 1786330800000
+  }
+}

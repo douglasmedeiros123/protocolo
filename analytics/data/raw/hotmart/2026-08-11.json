@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-11",
+  "fetched_at": "2026-08-27T21:31:25.939Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "bortottigustavo@icloud.com",
+        "name": "Gustavo Rangel Pereira bortotti",
+        "ucode": "9a7ef4bb-1d64-40e4-bdd8-2d67f917f320"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1786485726000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786485598000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP0748065107C1",
+        "warranty_expire_date": 1787011200000
+      }
+    },
+    {
+      "buyer": {
+        "email": "bortottigustavo@icloud.com",
+        "name": "Gustavo Rangel Pereira bortotti",
+        "ucode": "9a7ef4bb-1d64-40e4-bdd8-2d67f917f320"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207890,
+        "name": "Pack Cobrança"
+      },
+      "purchase": {
+        "approved_date": 1786485726000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 14.9,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 2.48
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "d8vto8x0",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786485598000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 14.9
+        },
+        "status": "COMPLETE",
+        "transaction": "HP0748065107C2",
+        "warranty_expire_date": 1787011200000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1786503599999,
+    "startMs": 1786417200000
+  }
+}

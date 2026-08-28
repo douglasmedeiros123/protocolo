@@ -1,0 +1,72 @@
+{
+  "date": "2026-08-04",
+  "transactions": [
+    {
+      "transaction_id": "HP0006728429",
+      "order_date_utc": "2026-08-05T01:11:30.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "PIX",
+      "buyer_name": "Alexsandro Cipriano Lima Pereira da Silva",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    },
+    {
+      "transaction_id": "HP1893506387",
+      "order_date_utc": "2026-08-04T23:58:17.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 1,
+      "hotmart_fee": 0.2,
+      "net": 0.8,
+      "payment_method": "PIX",
+      "buyer_name": "Celso Prates",
+      "is_known_test_buyer": true,
+      "counted_as_revenue": false
+    },
+    {
+      "transaction_id": "HP4055488722",
+      "order_date_utc": "2026-08-04T09:42:57.000Z",
+      "product_name": "Pack Objeções",
+      "is_main_product": false,
+      "status": "COMPLETE",
+      "gross": 19.9,
+      "hotmart_fee": 2.97,
+      "net": 16.93,
+      "payment_method": "CREDIT_CARD_VISA",
+      "buyer_name": "Gabriela Fernanda Rodrigues Piazentin Soldera",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    },
+    {
+      "transaction_id": "HP4090885621",
+      "order_date_utc": "2026-08-04T09:42:26.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "CREDIT_CARD_VISA",
+      "buyer_name": "Gabriela Fernanda Rodrigues Piazentin Soldera",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    }
+  ],
+  "totals": {
+    "orders_count": 2,
+    "order_bumps_count": 1,
+    "gross_revenue": 153.9,
+    "net_revenue": 135.67,
+    "hotmart_fee_total": 18.23,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 1
+  }
+}

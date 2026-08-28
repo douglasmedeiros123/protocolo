@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-04",
+  "lp_changes": [
+    {
+      "sha": "810cfdfba3e209e2af92b2fe75281db57d80696e",
+      "timestamp_utc": "2026-08-04T21:22:51Z",
+      "message": "update arsenal/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "35bcebe7d3ac89407de47ef8bc65040180842c0e",
+      "timestamp_utc": "2026-08-04T21:12:19Z",
+      "message": "update arsenal/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "03f471606aafc60eb5e074ee29b8f8e9195cf5ff",
+      "timestamp_utc": "2026-08-04T21:08:59Z",
+      "message": "update arsenal/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "91e55f1295146b55bcf99da966e40d27e3070524",
+      "timestamp_utc": "2026-08-04T17:40:55Z",
+      "message": "deploy nucleo/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "27f5643ad3010aee462f07a8a6486ff66b9e93be",
+      "timestamp_utc": "2026-08-04T17:40:54Z",
+      "message": "deploy essencial/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "a13ddbeb2fbfbfe3fb3e136504747a7d67a4f23e",
+      "timestamp_utc": "2026-08-04T17:40:53Z",
+      "message": "deploy arsenal/index.html",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "7d4c0620b7db404cf020066851e6fc0229ed2ed1",
+      "timestamp_utc": "2026-08-04T13:07:38Z",
+      "message": "Adiciona pagina final de acesso pos-funil de ofertas",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

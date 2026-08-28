@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-23",
+  "transactions": [
+    {
+      "transaction_id": "HP0030195347",
+      "order_date_utc": "2026-08-24T01:15:21.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "APPROVED",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "PIX",
+      "buyer_name": "Núria Pedrasolli de Mello",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    },
+    {
+      "transaction_id": "HP4248982360",
+      "order_date_utc": "2026-08-24T01:14:59.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "CANCELLED",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "CREDIT_CARD_VISA",
+      "buyer_name": "Núria Pedrasolli de Mello",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": false
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 0,
+    "gross_revenue": 67,
+    "net_revenue": 59.37,
+    "hotmart_fee_total": 7.63,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 1,
+    "test_transactions_count": 0
+  }
+}

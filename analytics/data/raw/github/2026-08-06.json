@@ -1,0 +1,38 @@
+{
+  "commits": [
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-06T13:23:28Z",
+      "message": "defensive: pointer-events:none on decorative hero::before (already protected by hero-grid z-index, belt-and-suspenders)",
+      "sha": "94d12adabbed6f27005d326c4ab5fa34421c224c"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-06T13:23:26Z",
+      "message": "fix: same hero::before click-block + price-box reveal issue as essencial page",
+      "sha": "7e83660c0c0f98404041b61ca233906f69e4ea32"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-06T13:18:46Z",
+      "message": "fix: hero::before overlay was blocking all clicks in the hero (pointer-events:none)",
+      "sha": "11984d4ba6b7872ff3bc23dd992625a06d6cbdf3"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-06T13:12:06Z",
+      "message": "fix: price-box CTA no longer depends on scroll-reveal animation to be visible; add fallback timeout for other reveal elements",
+      "sha": "e092811faa245f9c2a9334fddfbd6954a6f97d61"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-06T13:00:45Z",
+      "message": "update index.html - headline swap + hero mockup",
+      "sha": "6b9d8d5b77e932cd4964eba6e0a45d010ae78ba2"
+    }
+  ],
+  "date": "2026-08-06",
+  "fetched_at": "2026-08-27T21:31:21.480Z",
+  "repo": "douglasmedeiros123/protocolo",
+  "source": "github"
+}

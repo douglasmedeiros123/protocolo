@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-12",
+  "fetched_at": "2026-08-27T21:31:26.656Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "andiaraluciahsantos@gmail.com",
+        "name": "Andiara Lucia Heck dos Santos",
+        "ucode": "f0be5f15-8253-4878-ba20-792b8df1936f"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1786568158000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1786568154000,
+        "payment": {
+          "installments_number": 1,
+          "method": "CREDIT_CARD_MASTERCARD",
+          "type": "CREDIT_CARD"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP1038948955",
+        "warranty_expire_date": 1787097600000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1786589999999,
+    "startMs": 1786503600000
+  }
+}

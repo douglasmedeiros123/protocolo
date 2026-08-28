@@ -1,0 +1,65 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-21",
+  "fetched_at": "2026-08-27T21:31:34.207Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "43"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "5"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "37"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "37"
+        },
+        {
+          "action_type": "onsite_conversion.post_unlike",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "48"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "5"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "48"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "6"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "4"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "47",
+      "cpm": "19.932503",
+      "ctr": "2.440291",
+      "date_start": "2026-08-21",
+      "date_stop": "2026-08-21",
+      "impressions": "1926",
+      "spend": "38.39"
+    }
+  ],
+  "source": "meta"
+}

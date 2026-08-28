@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-05T19:39:31Z",
+      "message": "perf: extract inline base64 photo to static asset (reduce HTML payload ~40%)",
+      "sha": "d28cef24036e0cbd7644c72c4740bb01e5a3ca1e"
+    },
+    {
+      "author": "douglasmedeiros123",
+      "date": "2026-08-05T19:28:46Z",
+      "message": "perf: extract inline base64 photo to static file",
+      "sha": "8f2d2b7171da6607edd2eee79ef41adc301000b7"
+    }
+  ],
+  "date": "2026-08-05",
+  "fetched_at": "2026-08-27T21:31:20.426Z",
+  "repo": "douglasmedeiros123/protocolo",
+  "source": "github"
+}

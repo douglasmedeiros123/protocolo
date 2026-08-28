@@ -1,0 +1,106 @@
+{
+  "actual_result": null,
+  "attacks_path": "CPA",
+  "baseline": {
+    "aov_liquido": 65.10909090909091,
+    "cpa_financeiro": 109.79272727272725,
+    "profit_status": "LOSS",
+    "roas_financeiro": 0.5930182492630743
+  },
+  "budget_check": {
+    "budget_percent_of_cycle": 0.2818,
+    "budget_too_large_for_cycle": false,
+    "flags": [],
+    "max_budget_percent_of_cycle": 0.3,
+    "status": "OK",
+    "valid": true,
+    "within_cycle_available": true
+  },
+  "budget_limit": 281.8,
+  "category": "CREATIVE",
+  "conclusion": null,
+  "created_at": "2026-08-27T21:49:33.642Z",
+  "expected_effect": {
+    "aov_impact": {
+      "atual": 65.10909090909091,
+      "delta": 0,
+      "projetado": 65.10909090909091
+    },
+    "based_on": "profit/scenarios.js — mesmo simulador determinístico usado nos cenários A-D do Profit Engine",
+    "budget_used": 281.8,
+    "cpa_impact": {
+      "atual": 109.79272727272725,
+      "delta": -16.468909090909094,
+      "projetado": 93.32381818181815
+    },
+    "is_projection_not_guarantee": true,
+    "lucro_impact": {
+      "baseline_sem_mudanca_no_budget": -114.68745735766566,
+      "delta_vs_nao_fazer_nada": 29.490448701588434,
+      "projetado_no_budget": -85.19700865607723
+    },
+    "raw_projection": {
+      "aov_projetado": 65.10909090909091,
+      "cpa_projetado": 93.32381818181815,
+      "gasto_base": 281.8,
+      "inputs": {
+        "aovChangePct": 0,
+        "cpaChangePct": -0.15
+      },
+      "label": null,
+      "lucro_prejuizo_projetado": -85.19700865607723,
+      "receita_projetada": 196.60299134392278,
+      "roas_projetado": 0.6976685285447934,
+      "vendas_necessarias": 3.019593555966421
+    },
+    "roas_impact": {
+      "atual": 0.5930182492630743,
+      "delta": 0.1046502792817191,
+      "projetado": 0.6976685285447934
+    }
+  },
+  "experiment_id": "CREATIVE-001",
+  "failure_condition": "cpa_financeiro do período de teste >= baseline (piorou ou ficou igual)",
+  "hypothesis": {
+    "change": "concentrarmos o orçamento nos 2 criativos com amostra estatística real (Criativo 01 e 05) em vez de manter 23 variantes fragmentadas",
+    "expectedImprovement": "o CTR/CPM ponderado melhore e o CPA financeiro caia",
+    "reason": "hoje 21 das 23 variantes têm menos de 10 checkouts cada (sem confiança estatística), e só Criativo 01 (ROAS 0,76) e 05 (ROAS 1,12) têm sinal real — dado já levantado nesta sessão",
+    "statement": "Se concentrarmos o orçamento nos 2 criativos com amostra estatística real (Criativo 01 e 05) em vez de manter 23 variantes fragmentadas, esperamos que o CTR/CPM ponderado melhore e o CPA financeiro caia porque hoje 21 das 23 variantes têm menos de 10 checkouts cada (sem confiança estatística), e só Criativo 01 (ROAS 0,76) e 05 (ROAS 1,12) têm sinal real — dado já levantado nesta sessão."
+  },
+  "learning": null,
+  "minimum_evidence": {
+    "checkouts": 5,
+    "compras": null,
+    "duration_days": 7,
+    "lpv": 30,
+    "spend": null
+  },
+  "next_action": null,
+  "priority": {
+    "confidence_evidence_used": [
+      "has_specific_measured_metric",
+      "has_funnel_gap_quantified",
+      "has_prior_precedent_this_project"
+    ],
+    "factors": {
+      "confidence": 0.8,
+      "costReais": 281.8,
+      "impactReais": 29.490448701588434,
+      "risk": 1,
+      "speedDias": 7
+    },
+    "formula": "score = (impact_reais * confidence) / (cost_reais * speed_dias * risk)",
+    "risk_category": "CREATIVE",
+    "score": 0.01196003191791075,
+    "speed_dias_estimado": 7
+  },
+  "secondary_metrics": [
+    "ctr",
+    "cpm"
+  ],
+  "start_condition": "orçamento realocado 100% para Criativo 01 e 05, demais pausados",
+  "status": "DRAFT",
+  "stop_condition": "minimum_evidence atingido ({\"lpv\":30,\"checkouts\":5,\"compras\":null,\"spend\":null,\"duration_days\":7}) OU 7.0 dias corridos (estimado no ritmo real atual), o que vier primeiro",
+  "success_condition": "cpa_financeiro do período de teste <= baseline * 0.90 (redução real de 10%+)",
+  "target_metric": "cpa_financeiro"
+}

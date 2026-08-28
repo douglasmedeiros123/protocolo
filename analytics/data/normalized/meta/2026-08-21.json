@@ -1,0 +1,32 @@
+{
+  "date": "2026-08-21",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "spend": 38.39,
+      "impressions": 1926,
+      "clicks": 47,
+      "cpm": 19.932503,
+      "ctr": 2.440291,
+      "lpv": 37,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 38.39,
+    "impressions": 1926,
+    "clicks": 47,
+    "lpv": 37,
+    "checkout": 0,
+    "compra_meta": 0,
+    "receita_meta": 0
+  }
+}

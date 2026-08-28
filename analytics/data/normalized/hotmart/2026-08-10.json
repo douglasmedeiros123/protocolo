@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-10",
+  "transactions": [
+    {
+      "transaction_id": "HP3626434570C1",
+      "order_date_utc": "2026-08-11T01:03:26.000Z",
+      "product_name": "Protocolo da Resposta Garantida",
+      "is_main_product": true,
+      "status": "COMPLETE",
+      "gross": 67,
+      "hotmart_fee": 7.63,
+      "net": 59.37,
+      "payment_method": "PIX",
+      "buyer_name": "Igor Costa Amorim",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    },
+    {
+      "transaction_id": "HP3626434570C2",
+      "order_date_utc": "2026-08-11T01:03:26.000Z",
+      "product_name": "Pack Objeções",
+      "is_main_product": false,
+      "status": "COMPLETE",
+      "gross": 19.9,
+      "hotmart_fee": 2.97,
+      "net": 16.93,
+      "payment_method": "PIX",
+      "buyer_name": "Igor Costa Amorim",
+      "is_known_test_buyer": false,
+      "counted_as_revenue": true
+    }
+  ],
+  "totals": {
+    "orders_count": 1,
+    "order_bumps_count": 1,
+    "gross_revenue": 86.9,
+    "net_revenue": 76.3,
+    "hotmart_fee_total": 10.6,
+    "refunds_count": 0,
+    "refunds_gross": 0,
+    "cancellations_or_expired_count": 0,
+    "test_transactions_count": 0
+  }
+}

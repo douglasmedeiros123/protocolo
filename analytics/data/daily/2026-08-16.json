@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-16",
+  "generated_at": "2026-08-27T21:31:30.187Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-16",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120249959548520738",
+        "ad_name": "Criativo 01 - Print da Dor",
+        "spend": 37.03,
+        "impressions": 595,
+        "clicks": 13,
+        "cpm": 62.235294,
+        "ctr": 2.184874,
+        "lpv": 8,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 37.03,
+      "impressions": 595,
+      "clicks": 13,
+      "lpv": 8,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-16",
+    "transactions": [],
+    "totals": {
+      "orders_count": 0,
+      "order_bumps_count": 0,
+      "gross_revenue": 0,
+      "net_revenue": 0,
+      "hotmart_fee_total": 0,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-16",
+    "lp_changes": []
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.021848739495798318,
+      "cpm": 62.235294117647065,
+      "cpc": 2.8484615384615384,
+      "custo_por_lpv": 4.62875,
+      "taxa_lpv_checkout": 0,
+      "taxa_checkout_compra": null
+    },
+    "economics": {
+      "cpa_meta": null,
+      "cpa_financeiro": null,
+      "roas_meta": 0,
+      "roas_financeiro": 0,
+      "aov_bruto": null,
+      "aov_liquido": null,
+      "receita_por_visitante": 0,
+      "taxa_reembolso": null,
+      "order_bump_attach_rate": null
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "SUDDEN_METRIC_CHANGE",
+      "severity": "info",
+      "message": "roas_financeiro mudou 100% em relação ao dia anterior.",
+      "details": {
+        "field": "roas_financeiro",
+        "previous": 3.1313291139240502,
+        "current": 0
+      }
+    }
+  ],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

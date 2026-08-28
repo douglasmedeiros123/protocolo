@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-23",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "spend": 0.43,
+      "impressions": 8,
+      "clicks": 0,
+      "cpm": 53.75,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "spend": 35.61,
+      "impressions": 1154,
+      "clicks": 30,
+      "cpm": 30.857886,
+      "ctr": 2.599653,
+      "lpv": 23,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    }
+  ],
+  "totals": {
+    "spend": 36.04,
+    "impressions": 1162,
+    "clicks": 30,
+    "lpv": 23,
+    "checkout": 2,
+    "compra_meta": 1,
+    "receita_meta": 56.88
+  }
+}

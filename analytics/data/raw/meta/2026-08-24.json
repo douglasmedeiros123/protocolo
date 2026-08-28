@@ -1,0 +1,91 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-24",
+  "fetched_at": "2026-08-27T21:31:37.186Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "25"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "21"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "21"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "28"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "3"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "28"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "3"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "3"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "29",
+      "cpm": "24.676966",
+      "ctr": "2.036517",
+      "date_start": "2026-08-24",
+      "date_stop": "2026-08-24",
+      "impressions": "1424",
+      "spend": "35.14"
+    },
+    {
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "10",
+      "ctr": "0",
+      "date_start": "2026-08-24",
+      "date_stop": "2026-08-24",
+      "impressions": "1",
+      "spend": "0.01"
+    },
+    {
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "40",
+      "ctr": "0",
+      "date_start": "2026-08-24",
+      "date_stop": "2026-08-24",
+      "impressions": "4",
+      "spend": "0.16"
+    }
+  ],
+  "source": "meta"
+}

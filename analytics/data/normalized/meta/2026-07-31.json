@@ -1,0 +1,66 @@
+{
+  "date": "2026-07-31",
+  "ad_account_id": "act_837771300886167",
+  "by_ad": [
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "spend": 24.68,
+      "impressions": 419,
+      "clicks": 24,
+      "cpm": 58.902148,
+      "ctr": 5.727924,
+      "lpv": 12,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 59.37
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "spend": 0.44,
+      "impressions": 3,
+      "clicks": 1,
+      "cpm": 146.666667,
+      "ctr": 33.333333,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    },
+    {
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "ad_id": "120249959832000738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "spend": 0.01,
+      "impressions": 1,
+      "clicks": 0,
+      "cpm": 10,
+      "ctr": 0,
+      "lpv": 0,
+      "checkout": 0,
+      "compra_meta": 0,
+      "receita_meta": 0
+    }
+  ],
+  "totals": {
+    "spend": 25.130000000000003,
+    "impressions": 423,
+    "clicks": 25,
+    "lpv": 12,
+    "checkout": 2,
+    "compra_meta": 1,
+    "receita_meta": 59.37
+  }
+}

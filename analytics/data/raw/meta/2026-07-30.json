@@ -1,0 +1,172 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-07-30",
+  "fetched_at": "2026-08-27T21:31:14.834Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "10"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "5"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "8"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "8"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "178"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "7"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "178"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "7"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "2"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "5"
+        },
+        {
+          "action_type": "video_view",
+          "value": "161"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "13",
+      "cpm": "78.41629",
+      "ctr": "2.941176",
+      "date_start": "2026-07-30",
+      "date_stop": "2026-07-30",
+      "impressions": "442",
+      "spend": "34.66"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "2"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "7"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "7"
+        },
+        {
+          "action_type": "video_view",
+          "value": "5"
+        }
+      ],
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "2",
+      "cpm": "138",
+      "ctr": "20",
+      "date_start": "2026-07-30",
+      "date_stop": "2026-07-30",
+      "impressions": "10",
+      "spend": "1.38"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120249959832000738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "16.666667",
+      "ctr": "0",
+      "date_start": "2026-07-30",
+      "date_stop": "2026-07-30",
+      "impressions": "6",
+      "spend": "0.1"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "5"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "5"
+        },
+        {
+          "action_type": "video_view",
+          "value": "5"
+        }
+      ],
+      "ad_id": "120249959911380738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "63.913043",
+      "ctr": "0",
+      "date_start": "2026-07-30",
+      "date_stop": "2026-07-30",
+      "impressions": "23",
+      "spend": "1.47"
+    }
+  ],
+  "source": "meta"
+}

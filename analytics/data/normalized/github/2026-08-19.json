@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-19",
+  "lp_changes": [
+    {
+      "sha": "5bc7a3051743755065c5bcb3b71183a650768516",
+      "timestamp_utc": "2026-08-19T14:26:25Z",
+      "message": "Corrige corrida: espera processamento antes de publicar imagem/carrossel",
+      "author": "autopost"
+    }
+  ]
+}

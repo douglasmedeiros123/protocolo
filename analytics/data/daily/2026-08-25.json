@@ -1,6 +1,6 @@
 {
   "date": "2026-08-25",
-  "generated_at": "2026-08-27T21:11:31.245Z",
+  "generated_at": "2026-08-27T21:31:38.607Z",
   "sources": {
     "meta": true,
     "hotmart": true,
@@ -119,6 +119,20 @@
         "buyer_name": "Mariá Arroyo Pettenazzi",
         "is_known_test_buyer": false,
         "counted_as_revenue": false
+      },
+      {
+        "transaction_id": "HP3237292491",
+        "order_date_utc": "2026-08-25T18:24:18.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "EXPIRED",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "PIX",
+        "buyer_name": "Mariá Arroyo Pettenazzi",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": false
       }
     ],
     "totals": {
@@ -129,7 +143,7 @@
       "hotmart_fee_total": 0,
       "refunds_count": 0,
       "refunds_gross": 0,
-      "cancellations_or_expired_count": 2,
+      "cancellations_or_expired_count": 3,
       "test_transactions_count": 0
     }
   },

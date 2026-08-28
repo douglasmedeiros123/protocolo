@@ -1,0 +1,359 @@
+{
+  "ad_account_id": "act_837771300886167",
+  "date": "2026-08-18",
+  "fetched_at": "2026-08-27T21:31:31.750Z",
+  "rows": [
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "2"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "43"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "43"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "40"
+        }
+      ],
+      "ad_id": "120249959548520738",
+      "ad_name": "Criativo 01 - Print da Dor",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "2",
+      "cpm": "37.322835",
+      "ctr": "1.574803",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "127",
+      "spend": "4.74"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "6"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "6"
+        },
+        {
+          "action_type": "video_view",
+          "value": "6"
+        }
+      ],
+      "ad_id": "120249959788910738",
+      "ad_name": "Criativo 02 - WhatsApp Cheio Pix Vazio",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "34.444444",
+      "ctr": "0",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "36",
+      "spend": "1.24"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "post_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "2"
+        },
+        {
+          "action_type": "video_view",
+          "value": "2"
+        }
+      ],
+      "ad_id": "120249959832000738",
+      "ad_name": "Criativo 03 - Antes Depois",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "27.5",
+      "ctr": "0",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "4",
+      "spend": "0.11"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "2"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "2"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "51"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "51"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "1"
+        },
+        {
+          "action_type": "video_view",
+          "value": "48"
+        }
+      ],
+      "ad_id": "120249959911380738",
+      "ad_name": "Criativo 04 - O Dilema",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "3",
+      "cpm": "79.915254",
+      "ctr": "1.271186",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "236",
+      "spend": "18.86"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "28"
+        },
+        {
+          "action_type": "post_reaction",
+          "value": "3"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "23"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "23"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "32"
+        },
+        {
+          "action_type": "post_interaction_gross",
+          "value": "4"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "32"
+        },
+        {
+          "action_type": "post_interaction_net",
+          "value": "4"
+        },
+        {
+          "action_type": "onsite_conversion.post_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_save",
+          "value": "1"
+        },
+        {
+          "action_type": "onsite_conversion.post_net_like",
+          "value": "3"
+        }
+      ],
+      "ad_id": "120250561849960738",
+      "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "31",
+      "cpm": "29.085714",
+      "ctr": "4.428571",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "700",
+      "spend": "20.36"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "4"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "3"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "3"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "4"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "4"
+        }
+      ],
+      "ad_id": "120250561880450738",
+      "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "4",
+      "cpm": "43.904762",
+      "ctr": "3.809524",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "105",
+      "spend": "4.61"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561881110738",
+      "ad_name": "Criativo 07 - Erro Que Faz Sumir",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "2",
+      "cpm": "64.666667",
+      "ctr": "3.333333",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "60",
+      "spend": "3.88"
+    },
+    {
+      "ad_id": "120250561881540738",
+      "ad_name": "Criativo 08 - Vou Pensar",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "0",
+      "cpm": "71.428571",
+      "ctr": "0",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "14",
+      "spend": "1"
+    },
+    {
+      "actions": [
+        {
+          "action_type": "link_click",
+          "value": "1"
+        },
+        {
+          "action_type": "landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "omni_landing_page_view",
+          "value": "1"
+        },
+        {
+          "action_type": "post_engagement",
+          "value": "1"
+        },
+        {
+          "action_type": "page_engagement",
+          "value": "1"
+        }
+      ],
+      "ad_id": "120250561882120738",
+      "ad_name": "Criativo 09 - Reative Hoje",
+      "adset_id": "120249959548510738",
+      "adset_name": "Conjunto - Doda",
+      "campaign_id": "120249959548500738",
+      "campaign_name": "Low - Follow",
+      "clicks": "1",
+      "cpm": "75.882353",
+      "ctr": "5.882353",
+      "date_start": "2026-08-18",
+      "date_stop": "2026-08-18",
+      "impressions": "17",
+      "spend": "1.29"
+    }
+  ],
+  "source": "meta"
+}

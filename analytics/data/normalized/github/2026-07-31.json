@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-31",
+  "lp_changes": [
+    {
+      "sha": "61c0491ddc34a6e4f920c730bca940563171555d",
+      "timestamp_utc": "2026-07-31T17:51:30Z",
+      "message": "Remove mockup do celular no Hero (teste de rolagem)",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

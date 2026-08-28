@@ -1,0 +1,187 @@
+{
+  "date": "2026-08-04",
+  "fetched_at": "2026-08-27T21:31:20.013Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "alexsandroclpsilva@gmail.com",
+        "name": "Alexsandro Cipriano Lima Pereira da Silva",
+        "ucode": "40804892-718d-4a4f-ac2a-d8bb11a2bb86"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1785892338000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1785892290000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP0006728429",
+        "warranty_expire_date": 1786406400000
+      }
+    },
+    {
+      "buyer": {
+        "email": "celsoprates@gmail.com",
+        "name": "Celso Prates",
+        "ucode": "9dd478bc-847d-4848-a0e2-b975720e09a4"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1785887925000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 1,
+          "currency_code": "BRL",
+          "fixed": 0,
+          "percentage": 20,
+          "total": 0.2
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1785887897000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 1
+        },
+        "status": "COMPLETE",
+        "transaction": "HP1893506387",
+        "warranty_expire_date": 1786406400000
+      }
+    },
+    {
+      "buyer": {
+        "email": "gabrielafrodriguesp@gmail.com",
+        "name": "Gabriela Fernanda Rodrigues Piazentin Soldera",
+        "ucode": "73b0371a-e1b5-4f97-b47a-123d3b2aa0f9"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207846,
+        "name": "Pack Objeções"
+      },
+      "purchase": {
+        "approved_date": 1785836578000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 19.9,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 2.97
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "mkb1tdhs",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1785836577000,
+        "payment": {
+          "installments_number": 1,
+          "method": "CREDIT_CARD_VISA",
+          "type": "CREDIT_CARD"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 19.9
+        },
+        "status": "COMPLETE",
+        "transaction": "HP4055488722",
+        "warranty_expire_date": 1786406400000
+      }
+    },
+    {
+      "buyer": {
+        "email": "gabrielafrodriguesp@gmail.com",
+        "name": "Gabriela Fernanda Rodrigues Piazentin Soldera",
+        "ucode": "73b0371a-e1b5-4f97-b47a-123d3b2aa0f9"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1785836548000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1785836546000,
+        "payment": {
+          "installments_number": 1,
+          "method": "CREDIT_CARD_VISA",
+          "type": "CREDIT_CARD"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "COMPLETE",
+        "transaction": "HP4090885621",
+        "warranty_expire_date": 1786406400000
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1785898799999,
+    "startMs": 1785812400000
+  }
+}

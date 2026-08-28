@@ -1,0 +1,217 @@
+{
+  "date": "2026-08-19",
+  "generated_at": "2026-08-27T21:31:32.440Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-19",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561849960738",
+        "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+        "spend": 57.22,
+        "impressions": 2581,
+        "clicks": 59,
+        "cpm": 22.169702,
+        "ctr": 2.285936,
+        "lpv": 42,
+        "checkout": 4,
+        "compra_meta": 2,
+        "receita_meta": 113.76
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561880450738",
+        "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+        "spend": 3,
+        "impressions": 37,
+        "clicks": 0,
+        "cpm": 81.081081,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561881110738",
+        "ad_name": "Criativo 07 - Erro Que Faz Sumir",
+        "spend": 0.78,
+        "impressions": 7,
+        "clicks": 0,
+        "cpm": 111.428571,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561881540738",
+        "ad_name": "Criativo 08 - Vou Pensar",
+        "spend": 0.16,
+        "impressions": 5,
+        "clicks": 0,
+        "cpm": 32,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561882120738",
+        "ad_name": "Criativo 09 - Reative Hoje",
+        "spend": 1.15,
+        "impressions": 15,
+        "clicks": 0,
+        "cpm": 76.666667,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 62.309999999999995,
+      "impressions": 2645,
+      "clicks": 59,
+      "lpv": 42,
+      "checkout": 4,
+      "compra_meta": 2,
+      "receita_meta": 113.76
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-19",
+    "transactions": [
+      {
+        "transaction_id": "HP1902438213",
+        "order_date_utc": "2026-08-19T08:56:35.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "COMPLETE",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "APPLE_PAY",
+        "buyer_name": "GABRIELA GUIMARAES PIMENTEL",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      },
+      {
+        "transaction_id": "HP2882437990",
+        "order_date_utc": "2026-08-19T20:50:04.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "REFUNDED",
+        "gross": 67,
+        "hotmart_fee": 7.63,
+        "net": 59.37,
+        "payment_method": "PIX",
+        "buyer_name": "GABRIELA REIS BRITO",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": false
+      }
+    ],
+    "totals": {
+      "orders_count": 1,
+      "order_bumps_count": 0,
+      "gross_revenue": 67,
+      "net_revenue": 59.37,
+      "hotmart_fee_total": 7.63,
+      "refunds_count": 1,
+      "refunds_gross": 67,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-19",
+    "lp_changes": [
+      {
+        "sha": "5bc7a3051743755065c5bcb3b71183a650768516",
+        "timestamp_utc": "2026-08-19T14:26:25Z",
+        "message": "Corrige corrida: espera processamento antes de publicar imagem/carrossel",
+        "author": "autopost"
+      }
+    ]
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.0223062381852552,
+      "cpm": 23.55765595463138,
+      "cpc": 1.0561016949152542,
+      "custo_por_lpv": 1.4835714285714285,
+      "taxa_lpv_checkout": 0.09523809523809523,
+      "taxa_checkout_compra": 0.5
+    },
+    "economics": {
+      "cpa_meta": 31.154999999999998,
+      "cpa_financeiro": 62.309999999999995,
+      "roas_meta": 1.8257101588830045,
+      "roas_financeiro": 0.9528165623495426,
+      "aov_bruto": 67,
+      "aov_liquido": 59.37,
+      "receita_por_visitante": 1.4135714285714285,
+      "taxa_reembolso": 1,
+      "order_bump_attach_rate": 0
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "META_PURCHASE_WITHOUT_HOTMART_SALE",
+      "severity": "critical",
+      "message": "Meta reportou 2 compra(s), mas a Hotmart só confirma 1 venda(s) real(is) (COMPLETE/APPROVED, sem teste) neste dia.",
+      "details": {
+        "meta_compras": 2,
+        "hotmart_vendas_reais": 1,
+        "delta": 1
+      }
+    },
+    {
+      "code": "SUSPICIOUS_REPEATED_PURCHASE_VALUE",
+      "severity": "warn",
+      "message": "Valor médio de compra reportado pela Meta (R$56.88) não bate com nenhum valor bruto ou líquido de transação real da Hotmart neste dia — pode ser um valor fixo/desatualizado no evento de Purchase.",
+      "details": {
+        "meta_avg_purchase_value": 56.88,
+        "hotmart_real_values": [
+          67,
+          59.37
+        ]
+      }
+    }
+  ],
+  "has_critical_flags": true,
+  "critical_flag_codes": [
+    "META_PURCHASE_WITHOUT_HOTMART_SALE"
+  ]
+}

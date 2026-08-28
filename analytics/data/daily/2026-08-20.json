@@ -1,0 +1,177 @@
+{
+  "date": "2026-08-20",
+  "generated_at": "2026-08-27T21:31:33.506Z",
+  "sources": {
+    "meta": true,
+    "hotmart": true,
+    "github": true
+  },
+  "meta": {
+    "date": "2026-08-20",
+    "ad_account_id": "act_837771300886167",
+    "by_ad": [
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561849960738",
+        "ad_name": "Criativo 05 - Ruminação Visualizou Cliente",
+        "spend": 43.56,
+        "impressions": 2273,
+        "clicks": 45,
+        "cpm": 19.1641,
+        "ctr": 1.979762,
+        "lpv": 38,
+        "checkout": 2,
+        "compra_meta": 1,
+        "receita_meta": 56.88
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561880450738",
+        "ad_name": "Criativo 06 - Nao Mande Oi Tudo Bem",
+        "spend": 0.53,
+        "impressions": 12,
+        "clicks": 0,
+        "cpm": 44.166667,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561881540738",
+        "ad_name": "Criativo 08 - Vou Pensar",
+        "spend": 0.02,
+        "impressions": 2,
+        "clicks": 0,
+        "cpm": 10,
+        "ctr": 0,
+        "lpv": 0,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      },
+      {
+        "campaign_id": "120249959548500738",
+        "campaign_name": "Low - Follow",
+        "adset_id": "120249959548510738",
+        "adset_name": "Conjunto - Doda",
+        "ad_id": "120250561882120738",
+        "ad_name": "Criativo 09 - Reative Hoje",
+        "spend": 0.44,
+        "impressions": 10,
+        "clicks": 1,
+        "cpm": 44,
+        "ctr": 10,
+        "lpv": 1,
+        "checkout": 0,
+        "compra_meta": 0,
+        "receita_meta": 0
+      }
+    ],
+    "totals": {
+      "spend": 44.550000000000004,
+      "impressions": 2297,
+      "clicks": 46,
+      "lpv": 39,
+      "checkout": 2,
+      "compra_meta": 1,
+      "receita_meta": 56.88
+    }
+  },
+  "hotmart": {
+    "date": "2026-08-20",
+    "transactions": [
+      {
+        "transaction_id": "HP4204312617",
+        "order_date_utc": "2026-08-20T13:44:38.000Z",
+        "product_name": "Protocolo da Resposta Garantida",
+        "is_main_product": true,
+        "status": "APPROVED",
+        "gross": 74.2,
+        "hotmart_fee": 7.63,
+        "net": 66.57000000000001,
+        "payment_method": "CREDIT_CARD_VISA",
+        "buyer_name": "Katrini Biskup",
+        "is_known_test_buyer": false,
+        "counted_as_revenue": true
+      }
+    ],
+    "totals": {
+      "orders_count": 1,
+      "order_bumps_count": 0,
+      "gross_revenue": 74.2,
+      "net_revenue": 66.57000000000001,
+      "hotmart_fee_total": 7.63,
+      "refunds_count": 0,
+      "refunds_gross": 0,
+      "cancellations_or_expired_count": 0,
+      "test_transactions_count": 0
+    }
+  },
+  "github": {
+    "date": "2026-08-20",
+    "lp_changes": []
+  },
+  "clarity": {
+    "status": "separate_behavior_snapshot",
+    "latest_snapshot": "analytics/data/clarity/2026-08-27.json"
+  },
+  "metrics": {
+    "funnel": {
+      "ctr": 0.02002612102742708,
+      "cpm": 19.39486286460601,
+      "cpc": 0.9684782608695653,
+      "custo_por_lpv": 1.1423076923076925,
+      "taxa_lpv_checkout": 0.05128205128205128,
+      "taxa_checkout_compra": 0.5
+    },
+    "economics": {
+      "cpa_meta": 44.550000000000004,
+      "cpa_financeiro": 44.550000000000004,
+      "roas_meta": 1.2767676767676768,
+      "roas_financeiro": 1.4942760942760942,
+      "aov_bruto": 74.2,
+      "aov_liquido": 66.57000000000001,
+      "receita_por_visitante": 1.7069230769230772,
+      "taxa_reembolso": 0,
+      "order_bump_attach_rate": 0
+    }
+  },
+  "tracking_flags": [
+    {
+      "code": "SUSPICIOUS_REPEATED_PURCHASE_VALUE",
+      "severity": "warn",
+      "message": "Valor médio de compra reportado pela Meta (R$56.88) não bate com nenhum valor bruto ou líquido de transação real da Hotmart neste dia — pode ser um valor fixo/desatualizado no evento de Purchase.",
+      "details": {
+        "meta_avg_purchase_value": 56.88,
+        "hotmart_real_values": [
+          74.2,
+          66.57000000000001
+        ]
+      }
+    },
+    {
+      "code": "SUDDEN_METRIC_CHANGE",
+      "severity": "info",
+      "message": "roas_financeiro mudou 57% em relação ao dia anterior.",
+      "details": {
+        "field": "roas_financeiro",
+        "previous": 0.9528165623495426,
+        "current": 1.4942760942760942
+      }
+    }
+  ],
+  "has_critical_flags": false,
+  "critical_flag_codes": []
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-08-10",
+  "lp_changes": [
+    {
+      "sha": "43df62bb9a2f31d340a7e7202521d4f94206642d",
+      "timestamp_utc": "2026-08-10T12:56:17Z",
+      "message": "chat-wall: de-emphasize speech-bubble look (no tail radius, no whatsapp-blue bg, no pop animation) to stop dead-clicks - same copy kept",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "2815a0bd088c44a2f06e9ccf29b3d956c3c8cc05",
+      "timestamp_utc": "2026-08-10T12:43:58Z",
+      "message": "revert hero to pre-08-06 headline (long pain-question, no WhatsApp mockup) - keep pointer-events:none fix",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}

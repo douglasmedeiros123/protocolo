@@ -1,0 +1,97 @@
+{
+  "date": "2026-08-23",
+  "fetched_at": "2026-08-27T21:31:36.195Z",
+  "items": [
+    {
+      "buyer": {
+        "email": "nuriapmello@gmail.com",
+        "name": "Núria Pedrasolli de Mello",
+        "ucode": "310f7235-0a83-4594-83fa-184fe87720e2"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "approved_date": 1787534169000,
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787534121000,
+        "payment": {
+          "installments_number": 1,
+          "method": "PIX",
+          "type": "PIX"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "APPROVED",
+        "transaction": "HP0030195347",
+        "warranty_expire_date": 1788048000000
+      }
+    },
+    {
+      "buyer": {
+        "email": "nuriapmello@gmail.com",
+        "name": "Núria Pedrasolli de Mello",
+        "ucode": "310f7235-0a83-4594-83fa-184fe87720e2"
+      },
+      "producer": {
+        "name": "Douglas da Mota Medeiros",
+        "ucode": "18e1d9a4-5292-4ed7-9268-4b2579bf9d73"
+      },
+      "product": {
+        "id": 8207308,
+        "name": "Protocolo da Resposta Garantida"
+      },
+      "purchase": {
+        "commission_as": "PRODUCER",
+        "hotmart_fee": {
+          "base": 67,
+          "currency_code": "BRL",
+          "fixed": 1,
+          "percentage": 9.9,
+          "total": 7.63
+        },
+        "is_subscription": false,
+        "offer": {
+          "code": "orlqy9yk",
+          "payment_mode": "UNIQUE_PAYMENT"
+        },
+        "order_date": 1787534099000,
+        "payment": {
+          "installments_number": 1,
+          "method": "CREDIT_CARD_VISA",
+          "type": "CREDIT_CARD"
+        },
+        "price": {
+          "currency_code": "BRL",
+          "value": 67
+        },
+        "status": "CANCELLED",
+        "transaction": "HP4248982360"
+      }
+    }
+  ],
+  "source": "hotmart",
+  "window": {
+    "endMs": 1787540399999,
+    "startMs": 1787454000000
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "date": "2026-08-03",
+  "lp_changes": [
+    {
+      "sha": "03a144d95e967a88d940452ca0284dcf3be36186",
+      "timestamp_utc": "2026-08-03T17:05:22Z",
+      "message": "Botao do Hero agora rola ate a oferta em vez de ir direto ao checkout",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "9bd0499d30e3360994ead2a10e628f99260e8ca6",
+      "timestamp_utc": "2026-08-03T17:05:19Z",
+      "message": "Botao do Hero agora rola ate a oferta em vez de ir direto ao checkout",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "9ed55f83ee9af9a1b185b9326787c68fcb030ec8",
+      "timestamp_utc": "2026-08-03T15:05:19Z",
+      "message": "Remove rota teste-b (dominio descontinuado)",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "6e32803e563bf77f4075451618fdceef2d0760de",
+      "timestamp_utc": "2026-08-03T14:56:32Z",
+      "message": "Adiciona rota para anti-vacuo.ojogodolucro.com.br",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "afcd0b44e823da5db7f67e1ee68b9c7bb93b7b6e",
+      "timestamp_utc": "2026-08-03T13:20:44Z",
+      "message": "Liga link de Politica de Privacidade da Variante B",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "4b94471e53e1c856b0595d224c691c74c2d4bec9",
+      "timestamp_utc": "2026-08-03T13:20:40Z",
+      "message": "Liga link de Politica de Privacidade da Variante B",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "028e122d9065fde446328be12472176d4dc29413",
+      "timestamp_utc": "2026-08-03T13:20:05Z",
+      "message": "Adiciona pagina de Politica de Privacidade",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "0d63440f0a76f183af4c08c837e6c818e153f51f",
+      "timestamp_utc": "2026-08-03T12:47:42Z",
+      "message": "Corrige prioridade de rota do subdominio teste-b (routes + filesystem)",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "0590216af6f752a31047032c83dbea5c1dbe0a1f",
+      "timestamp_utc": "2026-08-03T11:55:14Z",
+      "message": "Liga CTA da Variante B ao checkout real",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "5eb3007158b1599676502cad1e91d44bfdda21fc",
+      "timestamp_utc": "2026-08-03T11:55:11Z",
+      "message": "Liga CTA da Variante B ao checkout real",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "35fa9cbf59c547edfb643248641c9719c9f8695f",
+      "timestamp_utc": "2026-08-03T11:52:37Z",
+      "message": "Add Variante B (teste A/B) - vercel.json",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "7be42c8e8a9fdd71e6f242a0a107d1623812b3fd",
+      "timestamp_utc": "2026-08-03T11:52:35Z",
+      "message": "Add Variante B (teste A/B) - teste-b/assets/doda-medeiros.jpeg",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "fbc95240ec4bca24e243ec4ca7aff419f931a3ab",
+      "timestamp_utc": "2026-08-03T11:52:33Z",
+      "message": "Add Variante B (teste A/B) - teste-b/assets/cartilha-mockup-CxtXIPpT.png",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "696fbac6cdd646ec60c64711dacfeda70049376c",
+      "timestamp_utc": "2026-08-03T11:52:31Z",
+      "message": "Add Variante B (teste A/B) - teste-b/assets/routes-et_ymNdo.js",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "b166bc0236d58f81ae57fbee15167a5f84b8740c",
+      "timestamp_utc": "2026-08-03T11:52:29Z",
+      "message": "Add Variante B (teste A/B) - teste-b/assets/index-DrTfhkNB.js",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "9afc20048ae5f9c0da3d193b764b80efeaa8ba43",
+      "timestamp_utc": "2026-08-03T11:52:28Z",
+      "message": "Add Variante B (teste A/B) - teste-b/assets/styles-D5pakB-q.css",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "c2c26126eb3f0a3ae87b0faccb99bdbef0edafd8",
+      "timestamp_utc": "2026-08-03T11:52:26Z",
+      "message": "Add Variante B (teste A/B) - teste-b/favicon.ico",
+      "author": "douglasmedeiros123"
+    },
+    {
+      "sha": "c1366d7101fdce5a6d2772f1fec7a798ad442c86",
+      "timestamp_utc": "2026-08-03T11:52:25Z",
+      "message": "Add Variante B (teste A/B) - teste-b/index.html",
+      "author": "douglasmedeiros123"
+    }
+  ]
+}
