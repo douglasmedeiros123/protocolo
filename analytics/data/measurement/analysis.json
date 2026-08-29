@@ -1,0 +1,3802 @@
+{
+  "analysis_id": "MEASUREMENT-protocolo_resposta_garantida-2026-08-29",
+  "attribution_layers": {
+    "layers": {
+      "CAMPAIGN_ATTRIBUTION": {
+        "basis_domain": "CAMPAIGN_ATTRIBUTION",
+        "confidence": "LOW",
+        "note": "mesmo limite estrutural de CREATIVE_ATTRIBUTION, em nível de campanha.",
+        "status": "DEGRADED"
+      },
+      "CREATIVE_ATTRIBUTION": {
+        "basis_domain": "CREATIVE_ATTRIBUTION",
+        "confidence": "LOW",
+        "note": "performance por criativo é real; ligação financeira criativo->venda não é.",
+        "status": "DEGRADED"
+      },
+      "CROSS_PLATFORM_RECONCILIATION": {
+        "basis_domain": "CROSS_PLATFORM_RECONCILIATION",
+        "confidence": "LOW",
+        "note": "reconciliação agregada dia-a-dia real (measurement/reconciliation.js) — nunca por transação individual.",
+        "status": "PARTIAL"
+      },
+      "EXPERIMENT_ATTRIBUTION": {
+        "basis_domain": "EXPERIMENT_ATTRIBUTION",
+        "confidence": "NOT_ASSESSABLE",
+        "note": "interface pronta, nenhum experimento real de arquitetura concluído ainda.",
+        "status": "NOT_AVAILABLE"
+      },
+      "LIFECYCLE_ATTRIBUTION": {
+        "basis_domain": "LIFECYCLE_ATTRIBUTION",
+        "confidence": "NOT_ASSESSABLE",
+        "note": "não implementado.",
+        "status": "NOT_AVAILABLE"
+      },
+      "PLATFORM_ATTRIBUTION": {
+        "basis_domain": "PLATFORM_ATTRIBUTION",
+        "confidence": "MEDIUM",
+        "note": "alegação da Meta sobre uma conversão — nunca confirmação financeira (item 2).",
+        "status": "DEGRADED"
+      },
+      "SESSION_ATTRIBUTION": {
+        "basis_domain": "WEB_BEHAVIOR",
+        "confidence": "NOT_ASSESSABLE",
+        "note": "sem session_id real no pipeline (identifierSpine) — não há como ligar uma sessão específica a um evento downstream.",
+        "status": "NOT_AVAILABLE"
+      },
+      "TRANSACTION_ATTRIBUTION": {
+        "basis_domain": "FINANCIAL_TRANSACTION_TRUTH",
+        "confidence": "HIGH",
+        "note": "transaction_id real da Hotmart — verdade financeira, não verdade de origem de tráfego.",
+        "status": "RELIABLE"
+      }
+    },
+    "rule": "nenhuma camada substitui automaticamente outra — PLATFORM_ATTRIBUTION != CROSS_PLATFORM_RECONCILIATION (item 2)."
+  },
+  "core_invariants": [
+    "FINANCIAL_TRUTH != PLATFORM_ATTRIBUTION",
+    "PLATFORM_ATTRIBUTION != CROSS_PLATFORM_RECONCILIATION",
+    "ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION",
+    "TRACKING_GAP != BUSINESS_FAILURE",
+    "MISSING_EVENT != ZERO_EVENTS",
+    "UNKNOWN != ZERO",
+    "NOT_AVAILABLE != ZERO",
+    "DEGRADED != BLOCKED",
+    "CORRELATION != CAUSATION",
+    "EVENT_RECEIVED != EVENT_CORRECT",
+    "EVENT_CORRECT != ATTRIBUTION_CORRECT",
+    "ATTRIBUTION_CORRECT != FINANCIAL_TRUTH",
+    "REVENUE != PROFIT"
+  ],
+  "created_at": "2026-08-29T18:27:37.310Z",
+  "creative_campaign_attribution_gaps": {
+    "campaign_attribution": {
+      "missing_to_link": [
+        "mesmo gap estrutural de creative_attribution, em nível de campanha"
+      ],
+      "reason": "desempenho de campanha Meta != atribuição financeira automática de campanha (mesmo princípio do item 2 aplicado a campanha).",
+      "status": "DEGRADED"
+    },
+    "creative_attribution": {
+      "assets_with_confirmed_financial_attribution": 0,
+      "assets_with_performance_data": 23,
+      "missing_to_link": [
+        "session_id por clique de anúncio",
+        "transaction_id do lado Meta (não existe)",
+        "join determinístico creative_id -> transaction_id"
+      ],
+      "reason": "performance por criativo (spend/ctr/compra_meta) é real; qualquer alegação de \"este criativo específico gerou R$X de receita confirmada\" seria inventada — a Hotmart não carrega ad_id (item 11 do audit real).",
+      "status": "DEGRADED"
+    }
+  },
+  "current_anomaly_findings": [
+    {
+      "affected_scopes": [
+        "CROSS_PLATFORM_RECONCILIATION"
+      ],
+      "occurrence_count": 3,
+      "overlaps_decision": false,
+      "reason": "escopo afetado (CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+      "severity": "WARNING",
+      "total_days_evaluated": 30,
+      "type": "UNMATCHED_FINANCIAL_ONLY"
+    },
+    {
+      "affected_scopes": [
+        "PLATFORM_ATTRIBUTION"
+      ],
+      "occurrence_count": 5,
+      "overlaps_decision": false,
+      "reason": "escopo afetado (PLATFORM_ATTRIBUTION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+      "severity": "WARNING",
+      "total_days_evaluated": 30,
+      "type": "VALUE_MISMATCH"
+    },
+    {
+      "affected_scopes": [
+        "PLATFORM_ATTRIBUTION",
+        "CROSS_PLATFORM_RECONCILIATION"
+      ],
+      "occurrence_count": 2,
+      "overlaps_decision": false,
+      "reason": "escopo afetado (PLATFORM_ATTRIBUTION, CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+      "severity": "WARNING",
+      "total_days_evaluated": 30,
+      "type": "META_PURCHASE_WITHOUT_HOTMART_SALE"
+    },
+    {
+      "affected_scopes": [
+        "CROSS_PLATFORM_RECONCILIATION"
+      ],
+      "occurrence_count": 2,
+      "overlaps_decision": false,
+      "reason": "escopo afetado (CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+      "severity": "WARNING",
+      "total_days_evaluated": 30,
+      "type": "UNKNOWN_RECONCILIATION"
+    },
+    {
+      "affected_scopes": [
+        "DATA_QUALITY"
+      ],
+      "occurrence_count": 2,
+      "overlaps_decision": false,
+      "reason": "transação de teste conhecida, esperada e já excluída da receita — nunca uma anomalia real.",
+      "severity": "NORMAL",
+      "total_days_evaluated": 30,
+      "type": "TEST_TRANSACTION"
+    }
+  ],
+  "current_architecture_id": "ARCH-CURRENT",
+  "current_blocker_dependency_graph": {
+    "all_capital_blocking_satisfied": false,
+    "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+    "current_blocker": "EXPOSURE_IDENTITY",
+    "next_unlock": "EXPERIMENT_ATTRIBUTION",
+    "nodes": {
+      "EXPERIMENT_ATTRIBUTION": {
+        "blocking": true,
+        "description": "ligar exposição -> outcome financeiro de forma interpretável pra uma decisão de capital.",
+        "requires": [
+          "EXPOSURE_IDENTITY",
+          "FINANCIAL_OUTCOME_LINKAGE"
+        ],
+        "satisfied": false
+      },
+      "EXPOSURE_IDENTITY": {
+        "blocking": true,
+        "description": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual.",
+        "requires": [],
+        "satisfied": false
+      },
+      "FINANCIAL_OUTCOME_LINKAGE": {
+        "blocking": true,
+        "description": "transação financeira real linkável ao período/decisão avaliada (hoje: Hotmart por order_date_utc).",
+        "requires": [],
+        "satisfied": true
+      },
+      "FUNNEL_DIAGNOSTICS": {
+        "blocking": false,
+        "description": "explica ONDE/COMO no funil o efeito aconteceu — nunca indispensável pra saber SE o efeito ocorreu.",
+        "may_require": [
+          "CHECKOUT_INITIATED_EVENT"
+        ],
+        "requires": [],
+        "satisfied": false
+      }
+    },
+    "non_blocking_gaps": [
+      {
+        "blocking": false,
+        "for_node": "FUNNEL_DIAGNOSTICS",
+        "soft_dependency": "CHECKOUT_INITIATED_EVENT"
+      }
+    ],
+    "remaining_blockers": [
+      "EXPERIMENT_ATTRIBUTION"
+    ],
+    "unlock_dependency": []
+  },
+  "current_execution_safety_signal": {
+    "affected_decision_types": [
+      "decisões de capital sobre ARCH-CURRENT"
+    ],
+    "affected_scope": "ARCH-CURRENT",
+    "capital_action": "CAUTION",
+    "note": "sinal read-only — reduz confiança, não bloqueia; decisão humana permanece livre pra prosseguir com a ressalva registrada.",
+    "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+    "requires_human_review": false,
+    "resolution_condition": "EXPERIMENT_ATTRIBUTION",
+    "severity": "WARNING"
+  },
+  "current_funnel_measurement_audit": [
+    {
+      "behavior_coverage_status": "NOT_APPLICABLE",
+      "control_surface": "EXTERNAL",
+      "event_coverage": "1/1",
+      "events": [
+        "PAGE_VIEW"
+      ],
+      "identifier_coverage_status": "NOT_AVAILABLE",
+      "observability_status": "OBSERVABLE",
+      "revenue_linkage_status": "NOT_APPLICABLE",
+      "stage_type": "AD"
+    },
+    {
+      "behavior_coverage_status": "PARTIAL_ACCOUNT_WIDE_ONLY",
+      "control_surface": "CONTROLLED",
+      "event_coverage": "5/5",
+      "events": [
+        "LANDING_PAGE_VIEW",
+        "SCROLL_DEPTH",
+        "ENGAGED_SESSION",
+        "CTA_VIEW",
+        "CTA_CLICK"
+      ],
+      "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+      "observability_status": "OBSERVABLE",
+      "revenue_linkage_status": "NOT_APPLICABLE",
+      "stage_type": "SALES_PAGE"
+    },
+    {
+      "behavior_coverage_status": "NOT_APPLICABLE",
+      "control_surface": "EXTERNAL",
+      "event_coverage": "6/7",
+      "events": [
+        "CHECKOUT_INITIATED",
+        "CHECKOUT_VIEW",
+        "PAYMENT_ATTEMPT",
+        "PURCHASE",
+        "REFUND",
+        "CANCELLED",
+        "EXPIRED"
+      ],
+      "identifier_coverage_status": "NOT_AVAILABLE",
+      "observability_status": "OBSERVABLE",
+      "revenue_linkage_status": "CONFIRMED",
+      "stage_type": "CHECKOUT"
+    },
+    {
+      "behavior_coverage_status": "NOT_APPLICABLE",
+      "control_surface": "PARTIALLY_CONTROLLED",
+      "event_coverage": "1/1",
+      "events": [
+        "ORDER_BUMP_ACCEPTED"
+      ],
+      "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+      "observability_status": "OBSERVABLE",
+      "revenue_linkage_status": "NOT_AVAILABLE",
+      "stage_type": "ORDER_BUMP"
+    },
+    {
+      "behavior_coverage_status": "NOT_APPLICABLE",
+      "control_surface": "PARTIALLY_CONTROLLED",
+      "event_coverage": "1/1",
+      "events": [
+        "ORDER_BUMP_ACCEPTED"
+      ],
+      "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+      "observability_status": "OBSERVABLE",
+      "revenue_linkage_status": "NOT_AVAILABLE",
+      "stage_type": "ORDER_BUMP"
+    }
+  ],
+  "current_measurement_capital_gate": {
+    "anomaly_driven": false,
+    "blocking_requirements": [
+      "EXPOSURE_IDENTITY"
+    ],
+    "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+    "confidence": "HIGH",
+    "current_blocker": "EXPOSURE_IDENTITY",
+    "next_unlock": "EXPERIMENT_ATTRIBUTION",
+    "non_blocking_gaps": [
+      "CHECKOUT_INITIATED_EVENT"
+    ],
+    "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+    "remaining_blockers": [
+      "EXPERIMENT_ATTRIBUTION"
+    ],
+    "state": "NEEDS_TRACKING_IMPLEMENTATION",
+    "unlock_dependency": []
+  },
+  "current_minimum_viable_attribution": {
+    "available_methods": [
+      {
+        "method": "AGGREGATE_TEMPORAL_COMPARISON",
+        "requires": [
+          "registro de qual arquitetura esteve live em qual data (leve — não é instrumentação de evento, é um registro operacional)"
+        ],
+        "status": "AVAILABLE_TODAY"
+      },
+      {
+        "method": "AGGREGATE_PARALLEL_CAMPAIGN_COMPARISON",
+        "requires": [
+          "campanha/adset Meta separado por variante — decisão operacional, não de tracking"
+        ],
+        "status": "NEEDS_OPERATIONAL_SETUP"
+      },
+      {
+        "method": "SESSION_LEVEL_RANDOMIZED_EXPERIMENT",
+        "requires": [
+          "session_id real",
+          "variant_id real",
+          "sistema de randomização"
+        ],
+        "status": "NOT_AVAILABLE"
+      }
+    ],
+    "causal_method": "BEFORE_AFTER",
+    "contamination_that_remains": [
+      "sazonalidade/dia-da-semana pode se confundir com o efeito testado (BEFORE_AFTER nunca é CAUSAL_PROOF, item 25)",
+      "mudanças simultâneas de criativo/oferta/campanha no mesmo período contaminam o resultado",
+      "tráfego orgânico/direto não separável do pago no mesmo período"
+    ],
+    "defensible_confidence_level": "LOW",
+    "exposure_to_financial_outcome_chain": {
+      "chain": [
+        {
+          "note": "sem variant_id real, exposição só é conhecida no nível de qual arquitetura estava live em qual data — não por sessão individual.",
+          "stage": "EXPERIMENT_EXPOSURE",
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "note": "nenhum variant_id real persiste hoje (identifierSpine).",
+          "stage": "VARIANT",
+          "status": "NOT_AVAILABLE_AT_SESSION_LEVEL"
+        },
+        {
+          "note": "sem session_id real no pipeline (identifierSpine) — nenhuma ação downstream é linkável a uma exposição específica no nível de usuário.",
+          "stage": "SESSION_IDENTITY",
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "note": "ações agregadas por dia existem (lpv/checkout via Meta); ações por sessão individual não.",
+          "stage": "DOWNSTREAM_ACTION",
+          "status": "PARTIAL"
+        },
+        {
+          "note": "Hotmart confirma toda transação real com order_date_utc — já linkável por data, sem instrumentação nova.",
+          "stage": "FINANCIAL_TRANSACTION",
+          "status": "AVAILABLE_AT_DATE_LEVEL"
+        },
+        {
+          "note": "net_revenue por data já é computável hoje (profit/aggregate.js) — mesma granularidade da transação.",
+          "stage": "NET_REVENUE",
+          "status": "AVAILABLE_AT_DATE_LEVEL"
+        }
+      ],
+      "date_range_level_attribution_possible": false,
+      "session_level_attribution_possible": false,
+      "true_bottleneck_stage": "EXPOSURE_IDENTITY",
+      "why": "CHECKOUT_INITIATED é um evento de FUNIL (explica onde o visitante estava), não um evento de IDENTIDADE/EXPOSIÇÃO — mesmo com ele implementado amanhã, sem session_id/variant_id reais, o outcome financeiro continuaria não-atribuível a uma variante específica no nível de sessão. O verdadeiro blocker da cadeia é EXPOSURE_IDENTITY (session_id/variant_id), não CHECKOUT_INITIATED.",
+      "would_checkout_initiated_alone_unlock_full_attribution": false
+    },
+    "method": "AGGREGATE_TEMPORAL_COMPARISON",
+    "net_revenue_belonging_to_test": "AVAILABLE_AT_AGGREGATE_LEVEL — soma de net_revenue no intervalo de datas do teste vs. baseline.",
+    "sufficiency_note": "suficiente pra uma decisão binária de baixo-risco/reversível (manter ou reverter a mudança de arquitetura) com confiança causal LOW e explicitamente rotulada como tal — nunca suficiente pra uma alegação causal forte ou pra decisões de alto capital irreversíveis.",
+    "sufficient_for_decision": true,
+    "what_would_upgrade_confidence": [
+      "session_id + variant_id reais permitiriam comparação aleatorizada concorrente, elevando de LOW pra MEDIUM/HIGH",
+      "registro explícito de qual arquitetura esteve live em qual data eliminaria a única lacuna do método agregado hoje"
+    ],
+    "which_financial_outcome_occurred": "AVAILABLE — HOTMART.TRANSACTION_APPROVED já linkado por order_date_utc, sem trabalho novo.",
+    "which_variant_was_exposed": "NEEDS_LIGHTWEIGHT_IMPLEMENTATION"
+  },
+  "current_tracking_contract": {
+    "architecture_id": "ARCH-CURRENT",
+    "capital_blocking_requirements": [
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "PURCHASE",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_APPROVED",
+            "note": "única fonte que confirma dinheiro real recebido.",
+            "status": "VALIDATED"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "META.PURCHASE",
+            "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "GA4.PURCHASE",
+            "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.PURCHASE_SIGNAL",
+            "note": "nenhum dataLayer.push de ecommerce encontrado.",
+            "status": "NOT_AVAILABLE"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "REFUND",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "CANCELLED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "EXPIRED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "ORDER_BUMP_ACCEPTED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      }
+    ],
+    "contract_id": "TC-ARCH-CURRENT-001",
+    "contract_status": "DEGRADED",
+    "experiment_id": null,
+    "missing_requirements": [
+      "CHECKOUT_INITIATED"
+    ],
+    "non_blocking_requirements": [
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "PAGE_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "LANDING_PAGE_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "SCROLL_DEPTH",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "ENGAGED_SESSION",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CTA_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CTA_CLICK",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "diagnóstico de funil (por que a métrica mudou), nunca a decisão de sucesso/fracasso em si",
+        "affected_metric": "granularidade por sessão da métrica de funil (não a métrica agregada em si, que já é calculável)",
+        "blocking_rationale": "já existe um proxy agregado real (contagem diária via Meta Insights) suficiente pra calcular a métrica no nível de comparação disponível hoje (data/arquitetura) — o evento discreto de sessão explica ONDE/COMO, não SE o efeito ocorreu.",
+        "event": "CHECKOUT_INITIATED",
+        "requirement_class": "DIAGNOSTIC_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "META.INITIATE_CHECKOUT",
+            "note": "possível via tag GTM não confirmável estaticamente.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CHECKOUT_CLICK",
+            "note": "link de checkout é estático, sem dataLayer.push associado encontrado.",
+            "status": "NOT_AVAILABLE"
+          }
+        ],
+        "status": "REQUIRED",
+        "what_is_lost_if_missing": "capacidade de explicar EM QUAL etapa exata o efeito aconteceu — não a capacidade de saber SE aconteceu."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CHECKOUT_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "PAYMENT_ATTEMPT",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      }
+    ],
+    "product_id": "protocolo_resposta_garantida",
+    "required_attribution_fields": [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "transaction_id"
+    ],
+    "required_behavior_surfaces": [
+      "SALES_PAGE"
+    ],
+    "required_events": [
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "PAGE_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "LANDING_PAGE_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "SCROLL_DEPTH",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "ENGAGED_SESSION",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CTA_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CTA_CLICK",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "diagnóstico de funil (por que a métrica mudou), nunca a decisão de sucesso/fracasso em si",
+        "affected_metric": "granularidade por sessão da métrica de funil (não a métrica agregada em si, que já é calculável)",
+        "blocking_rationale": "já existe um proxy agregado real (contagem diária via Meta Insights) suficiente pra calcular a métrica no nível de comparação disponível hoje (data/arquitetura) — o evento discreto de sessão explica ONDE/COMO, não SE o efeito ocorreu.",
+        "event": "CHECKOUT_INITIATED",
+        "requirement_class": "DIAGNOSTIC_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "META.INITIATE_CHECKOUT",
+            "note": "possível via tag GTM não confirmável estaticamente.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CHECKOUT_CLICK",
+            "note": "link de checkout é estático, sem dataLayer.push associado encontrado.",
+            "status": "NOT_AVAILABLE"
+          }
+        ],
+        "status": "REQUIRED",
+        "what_is_lost_if_missing": "capacidade de explicar EM QUAL etapa exata o efeito aconteceu — não a capacidade de saber SE aconteceu."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "CHECKOUT_VIEW",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "nenhuma decisão de capital diretamente",
+        "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+        "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+        "event": "PAYMENT_ATTEMPT",
+        "requirement_class": "QUALITY_ENHANCEMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "PURCHASE",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_APPROVED",
+            "note": "única fonte que confirma dinheiro real recebido.",
+            "status": "VALIDATED"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "META.PURCHASE",
+            "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "GA4.PURCHASE",
+            "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.PURCHASE_SIGNAL",
+            "note": "nenhum dataLayer.push de ecommerce encontrado.",
+            "status": "NOT_AVAILABLE"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "REFUND",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "CANCELLED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "EXPIRED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      },
+      {
+        "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+        "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+        "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+        "event": "ORDER_BUMP_ACCEPTED",
+        "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED",
+        "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+      }
+    ],
+    "required_financial_reconciliation": "toda alegação de compra (META.PURCHASE) deste subject precisa reconciliar com HOTMART.TRANSACTION_APPROVED antes de contar como receita real (item 12, PASSO 13).",
+    "required_identifiers": [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content",
+      "utm_term",
+      "meta_click_id",
+      "session_id",
+      "anonymous_visitor_id",
+      "customer_id",
+      "lead_id",
+      "transaction_id",
+      "experiment_id",
+      "variant_id",
+      "creative_id",
+      "ad_id",
+      "adset_id",
+      "campaign_id",
+      "product_id"
+    ],
+    "required_revenue_events": [
+      {
+        "event": "PURCHASE",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_APPROVED",
+            "note": "única fonte que confirma dinheiro real recebido.",
+            "status": "VALIDATED"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "META.PURCHASE",
+            "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "GA4.PURCHASE",
+            "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+            "status": "NEEDS_RUNTIME_VALIDATION"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.PURCHASE_SIGNAL",
+            "note": "nenhum dataLayer.push de ecommerce encontrado.",
+            "status": "NOT_AVAILABLE"
+          }
+        ],
+        "status": "VALIDATED"
+      },
+      {
+        "event": "REFUND",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED"
+      },
+      {
+        "event": "CANCELLED",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED"
+      },
+      {
+        "event": "EXPIRED",
+        "source_semantics": [
+          {
+            "is_financial_truth": true,
+            "namespace": "HOTMART.TRANSACTION_STATUS",
+            "note": "status real observado por transação.",
+            "status": "VALIDATED"
+          }
+        ],
+        "status": "VALIDATED"
+      },
+      {
+        "event": "ORDER_BUMP_ACCEPTED",
+        "source_semantics": [
+          {
+            "is_financial_truth": false,
+            "namespace": "WEB.CLIENT_EVENT",
+            "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "is_financial_truth": false,
+            "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+            "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+            "status": "PARTIAL"
+          }
+        ],
+        "status": "OBSERVED"
+      }
+    ],
+    "required_stages": [
+      "AD",
+      "SALES_PAGE",
+      "CHECKOUT",
+      "ORDER_BUMP",
+      "ORDER_BUMP"
+    ],
+    "source_of_truth_per_event": {
+      "CANCELLED": "HOTMART.TRANSACTION_STATUS",
+      "CHECKOUT_INITIATED": "NENHUMA fonte é verdade financeira pra este evento",
+      "CHECKOUT_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+      "CTA_CLICK": "NENHUMA fonte é verdade financeira pra este evento",
+      "CTA_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+      "ENGAGED_SESSION": "NENHUMA fonte é verdade financeira pra este evento",
+      "EXPIRED": "HOTMART.TRANSACTION_STATUS",
+      "LANDING_PAGE_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+      "ORDER_BUMP_ACCEPTED": "NENHUMA fonte é verdade financeira pra este evento",
+      "PAGE_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+      "PAYMENT_ATTEMPT": "NENHUMA fonte é verdade financeira pra este evento",
+      "PURCHASE": "HOTMART.TRANSACTION_APPROVED",
+      "REFUND": "HOTMART.TRANSACTION_STATUS",
+      "SCROLL_DEPTH": "NENHUMA fonte é verdade financeira pra este evento"
+    },
+    "subject_id": "ARCH-CURRENT",
+    "subject_type": "CURRENT_ARCHITECTURE",
+    "technical_control_status": [
+      {
+        "clarity_installable": false,
+        "control": "EXTERNAL",
+        "note": null,
+        "stage_type": "AD"
+      },
+      {
+        "clarity_installable": true,
+        "control": "CONTROLLED",
+        "note": null,
+        "stage_type": "SALES_PAGE"
+      },
+      {
+        "clarity_installable": false,
+        "control": "EXTERNAL",
+        "note": "Hotmart hospeda e controla o checkout — nunca instrumentável como superfície própria (item 30).",
+        "stage_type": "CHECKOUT"
+      },
+      {
+        "clarity_installable": false,
+        "control": "PARTIALLY_CONTROLLED",
+        "note": null,
+        "stage_type": "ORDER_BUMP"
+      },
+      {
+        "clarity_installable": false,
+        "control": "PARTIALLY_CONTROLLED",
+        "note": null,
+        "stage_type": "ORDER_BUMP"
+      }
+    ],
+    "validation_rules": [
+      "PURCHASE só conta como receita real quando confirmado por HOTMART.TRANSACTION_APPROVED, nunca por META.PURCHASE isolado.",
+      "CANCELLED/EXPIRED nunca contam como abandono recuperável confirmado sem validação adicional (PASSO 12.2).",
+      "nenhum evento OBSERVED vira VALIDATED sem reconciliação cruzada com a fonte de verdade do domínio correspondente.",
+      "REQUIRED_FOR_OBSERVABILITY != REQUIRED_FOR_INTERPRETABILITY — um evento REQUIRED só bloqueia capital se sua ausência tornar o teste economicamente/causalmente não-interpretável, incapaz de atribuir exposição->outcome, incapaz de reconciliar o outcome financeiro necessário, ou incapaz de aplicar os guardrails definidos (PASSO 13.1, item 1)."
+    ],
+    "validation_status": "PARTIAL"
+  },
+  "data_quality_dimensions": {
+    "COMPLETENESS": {
+      "evidence": "data_completeness real do período: 0.9333333333333333.",
+      "level": "MEDIUM"
+    },
+    "CONSISTENCY": {
+      "evidence": "match_rate real da reconciliação Meta<->Hotmart: 0.6428571428571429.",
+      "level": "LOW"
+    },
+    "FRESHNESS": {
+      "evidence": "coleta diária D-1/D0 — nunca em tempo real (mesma cadência de todo o sistema desde o PASSO 1).",
+      "level": "MEDIUM"
+    },
+    "JOINABILITY": {
+      "evidence": "sem identificador determinístico Meta<->Hotmart (item 11 do audit real) — join é sempre agregado/probabilístico.",
+      "level": "LOW"
+    },
+    "TRACEABILITY": {
+      "evidence": "2 dia(s) com divergência platform-only rastreada e preservada explicitamente em 30 dia(s) avaliados.",
+      "level": "MEDIUM"
+    },
+    "UNIQUENESS": {
+      "evidence": "DUPLICATE_TRANSACTION é uma flag crítica ativa (metrics/dataQuality.js) — duplicidade real é detectada, não presumida ausente.",
+      "level": "HIGH"
+    },
+    "VALIDITY": {
+      "evidence": "confidence_score real do trackingAssessment: 80.",
+      "level": "MEDIUM"
+    }
+  },
+  "experiment_attribution_interface": {
+    "contamination_risks": [
+      "sem variant_id persistido por sessão/transação, contaminação entre variantes não é detectável hoje"
+    ],
+    "period": null,
+    "reason": "nenhum experimento real de arquitetura concluído ou em execução hoje (mesmo estado já usado pelo Strategy Search).",
+    "revenue_belonging_to_experiment": "NOT_AVAILABLE",
+    "which_event_occurred": "NOT_AVAILABLE",
+    "which_financial_purchase_linkable": "NOT_AVAILABLE",
+    "which_session_saw_which_variant": "NOT_AVAILABLE"
+  },
+  "identifier_spine": {
+    "identifiers": {
+      "ad_id": {
+        "availability": "CONFIRMED",
+        "joinability": "nula com Hotmart",
+        "known_gaps": [],
+        "persistence": "permanente (Meta)",
+        "scope": "anúncio/dia",
+        "source": "Meta Insights API (collectors/meta.js)"
+      },
+      "adset_id": {
+        "availability": "CONFIRMED",
+        "joinability": "nula com Hotmart",
+        "known_gaps": [],
+        "persistence": "permanente (Meta)",
+        "scope": "conjunto de anúncios/dia",
+        "source": "Meta Insights API"
+      },
+      "anonymous_visitor_id": {
+        "availability": "NEEDS_RUNTIME_VALIDATION",
+        "joinability": "NOT_AVAILABLE",
+        "known_gaps": [
+          "nunca chega ao pipeline de dados — mesmo se existir no navegador"
+        ],
+        "persistence": "UNKNOWN",
+        "scope": "UNKNOWN",
+        "source": "cookies de GA4/Clarity podem gerar um, mas não é lido/persistido em nenhum pipeline deste repo"
+      },
+      "campaign_id": {
+        "availability": "CONFIRMED",
+        "joinability": "nula com Hotmart",
+        "known_gaps": [],
+        "persistence": "permanente (Meta)",
+        "scope": "campanha/dia",
+        "source": "Meta Insights API"
+      },
+      "creative_id": {
+        "availability": "CONFIRMED",
+        "joinability": "nula com Hotmart (sem ad_id na Hotmart)",
+        "known_gaps": [
+          "atribuição financeira por criativo permanece NOT_AVAILABLE mesmo com creative_id real disponível"
+        ],
+        "persistence": "permanente (Meta)",
+        "scope": "anúncio",
+        "source": "Meta ad_id/ad_name por linha do Insights"
+      },
+      "customer_id": {
+        "availability": "PARTIAL",
+        "joinability": "NOT_AVAILABLE fora da Hotmart",
+        "known_gaps": [
+          "sem stitching com identidade do lado ad/web"
+        ],
+        "persistence": "permanente dentro da Hotmart",
+        "scope": "transação/comprador Hotmart",
+        "source": "Hotmart buyer_name/ucode (existe dentro da Hotmart, não cross-domínio)"
+      },
+      "experiment_id": {
+        "availability": "PARTIAL",
+        "joinability": "NOT_AVAILABLE (nenhuma sessão/transação real vinculada ainda)",
+        "known_gaps": [
+          "interface pronta, dado real ainda não existe"
+        ],
+        "persistence": "por experimento",
+        "scope": "experimento",
+        "source": "experiments/registry.js — existe como schema, sem experimento real de arquitetura concluído"
+      },
+      "lead_id": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "LEAD_CAPTURED nunca observado na arquitetura atual"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "nenhum sistema de captura de lead implementado hoje (produto é venda direta)"
+      },
+      "meta_click_id": {
+        "availability": "NEEDS_RUNTIME_VALIDATION",
+        "joinability": "UNKNOWN",
+        "known_gaps": [
+          "nenhum código de captura de fbc/fbp encontrado no repo"
+        ],
+        "persistence": "UNKNOWN",
+        "scope": "session (se existir)",
+        "source": "fbclid, se capturado por um pixel injetado via GTM — não confirmável estaticamente"
+      },
+      "product_id": {
+        "availability": "CONFIRMED",
+        "joinability": "alta (todo o pipeline usa o mesmo id)",
+        "known_gaps": [],
+        "persistence": "permanente",
+        "scope": "produto",
+        "source": "config/product.js resolveProductId()"
+      },
+      "session_id": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "sem session_id, não há como ligar comportamento web a uma transação específica"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "nenhum sistema de sessão web próprio identificado no repo"
+      },
+      "transaction_id": {
+        "availability": "CONFIRMED",
+        "joinability": "alta dentro da Hotmart, nula com Meta (sem ad_id na Hotmart)",
+        "known_gaps": [
+          "nunca aparece do lado Meta — join Meta<->Hotmart é sempre probabilístico"
+        ],
+        "persistence": "permanente",
+        "scope": "transação",
+        "source": "Hotmart transaction_id por venda real"
+      },
+      "utm_campaign": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "idem utm_source"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "idem utm_source"
+      },
+      "utm_content": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "idem utm_source"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "idem utm_source"
+      },
+      "utm_medium": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "idem utm_source"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "idem utm_source"
+      },
+      "utm_source": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "nenhuma lógica de passthrough de UTM da LP pro checkout encontrada no bundle (item 12/28)"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "nenhum — link de checkout Hotmart é estático"
+      },
+      "utm_term": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [
+          "idem utm_source"
+        ],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "idem utm_source"
+      },
+      "variant_id": {
+        "availability": "NOT_AVAILABLE",
+        "joinability": "NOT_APPLICABLE",
+        "known_gaps": [],
+        "persistence": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "source": "nenhum sistema de variante A/B real rodando hoje"
+      }
+    },
+    "source": "derivado do platformAudit real + normalizadores existentes",
+    "utm_continuity_available": false
+  },
+  "measurement_debt": [
+    {
+      "affected_experiments": [
+        "qualquer MVA test futuro que precise medir progressão de funil além de compra final"
+      ],
+      "affected_scopes": [
+        "EXPERIMENT_ATTRIBUTION",
+        "SESSION_ATTRIBUTION",
+        "CROSS_PLATFORM_RECONCILIATION"
+      ],
+      "capital_risk": "HIGH",
+      "debt_id": "MDEBT-001",
+      "decision_impact": "HIGH",
+      "description": "nenhum evento discreto de funil (view_item/begin_checkout/purchase via dataLayer) confirmado em nenhuma página real hoje.",
+      "domain": "FUNNEL_EVENT_TRUTH",
+      "implementation_dependency": "requer instrumentação real (dataLayer.push) nas páginas próprias — NÃO implementado neste PASSO (fora do escopo, item 54).",
+      "priority_rank": 1,
+      "validation_dependency": "após implementação, precisa reconciliar contra HOTMART.TRANSACTION_APPROVED antes de virar VALIDATED."
+    },
+    {
+      "affected_experiments": [
+        "qualquer decisão que dependa de compra_meta como sinal isolado"
+      ],
+      "affected_scopes": [
+        "PLATFORM_ATTRIBUTION",
+        "CREATIVE_ATTRIBUTION",
+        "CAMPAIGN_ATTRIBUTION"
+      ],
+      "capital_risk": "MEDIUM",
+      "debt_id": "MDEBT-002",
+      "decision_impact": "HIGH",
+      "description": "mecanismo real de origem do evento Purchase/InitiateCheckout da Meta não é confirmável neste repo (pode ser pixel injetado via GTM, não confirmável estaticamente).",
+      "domain": "PLATFORM_ATTRIBUTION",
+      "implementation_dependency": "nenhuma implementação nova necessária pra ESCLARECER — precisa de validação de runtime (inspecionar o container GTM ao vivo), fora do escopo deste PASSO (item 53).",
+      "priority_rank": 2,
+      "validation_dependency": "NEEDS_RUNTIME_VALIDATION."
+    },
+    {
+      "affected_experiments": [
+        "qualquer experimento A/B real de arquitetura — sem isso, EXPERIMENT_ATTRIBUTION permanece NOT_AVAILABLE indefinidamente"
+      ],
+      "affected_scopes": [
+        "SESSION_ATTRIBUTION",
+        "EXPERIMENT_ATTRIBUTION",
+        "LIFECYCLE_ATTRIBUTION"
+      ],
+      "capital_risk": "MEDIUM",
+      "debt_id": "MDEBT-004",
+      "decision_impact": "HIGH",
+      "description": "nenhum session_id/anonymous_visitor_id real chega ao pipeline de dados — impossibilita ligar comportamento web a uma transação específica.",
+      "domain": "SESSION_ATTRIBUTION",
+      "implementation_dependency": "requer sistema de identidade de sessão — NÃO implementado neste PASSO.",
+      "priority_rank": 3,
+      "validation_dependency": "NOT_APPLICABLE até existir."
+    },
+    {
+      "affected_experiments": [
+        "qualquer MVA test real do Strategy Search — este é o blocker raiz real (blockerDependencyGraph.js), não um evento discreto"
+      ],
+      "affected_scopes": [
+        "EXPERIMENT_ATTRIBUTION"
+      ],
+      "blocker_node": "EXPOSURE_IDENTITY",
+      "capital_risk": "MEDIUM",
+      "debt_id": "MDEBT-007",
+      "decision_impact": "HIGH",
+      "description": "nenhum registro real de qual arquitetura esteve live em qual intervalo de datas — sem isso, mesmo o método de atribuição mínima viável (comparação agregada por data) não consegue linkar exposição a outcome financeiro.",
+      "domain": "EXPERIMENT_ATTRIBUTION",
+      "implementation_dependency": "registro operacional leve (ex.: log de deploy com data + architecture_id) — NÃO é instrumentação de evento/GTM/Pixel, e não implementado neste PASSO (fora do escopo).",
+      "priority_rank": 4,
+      "validation_dependency": "nenhuma adicional — uma vez registrado, o método AGGREGATE_TEMPORAL_COMPARISON já é utilizável (minimumViableAttribution.js)."
+    },
+    {
+      "affected_experiments": [
+        "qualquer teste que precise atribuir receita por campanha/criativo específico com mais confiança"
+      ],
+      "affected_scopes": [
+        "CAMPAIGN_ATTRIBUTION",
+        "CROSS_PLATFORM_RECONCILIATION"
+      ],
+      "capital_risk": "MEDIUM",
+      "debt_id": "MDEBT-003",
+      "decision_impact": "MEDIUM",
+      "description": "nenhum UTM é propagado da LP pro link de checkout Hotmart — continuidade de atribuição se perde na travessia pro checkout externo.",
+      "domain": "CROSS_PLATFORM_RECONCILIATION",
+      "implementation_dependency": "requer lógica de passthrough de UTM no bundle da LP — NÃO implementado neste PASSO (fora do escopo).",
+      "priority_rank": 5,
+      "validation_dependency": "após implementação, validar se a Hotmart preserva o parâmetro até a transação (ela não expõe isso hoje — pode nunca ser possível, item 11 do audit real)."
+    },
+    {
+      "affected_experiments": [
+        "testes que comparem comportamento entre duas LPs diferentes ao mesmo tempo"
+      ],
+      "affected_scopes": [
+        "WEB_BEHAVIOR"
+      ],
+      "capital_risk": "LOW",
+      "debt_id": "MDEBT-005",
+      "decision_impact": "MEDIUM",
+      "description": "normalizador de Clarity descarta o campo de URL por página (PopularPages/PageTitle) — o pipeline de decisão só recebe comportamento agregado de conta, nunca por LP.",
+      "domain": "WEB_BEHAVIOR",
+      "implementation_dependency": "mudança pequena e aditiva em normalizers/clarity.js — candidata a implementação futura de baixo custo, mas fora do escopo deste PASSO.",
+      "priority_rank": 6,
+      "validation_dependency": "nenhuma — é dado observacional, não financeiro."
+    },
+    {
+      "affected_experiments": [
+        "nenhum hoje — só relevante quando o volume justificar o investimento de engenharia"
+      ],
+      "affected_scopes": [
+        "PLATFORM_ATTRIBUTION"
+      ],
+      "capital_risk": "LOW",
+      "debt_id": "MDEBT-006",
+      "decision_impact": "MEDIUM",
+      "description": "nenhuma implementação de Conversions API (server-side) existe — dependência 100% de evento client-side (se houver), sem rede de segurança contra bloqueio de cookies/adblock.",
+      "domain": "META_PIXEL_CAPI",
+      "implementation_dependency": "requer infraestrutura de servidor nova — investimento de engenharia real, fora do escopo deste PASSO.",
+      "priority_rank": 7,
+      "validation_dependency": "NOT_APPLICABLE até existir."
+    }
+  ],
+  "ownership_boundaries": {
+    "FUTURE_CIRCUIT_BREAKER_CONTRACT": {
+      "architecture": "CEO/ORCHESTRATOR -> POLICY ENGINE -> EXECUTION LAYER -> EXTERNAL API",
+      "measurement_role": "fornece execution_safety_signal (severity/affected_scope/affected_decision_types/capital_action/reason/requires_human_review/resolution_condition) — nunca a Policy Engine em si.",
+      "rule": "Circuit Breaker/runtime guardrails ficam fora da autoridade da LLM. Measurement fornece sinais; NÃO executa freeze/bloqueio diretamente. Isso será consumido futuramente pelo PASSO 14 — não implementado aqui."
+    },
+    "MEASUREMENT_NEVER_IMPLEMENTS_TRACKING": {
+      "rule": "este agent NUNCA edita GTM, instala GA4/Pixel/CAPI, altera Hotmart, insere script em página real, nem cria a Advertorial ou qualquer página nova (items 27/54). Só audita, contrata e recomenda."
+    },
+    "MEASUREMENT_VS_CREATIVE_CRO_OFFER": {
+      "boundary_rule": "Read-only — consome registry.js de cada domínio, nunca escreve neles.",
+      "creative_cro_offer_own": [
+        "o asset/página/oferta em si"
+      ],
+      "measurement_owns": [
+        "auditar o que falta pra ligar performance desses domínios a resultado financeiro confirmado — nunca fabrica essa linkagem, nunca altera os agents"
+      ]
+    },
+    "MEASUREMENT_VS_DECISION": {
+      "boundary_rule": "assessTracking() é chamado, nunca reimplementado.",
+      "decision_owns": [
+        "tracking_assessment (BLOCKING/DEGRADING) já usado pra decisão operacional"
+      ],
+      "measurement_owns": [
+        "a auditoria completa de mensuração/atribuição — reusa decision/trackingAssessment.js por leitura, nunca duplica nem substitui"
+      ]
+    },
+    "MEASUREMENT_VS_EXPERIMENT": {
+      "boundary_rule": "Só gera template/contrato — nunca chama saveExperiment.",
+      "experiment_owns": [
+        "registrar/rodar/medir uma hipótese individual real"
+      ],
+      "measurement_owns": [
+        "o contrato de mensuração que um experimento precisaria ter pra ser interpretável (Experiment Measurement Contract) — nunca registra nem executa nada em experiments/registry.js"
+      ]
+    },
+    "MEASUREMENT_VS_PLANNER": {
+      "boundary_rule": "Read-only sobre analyzePlan() — nunca altera decision/roadmap/capital_plan do Planner.",
+      "measurement_owns": [
+        "a confiança de mensuração por trás dos números que o Planner usa (tracking_scopes/tracking_assessment já existentes no Planner são consumidos, nunca duplicados)"
+      ],
+      "planner_owns": [
+        "a próxima ação estratégica dentro da arquitetura atual"
+      ]
+    },
+    "MEASUREMENT_VS_STRATEGY_SEARCH": {
+      "boundary_rule": "Strategy Search decide O QUE testar; Measurement decide SE dá pra medir isso com confiança suficiente pra gastar capital. Read-only sobre analyzeStrategy() — nunca reescreve challengers/ranking/recommendation.",
+      "measurement_owns": [
+        "se é responsável do ponto de vista de MEDIÇÃO colocar capital nessa arquitetura específica (capital_gate) — nunca se a estratégia em si é boa"
+      ],
+      "strategy_search_owns": [
+        "qual arquitetura testar, ranking, recomendação estratégica, test_eligibility (elegibilidade estratégica ampla)"
+      ]
+    }
+  },
+  "platform_audit": {
+    "clarity": {
+      "domain": "CLARITY",
+      "install_mechanism_injected_by_gtm_hypothesis_status": "UNKNOWN_HYPOTHESIS",
+      "install_mechanism_status": "UNKNOWN",
+      "live_session_collection_status": "CONFIRMED",
+      "pages_observed_with_traffic": [
+        "https://www.ojogodolucro.com.br/",
+        "https://www.ojogodolucro.com.br/essencial"
+      ],
+      "per_page_attribution_in_pipeline_status": "NOT_AVAILABLE",
+      "reason": "FATO confirmado: nenhum snippet clarity.ms literal em nenhum HTML do repo, mas dados reais de sessão existem na API de exportação da Clarity. HIPÓTESE (não fato): o mecanismo de instalação mais plausível seria uma tag Custom HTML dentro do container GTM-54PT3H4Z — mas o conteúdo do container não está neste repo e não foi validado em runtime, então o mecanismo real fica UNKNOWN. Pode haver outra explicação (outro código de deploy, outra superfície não auditada aqui) — nunca afirmar \"só pode ser o GTM\" (item 11). A normalização atual (normalizers/clarity.js) descarta o campo de URL por página — o pipeline de decisão nunca recebe atribuição por página, mesmo quando a API bruta a carrega parcialmente.",
+      "snippet_found_in_repo_html_status": "NOT_AVAILABLE"
+    },
+    "gtm_ga4": {
+      "container_ids_confirmed": [
+        "GTM-54PT3H4Z"
+      ],
+      "domain": "GTM_GA4",
+      "ecommerce_datalayer_events_status": "NOT_AVAILABLE",
+      "ga4_direct_gtag_status": "NOT_AVAILABLE",
+      "ga4_via_gtm_container_status": "NEEDS_RUNTIME_VALIDATION",
+      "gtm_loader_status": "CONFIRMED",
+      "pages_with_gtm_loader": [
+        "ROOT",
+        "ESSENCIAL",
+        "NUCLEO",
+        "ACESSO",
+        "TESTE_B"
+      ],
+      "pages_without_gtm_loader": [
+        "ARSENAL"
+      ],
+      "reason": "loader GTM confirmado por leitura direta do HTML servido; conteúdo interno do container (quais tags GA4/ecommerce realmente disparam) não está versionado neste repo e não foi acessado (item 53 — sem internet/runtime) — nunca classificado CONFIRMED sem essa evidência."
+    },
+    "hotmart": {
+      "ad_attribution_field_present_upstream": "NOT_AVAILABLE",
+      "domain": "HOTMART",
+      "financial_truth_status": "CONFIRMED",
+      "normalizer_emits_only_this_field_set": true,
+      "normalizer_field_set": [
+        "transaction_id",
+        "order_date_utc",
+        "product_name",
+        "is_main_product",
+        "status",
+        "gross",
+        "hotmart_fee",
+        "net",
+        "payment_method",
+        "buyer_name",
+        "is_known_test_buyer",
+        "counted_as_revenue"
+      ],
+      "raw_payload_top_level_fields_sample": [
+        "buyer",
+        "producer",
+        "product",
+        "purchase"
+      ],
+      "reason": "Hotmart Sales History API confirmada como não retornando nenhum campo de atribuição de anúncio (utm/fbclid/ad_id/campaign_id) — não é lacuna de código, é limite estrutural da API upstream. Qualquer join Meta<->Hotmart é necessariamente probabilístico (valor/janela de tempo), nunca por identificador determinístico."
+    },
+    "html_surfaces": {
+      "ACESSO": {
+        "exists": true,
+        "file": "acesso/index.html",
+        "scan": {
+          "checkout_links": [],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": "GTM-54PT3H4Z",
+          "gtm_head_script_present": true,
+          "gtm_noscript_present": true,
+          "utm_in_checkout_link_present": false
+        }
+      },
+      "ARSENAL": {
+        "exists": true,
+        "file": "arsenal/index.html",
+        "scan": {
+          "checkout_links": [
+            "https://pay.hotmart.com/M107016651K"
+          ],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": null,
+          "gtm_head_script_present": false,
+          "gtm_noscript_present": false,
+          "utm_in_checkout_link_present": false
+        }
+      },
+      "ESSENCIAL": {
+        "exists": true,
+        "file": "essencial/index.html",
+        "scan": {
+          "checkout_links": [
+            "https://pay.hotmart.com/L107017458H"
+          ],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": "GTM-54PT3H4Z",
+          "gtm_head_script_present": true,
+          "gtm_noscript_present": true,
+          "utm_in_checkout_link_present": false
+        }
+      },
+      "NUCLEO": {
+        "exists": true,
+        "file": "nucleo/index.html",
+        "scan": {
+          "checkout_links": [
+            "https://pay.hotmart.com/E107017566E"
+          ],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": "GTM-54PT3H4Z",
+          "gtm_head_script_present": true,
+          "gtm_noscript_present": true,
+          "utm_in_checkout_link_present": false
+        }
+      },
+      "ROOT": {
+        "exists": true,
+        "file": "index.html",
+        "scan": {
+          "checkout_links": [
+            "https://pay.hotmart.com/O106918070H?checkoutMode=10",
+            "https://pay.hotmart.com/O106918070H?checkoutMode=10"
+          ],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": "GTM-54PT3H4Z",
+          "gtm_head_script_present": true,
+          "gtm_noscript_present": true,
+          "utm_in_checkout_link_present": false
+        }
+      },
+      "TESTE_B": {
+        "exists": true,
+        "file": "teste-b/index.html",
+        "scan": {
+          "checkout_links": [
+            "https://pay.hotmart.com/O106918070H?checkoutMode=10",
+            "https://pay.hotmart.com/O106918070H?checkoutMode=10"
+          ],
+          "clarity_snippet_present": false,
+          "datalayer_push_present": false,
+          "facebook_pixel_loader_present": false,
+          "fbq_present": false,
+          "gtag_present": false,
+          "gtm_container_id": "GTM-54PT3H4Z",
+          "gtm_head_script_present": true,
+          "gtm_noscript_present": true,
+          "utm_in_checkout_link_present": false
+        }
+      }
+    },
+    "meta_pixel_capi": {
+      "browser_pixel_gtm_injection_hypothesis_status": "UNKNOWN_HYPOTHESIS",
+      "browser_pixel_literal_snippet_found": false,
+      "browser_pixel_mechanism_status": "NEEDS_RUNTIME_VALIDATION",
+      "browser_pixel_status": "NEEDS_RUNTIME_VALIDATION",
+      "domain": "META_PIXEL_CAPI",
+      "event_id_dedup_status": "NOT_AVAILABLE",
+      "fbp_fbc_capture_status": "NEEDS_RUNTIME_VALIDATION",
+      "marketing_insights_collector_status": "CONFIRMED_READ_ONLY_AGGREGATE",
+      "purchase_value_currency_passthrough_status": "NEEDS_RUNTIME_VALIDATION",
+      "reason": "nenhum fbq()/loader de pixel HARDCODED encontrado em nenhuma página real, e nenhuma implementação de CAPI (servidor) existe em lugar nenhum do código (isso sim é estruturalmente CONFIRMADO ausente — CAPI exige infraestrutura de servidor que não existe). O browser pixel especificamente fica NEEDS_RUNTIME_VALIDATION — não é classificado NOT_AVAILABLE só por ausência de snippet estático, mas também NÃO é classificado CONFIRMED com base na hipótese de injeção via GTM: essa é só UMA hipótese técnica plausível (mesmo padrão observado no caso da Clarity), nunca um fato provado — pode existir outro mecanismo/superfície não observável a partir deste repo. Sem inspecionar o container GTM em runtime, o mecanismo real permanece desconhecido (item 53).",
+      "server_capi_status": "NOT_AVAILABLE"
+    },
+    "utm_to_checkout": {
+      "checkout_links_found": [
+        "https://pay.hotmart.com/O106918070H?checkoutMode=10",
+        "https://pay.hotmart.com/L107017458H",
+        "https://pay.hotmart.com/E107017566E",
+        "https://pay.hotmart.com/M107016651K"
+      ],
+      "domain": "UTM_TO_CHECKOUT",
+      "reason": "links de checkout extraídos diretamente do HTML/bundle servido hoje — nenhum utm_ presente em nenhum deles; nenhuma lógica de passthrough de UTM da página pro link de checkout foi encontrada no bundle JS.",
+      "utm_forwarding_status": "NOT_AVAILABLE"
+    }
+  },
+  "product_id": "protocolo_resposta_garantida",
+  "profit_attribution": {
+    "ad_spend": 1116.1499999999999,
+    "contribution_profit": -399.9499999999998,
+    "fixed_costs": "NOT_AVAILABLE",
+    "gross_revenue": 808.5500000000001,
+    "hotmart_fee": 92.35,
+    "net_revenue": 716.2,
+    "note": "PROFIT_TRUTH é PARTIAL (ver source-of-truth matrix) — contribution_profit é real e confiável no nível mídia+taxa; profit completo do negócio permanece NOT_AVAILABLE até custos adicionais serem rastreados.",
+    "profit": "NOT_AVAILABLE",
+    "refunds": 67,
+    "variable_costs_other": "NOT_AVAILABLE"
+  },
+  "real_audit_note": "nenhuma pesquisa externa realizada (item 53) — todo o audit acima vem de leitura direta do repo (HTML/JS servidos hoje, coletores, normalizadores) e de dados diários persistidos reais (analytics/data/daily/*.json). Nenhum tracking foi implementado/alterado (item 54). Nenhuma ação real de campanha/produto/preço/deploy foi executada.",
+  "recommendation": {
+    "capital_risk": "HIGH",
+    "confidence": "MEDIUM",
+    "decision_impact": "HIGH",
+    "must_have_before_test": [
+      {
+        "debt_id": "MDEBT-007",
+        "description": "nenhum registro real de qual arquitetura esteve live em qual intervalo de datas — sem isso, mesmo o método de atribuição mínima viável (comparação agregada por data) não consegue linkar exposição a outcome financeiro.",
+        "domain": "EXPERIMENT_ATTRIBUTION"
+      }
+    ],
+    "nice_to_have_later": [
+      {
+        "debt_id": "MDEBT-003",
+        "description": "nenhum UTM é propagado da LP pro link de checkout Hotmart — continuidade de atribuição se perde na travessia pro checkout externo.",
+        "domain": "CROSS_PLATFORM_RECONCILIATION"
+      },
+      {
+        "debt_id": "MDEBT-005",
+        "description": "normalizador de Clarity descarta o campo de URL por página (PopularPages/PageTitle) — o pipeline de decisão só recebe comportamento agregado de conta, nunca por LP.",
+        "domain": "WEB_BEHAVIOR"
+      },
+      {
+        "debt_id": "MDEBT-006",
+        "description": "nenhuma implementação de Conversions API (server-side) existe — dependência 100% de evento client-side (se houver), sem rede de segurança contra bloqueio de cookies/adblock.",
+        "domain": "META_PIXEL_CAPI"
+      }
+    ],
+    "recommended_debt_id": "MDEBT-001",
+    "recommended_domain": "FUNNEL_EVENT_TRUTH",
+    "should_have_soon": [
+      {
+        "debt_id": "MDEBT-001",
+        "description": "nenhum evento discreto de funil (view_item/begin_checkout/purchase via dataLayer) confirmado em nenhuma página real hoje.",
+        "domain": "FUNNEL_EVENT_TRUTH"
+      },
+      {
+        "debt_id": "MDEBT-002",
+        "description": "mecanismo real de origem do evento Purchase/InitiateCheckout da Meta não é confirmável neste repo (pode ser pixel injetado via GTM, não confirmável estaticamente).",
+        "domain": "PLATFORM_ATTRIBUTION"
+      },
+      {
+        "debt_id": "MDEBT-004",
+        "description": "nenhum session_id/anonymous_visitor_id real chega ao pipeline de dados — impossibilita ligar comportamento web a uma transação específica.",
+        "domain": "SESSION_ATTRIBUTION"
+      }
+    ],
+    "unlocked_capability": "resolver MDEBT-001 habilita: EXPERIMENT_ATTRIBUTION, SESSION_ATTRIBUTION, CROSS_PLATFORM_RECONCILIATION.",
+    "what_would_change_my_mind": "se um novo item de dívida real surgir com decision_impact=HIGH E capital_risk=HIGH E mais domínios afetados simultaneamente que este, OU se o vencedor real do Strategy Search mudar pra uma arquitetura cujo blocker principal seja outro tipo de gap.",
+    "why_not_the_others": [
+      "MDEBT-002 (PLATFORM_ATTRIBUTION): impacto HIGH/risco MEDIUM — real, mas menor prioridade que MDEBT-001 nos mesmos fatores documentados (decision_impact -> capital_risk -> nº de escopos afetados).",
+      "MDEBT-004 (SESSION_ATTRIBUTION): impacto HIGH/risco MEDIUM — real, mas menor prioridade que MDEBT-001 nos mesmos fatores documentados (decision_impact -> capital_risk -> nº de escopos afetados).",
+      "MDEBT-007 (EXPERIMENT_ATTRIBUTION): impacto HIGH/risco MEDIUM — real, mas menor prioridade que MDEBT-001 nos mesmos fatores documentados (decision_impact -> capital_risk -> nº de escopos afetados)."
+    ],
+    "why_this_first": "nenhum evento discreto de funil (view_item/begin_checkout/purchase via dataLayer) confirmado em nenhuma página real hoje. Impacto de decisão HIGH e risco de capital HIGH — o maior da lista ranqueada, afetando EXPERIMENT_ATTRIBUTION, SESSION_ATTRIBUTION, CROSS_PLATFORM_RECONCILIATION. O blocker atual real do vencedor do Strategy Search (ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE) é EXPOSURE_IDENTITY."
+  },
+  "reconciliation": {
+    "dates_requested": [
+      "2026-07-31",
+      "2026-08-01",
+      "2026-08-02",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06",
+      "2026-08-07",
+      "2026-08-08",
+      "2026-08-09",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-21",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29"
+    ],
+    "days_evaluated": 30,
+    "days_with_data": 28,
+    "divergence_counts_by_type": {
+      "CANCELLED": 2,
+      "MATCHED": 18,
+      "REFUNDED": 1,
+      "TEST_TRANSACTION": 2,
+      "UNKNOWN": 2,
+      "UNMATCHED_FINANCIAL_ONLY": 3,
+      "UNMATCHED_PLATFORM_ONLY": 2,
+      "VALUE_MISMATCH": 5
+    },
+    "ghost_purchase_days": [
+      {
+        "date": "2026-08-19",
+        "evidence": "Meta reportou 2 compra(s); Hotmart confirma 1 venda(s) real(is) — 1 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+        "never_promoted_to_revenue": true
+      },
+      {
+        "date": "2026-08-25",
+        "evidence": "Meta reportou 2 compra(s); Hotmart confirma 0 venda(s) real(is) — 2 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+        "never_promoted_to_revenue": true
+      }
+    ],
+    "invariant_note": "nenhuma divergência aqui jamais altera ou invalida a verdade financeira da Hotmart (FINANCIAL_TRANSACTION_TRUTH) — o Reconciliation Engine só classifica e preserva, nunca corrige/apaga um lado com base no outro (item 12).",
+    "match_rate": 0.6428571428571429,
+    "per_day": [
+      {
+        "date": "2026-07-31",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem (1) e valor consistentes entre Meta e Hotmart neste dia.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-01",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-02",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-03",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-04",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "Hotmart confirma 3 venda(s) real(is); Meta só reportou 2 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+            "type": "UNMATCHED_FINANCIAL_ONLY"
+          },
+          {
+            "blocking_financial_truth": false,
+            "evidence": "1 transação(ões) de teste conhecida(s) excluída(s) da receita.",
+            "type": "TEST_TRANSACTION"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-05",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-06",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+            "type": "VALUE_MISMATCH"
+          },
+          {
+            "blocking_financial_truth": false,
+            "evidence": "1 transação(ões) de teste conhecida(s) excluída(s) da receita.",
+            "type": "TEST_TRANSACTION"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-07",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-08",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-09",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-10",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "Hotmart confirma 2 venda(s) real(is); Meta só reportou 1 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+            "type": "UNMATCHED_FINANCIAL_ONLY"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-11",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "Hotmart confirma 2 venda(s) real(is); Meta só reportou 1 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+            "type": "UNMATCHED_FINANCIAL_ONLY"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-12",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+            "type": "VALUE_MISMATCH"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-13",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-14",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-15",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+            "type": "VALUE_MISMATCH"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-16",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-17",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-18",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-19",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "Meta reportou 2 compra(s); Hotmart confirma 1 venda(s) real(is) — 1 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+            "never_promoted_to_revenue": true,
+            "type": "UNMATCHED_PLATFORM_ONLY"
+          },
+          {
+            "blocking_financial_truth": false,
+            "evidence": "1 reembolso(s) real(is) confirmados pela Hotmart.",
+            "type": "REFUNDED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-20",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+            "type": "VALUE_MISMATCH"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-21",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-22",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-23",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+            "type": "VALUE_MISMATCH"
+          },
+          {
+            "blocking_financial_truth": false,
+            "evidence": "1 transação(ões) CANCELLED/EXPIRED confirmadas pela Hotmart — nunca contadas como abandono confirmado sem validação adicional (PASSO 12.2).",
+            "type": "CANCELLED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-24",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-25",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "Meta reportou 2 compra(s); Hotmart confirma 0 venda(s) real(is) — 2 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+            "never_promoted_to_revenue": true,
+            "type": "UNMATCHED_PLATFORM_ONLY"
+          },
+          {
+            "blocking_financial_truth": false,
+            "evidence": "3 transação(ões) CANCELLED/EXPIRED confirmadas pela Hotmart — nunca contadas como abandono confirmado sem validação adicional (PASSO 12.2).",
+            "type": "CANCELLED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-26",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-27",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+            "type": "MATCHED"
+          }
+        ],
+        "found": true
+      },
+      {
+        "date": "2026-08-28",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "dia sem coleta Meta e/ou Hotmart completa.",
+            "type": "UNKNOWN"
+          }
+        ],
+        "found": false
+      },
+      {
+        "date": "2026-08-29",
+        "divergences": [
+          {
+            "blocking_financial_truth": false,
+            "evidence": "dia sem coleta Meta e/ou Hotmart completa.",
+            "type": "UNKNOWN"
+          }
+        ],
+        "found": false
+      }
+    ]
+  },
+  "revenue_attribution": {
+    "ACQUISITION_REVENUE": {
+      "source": "Hotmart gross_revenue do período — receita da primeira transação, sem descontar reembolso/cancelamento futuro.",
+      "status": "AVAILABLE",
+      "value": 808.5500000000001
+    },
+    "LIFETIME_REVENUE": {
+      "source": "NENHUM sistema de LTV/recompra implementado — nunca projetado (mesma disciplina do Strategy Search roasTypes).",
+      "status": "NOT_AVAILABLE",
+      "value": null
+    },
+    "TRANSACTION_REVENUE": {
+      "source": "idêntico hoje a ACQUISITION_REVENUE — produto único, sem bundle multi-transação distinto ainda.",
+      "status": "AVAILABLE",
+      "value": 808.5500000000001
+    }
+  },
+  "source_of_truth_matrix": {
+    "ACQUISITION_SPEND": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 0.9333333333333333,
+      "evidence": "R$1116.15 de gasto Meta confirmado no período.",
+      "fallback_source": "NENHUM.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "gasto é confiável como valor — o que NÃO é confiável é a atribuição de compra associada a ele (ver PLATFORM_ATTRIBUTION)"
+      ],
+      "reconciliation_requirement": "nenhuma — gasto não é uma alegação de conversão, é custo direto.",
+      "source": "Meta Marketing Insights API (collectors/meta.js, /insights, leitura)",
+      "status": "RELIABLE"
+    },
+    "CAMPAIGN_ATTRIBUTION": {
+      "blocking_impact": false,
+      "confidence": "LOW",
+      "coverage": 0.9333333333333333,
+      "evidence": "performance de campanha Meta (spend/ctr/cpm) é confiável; atribuição financeira de campanha não é.",
+      "fallback_source": "reconciliação agregada dia-a-dia (ver CROSS_PLATFORM_RECONCILIATION), nunca por campanha isolada.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "mesmo limite estrutural de CREATIVE_ATTRIBUTION — desempenho de campanha != atribuição financeira automática de campanha"
+      ],
+      "reconciliation_requirement": "necessária antes de decisão de capital por campanha específica.",
+      "source": "Meta campaign_id/campaign_name (Insights API)",
+      "status": "DEGRADED"
+    },
+    "CREATIVE_ATTRIBUTION": {
+      "blocking_impact": false,
+      "confidence": "LOW",
+      "coverage": 0.9333333333333333,
+      "evidence": "atribuição financeira por criativo específico nunca deve ser afirmada sem linkagem real clique→sessão→transação, que não existe hoje.",
+      "fallback_source": "NENHUM — atribuição financeira por criativo específico é estruturalmente NOT_AVAILABLE hoje.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "Hotmart não carrega ad_id — nenhum cross-check real entre criativo específico e venda financeira confirmada existe",
+        "compras fantasma da Meta (PLATFORM_ATTRIBUTION) já foram observadas caindo sobre ads específicos, inflando a leitura por criativo"
+      ],
+      "reconciliation_requirement": "necessária, mas não implementável sem identificador determinístico (limite de API upstream, não de código).",
+      "source": "Meta by_ad rollup (creative/metricsAggregator.js) somado diretamente por ad_id",
+      "status": "DEGRADED"
+    },
+    "CROSS_PLATFORM_RECONCILIATION": {
+      "blocking_impact": false,
+      "confidence": "LOW",
+      "coverage": 0.9333333333333333,
+      "evidence": "match_rate=0.6428571428571429, 2 dia(s) com compra fantasma preservados explicitamente.",
+      "fallback_source": "NENHUM.",
+      "freshness": "recalculado a cada execução, a partir dos snapshots diários reais",
+      "known_limitations": [
+        "granularidade só dia-a-dia/agregada — join por transação individual é estruturalmente impossível (Hotmart não carrega ad_id)"
+      ],
+      "reconciliation_requirement": "este É o mecanismo de reconciliação — não reconcilia contra outra coisa.",
+      "source": "measurement/reconciliation.js (este PASSO) sobre aggregatePeriod",
+      "status": "PARTIAL"
+    },
+    "CUSTOMER_IDENTITY": {
+      "blocking_impact": false,
+      "confidence": "LOW",
+      "coverage": 0.9333333333333333,
+      "evidence": "nome do comprador é real e confiável como identidade financeira; não é utilizável como identidade cross-domínio.",
+      "fallback_source": "NENHUM.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "identidade só existe DENTRO da Hotmart — nenhuma stitching com session_id/visitor_id do lado web/ad",
+        "sem customer_id único cross-plataforma"
+      ],
+      "reconciliation_requirement": "necessária pra qualquer LIFECYCLE_ATTRIBUTION real.",
+      "source": "Hotmart buyer_name/ucode por transação",
+      "status": "PARTIAL"
+    },
+    "EXPERIMENT_ATTRIBUTION": {
+      "blocking_impact": true,
+      "confidence": "NOT_ASSESSABLE",
+      "coverage": 0,
+      "evidence": "hasCompletedComparativeExperiment=false (mesmo estado real já usado pelo Strategy Search).",
+      "fallback_source": "NENHUM.",
+      "freshness": "NOT_APPLICABLE",
+      "known_limitations": [
+        "nenhuma variante/sessão/evento/transação de experimento real vinculada hoje — interface existe (item 33), dado real não"
+      ],
+      "reconciliation_requirement": "não aplicável — nada a reconciliar sem experimento real rodando.",
+      "source": "Experiment Engine (experiments/registry.js) — nenhum experimento comparando arquiteturas concluído até hoje",
+      "status": "NOT_AVAILABLE"
+    },
+    "FINANCIAL_TRANSACTION_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 0.9333333333333333,
+      "evidence": "nenhuma ocorrência de código que corrompa a própria Hotmart no período — a fonte financeira canônica permanece íntegra, independente de qualquer ruído do lado Meta (item 9/10 — divergência externa nunca contamina a saúde da fonte financeira).",
+      "fallback_source": "NENHUM — única fonte de verdade financeira do sistema.",
+      "freshness": "coleta diária (D-1/D0)",
+      "known_limitations": [
+        "sem campo de atribuição de anúncio (item 11 do audit real)",
+        "dependente de KNOWN_TEST_BUYERS por nome exato (frágil por natureza)"
+      ],
+      "reconciliation_requirement": "nenhuma — é o padrão contra o qual outras fontes reconciliam, nunca o inverso.",
+      "source": "Hotmart Sales History API (normalizers/hotmart.js)",
+      "status": "RELIABLE"
+    },
+    "FUNNEL_EVENT_TRUTH": {
+      "blocking_impact": true,
+      "confidence": "VERY_LOW",
+      "coverage": 0,
+      "evidence": "loader GTM confirmado por leitura direta do HTML servido; conteúdo interno do container (quais tags GA4/ecommerce realmente disparam) não está versionado neste repo e não foi acessado (item 53 — sem internet/runtime) — nunca classificado CONFIRMED sem essa evidência.",
+      "fallback_source": "Hotmart pra receita; Clarity pra comportamento agregado (nenhum cobre eventos de funil discretos).",
+      "freshness": "NOT_APPLICABLE",
+      "known_limitations": [
+        "nenhum dataLayer.push de ecommerce (view_item/add_to_cart/begin_checkout/purchase) encontrado em nenhuma página real",
+        "GA4 dentro do container GTM não é verificável sem acesso de runtime ao container (NEEDS_RUNTIME_VALIDATION)"
+      ],
+      "reconciliation_requirement": "não aplicável hoje — não há evento de funil pra reconciliar.",
+      "source": "dataLayer/GA4 ecommerce events (procurado nas páginas reais servidas hoje)",
+      "status": "NOT_AVAILABLE"
+    },
+    "LIFECYCLE_ATTRIBUTION": {
+      "blocking_impact": false,
+      "confidence": "NOT_ASSESSABLE",
+      "coverage": 0,
+      "evidence": "NOT_AVAILABLE — nunca projetado.",
+      "fallback_source": "NENHUM.",
+      "freshness": "NOT_APPLICABLE",
+      "known_limitations": [
+        "sem sistema de recompra/retenção instrumentado"
+      ],
+      "reconciliation_requirement": "não aplicável hoje.",
+      "source": "NENHUMA — não implementado",
+      "status": "NOT_AVAILABLE"
+    },
+    "LTV_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "NOT_ASSESSABLE",
+      "coverage": 0,
+      "evidence": "NOT_AVAILABLE — nunca projetado.",
+      "fallback_source": "NENHUM.",
+      "freshness": "NOT_APPLICABLE",
+      "known_limitations": [
+        "mesmo já documentado no Strategy Search: LIFETIME_ROAS sempre NOT_AVAILABLE"
+      ],
+      "reconciliation_requirement": "não aplicável hoje.",
+      "source": "NENHUMA — não implementado",
+      "status": "NOT_AVAILABLE"
+    },
+    "ORDER_BUMP_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 0.9333333333333333,
+      "evidence": "3 order bump(s) confirmados, R$54.70 bruto.",
+      "fallback_source": "NENHUM.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "identificação de bump depende de is_main_product=false na mesma janela de checkout — não há um flag explícito \"é bump\" separado no payload bruto"
+      ],
+      "reconciliation_requirement": "nenhuma.",
+      "source": "Hotmart order_bumps_count/order_bump_gross/net (mesma transação, sufixo C1/C2)",
+      "status": "RELIABLE"
+    },
+    "PLATFORM_ATTRIBUTION": {
+      "blocking_impact": false,
+      "confidence": "MEDIUM",
+      "coverage": 0.9333333333333333,
+      "evidence": "ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION (item 2) — 2 ocorrência(s) de ruído do lado Meta (META_PURCHASE_WITHOUT_HOTMART_SALE) — a alegação de compra da plataforma diverge da Hotmart, mas a Hotmart em si continua íntegra (nunca afeta FINANCIAL_TRUTH_HEALTH). Dias reais: 2026-08-19, 2026-08-25.",
+      "fallback_source": "Hotmart (FINANCIAL_TRANSACTION_TRUTH) — nunca o inverso.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "2 dia(s) reais confirmados com compra fantasma (Meta reporta compra sem venda Hotmart correspondente)",
+        "mecanismo real de origem do evento Purchase da Meta é NEEDS_RUNTIME_VALIDATION — CAPI confirmadamente ausente; pixel de navegador PODE existir via injeção Custom HTML do GTM (hipótese plausível, mesma classe de mecanismo observada na Clarity, mas nunca confirmada como fato — ver platformAudit.meta_pixel_capi.browser_pixel_gtm_injection_hypothesis_status), não confirmável nem descartável neste repo"
+      ],
+      "reconciliation_requirement": "obrigatória antes de qualquer decisão de capital baseada em compra_meta isolada.",
+      "source": "Meta compra_meta/receita_meta (evento Purchase do lado da plataforma, mecanismo real não confirmável — ver META_PIXEL_CAPI)",
+      "status": "DEGRADED"
+    },
+    "PRODUCT_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 1,
+      "evidence": "product_id resolvido via resolveProductId() — sem hardcode disperso.",
+      "fallback_source": "NENHUM.",
+      "freshness": "estático (config versionado)",
+      "known_limitations": [
+        "produto único hoje — schema já preparado pra múltiplos produtos, mas não exercitado com dados reais"
+      ],
+      "reconciliation_requirement": "nenhuma.",
+      "source": "Hotmart product_name/is_main_product cruzado com config/product.js",
+      "status": "RELIABLE"
+    },
+    "PROFIT_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "MEDIUM",
+      "coverage": 0.9333333333333333,
+      "evidence": "lucro_prejuizo real do período pode ser lido de profit/financials.js — representa margem de contribuição (mídia+taxa), nunca lucro líquido completo do negócio.",
+      "fallback_source": "NENHUM — margem de contribuição é o teto de precisão hoje.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "lucro_prejuizo cobre gasto de mídia + taxa Hotmart; não cobre outros custos operacionais/fixos (não rastreados no sistema hoje)"
+      ],
+      "reconciliation_requirement": "nenhuma adicional além das já cobertas por FINANCIAL_TRANSACTION_TRUTH/ACQUISITION_SPEND.",
+      "source": "profit/financials.js (gasto_meta, receita_liquida_hotmart, hotmart_fee) — sem outros custos variáveis/fixos rastreados",
+      "status": "PARTIAL"
+    },
+    "REFUND_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 0.9333333333333333,
+      "evidence": "1 reembolso(s) confirmado(s) no período, R$67.00 bruto.",
+      "fallback_source": "NENHUM.",
+      "freshness": "coleta diária",
+      "known_limitations": [
+        "nenhuma limitação estrutural conhecida além da cobertura de dias faltantes"
+      ],
+      "reconciliation_requirement": "nenhuma.",
+      "source": "Hotmart status=REFUNDED por transação",
+      "status": "RELIABLE"
+    },
+    "REVENUE_TRUTH": {
+      "blocking_impact": false,
+      "confidence": "HIGH",
+      "coverage": 0.9333333333333333,
+      "evidence": "receita bruta acumulada no período: R$808.55.",
+      "fallback_source": "NENHUM.",
+      "freshness": "coleta diária (D-1/D0)",
+      "known_limitations": [
+        "receita bruta != lucro (REVENUE != PROFIT, item 2)"
+      ],
+      "reconciliation_requirement": "nenhuma.",
+      "source": "Hotmart gross/net por transação (status COMPLETE/APPROVED, config/product.js SALE_STATUSES_COUNTED_AS_REVENUE)",
+      "status": "RELIABLE"
+    },
+    "WEB_BEHAVIOR": {
+      "blocking_impact": false,
+      "confidence": "LOW",
+      "coverage": "NOT_ESTIMABLE",
+      "evidence": "FATO confirmado: nenhum snippet clarity.ms literal em nenhum HTML do repo, mas dados reais de sessão existem na API de exportação da Clarity. HIPÓTESE (não fato): o mecanismo de instalação mais plausível seria uma tag Custom HTML dentro do container GTM-54PT3H4Z — mas o conteúdo do container não está neste repo e não foi validado em runtime, então o mecanismo real fica UNKNOWN. Pode haver outra explicação (outro código de deploy, outra superfície não auditada aqui) — nunca afirmar \"só pode ser o GTM\" (item 11). A normalização atual (normalizers/clarity.js) descarta o campo de URL por página — o pipeline de decisão nunca recebe atribuição por página, mesmo quando a API bruta a carrega parcialmente.",
+      "fallback_source": "NENHUM equivalente de comportamento — GA4 ecommerce não confirmado (ver FUNNEL_EVENT_TRUTH).",
+      "freshness": "janela corrente (sem histórico por data, limite de 10 chamadas/dia)",
+      "known_limitations": [
+        "normalizador descarta URL por página — pipeline de decisão recebe só agregado de conta, nunca por LP",
+        "mecanismo de instalação real (dentro do container GTM) não verificável neste repo"
+      ],
+      "reconciliation_requirement": "nenhuma — não é fonte financeira, nunca precisa reconciliar com Hotmart.",
+      "source": "Microsoft Clarity (collectors/clarity.js, project-live-insights)",
+      "status": "PARTIAL"
+    }
+  },
+  "strategy_handoff": {
+    "anomaly_findings": [
+      {
+        "affected_scopes": [
+          "CROSS_PLATFORM_RECONCILIATION"
+        ],
+        "occurrence_count": 3,
+        "overlaps_decision": false,
+        "reason": "escopo afetado (CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+        "severity": "WARNING",
+        "total_days_evaluated": 30,
+        "type": "UNMATCHED_FINANCIAL_ONLY"
+      },
+      {
+        "affected_scopes": [
+          "PLATFORM_ATTRIBUTION"
+        ],
+        "occurrence_count": 5,
+        "overlaps_decision": false,
+        "reason": "escopo afetado (PLATFORM_ATTRIBUTION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+        "severity": "WARNING",
+        "total_days_evaluated": 30,
+        "type": "VALUE_MISMATCH"
+      },
+      {
+        "affected_scopes": [
+          "PLATFORM_ATTRIBUTION",
+          "CROSS_PLATFORM_RECONCILIATION"
+        ],
+        "occurrence_count": 2,
+        "overlaps_decision": false,
+        "reason": "escopo afetado (PLATFORM_ATTRIBUTION, CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+        "severity": "WARNING",
+        "total_days_evaluated": 30,
+        "type": "META_PURCHASE_WITHOUT_HOTMART_SALE"
+      },
+      {
+        "affected_scopes": [
+          "CROSS_PLATFORM_RECONCILIATION"
+        ],
+        "occurrence_count": 2,
+        "overlaps_decision": false,
+        "reason": "escopo afetado (CROSS_PLATFORM_RECONCILIATION) não sobrepõe a dependência da decisão avaliada — ANOMALY_SCOPE != GLOBAL_BLOCK (item 8), nunca escalado além de WARNING.",
+        "severity": "WARNING",
+        "total_days_evaluated": 30,
+        "type": "UNKNOWN_RECONCILIATION"
+      },
+      {
+        "affected_scopes": [
+          "DATA_QUALITY"
+        ],
+        "occurrence_count": 2,
+        "overlaps_decision": false,
+        "reason": "transação de teste conhecida, esperada e já excluída da receita — nunca uma anomalia real.",
+        "severity": "NORMAL",
+        "total_days_evaluated": 30,
+        "type": "TEST_TRANSACTION"
+      }
+    ],
+    "blocker_dependency_graph": {
+      "all_capital_blocking_satisfied": false,
+      "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+      "current_blocker": "EXPOSURE_IDENTITY",
+      "next_unlock": "EXPERIMENT_ATTRIBUTION",
+      "nodes": {
+        "EXPERIMENT_ATTRIBUTION": {
+          "blocking": true,
+          "description": "ligar exposição -> outcome financeiro de forma interpretável pra uma decisão de capital.",
+          "requires": [
+            "EXPOSURE_IDENTITY",
+            "FINANCIAL_OUTCOME_LINKAGE"
+          ],
+          "satisfied": false
+        },
+        "EXPOSURE_IDENTITY": {
+          "blocking": true,
+          "description": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual.",
+          "requires": [],
+          "satisfied": false
+        },
+        "FINANCIAL_OUTCOME_LINKAGE": {
+          "blocking": true,
+          "description": "transação financeira real linkável ao período/decisão avaliada (hoje: Hotmart por order_date_utc).",
+          "requires": [],
+          "satisfied": true
+        },
+        "FUNNEL_DIAGNOSTICS": {
+          "blocking": false,
+          "description": "explica ONDE/COMO no funil o efeito aconteceu — nunca indispensável pra saber SE o efeito ocorreu.",
+          "may_require": [
+            "CHECKOUT_INITIATED_EVENT"
+          ],
+          "requires": [],
+          "satisfied": false
+        }
+      },
+      "non_blocking_gaps": [
+        {
+          "blocking": false,
+          "for_node": "FUNNEL_DIAGNOSTICS",
+          "soft_dependency": "CHECKOUT_INITIATED_EVENT"
+        }
+      ],
+      "remaining_blockers": [
+        "EXPERIMENT_ATTRIBUTION"
+      ],
+      "unlock_dependency": []
+    },
+    "capital_gate": {
+      "anomaly_driven": false,
+      "blocking_requirements": [
+        "EXPOSURE_IDENTITY"
+      ],
+      "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+      "confidence": "HIGH",
+      "current_blocker": "EXPOSURE_IDENTITY",
+      "next_unlock": "EXPERIMENT_ATTRIBUTION",
+      "non_blocking_gaps": [
+        "CHECKOUT_INITIATED_EVENT"
+      ],
+      "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+      "remaining_blockers": [
+        "EXPERIMENT_ATTRIBUTION"
+      ],
+      "state": "NEEDS_TRACKING_IMPLEMENTATION",
+      "unlock_dependency": []
+    },
+    "consumed_dynamically": true,
+    "execution_safety_signal": {
+      "affected_decision_types": [
+        "decisões de capital sobre ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE"
+      ],
+      "affected_scope": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+      "capital_action": "CAUTION",
+      "note": "sinal read-only — reduz confiança, não bloqueia; decisão humana permanece livre pra prosseguir com a ressalva registrada.",
+      "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+      "requires_human_review": false,
+      "resolution_condition": "EXPERIMENT_ATTRIBUTION",
+      "severity": "WARNING"
+    },
+    "found": true,
+    "funnel_measurement_audit": [
+      {
+        "behavior_coverage_status": "NOT_APPLICABLE",
+        "control_surface": "EXTERNAL",
+        "event_coverage": "1/1",
+        "events": [
+          "PAGE_VIEW"
+        ],
+        "identifier_coverage_status": "NOT_AVAILABLE",
+        "observability_status": "OBSERVABLE",
+        "revenue_linkage_status": "NOT_APPLICABLE",
+        "stage_type": "AD"
+      },
+      {
+        "behavior_coverage_status": "PARTIAL_ACCOUNT_WIDE_ONLY",
+        "control_surface": "CONTROLLED",
+        "event_coverage": "5/5",
+        "events": [
+          "LANDING_PAGE_VIEW",
+          "SCROLL_DEPTH",
+          "ENGAGED_SESSION",
+          "CTA_VIEW",
+          "CTA_CLICK"
+        ],
+        "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+        "observability_status": "OBSERVABLE",
+        "revenue_linkage_status": "NOT_APPLICABLE",
+        "stage_type": "SALES_PAGE"
+      },
+      {
+        "behavior_coverage_status": "NOT_APPLICABLE",
+        "control_surface": "EXTERNAL",
+        "event_coverage": "6/7",
+        "events": [
+          "CHECKOUT_INITIATED",
+          "CHECKOUT_VIEW",
+          "PAYMENT_ATTEMPT",
+          "PURCHASE",
+          "REFUND",
+          "CANCELLED",
+          "EXPIRED"
+        ],
+        "identifier_coverage_status": "NOT_AVAILABLE",
+        "observability_status": "OBSERVABLE",
+        "revenue_linkage_status": "CONFIRMED",
+        "stage_type": "CHECKOUT"
+      },
+      {
+        "behavior_coverage_status": "NOT_APPLICABLE",
+        "control_surface": "PARTIALLY_CONTROLLED",
+        "event_coverage": "1/1",
+        "events": [
+          "ORDER_BUMP_ACCEPTED"
+        ],
+        "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+        "observability_status": "OBSERVABLE",
+        "revenue_linkage_status": "NOT_AVAILABLE",
+        "stage_type": "ORDER_BUMP"
+      },
+      {
+        "behavior_coverage_status": "PARTIAL_ACCOUNT_WIDE_ONLY",
+        "control_surface": "CONTROLLED",
+        "event_coverage": "5/5",
+        "events": [
+          "CONTENT_VIEW",
+          "SCROLL_DEPTH",
+          "ENGAGED_SESSION",
+          "CTA_VIEW",
+          "CTA_CLICK"
+        ],
+        "identifier_coverage_status": "NEEDS_RUNTIME_VALIDATION",
+        "observability_status": "OBSERVABLE",
+        "revenue_linkage_status": "NOT_APPLICABLE",
+        "stage_type": "ADVERTORIAL"
+      }
+    ],
+    "minimum_viable_attribution": {
+      "available_methods": [
+        {
+          "method": "AGGREGATE_TEMPORAL_COMPARISON",
+          "requires": [
+            "registro de qual arquitetura esteve live em qual data (leve — não é instrumentação de evento, é um registro operacional)"
+          ],
+          "status": "AVAILABLE_TODAY"
+        },
+        {
+          "method": "AGGREGATE_PARALLEL_CAMPAIGN_COMPARISON",
+          "requires": [
+            "campanha/adset Meta separado por variante — decisão operacional, não de tracking"
+          ],
+          "status": "NEEDS_OPERATIONAL_SETUP"
+        },
+        {
+          "method": "SESSION_LEVEL_RANDOMIZED_EXPERIMENT",
+          "requires": [
+            "session_id real",
+            "variant_id real",
+            "sistema de randomização"
+          ],
+          "status": "NOT_AVAILABLE"
+        }
+      ],
+      "causal_method": "BEFORE_AFTER",
+      "contamination_that_remains": [
+        "sazonalidade/dia-da-semana pode se confundir com o efeito testado (BEFORE_AFTER nunca é CAUSAL_PROOF, item 25)",
+        "mudanças simultâneas de criativo/oferta/campanha no mesmo período contaminam o resultado",
+        "tráfego orgânico/direto não separável do pago no mesmo período"
+      ],
+      "defensible_confidence_level": "LOW",
+      "exposure_to_financial_outcome_chain": {
+        "chain": [
+          {
+            "note": "sem variant_id real, exposição só é conhecida no nível de qual arquitetura estava live em qual data — não por sessão individual.",
+            "stage": "EXPERIMENT_EXPOSURE",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "note": "nenhum variant_id real persiste hoje (identifierSpine).",
+            "stage": "VARIANT",
+            "status": "NOT_AVAILABLE_AT_SESSION_LEVEL"
+          },
+          {
+            "note": "sem session_id real no pipeline (identifierSpine) — nenhuma ação downstream é linkável a uma exposição específica no nível de usuário.",
+            "stage": "SESSION_IDENTITY",
+            "status": "NOT_AVAILABLE"
+          },
+          {
+            "note": "ações agregadas por dia existem (lpv/checkout via Meta); ações por sessão individual não.",
+            "stage": "DOWNSTREAM_ACTION",
+            "status": "PARTIAL"
+          },
+          {
+            "note": "Hotmart confirma toda transação real com order_date_utc — já linkável por data, sem instrumentação nova.",
+            "stage": "FINANCIAL_TRANSACTION",
+            "status": "AVAILABLE_AT_DATE_LEVEL"
+          },
+          {
+            "note": "net_revenue por data já é computável hoje (profit/aggregate.js) — mesma granularidade da transação.",
+            "stage": "NET_REVENUE",
+            "status": "AVAILABLE_AT_DATE_LEVEL"
+          }
+        ],
+        "date_range_level_attribution_possible": false,
+        "session_level_attribution_possible": false,
+        "true_bottleneck_stage": "EXPOSURE_IDENTITY",
+        "why": "CHECKOUT_INITIATED é um evento de FUNIL (explica onde o visitante estava), não um evento de IDENTIDADE/EXPOSIÇÃO — mesmo com ele implementado amanhã, sem session_id/variant_id reais, o outcome financeiro continuaria não-atribuível a uma variante específica no nível de sessão. O verdadeiro blocker da cadeia é EXPOSURE_IDENTITY (session_id/variant_id), não CHECKOUT_INITIATED.",
+        "would_checkout_initiated_alone_unlock_full_attribution": false
+      },
+      "method": "AGGREGATE_TEMPORAL_COMPARISON",
+      "net_revenue_belonging_to_test": "AVAILABLE_AT_AGGREGATE_LEVEL — soma de net_revenue no intervalo de datas do teste vs. baseline.",
+      "sufficiency_note": "suficiente pra uma decisão binária de baixo-risco/reversível (manter ou reverter a mudança de arquitetura) com confiança causal LOW e explicitamente rotulada como tal — nunca suficiente pra uma alegação causal forte ou pra decisões de alto capital irreversíveis.",
+      "sufficient_for_decision": true,
+      "what_would_upgrade_confidence": [
+        "session_id + variant_id reais permitiriam comparação aleatorizada concorrente, elevando de LOW pra MEDIUM/HIGH",
+        "registro explícito de qual arquitetura esteve live em qual data eliminaria a única lacuna do método agregado hoje"
+      ],
+      "which_financial_outcome_occurred": "AVAILABLE — HOTMART.TRANSACTION_APPROVED já linkado por order_date_utc, sem trabalho novo.",
+      "which_variant_was_exposed": "NEEDS_LIGHTWEIGHT_IMPLEMENTATION"
+    },
+    "mva_tracking_design": {
+      "events_diagnostic_only_missing": [],
+      "events_still_required_for_interpretability": [
+        "CHECKOUT_INITIATED"
+      ],
+      "experiment_measurement_contract": {
+        "attribution_window": "NOT_ESTIMABLE — sem dado histórico de tempo-até-conversão real coletado.",
+        "contamination_risks": [
+          "sem session_id/variant_id reais, um mesmo visitante pode ser exposto a mais de uma variante sem detecção"
+        ],
+        "conversion_event": "CHECKOUT_INITIATED",
+        "data_quality_requirements": [
+          "nenhum evento pode contar como conversão sem reconciliação com HOTMART.TRANSACTION_APPROVED (mesmo princípio do trackingContract)"
+        ],
+        "experiment_id": "MVA-protocolo_resposta_garantida-002",
+        "exposure_event": "NOT_DEFINED — depende de variant_id/session_id que não existem hoje.",
+        "financial_outcome": "HOTMART.TRANSACTION_APPROVED — única fonte financeira aceitável.",
+        "guardrails": [
+          "refund_rate não pode subir de forma desproporcional ao ganho observado (mesmo kill_condition do MVA)"
+        ],
+        "identity_requirements": [
+          "session_id",
+          "variant_id"
+        ],
+        "minimum_measurement_requirements": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "note": "template estrutural — nenhum valor numérico de amostra/significância é inventado aqui (item 39); minimum_measurement_requirements vem de experiments/evidence.js quando disponível, NOT_ESTIMABLE quando não.",
+        "primary_metric": "lpv_to_checkout_rate",
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "stopping_measurement_conditions": [
+          "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima."
+        ],
+        "tracking_contract_reference": "TC-ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE-002"
+      },
+      "new_stages_requiring_instrumentation": [
+        "ADVERTORIAL"
+      ],
+      "preserved_stages_already_tracked": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ORDER_BUMP"
+      ],
+      "primary_or_guardrail_events": [
+        "CHECKOUT_INITIATED",
+        "PURCHASE",
+        "REFUND"
+      ],
+      "test_id": "MVA-protocolo_resposta_garantida-002"
+    },
+    "note": "tracking_readiness do Strategy Search (READY/PARTIAL/NOT_READY) é uma simplificação binária pra elegibilidade de teste; capital_gate aqui é decidido pelo blocker dependency graph real (item 6, PASSO 13.1) — nunca por um único evento discreto isolado, mesmo quando REQUIRED (item 1/4).",
+    "strategy_search_current_blocker": "TRACKING",
+    "strategy_search_remaining_blockers": [
+      "IMPLEMENTATION"
+    ],
+    "tracking_contract": {
+      "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+      "capital_blocking_requirements": [
+        {
+          "affected_decision": "success_condition/failure_condition deste MVA test específico",
+          "affected_metric": "primary_metric ou guardrail deste teste",
+          "blocking_rationale": "este teste específico escolheu uma métrica que depende de CHECKOUT_INITIATED para ser calculada — sem ele, a métrica primária/guardrail deste teste (não de todos os testes) fica indefinida.",
+          "event": "CHECKOUT_INITIATED",
+          "requirement_class": "INTERPRETABILITY_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "META.INITIATE_CHECKOUT",
+              "note": "possível via tag GTM não confirmável estaticamente.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CHECKOUT_CLICK",
+              "note": "link de checkout é estático, sem dataLayer.push associado encontrado.",
+              "status": "NOT_AVAILABLE"
+            }
+          ],
+          "status": "REQUIRED",
+          "what_is_lost_if_missing": "capacidade de calcular a métrica que ESTE teste escolheu como critério de decisão — outro teste com métrica diferente não seria afetado."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "PURCHASE",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_APPROVED",
+              "note": "única fonte que confirma dinheiro real recebido.",
+              "status": "VALIDATED"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "META.PURCHASE",
+              "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "GA4.PURCHASE",
+              "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.PURCHASE_SIGNAL",
+              "note": "nenhum dataLayer.push de ecommerce encontrado.",
+              "status": "NOT_AVAILABLE"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "REFUND",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "CANCELLED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "EXPIRED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "ORDER_BUMP_ACCEPTED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        }
+      ],
+      "contract_id": "TC-ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE-002",
+      "contract_status": "DEGRADED",
+      "experiment_id": null,
+      "missing_requirements": [
+        "CHECKOUT_INITIATED"
+      ],
+      "non_blocking_requirements": [
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "PAGE_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "LANDING_PAGE_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "SCROLL_DEPTH",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "ENGAGED_SESSION",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CTA_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CTA_CLICK",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CHECKOUT_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "PAYMENT_ATTEMPT",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CONTENT_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        }
+      ],
+      "product_id": "protocolo_resposta_garantida",
+      "required_attribution_fields": [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "transaction_id"
+      ],
+      "required_behavior_surfaces": [
+        "SALES_PAGE",
+        "ADVERTORIAL"
+      ],
+      "required_events": [
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "PAGE_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "LANDING_PAGE_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "SCROLL_DEPTH",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "ENGAGED_SESSION",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CTA_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CTA_CLICK",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition deste MVA test específico",
+          "affected_metric": "primary_metric ou guardrail deste teste",
+          "blocking_rationale": "este teste específico escolheu uma métrica que depende de CHECKOUT_INITIATED para ser calculada — sem ele, a métrica primária/guardrail deste teste (não de todos os testes) fica indefinida.",
+          "event": "CHECKOUT_INITIATED",
+          "requirement_class": "INTERPRETABILITY_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "META.INITIATE_CHECKOUT",
+              "note": "possível via tag GTM não confirmável estaticamente.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CHECKOUT_CLICK",
+              "note": "link de checkout é estático, sem dataLayer.push associado encontrado.",
+              "status": "NOT_AVAILABLE"
+            }
+          ],
+          "status": "REQUIRED",
+          "what_is_lost_if_missing": "capacidade de calcular a métrica que ESTE teste escolheu como critério de decisão — outro teste com métrica diferente não seria afetado."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CHECKOUT_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "PAYMENT_ATTEMPT",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "PURCHASE",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_APPROVED",
+              "note": "única fonte que confirma dinheiro real recebido.",
+              "status": "VALIDATED"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "META.PURCHASE",
+              "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "GA4.PURCHASE",
+              "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.PURCHASE_SIGNAL",
+              "note": "nenhum dataLayer.push de ecommerce encontrado.",
+              "status": "NOT_AVAILABLE"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "REFUND",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "CANCELLED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "EXPIRED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+          "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+          "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+          "event": "ORDER_BUMP_ACCEPTED",
+          "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+        },
+        {
+          "affected_decision": "nenhuma decisão de capital diretamente",
+          "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+          "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+          "event": "CONTENT_VIEW",
+          "requirement_class": "QUALITY_ENHANCEMENT",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED",
+          "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+        }
+      ],
+      "required_financial_reconciliation": "toda alegação de compra (META.PURCHASE) deste subject precisa reconciliar com HOTMART.TRANSACTION_APPROVED antes de contar como receita real (item 12, PASSO 13).",
+      "required_identifiers": [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+        "meta_click_id",
+        "session_id",
+        "anonymous_visitor_id",
+        "customer_id",
+        "lead_id",
+        "transaction_id",
+        "experiment_id",
+        "variant_id",
+        "creative_id",
+        "ad_id",
+        "adset_id",
+        "campaign_id",
+        "product_id"
+      ],
+      "required_revenue_events": [
+        {
+          "event": "PURCHASE",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_APPROVED",
+              "note": "única fonte que confirma dinheiro real recebido.",
+              "status": "VALIDATED"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "META.PURCHASE",
+              "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "GA4.PURCHASE",
+              "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+              "status": "NEEDS_RUNTIME_VALIDATION"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.PURCHASE_SIGNAL",
+              "note": "nenhum dataLayer.push de ecommerce encontrado.",
+              "status": "NOT_AVAILABLE"
+            }
+          ],
+          "status": "VALIDATED"
+        },
+        {
+          "event": "REFUND",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED"
+        },
+        {
+          "event": "CANCELLED",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED"
+        },
+        {
+          "event": "EXPIRED",
+          "source_semantics": [
+            {
+              "is_financial_truth": true,
+              "namespace": "HOTMART.TRANSACTION_STATUS",
+              "note": "status real observado por transação.",
+              "status": "VALIDATED"
+            }
+          ],
+          "status": "VALIDATED"
+        },
+        {
+          "event": "ORDER_BUMP_ACCEPTED",
+          "source_semantics": [
+            {
+              "is_financial_truth": false,
+              "namespace": "WEB.CLIENT_EVENT",
+              "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+              "status": "NOT_AVAILABLE"
+            },
+            {
+              "is_financial_truth": false,
+              "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+              "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+              "status": "PARTIAL"
+            }
+          ],
+          "status": "OBSERVED"
+        }
+      ],
+      "required_stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ADVERTORIAL"
+      ],
+      "source_of_truth_per_event": {
+        "CANCELLED": "HOTMART.TRANSACTION_STATUS",
+        "CHECKOUT_INITIATED": "NENHUMA fonte é verdade financeira pra este evento",
+        "CHECKOUT_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+        "CONTENT_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+        "CTA_CLICK": "NENHUMA fonte é verdade financeira pra este evento",
+        "CTA_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+        "ENGAGED_SESSION": "NENHUMA fonte é verdade financeira pra este evento",
+        "EXPIRED": "HOTMART.TRANSACTION_STATUS",
+        "LANDING_PAGE_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+        "ORDER_BUMP_ACCEPTED": "NENHUMA fonte é verdade financeira pra este evento",
+        "PAGE_VIEW": "NENHUMA fonte é verdade financeira pra este evento",
+        "PAYMENT_ATTEMPT": "NENHUMA fonte é verdade financeira pra este evento",
+        "PURCHASE": "HOTMART.TRANSACTION_APPROVED",
+        "REFUND": "HOTMART.TRANSACTION_STATUS",
+        "SCROLL_DEPTH": "NENHUMA fonte é verdade financeira pra este evento"
+      },
+      "subject_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+      "subject_type": "CANDIDATE_ARCHITECTURE",
+      "technical_control_status": [
+        {
+          "clarity_installable": false,
+          "control": "EXTERNAL",
+          "note": null,
+          "stage_type": "AD"
+        },
+        {
+          "clarity_installable": true,
+          "control": "CONTROLLED",
+          "note": null,
+          "stage_type": "SALES_PAGE"
+        },
+        {
+          "clarity_installable": false,
+          "control": "EXTERNAL",
+          "note": "Hotmart hospeda e controla o checkout — nunca instrumentável como superfície própria (item 30).",
+          "stage_type": "CHECKOUT"
+        },
+        {
+          "clarity_installable": false,
+          "control": "PARTIALLY_CONTROLLED",
+          "note": null,
+          "stage_type": "ORDER_BUMP"
+        },
+        {
+          "clarity_installable": true,
+          "control": "CONTROLLED",
+          "note": null,
+          "stage_type": "ADVERTORIAL"
+        }
+      ],
+      "validation_rules": [
+        "PURCHASE só conta como receita real quando confirmado por HOTMART.TRANSACTION_APPROVED, nunca por META.PURCHASE isolado.",
+        "CANCELLED/EXPIRED nunca contam como abandono recuperável confirmado sem validação adicional (PASSO 12.2).",
+        "nenhum evento OBSERVED vira VALIDATED sem reconciliação cruzada com a fonte de verdade do domínio correspondente.",
+        "REQUIRED_FOR_OBSERVABILITY != REQUIRED_FOR_INTERPRETABILITY — um evento REQUIRED só bloqueia capital se sua ausência tornar o teste economicamente/causalmente não-interpretável, incapaz de atribuir exposição->outcome, incapaz de reconciliar o outcome financeiro necessário, ou incapaz de aplicar os guardrails definidos (PASSO 13.1, item 1)."
+      ],
+      "validation_status": "PARTIAL"
+    },
+    "winner_architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    "winner_family": "ADVERTORIAL",
+    "winner_is_current": false
+  },
+  "version": "MEASUREMENT-V1"
+}

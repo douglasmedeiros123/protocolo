@@ -1,0 +1,42 @@
+[
+  {
+    "anomaly_driven": false,
+    "blocking_requirements": [
+      "EXPOSURE_IDENTITY"
+    ],
+    "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+    "confidence": "HIGH",
+    "current_blocker": "EXPOSURE_IDENTITY",
+    "next_unlock": "EXPERIMENT_ATTRIBUTION",
+    "non_blocking_gaps": [
+      "CHECKOUT_INITIATED_EVENT"
+    ],
+    "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+    "remaining_blockers": [
+      "EXPERIMENT_ATTRIBUTION"
+    ],
+    "state": "NEEDS_TRACKING_IMPLEMENTATION",
+    "subject_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    "unlock_dependency": []
+  },
+  {
+    "anomaly_driven": false,
+    "blocking_requirements": [
+      "EXPOSURE_IDENTITY"
+    ],
+    "capability_unlocked": "resolver EXPOSURE_IDENTITY habilita: EXPERIMENT_ATTRIBUTION",
+    "confidence": "HIGH",
+    "current_blocker": "EXPOSURE_IDENTITY",
+    "next_unlock": "EXPERIMENT_ATTRIBUTION",
+    "non_blocking_gaps": [
+      "CHECKOUT_INITIATED_EVENT"
+    ],
+    "reason": "saber qual exposição/variante esteve ativa em qual momento — hoje só no nível de arquitetura/data, nunca de sessão individual. Este é um registro operacional leve (qual arquitetura esteve live em qual data), NÃO instrumentação de evento/GTM/Pixel — mas continua sendo o blocker real da cadeia EXPOSURE->FINANCIAL_OUTCOME, mesmo que CHECKOUT_INITIATED seja implementado (item 4).",
+    "remaining_blockers": [
+      "EXPERIMENT_ATTRIBUTION"
+    ],
+    "state": "NEEDS_TRACKING_IMPLEMENTATION",
+    "subject_id": "ARCH-CURRENT",
+    "unlock_dependency": []
+  }
+]

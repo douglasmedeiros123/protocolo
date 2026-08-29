@@ -1,0 +1,246 @@
+{
+  "ACQUISITION_SPEND": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 0.9333333333333333,
+    "evidence": "R$1116.15 de gasto Meta confirmado no período.",
+    "fallback_source": "NENHUM.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "gasto é confiável como valor — o que NÃO é confiável é a atribuição de compra associada a ele (ver PLATFORM_ATTRIBUTION)"
+    ],
+    "reconciliation_requirement": "nenhuma — gasto não é uma alegação de conversão, é custo direto.",
+    "source": "Meta Marketing Insights API (collectors/meta.js, /insights, leitura)",
+    "status": "RELIABLE"
+  },
+  "CAMPAIGN_ATTRIBUTION": {
+    "blocking_impact": false,
+    "confidence": "LOW",
+    "coverage": 0.9333333333333333,
+    "evidence": "performance de campanha Meta (spend/ctr/cpm) é confiável; atribuição financeira de campanha não é.",
+    "fallback_source": "reconciliação agregada dia-a-dia (ver CROSS_PLATFORM_RECONCILIATION), nunca por campanha isolada.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "mesmo limite estrutural de CREATIVE_ATTRIBUTION — desempenho de campanha != atribuição financeira automática de campanha"
+    ],
+    "reconciliation_requirement": "necessária antes de decisão de capital por campanha específica.",
+    "source": "Meta campaign_id/campaign_name (Insights API)",
+    "status": "DEGRADED"
+  },
+  "CREATIVE_ATTRIBUTION": {
+    "blocking_impact": false,
+    "confidence": "LOW",
+    "coverage": 0.9333333333333333,
+    "evidence": "atribuição financeira por criativo específico nunca deve ser afirmada sem linkagem real clique→sessão→transação, que não existe hoje.",
+    "fallback_source": "NENHUM — atribuição financeira por criativo específico é estruturalmente NOT_AVAILABLE hoje.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "Hotmart não carrega ad_id — nenhum cross-check real entre criativo específico e venda financeira confirmada existe",
+      "compras fantasma da Meta (PLATFORM_ATTRIBUTION) já foram observadas caindo sobre ads específicos, inflando a leitura por criativo"
+    ],
+    "reconciliation_requirement": "necessária, mas não implementável sem identificador determinístico (limite de API upstream, não de código).",
+    "source": "Meta by_ad rollup (creative/metricsAggregator.js) somado diretamente por ad_id",
+    "status": "DEGRADED"
+  },
+  "CROSS_PLATFORM_RECONCILIATION": {
+    "blocking_impact": false,
+    "confidence": "LOW",
+    "coverage": 0.9333333333333333,
+    "evidence": "match_rate=0.6428571428571429, 2 dia(s) com compra fantasma preservados explicitamente.",
+    "fallback_source": "NENHUM.",
+    "freshness": "recalculado a cada execução, a partir dos snapshots diários reais",
+    "known_limitations": [
+      "granularidade só dia-a-dia/agregada — join por transação individual é estruturalmente impossível (Hotmart não carrega ad_id)"
+    ],
+    "reconciliation_requirement": "este É o mecanismo de reconciliação — não reconcilia contra outra coisa.",
+    "source": "measurement/reconciliation.js (este PASSO) sobre aggregatePeriod",
+    "status": "PARTIAL"
+  },
+  "CUSTOMER_IDENTITY": {
+    "blocking_impact": false,
+    "confidence": "LOW",
+    "coverage": 0.9333333333333333,
+    "evidence": "nome do comprador é real e confiável como identidade financeira; não é utilizável como identidade cross-domínio.",
+    "fallback_source": "NENHUM.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "identidade só existe DENTRO da Hotmart — nenhuma stitching com session_id/visitor_id do lado web/ad",
+      "sem customer_id único cross-plataforma"
+    ],
+    "reconciliation_requirement": "necessária pra qualquer LIFECYCLE_ATTRIBUTION real.",
+    "source": "Hotmart buyer_name/ucode por transação",
+    "status": "PARTIAL"
+  },
+  "EXPERIMENT_ATTRIBUTION": {
+    "blocking_impact": true,
+    "confidence": "NOT_ASSESSABLE",
+    "coverage": 0,
+    "evidence": "hasCompletedComparativeExperiment=false (mesmo estado real já usado pelo Strategy Search).",
+    "fallback_source": "NENHUM.",
+    "freshness": "NOT_APPLICABLE",
+    "known_limitations": [
+      "nenhuma variante/sessão/evento/transação de experimento real vinculada hoje — interface existe (item 33), dado real não"
+    ],
+    "reconciliation_requirement": "não aplicável — nada a reconciliar sem experimento real rodando.",
+    "source": "Experiment Engine (experiments/registry.js) — nenhum experimento comparando arquiteturas concluído até hoje",
+    "status": "NOT_AVAILABLE"
+  },
+  "FINANCIAL_TRANSACTION_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 0.9333333333333333,
+    "evidence": "nenhuma ocorrência de código que corrompa a própria Hotmart no período — a fonte financeira canônica permanece íntegra, independente de qualquer ruído do lado Meta (item 9/10 — divergência externa nunca contamina a saúde da fonte financeira).",
+    "fallback_source": "NENHUM — única fonte de verdade financeira do sistema.",
+    "freshness": "coleta diária (D-1/D0)",
+    "known_limitations": [
+      "sem campo de atribuição de anúncio (item 11 do audit real)",
+      "dependente de KNOWN_TEST_BUYERS por nome exato (frágil por natureza)"
+    ],
+    "reconciliation_requirement": "nenhuma — é o padrão contra o qual outras fontes reconciliam, nunca o inverso.",
+    "source": "Hotmart Sales History API (normalizers/hotmart.js)",
+    "status": "RELIABLE"
+  },
+  "FUNNEL_EVENT_TRUTH": {
+    "blocking_impact": true,
+    "confidence": "VERY_LOW",
+    "coverage": 0,
+    "evidence": "loader GTM confirmado por leitura direta do HTML servido; conteúdo interno do container (quais tags GA4/ecommerce realmente disparam) não está versionado neste repo e não foi acessado (item 53 — sem internet/runtime) — nunca classificado CONFIRMED sem essa evidência.",
+    "fallback_source": "Hotmart pra receita; Clarity pra comportamento agregado (nenhum cobre eventos de funil discretos).",
+    "freshness": "NOT_APPLICABLE",
+    "known_limitations": [
+      "nenhum dataLayer.push de ecommerce (view_item/add_to_cart/begin_checkout/purchase) encontrado em nenhuma página real",
+      "GA4 dentro do container GTM não é verificável sem acesso de runtime ao container (NEEDS_RUNTIME_VALIDATION)"
+    ],
+    "reconciliation_requirement": "não aplicável hoje — não há evento de funil pra reconciliar.",
+    "source": "dataLayer/GA4 ecommerce events (procurado nas páginas reais servidas hoje)",
+    "status": "NOT_AVAILABLE"
+  },
+  "LIFECYCLE_ATTRIBUTION": {
+    "blocking_impact": false,
+    "confidence": "NOT_ASSESSABLE",
+    "coverage": 0,
+    "evidence": "NOT_AVAILABLE — nunca projetado.",
+    "fallback_source": "NENHUM.",
+    "freshness": "NOT_APPLICABLE",
+    "known_limitations": [
+      "sem sistema de recompra/retenção instrumentado"
+    ],
+    "reconciliation_requirement": "não aplicável hoje.",
+    "source": "NENHUMA — não implementado",
+    "status": "NOT_AVAILABLE"
+  },
+  "LTV_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "NOT_ASSESSABLE",
+    "coverage": 0,
+    "evidence": "NOT_AVAILABLE — nunca projetado.",
+    "fallback_source": "NENHUM.",
+    "freshness": "NOT_APPLICABLE",
+    "known_limitations": [
+      "mesmo já documentado no Strategy Search: LIFETIME_ROAS sempre NOT_AVAILABLE"
+    ],
+    "reconciliation_requirement": "não aplicável hoje.",
+    "source": "NENHUMA — não implementado",
+    "status": "NOT_AVAILABLE"
+  },
+  "ORDER_BUMP_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 0.9333333333333333,
+    "evidence": "3 order bump(s) confirmados, R$54.70 bruto.",
+    "fallback_source": "NENHUM.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "identificação de bump depende de is_main_product=false na mesma janela de checkout — não há um flag explícito \"é bump\" separado no payload bruto"
+    ],
+    "reconciliation_requirement": "nenhuma.",
+    "source": "Hotmart order_bumps_count/order_bump_gross/net (mesma transação, sufixo C1/C2)",
+    "status": "RELIABLE"
+  },
+  "PLATFORM_ATTRIBUTION": {
+    "blocking_impact": false,
+    "confidence": "MEDIUM",
+    "coverage": 0.9333333333333333,
+    "evidence": "ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION (item 2) — 2 ocorrência(s) de ruído do lado Meta (META_PURCHASE_WITHOUT_HOTMART_SALE) — a alegação de compra da plataforma diverge da Hotmart, mas a Hotmart em si continua íntegra (nunca afeta FINANCIAL_TRUTH_HEALTH). Dias reais: 2026-08-19, 2026-08-25.",
+    "fallback_source": "Hotmart (FINANCIAL_TRANSACTION_TRUTH) — nunca o inverso.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "2 dia(s) reais confirmados com compra fantasma (Meta reporta compra sem venda Hotmart correspondente)",
+      "mecanismo real de origem do evento Purchase da Meta é NEEDS_RUNTIME_VALIDATION — CAPI confirmadamente ausente; pixel de navegador PODE existir via injeção Custom HTML do GTM (hipótese plausível, mesma classe de mecanismo observada na Clarity, mas nunca confirmada como fato — ver platformAudit.meta_pixel_capi.browser_pixel_gtm_injection_hypothesis_status), não confirmável nem descartável neste repo"
+    ],
+    "reconciliation_requirement": "obrigatória antes de qualquer decisão de capital baseada em compra_meta isolada.",
+    "source": "Meta compra_meta/receita_meta (evento Purchase do lado da plataforma, mecanismo real não confirmável — ver META_PIXEL_CAPI)",
+    "status": "DEGRADED"
+  },
+  "PRODUCT_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 1,
+    "evidence": "product_id resolvido via resolveProductId() — sem hardcode disperso.",
+    "fallback_source": "NENHUM.",
+    "freshness": "estático (config versionado)",
+    "known_limitations": [
+      "produto único hoje — schema já preparado pra múltiplos produtos, mas não exercitado com dados reais"
+    ],
+    "reconciliation_requirement": "nenhuma.",
+    "source": "Hotmart product_name/is_main_product cruzado com config/product.js",
+    "status": "RELIABLE"
+  },
+  "PROFIT_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "MEDIUM",
+    "coverage": 0.9333333333333333,
+    "evidence": "lucro_prejuizo real do período pode ser lido de profit/financials.js — representa margem de contribuição (mídia+taxa), nunca lucro líquido completo do negócio.",
+    "fallback_source": "NENHUM — margem de contribuição é o teto de precisão hoje.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "lucro_prejuizo cobre gasto de mídia + taxa Hotmart; não cobre outros custos operacionais/fixos (não rastreados no sistema hoje)"
+    ],
+    "reconciliation_requirement": "nenhuma adicional além das já cobertas por FINANCIAL_TRANSACTION_TRUTH/ACQUISITION_SPEND.",
+    "source": "profit/financials.js (gasto_meta, receita_liquida_hotmart, hotmart_fee) — sem outros custos variáveis/fixos rastreados",
+    "status": "PARTIAL"
+  },
+  "REFUND_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 0.9333333333333333,
+    "evidence": "1 reembolso(s) confirmado(s) no período, R$67.00 bruto.",
+    "fallback_source": "NENHUM.",
+    "freshness": "coleta diária",
+    "known_limitations": [
+      "nenhuma limitação estrutural conhecida além da cobertura de dias faltantes"
+    ],
+    "reconciliation_requirement": "nenhuma.",
+    "source": "Hotmart status=REFUNDED por transação",
+    "status": "RELIABLE"
+  },
+  "REVENUE_TRUTH": {
+    "blocking_impact": false,
+    "confidence": "HIGH",
+    "coverage": 0.9333333333333333,
+    "evidence": "receita bruta acumulada no período: R$808.55.",
+    "fallback_source": "NENHUM.",
+    "freshness": "coleta diária (D-1/D0)",
+    "known_limitations": [
+      "receita bruta != lucro (REVENUE != PROFIT, item 2)"
+    ],
+    "reconciliation_requirement": "nenhuma.",
+    "source": "Hotmart gross/net por transação (status COMPLETE/APPROVED, config/product.js SALE_STATUSES_COUNTED_AS_REVENUE)",
+    "status": "RELIABLE"
+  },
+  "WEB_BEHAVIOR": {
+    "blocking_impact": false,
+    "confidence": "LOW",
+    "coverage": "NOT_ESTIMABLE",
+    "evidence": "FATO confirmado: nenhum snippet clarity.ms literal em nenhum HTML do repo, mas dados reais de sessão existem na API de exportação da Clarity. HIPÓTESE (não fato): o mecanismo de instalação mais plausível seria uma tag Custom HTML dentro do container GTM-54PT3H4Z — mas o conteúdo do container não está neste repo e não foi validado em runtime, então o mecanismo real fica UNKNOWN. Pode haver outra explicação (outro código de deploy, outra superfície não auditada aqui) — nunca afirmar \"só pode ser o GTM\" (item 11). A normalização atual (normalizers/clarity.js) descarta o campo de URL por página — o pipeline de decisão nunca recebe atribuição por página, mesmo quando a API bruta a carrega parcialmente.",
+    "fallback_source": "NENHUM equivalente de comportamento — GA4 ecommerce não confirmado (ver FUNNEL_EVENT_TRUTH).",
+    "freshness": "janela corrente (sem histórico por data, limite de 10 chamadas/dia)",
+    "known_limitations": [
+      "normalizador descarta URL por página — pipeline de decisão recebe só agregado de conta, nunca por LP",
+      "mecanismo de instalação real (dentro do container GTM) não verificável neste repo"
+    ],
+    "reconciliation_requirement": "nenhuma — não é fonte financeira, nunca precisa reconciliar com Hotmart.",
+    "source": "Microsoft Clarity (collectors/clarity.js, project-live-insights)",
+    "status": "PARTIAL"
+  }
+}

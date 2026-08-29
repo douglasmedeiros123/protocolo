@@ -1,0 +1,122 @@
+[
+  {
+    "affected_experiments": [
+      "qualquer MVA test futuro que precise medir progressão de funil além de compra final"
+    ],
+    "affected_scopes": [
+      "EXPERIMENT_ATTRIBUTION",
+      "SESSION_ATTRIBUTION",
+      "CROSS_PLATFORM_RECONCILIATION"
+    ],
+    "capital_risk": "HIGH",
+    "debt_id": "MDEBT-001",
+    "decision_impact": "HIGH",
+    "description": "nenhum evento discreto de funil (view_item/begin_checkout/purchase via dataLayer) confirmado em nenhuma página real hoje.",
+    "domain": "FUNNEL_EVENT_TRUTH",
+    "implementation_dependency": "requer instrumentação real (dataLayer.push) nas páginas próprias — NÃO implementado neste PASSO (fora do escopo, item 54).",
+    "priority_rank": 1,
+    "validation_dependency": "após implementação, precisa reconciliar contra HOTMART.TRANSACTION_APPROVED antes de virar VALIDATED."
+  },
+  {
+    "affected_experiments": [
+      "qualquer decisão que dependa de compra_meta como sinal isolado"
+    ],
+    "affected_scopes": [
+      "PLATFORM_ATTRIBUTION",
+      "CREATIVE_ATTRIBUTION",
+      "CAMPAIGN_ATTRIBUTION"
+    ],
+    "capital_risk": "MEDIUM",
+    "debt_id": "MDEBT-002",
+    "decision_impact": "HIGH",
+    "description": "mecanismo real de origem do evento Purchase/InitiateCheckout da Meta não é confirmável neste repo (pode ser pixel injetado via GTM, não confirmável estaticamente).",
+    "domain": "PLATFORM_ATTRIBUTION",
+    "implementation_dependency": "nenhuma implementação nova necessária pra ESCLARECER — precisa de validação de runtime (inspecionar o container GTM ao vivo), fora do escopo deste PASSO (item 53).",
+    "priority_rank": 2,
+    "validation_dependency": "NEEDS_RUNTIME_VALIDATION."
+  },
+  {
+    "affected_experiments": [
+      "qualquer teste que precise atribuir receita por campanha/criativo específico com mais confiança"
+    ],
+    "affected_scopes": [
+      "CAMPAIGN_ATTRIBUTION",
+      "CROSS_PLATFORM_RECONCILIATION"
+    ],
+    "capital_risk": "MEDIUM",
+    "debt_id": "MDEBT-003",
+    "decision_impact": "MEDIUM",
+    "description": "nenhum UTM é propagado da LP pro link de checkout Hotmart — continuidade de atribuição se perde na travessia pro checkout externo.",
+    "domain": "CROSS_PLATFORM_RECONCILIATION",
+    "implementation_dependency": "requer lógica de passthrough de UTM no bundle da LP — NÃO implementado neste PASSO (fora do escopo).",
+    "priority_rank": 5,
+    "validation_dependency": "após implementação, validar se a Hotmart preserva o parâmetro até a transação (ela não expõe isso hoje — pode nunca ser possível, item 11 do audit real)."
+  },
+  {
+    "affected_experiments": [
+      "qualquer experimento A/B real de arquitetura — sem isso, EXPERIMENT_ATTRIBUTION permanece NOT_AVAILABLE indefinidamente"
+    ],
+    "affected_scopes": [
+      "SESSION_ATTRIBUTION",
+      "EXPERIMENT_ATTRIBUTION",
+      "LIFECYCLE_ATTRIBUTION"
+    ],
+    "capital_risk": "MEDIUM",
+    "debt_id": "MDEBT-004",
+    "decision_impact": "HIGH",
+    "description": "nenhum session_id/anonymous_visitor_id real chega ao pipeline de dados — impossibilita ligar comportamento web a uma transação específica.",
+    "domain": "SESSION_ATTRIBUTION",
+    "implementation_dependency": "requer sistema de identidade de sessão — NÃO implementado neste PASSO.",
+    "priority_rank": 3,
+    "validation_dependency": "NOT_APPLICABLE até existir."
+  },
+  {
+    "affected_experiments": [
+      "testes que comparem comportamento entre duas LPs diferentes ao mesmo tempo"
+    ],
+    "affected_scopes": [
+      "WEB_BEHAVIOR"
+    ],
+    "capital_risk": "LOW",
+    "debt_id": "MDEBT-005",
+    "decision_impact": "MEDIUM",
+    "description": "normalizador de Clarity descarta o campo de URL por página (PopularPages/PageTitle) — o pipeline de decisão só recebe comportamento agregado de conta, nunca por LP.",
+    "domain": "WEB_BEHAVIOR",
+    "implementation_dependency": "mudança pequena e aditiva em normalizers/clarity.js — candidata a implementação futura de baixo custo, mas fora do escopo deste PASSO.",
+    "priority_rank": 6,
+    "validation_dependency": "nenhuma — é dado observacional, não financeiro."
+  },
+  {
+    "affected_experiments": [
+      "nenhum hoje — só relevante quando o volume justificar o investimento de engenharia"
+    ],
+    "affected_scopes": [
+      "PLATFORM_ATTRIBUTION"
+    ],
+    "capital_risk": "LOW",
+    "debt_id": "MDEBT-006",
+    "decision_impact": "MEDIUM",
+    "description": "nenhuma implementação de Conversions API (server-side) existe — dependência 100% de evento client-side (se houver), sem rede de segurança contra bloqueio de cookies/adblock.",
+    "domain": "META_PIXEL_CAPI",
+    "implementation_dependency": "requer infraestrutura de servidor nova — investimento de engenharia real, fora do escopo deste PASSO.",
+    "priority_rank": 7,
+    "validation_dependency": "NOT_APPLICABLE até existir."
+  },
+  {
+    "affected_experiments": [
+      "qualquer MVA test real do Strategy Search — este é o blocker raiz real (blockerDependencyGraph.js), não um evento discreto"
+    ],
+    "affected_scopes": [
+      "EXPERIMENT_ATTRIBUTION"
+    ],
+    "blocker_node": "EXPOSURE_IDENTITY",
+    "capital_risk": "MEDIUM",
+    "debt_id": "MDEBT-007",
+    "decision_impact": "HIGH",
+    "description": "nenhum registro real de qual arquitetura esteve live em qual intervalo de datas — sem isso, mesmo o método de atribuição mínima viável (comparação agregada por data) não consegue linkar exposição a outcome financeiro.",
+    "domain": "EXPERIMENT_ATTRIBUTION",
+    "implementation_dependency": "registro operacional leve (ex.: log de deploy com data + architecture_id) — NÃO é instrumentação de evento/GTM/Pixel, e não implementado neste PASSO (fora do escopo).",
+    "priority_rank": 4,
+    "validation_dependency": "nenhuma adicional — uma vez registrado, o método AGGREGATE_TEMPORAL_COMPARISON já é utilizável (minimumViableAttribution.js)."
+  }
+]

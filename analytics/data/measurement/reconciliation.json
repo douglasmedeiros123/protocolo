@@ -1,0 +1,419 @@
+{
+  "dates_requested": [
+    "2026-07-31",
+    "2026-08-01",
+    "2026-08-02",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07",
+    "2026-08-08",
+    "2026-08-09",
+    "2026-08-10",
+    "2026-08-11",
+    "2026-08-12",
+    "2026-08-13",
+    "2026-08-14",
+    "2026-08-15",
+    "2026-08-16",
+    "2026-08-17",
+    "2026-08-18",
+    "2026-08-19",
+    "2026-08-20",
+    "2026-08-21",
+    "2026-08-22",
+    "2026-08-23",
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-29"
+  ],
+  "days_evaluated": 30,
+  "days_with_data": 28,
+  "divergence_counts_by_type": {
+    "CANCELLED": 2,
+    "MATCHED": 18,
+    "REFUNDED": 1,
+    "TEST_TRANSACTION": 2,
+    "UNKNOWN": 2,
+    "UNMATCHED_FINANCIAL_ONLY": 3,
+    "UNMATCHED_PLATFORM_ONLY": 2,
+    "VALUE_MISMATCH": 5
+  },
+  "ghost_purchase_days": [
+    {
+      "date": "2026-08-19",
+      "evidence": "Meta reportou 2 compra(s); Hotmart confirma 1 venda(s) real(is) — 1 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+      "never_promoted_to_revenue": true
+    },
+    {
+      "date": "2026-08-25",
+      "evidence": "Meta reportou 2 compra(s); Hotmart confirma 0 venda(s) real(is) — 2 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+      "never_promoted_to_revenue": true
+    }
+  ],
+  "invariant_note": "nenhuma divergência aqui jamais altera ou invalida a verdade financeira da Hotmart (FINANCIAL_TRANSACTION_TRUTH) — o Reconciliation Engine só classifica e preserva, nunca corrige/apaga um lado com base no outro (item 12).",
+  "match_rate": 0.6428571428571429,
+  "per_day": [
+    {
+      "date": "2026-07-31",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem (1) e valor consistentes entre Meta e Hotmart neste dia.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-01",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-02",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-03",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-04",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "Hotmart confirma 3 venda(s) real(is); Meta só reportou 2 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+          "type": "UNMATCHED_FINANCIAL_ONLY"
+        },
+        {
+          "blocking_financial_truth": false,
+          "evidence": "1 transação(ões) de teste conhecida(s) excluída(s) da receita.",
+          "type": "TEST_TRANSACTION"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-05",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-06",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+          "type": "VALUE_MISMATCH"
+        },
+        {
+          "blocking_financial_truth": false,
+          "evidence": "1 transação(ões) de teste conhecida(s) excluída(s) da receita.",
+          "type": "TEST_TRANSACTION"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-07",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-08",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-09",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-10",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "Hotmart confirma 2 venda(s) real(is); Meta só reportou 1 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+          "type": "UNMATCHED_FINANCIAL_ONLY"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-11",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "Hotmart confirma 2 venda(s) real(is); Meta só reportou 1 compra(s) atribuída(s) — venda real sem atribuição de plataforma (ex.: orgânico, outra fonte, ou perda de atribuição).",
+          "type": "UNMATCHED_FINANCIAL_ONLY"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-12",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+          "type": "VALUE_MISMATCH"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-13",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-14",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-15",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+          "type": "VALUE_MISMATCH"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-16",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-17",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-18",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-19",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "Meta reportou 2 compra(s); Hotmart confirma 1 venda(s) real(is) — 1 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+          "never_promoted_to_revenue": true,
+          "type": "UNMATCHED_PLATFORM_ONLY"
+        },
+        {
+          "blocking_financial_truth": false,
+          "evidence": "1 reembolso(s) real(is) confirmados pela Hotmart.",
+          "type": "REFUNDED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-20",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+          "type": "VALUE_MISMATCH"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-21",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-22",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-23",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "contagem bate, mas o valor médio de compra reportado pela Meta não corresponde a nenhum valor bruto/líquido real da Hotmart no dia.",
+          "type": "VALUE_MISMATCH"
+        },
+        {
+          "blocking_financial_truth": false,
+          "evidence": "1 transação(ões) CANCELLED/EXPIRED confirmadas pela Hotmart — nunca contadas como abandono confirmado sem validação adicional (PASSO 12.2).",
+          "type": "CANCELLED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-24",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-25",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "Meta reportou 2 compra(s); Hotmart confirma 0 venda(s) real(is) — 2 compra(s) fantasma(s) da plataforma, sem lastro financeiro.",
+          "never_promoted_to_revenue": true,
+          "type": "UNMATCHED_PLATFORM_ONLY"
+        },
+        {
+          "blocking_financial_truth": false,
+          "evidence": "3 transação(ões) CANCELLED/EXPIRED confirmadas pela Hotmart — nunca contadas como abandono confirmado sem validação adicional (PASSO 12.2).",
+          "type": "CANCELLED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-26",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-27",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "sem atividade de compra em nenhuma das fontes neste dia — nada a reconciliar.",
+          "type": "MATCHED"
+        }
+      ],
+      "found": true
+    },
+    {
+      "date": "2026-08-28",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "dia sem coleta Meta e/ou Hotmart completa.",
+          "type": "UNKNOWN"
+        }
+      ],
+      "found": false
+    },
+    {
+      "date": "2026-08-29",
+      "divergences": [
+        {
+          "blocking_financial_truth": false,
+          "evidence": "dia sem coleta Meta e/ou Hotmart completa.",
+          "type": "UNKNOWN"
+        }
+      ],
+      "found": false
+    }
+  ]
+}

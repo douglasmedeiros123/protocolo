@@ -1,0 +1,176 @@
+{
+  "identifiers": {
+    "ad_id": {
+      "availability": "CONFIRMED",
+      "joinability": "nula com Hotmart",
+      "known_gaps": [],
+      "persistence": "permanente (Meta)",
+      "scope": "anúncio/dia",
+      "source": "Meta Insights API (collectors/meta.js)"
+    },
+    "adset_id": {
+      "availability": "CONFIRMED",
+      "joinability": "nula com Hotmart",
+      "known_gaps": [],
+      "persistence": "permanente (Meta)",
+      "scope": "conjunto de anúncios/dia",
+      "source": "Meta Insights API"
+    },
+    "anonymous_visitor_id": {
+      "availability": "NEEDS_RUNTIME_VALIDATION",
+      "joinability": "NOT_AVAILABLE",
+      "known_gaps": [
+        "nunca chega ao pipeline de dados — mesmo se existir no navegador"
+      ],
+      "persistence": "UNKNOWN",
+      "scope": "UNKNOWN",
+      "source": "cookies de GA4/Clarity podem gerar um, mas não é lido/persistido em nenhum pipeline deste repo"
+    },
+    "campaign_id": {
+      "availability": "CONFIRMED",
+      "joinability": "nula com Hotmart",
+      "known_gaps": [],
+      "persistence": "permanente (Meta)",
+      "scope": "campanha/dia",
+      "source": "Meta Insights API"
+    },
+    "creative_id": {
+      "availability": "CONFIRMED",
+      "joinability": "nula com Hotmart (sem ad_id na Hotmart)",
+      "known_gaps": [
+        "atribuição financeira por criativo permanece NOT_AVAILABLE mesmo com creative_id real disponível"
+      ],
+      "persistence": "permanente (Meta)",
+      "scope": "anúncio",
+      "source": "Meta ad_id/ad_name por linha do Insights"
+    },
+    "customer_id": {
+      "availability": "PARTIAL",
+      "joinability": "NOT_AVAILABLE fora da Hotmart",
+      "known_gaps": [
+        "sem stitching com identidade do lado ad/web"
+      ],
+      "persistence": "permanente dentro da Hotmart",
+      "scope": "transação/comprador Hotmart",
+      "source": "Hotmart buyer_name/ucode (existe dentro da Hotmart, não cross-domínio)"
+    },
+    "experiment_id": {
+      "availability": "PARTIAL",
+      "joinability": "NOT_AVAILABLE (nenhuma sessão/transação real vinculada ainda)",
+      "known_gaps": [
+        "interface pronta, dado real ainda não existe"
+      ],
+      "persistence": "por experimento",
+      "scope": "experimento",
+      "source": "experiments/registry.js — existe como schema, sem experimento real de arquitetura concluído"
+    },
+    "lead_id": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "LEAD_CAPTURED nunca observado na arquitetura atual"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "nenhum sistema de captura de lead implementado hoje (produto é venda direta)"
+    },
+    "meta_click_id": {
+      "availability": "NEEDS_RUNTIME_VALIDATION",
+      "joinability": "UNKNOWN",
+      "known_gaps": [
+        "nenhum código de captura de fbc/fbp encontrado no repo"
+      ],
+      "persistence": "UNKNOWN",
+      "scope": "session (se existir)",
+      "source": "fbclid, se capturado por um pixel injetado via GTM — não confirmável estaticamente"
+    },
+    "product_id": {
+      "availability": "CONFIRMED",
+      "joinability": "alta (todo o pipeline usa o mesmo id)",
+      "known_gaps": [],
+      "persistence": "permanente",
+      "scope": "produto",
+      "source": "config/product.js resolveProductId()"
+    },
+    "session_id": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "sem session_id, não há como ligar comportamento web a uma transação específica"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "nenhum sistema de sessão web próprio identificado no repo"
+    },
+    "transaction_id": {
+      "availability": "CONFIRMED",
+      "joinability": "alta dentro da Hotmart, nula com Meta (sem ad_id na Hotmart)",
+      "known_gaps": [
+        "nunca aparece do lado Meta — join Meta<->Hotmart é sempre probabilístico"
+      ],
+      "persistence": "permanente",
+      "scope": "transação",
+      "source": "Hotmart transaction_id por venda real"
+    },
+    "utm_campaign": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "idem utm_source"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "idem utm_source"
+    },
+    "utm_content": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "idem utm_source"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "idem utm_source"
+    },
+    "utm_medium": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "idem utm_source"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "idem utm_source"
+    },
+    "utm_source": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "nenhuma lógica de passthrough de UTM da LP pro checkout encontrada no bundle (item 12/28)"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "nenhum — link de checkout Hotmart é estático"
+    },
+    "utm_term": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [
+        "idem utm_source"
+      ],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "idem utm_source"
+    },
+    "variant_id": {
+      "availability": "NOT_AVAILABLE",
+      "joinability": "NOT_APPLICABLE",
+      "known_gaps": [],
+      "persistence": "NOT_APPLICABLE",
+      "scope": "NOT_APPLICABLE",
+      "source": "nenhum sistema de variante A/B real rodando hoje"
+    }
+  },
+  "source": "derivado do platformAudit real + normalizadores existentes",
+  "utm_continuity_available": false
+}

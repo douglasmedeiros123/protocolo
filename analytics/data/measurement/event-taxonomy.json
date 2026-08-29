@@ -1,0 +1,318 @@
+[
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "PAGE_VIEW",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "LANDING_PAGE_VIEW",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "SCROLL_DEPTH",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "ENGAGED_SESSION",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "CTA_VIEW",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "CTA_CLICK",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "diagnóstico de funil (por que a métrica mudou), nunca a decisão de sucesso/fracasso em si",
+    "affected_metric": "granularidade por sessão da métrica de funil (não a métrica agregada em si, que já é calculável)",
+    "blocking_rationale": "já existe um proxy agregado real (contagem diária via Meta Insights) suficiente pra calcular a métrica no nível de comparação disponível hoje (data/arquitetura) — o evento discreto de sessão explica ONDE/COMO, não SE o efeito ocorreu.",
+    "event": "CHECKOUT_INITIATED",
+    "requirement_class": "DIAGNOSTIC_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "META.INITIATE_CHECKOUT",
+        "note": "possível via tag GTM não confirmável estaticamente.",
+        "status": "NEEDS_RUNTIME_VALIDATION"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CHECKOUT_CLICK",
+        "note": "link de checkout é estático, sem dataLayer.push associado encontrado.",
+        "status": "NOT_AVAILABLE"
+      }
+    ],
+    "status": "REQUIRED",
+    "what_is_lost_if_missing": "capacidade de explicar EM QUAL etapa exata o efeito aconteceu — não a capacidade de saber SE aconteceu."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "CHECKOUT_VIEW",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "nenhuma decisão de capital diretamente",
+    "affected_metric": "nenhuma métrica primária/guardrail diretamente",
+    "blocking_rationale": "granularidade comportamental adicional — melhora a qualidade da análise, nunca indispensável pra interpretar se o teste funcionou.",
+    "event": "PAYMENT_ATTEMPT",
+    "requirement_class": "QUALITY_ENHANCEMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "contexto comportamental mais rico — a decisão em si permanece interpretável sem isso."
+  },
+  {
+    "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+    "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+    "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+    "event": "PURCHASE",
+    "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": true,
+        "namespace": "HOTMART.TRANSACTION_APPROVED",
+        "note": "única fonte que confirma dinheiro real recebido.",
+        "status": "VALIDATED"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "META.PURCHASE",
+        "note": "alegação de plataforma — já observada divergindo da Hotmart em dias reais (ghost purchase). ATTRIBUTED_PURCHASE != CONFIRMED_FINANCIAL_TRANSACTION.",
+        "status": "NEEDS_RUNTIME_VALIDATION"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "GA4.PURCHASE",
+        "note": "não confirmável sem acesso ao conteúdo do container GTM.",
+        "status": "NEEDS_RUNTIME_VALIDATION"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.PURCHASE_SIGNAL",
+        "note": "nenhum dataLayer.push de ecommerce encontrado.",
+        "status": "NOT_AVAILABLE"
+      }
+    ],
+    "status": "VALIDATED",
+    "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+  },
+  {
+    "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+    "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+    "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+    "event": "REFUND",
+    "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": true,
+        "namespace": "HOTMART.TRANSACTION_STATUS",
+        "note": "status real observado por transação.",
+        "status": "VALIDATED"
+      }
+    ],
+    "status": "VALIDATED",
+    "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+  },
+  {
+    "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+    "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+    "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+    "event": "CANCELLED",
+    "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": true,
+        "namespace": "HOTMART.TRANSACTION_STATUS",
+        "note": "status real observado por transação.",
+        "status": "VALIDATED"
+      }
+    ],
+    "status": "VALIDATED",
+    "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+  },
+  {
+    "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+    "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+    "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+    "event": "EXPIRED",
+    "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": true,
+        "namespace": "HOTMART.TRANSACTION_STATUS",
+        "note": "status real observado por transação.",
+        "status": "VALIDATED"
+      }
+    ],
+    "status": "VALIDATED",
+    "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+  },
+  {
+    "affected_decision": "success_condition/failure_condition/kill_condition do teste",
+    "affected_metric": "primary_metric (quando é receita) e guardrail (refund_rate)",
+    "blocking_rationale": "sem confirmação financeira real deste evento, o teste não tem outcome econômico mensurável — é a definição de economicamente não-interpretável (item central do PASSO 13.1).",
+    "event": "ORDER_BUMP_ACCEPTED",
+    "requirement_class": "CAPITAL_BLOCKING_REQUIREMENT",
+    "source_semantics": [
+      {
+        "is_financial_truth": false,
+        "namespace": "WEB.CLIENT_EVENT",
+        "note": "nenhum evento discreto de funil confirmado hoje (sem dataLayer/GA4 ecommerce).",
+        "status": "NOT_AVAILABLE"
+      },
+      {
+        "is_financial_truth": false,
+        "namespace": "CLARITY.BEHAVIOR_SIGNAL",
+        "note": "Clarity é comportamento agregado de conta, nunca evento discreto por página no pipeline atual.",
+        "status": "PARTIAL"
+      }
+    ],
+    "status": "OBSERVED",
+    "what_is_lost_if_missing": "capacidade de saber se a mudança gerou ou não resultado financeiro real — bloqueio total, não parcial."
+  }
+]
