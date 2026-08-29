@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager — MESMO container do controle (teste-b/index.html), nunca duplicado/trocado (PASSO 17, item 15) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-54PT3H4Z');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Antes de mandar mais uma mensagem — entenda por que o cliente sumiu | Cartilha Anti-Vácuo</title>
+<meta name="description" content="Entenda por que a mensagem genérica não traz resposta — e o que muda quando você usa a mensagem certa pro momento certo."/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="data:,"/>
+<!-- item 4 — MESMA fonte de exibição do controle (Outfit/Inter), pra remover tipografia como confounder visual -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"/>
+<style>
+  /* PASSO 17.1, item 4 — tokens de cor copiados EXATAMENTE de teste-b/assets/styles-D5pakB-q.css
+     (:root real do controle), pra eliminar qualquer diferença de esquema de cor como confounder.
+     A única variável mudando entre controle e treatment deve ser a arquitetura/conteúdo, nunca a
+     paleta visual. */
+  :root{
+    --bg:oklch(16.3% .021 264); --surface:oklch(21.6% .023 264); --surface-2:oklch(25.6% .028 264);
+    --border:oklch(100% 0 0/.14);
+    --fg:oklch(100% 0 0); --muted:oklch(72% .02 264); --primary:oklch(76% .2 152); --primary-fg:oklch(16% .02 264);
+    --warn:oklch(77% .16 74); --danger:oklch(64% .21 25);
+    --gradient-neon:linear-gradient(100deg, oklch(76% .2 152), oklch(72% .17 162));
+    --radius:16px; --maxw:720px;
+    --font-display:"Outfit","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;overflow-x:hidden;}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--primary);border:1px solid rgba(34,197,94,.35);
+    background:rgba(34,197,94,.08);padding:6px 12px;border-radius:999px}
+  h1{font-family:var(--font-display);font-size:clamp(26px,7vw,38px);line-height:1.15;font-weight:800;margin:16px 0 0}
+  h2{font-family:var(--font-display);font-size:clamp(21px,5.5vw,28px);line-height:1.2;font-weight:800;margin:0 0 14px}
+  h3{font-family:var(--font-display);font-size:18px;font-weight:700;margin:0 0 8px}
+  p{margin:0 0 14px;font-size:16px;color:var(--muted)}
+  strong{color:var(--fg)}
+  section{padding:36px 0}
+  .bar{background-image:var(--gradient-neon);color:var(--primary-fg);font-weight:800;
+    font-size:13px;text-align:center;padding:10px 16px;position:sticky;top:0;z-index:50}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .quote{background:var(--surface-2);border-left:3px solid var(--primary);border-radius:10px;
+    padding:14px 16px;font-style:italic;color:var(--fg);margin:10px 0}
+  .pain-grid{display:grid;gap:10px;margin-top:18px}
+  .cta{display:block;width:100%;text-align:center;background-image:var(--gradient-neon);
+    color:var(--primary-fg);font-weight:800;text-transform:uppercase;letter-spacing:.02em;
+    font-size:15px;padding:16px 20px;border-radius:12px;text-decoration:none;margin-top:14px}
+  .cta:active{transform:scale(.99)}
+  .cta-sub{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
+  .divider{height:1px;background:var(--border);margin:0 0 36px}
+  .proof-scroll{display:flex;gap:12px;overflow-x:auto;padding:4px 0 10px;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch}
+  .proof-scroll img{flex:0 0 auto;width:200px;border-radius:12px;border:1px solid var(--border);
+    scroll-snap-align:start}
+  .offer-list{list-style:none;margin:0 0 18px;padding:0}
+  .offer-list li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;
+    border-bottom:1px solid var(--border);font-size:14px;color:var(--fg)}
+  .offer-list li span:last-child{color:var(--muted);text-decoration:line-through}
+  .price{text-align:center;margin:18px 0}
+  .price .big{font-size:clamp(34px,10vw,44px);font-weight:800;color:var(--primary)}
+  .price .small{color:var(--muted);font-size:14px}
+  .guarantee{display:flex;gap:10px;align-items:flex-start;background:var(--surface-2);
+    border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-top:16px}
+  .author{display:flex;gap:14px;align-items:center}
+  .author img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border)}
+  footer{padding:32px 20px 48px;text-align:center;font-size:12px;color:var(--muted)}
+  footer p{color:var(--muted);font-size:12px}
+  .skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:8px;z-index:100}
+  .skip-link:focus{left:8px}
+  @media (min-width:640px){ .cta{width:auto;display:inline-block} }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) — idêntico ao controle -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54PT3H4Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#oferta">Pular para a oferta</a>
+
+<div class="bar">Antes de mandar mais uma mensagem, leia isso — leva 3 minutos</div>
+
+<main id="conteudo">
+
+<!-- ===== HOOK (item 9) — mesmo registro de dor real usado no controle, nunca uma promessa nova ===== -->
+<section aria-labelledby="hook-h1">
+  <div class="wrap">
+    <span class="kicker">🚨 Antes de desistir dessa venda</span>
+    <h1 id="hook-h1">Mandou o preço ✓✓ e o cliente sumiu? O problema não é o que você pensa.</h1>
+    <p style="margin-top:14px;font-size:17px;color:var(--fg)">Você já deve ter mandado o clássico <strong>"Oi, tudo bem? Conseguiu ver?"</strong> — e recebeu de volta o mesmo silêncio de sempre. Antes de tentar de novo do mesmo jeito, vale entender <strong>por que isso acontece</strong>.</p>
+  </div>
+</section>
+
+<!-- ===== PROBLEM RECOGNITION (item 9) — as 5 dores reais já usadas no controle (continuidade de mensagem, item 7) ===== -->
+<section aria-labelledby="dor-h2">
+  <div class="wrap">
+    <h2 id="dor-h2">Se você vende pelo WhatsApp, alguma dessas frases já passou pela sua cabeça</h2>
+    <div class="pain-grid">
+      <div class="quote">"Mandei o orçamento... e o cliente sumiu no visualizado."</div>
+      <div class="quote">"Cansei de ficar olhando pra aqueles dois tracinhos azuis sem resposta."</div>
+      <div class="quote">"Meu WhatsApp vive cheio de conversas, mas meu Pix continua vazio no final do dia."</div>
+      <div class="quote">"Se eu mandar outra mensagem vou parecer desesperado. Se eu não mandar, perco a venda."</div>
+      <div class="quote">"Não sei mais o que responder quando falam 'vou ver com meu sócio' ou 'vou pensar'."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CURRENT APPROACH FAILS (item 9) — inferência defensável a partir do fato real (a mensagem genérica é a mesma de sempre), nunca uma estatística inventada ===== -->
+<section aria-labelledby="porque-h2">
+  <div class="wrap">
+    <h2 id="porque-h2">Por que "Oi, tudo bem? Conseguiu ver?" quase nunca funciona</h2>
+    <p>Repare: essa mensagem não diz nada de novo pro cliente. Ela só cobra uma resposta — não dá um motivo novo pra ele voltar a conversar. Do lado de quem recebeu, é fácil de ignorar porque não muda nada na decisão que já estava travada.</p>
+    <p>O resultado é sempre o mesmo: silêncio, ou um "vou pensar" que também nunca mais responde.</p>
+  </div>
+</section>
+
+<!-- ===== NEW UNDERSTANDING / MECHANISM (item 9) — mesmo reframe real já usado no controle, citado, nunca uma alegação nova ===== -->
+<section aria-labelledby="entendimento-h2">
+  <div class="wrap card">
+    <h2 id="entendimento-h2">Não é falta de cliente. É falta da mensagem certa pro momento certo.</h2>
+    <p>A verdade é direta: o problema <strong>não é você</strong>, não é o seu produto e nem o seu preço. O que trava a conversa é sempre a <strong>mesma mensagem genérica</strong> sendo usada pra momentos completamente diferentes — um cliente que sumiu depois do preço precisa de uma mensagem diferente de um cliente que disse "vou pensar".</p>
+  </div>
+</section>
+
+<!-- ===== CONSEQUENCES (item 9) — consequência real quantificável, mesma lógica do controle ("recupera 1 venda já paga o investimento"), nunca inventada ===== -->
+<section aria-labelledby="consequencia-h2">
+  <div class="wrap">
+    <h2 id="consequencia-h2">Cada conversa parada no seu WhatsApp vale dinheiro real</h2>
+    <p>Enquanto a conversa fica parada, o cliente não sumiu de verdade — ele só está esperando um motivo pra voltar. Recuperar <strong>uma única venda</strong> parada hoje já cobre, com folga, o valor de ter a mensagem certa pronta pra cada situação.</p>
+  </div>
+</section>
+
+<div class="wrap divider"></div>
+
+<!-- ===== SOLUTION BRIDGE + PRODUCT INTRODUCTION (item 9) — fatos reais do produto, mesmo stack do controle ===== -->
+<section aria-labelledby="solucao-h2">
+  <div class="wrap">
+    <span class="kicker">A solução</span>
+    <h2 id="solucao-h2" style="margin-top:14px">Foi por isso que a Cartilha Anti-Vácuo existe</h2>
+    <p>Um material de copiar e colar com <strong>+40 ativações prontas</strong> — uma mensagem certa pra cada cena de travamento: cliente que sumiu depois do preço, que disse "vou pensar", ou que a conversa simplesmente parou há dias. Você troca o "Oi, tudo bem?" pela mensagem que realmente dá ao cliente um motivo pra responder.</p>
+    <div class="card" style="margin-top:16px">
+      <h3>Como funciona (3 passos)</h3>
+      <p style="margin-bottom:6px"><strong>1. Localize a cena</strong> — encontre na cartilha a situação exata da sua conversa.</p>
+      <p style="margin-bottom:6px"><strong>2. Copie e personalize</strong> — ajuste só o que está entre [colchetes]: nome, produto, valor.</p>
+      <p style="margin-bottom:0"><strong>3. Envie e recupere</strong> — siga a cadência indicada e a conversa volta a andar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF/EVIDENCE AVAILABLE (item 9/10) — ÚNICA prova real pré-existente no repo (assets/provas/), nunca fabricada aqui. Sem depoimento inventado. ===== -->
+<section aria-labelledby="prova-h2">
+  <div class="wrap">
+    <h2 id="prova-h2">Relatos de quem já aplicou</h2>
+    <p style="margin-bottom:14px">Prints reais de conversas — sem edição de conteúdo, sem números inventados.</p>
+  </div>
+  <div class="wrap">
+    <div class="proof-scroll" role="list" aria-label="Prints de conversas reais">
+      <img role="listitem" src="assets/prova1.jpg" alt="Print de conversa no WhatsApp: cliente relata feedback sobre o Protocolo" loading="lazy" width="200" height="320"/>
+      <img role="listitem" src="assets/prova2.jpg" alt="Print de conversa no WhatsApp: aluna relata ter usado uma mensagem da cadência" loading="lazy" width="200" height="320"/>
+      <img role="listitem" src="assets/prova3.jpg" alt="Print de conversa no WhatsApp: aluno relata ter enviado o script pra orçamentos parados" loading="lazy" width="200" height="320"/>
+      <img role="listitem" src="assets/prova4.jpg" alt="Print de conversa no WhatsApp: aluno relata ter aplicado uma das mensagens" loading="lazy" width="200" height="320"/>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Autor (mesma credencial real do controle — única "autoridade" usada, nunca inventada) ===== -->
+<section aria-labelledby="autor-h2">
+  <div class="wrap card">
+    <div class="author">
+      <img src="assets/doda-medeiros.jpg" alt="Doda Medeiros" loading="lazy" width="64" height="64"/>
+      <div>
+        <h3 id="autor-h2" style="margin-bottom:2px">Doda Medeiros</h3>
+        <p style="margin:0;font-size:13px">Especialista em processos de vendas pelo WhatsApp — criador(a) da Cartilha Anti-Vácuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OBJECTION HANDLING (item 9) — só objeções com resposta real disponível (garantia, "parecer chato") — nunca inventadas ===== -->
+<section aria-labelledby="objecao-h2">
+  <div class="wrap">
+    <h2 id="objecao-h2">"Mas eu vou parecer chato mandando mais uma mensagem?"</h2>
+    <p>Essa dúvida é normal. A diferença não está em mandar mais mensagens — está em mandar a <strong>mensagem certa</strong>, que muda o assunto da conversa em vez de só cobrar resposta. É isso que a cartilha resolve.</p>
+    <div class="guarantee">
+      <span aria-hidden="true">🔒</span>
+      <div>
+        <strong>Garantia incondicional de 7 dias.</strong>
+        <p style="margin:4px 0 0">Teste nas suas conversas paradas. Se não gostar, devolvemos 100% do seu dinheiro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap divider"></div>
+
+<!-- ===== CTA TRANSITION / OFERTA (item 11) — MESMO stack, MESMO preço (R$67), MESMA garantia, MESMO link de checkout do controle. Nada de preço/checkout/produto alterado. ===== -->
+<section id="oferta" aria-labelledby="oferta-h2">
+  <div class="wrap">
+    <span class="kicker">🏷️ Recapitulando o que você recebe</span>
+    <h2 id="oferta-h2" style="margin-top:14px">Tudo o que está incluso na Cartilha Anti-Vácuo</h2>
+    <div class="card">
+      <ul class="offer-list">
+        <li><span>Cartilha Anti-Vácuo (+40 Ativações)</span><span>R$ 97,00</span></li>
+        <li><span>Mini Curso de Aplicação Rápida</span><span>R$ 147,00</span></li>
+        <li><span>Bônus 1: Cartilha Imprimível em PDF</span><span>R$ 47,00</span></li>
+        <li><span>Bônus 2: Checklist da Cadência de Vendas</span><span>R$ 27,00</span></li>
+      </ul>
+      <p style="text-align:center;margin-bottom:0">Valor total: <span style="text-decoration:line-through">De R$ 318,00</span></p>
+    </div>
+
+    <div class="price">
+      <div class="small">por apenas</div>
+      <div class="big">9x de R$ 8,63</div>
+      <div class="small">ou R$ 67,00 à vista</div>
+    </div>
+
+    <a id="cta-primary" class="cta" href="https://pay.hotmart.com/O106918070H?checkoutMode=10" target="_blank" rel="noopener"
+       data-architecture-id="ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE" data-variant-id="VARIANT-ADVERTORIAL-COMPREHENSION-01">
+      Sim! Quero destravar meu WhatsApp agora
+    </a>
+    <p class="cta-sub">Acesso imediato • Garantia incondicional de 7 dias</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Cartilha Anti-Vácuo</strong></p>
+    <p>Copyright © Cartilha Anti-Vácuo. Todos os direitos reservados.</p>
+    <p>Suporte ao Cliente: douglasdamotamedeiros@gmail.com | CNPJ: 46.105.751/0001-73</p>
+    <p style="max-width:520px;margin:0 auto">Disclaimer: este produto não garante resultados financeiros exatos. Os resultados dependem da execução e aplicação dos scripts nas conversas.</p>
+    <p style="margin-top:10px;opacity:.6">PÁGINA DE TESTE — TRATAMENTO NÃO IMPLANTADO EM PRODUÇÃO (deployment_status=NOT_DEPLOYED)</p>
+  </div>
+</footer>
+
+<!-- ===== PASSO 17 — Exposure/Experiment Identity Contract (item 13). status=NOT_DEPLOYED explícito, ===== -->
+<!-- nunca registrado como exposição live antes de existir produção real (execution/exposureIdentityRegistry.js). -->
+<script>
+  window.__EXPERIMENT_IDENTITY__ = {
+    product_id: "protocolo_resposta_garantida",
+    architecture_id: "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    variant_id: "VARIANT-ADVERTORIAL-COMPREHENSION-01",
+    experiment_id: "MVA-protocolo_resposta_garantida-002",
+    control_architecture_id: "ARCH-CURRENT",
+    page_role: "ADVERTORIAL_TREATMENT",
+    observation_type: "PROSPECTIVE_TREATMENT_CANDIDATE",
+    deployment_status: "NOT_DEPLOYED",
+    runtime_tracking_validated: false
+  };
+
+  // item 14 — preservação de UTM/click_id: repassa a query string recebida (ex.: vinda do anúncio)
+  // pro link de checkout, sem inventar nenhum identificador novo. IMPLEMENTED_IN_CODE — nunca
+  // RUNTIME_VALIDATED sem deploy real (item 15).
+  (function () {
+    var cta = document.getElementById("cta-primary");
+    if (!cta) return;
+    var qs = window.location.search;
+    if (qs && qs.length > 1) {
+      var joiner = cta.href.indexOf("?") === -1 ? "?" : "&";
+      cta.href = cta.href + joiner + qs.slice(1);
+    }
+  })();
+
+  // item 14/26 — hooks de measurement mínimos via dataLayer (mesmo GTM do controle, nunca uma tag nova).
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "advertorial_view",
+    architecture_id: window.__EXPERIMENT_IDENTITY__.architecture_id,
+    variant_id: window.__EXPERIMENT_IDENTITY__.variant_id,
+    experiment_id: window.__EXPERIMENT_IDENTITY__.experiment_id
+  });
+
+  var ctaEl = document.getElementById("cta-primary");
+  if (ctaEl) {
+    ctaEl.addEventListener("click", function () {
+      window.dataLayer.push({
+        event: "cta_click",
+        cta_id: "primary_offer_cta",
+        architecture_id: window.__EXPERIMENT_IDENTITY__.architecture_id,
+        variant_id: window.__EXPERIMENT_IDENTITY__.variant_id,
+        experiment_id: window.__EXPERIMENT_IDENTITY__.experiment_id
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

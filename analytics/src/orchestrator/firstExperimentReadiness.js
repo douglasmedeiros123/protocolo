@@ -34,19 +34,41 @@ const PLANNER_FINANCIAL_TRUTH_LABEL_DEBT = {
   status: 'AUDITED_NOT_FIXED',
 };
 
-// item 18 — categorias de implementation readiness (nunca hardcoded pro nome "Advertorial" —
-// deriva do mva_test/winner real, qualquer família).
-function auditImplementationReadiness({ winner, mvaTest }) {
+// item 18 (PASSO 16) — categorias de implementation readiness (nunca hardcoded pro nome
+// "Advertorial" — deriva do mva_test/winner real, qualquer família). PASSO 17, item 28: aceita um
+// `treatmentBuildAudit` REAL opcional (de orchestrator/firstExperimentTreatmentBuild.js) — quando
+// ausente, preserva EXATAMENTE o comportamento conservador original do PASSO 16 (nenhuma
+// regressão nos testes já commitados); quando presente, reflete o estado real pós-build, nunca
+// forçado (item 28 — "não forçar estados").
+function auditImplementationReadiness({ winner, mvaTest, treatmentBuildAudit = null }) {
   const newStages = mvaTest.changed_components;
+  if (!treatmentBuildAudit || !treatmentBuildAudit.treatment_exists_as_real_page) {
+    return {
+      CONTENT_REQUIREMENTS: { status: 'NOT_STARTED', detail: `copy/roteiro editorial pro(s) estágio(s) novo(s) (${newStages.join(', ')}) — nada escrito ainda (item 18, nunca produzido neste PASSO).` },
+      DESIGN_REQUIREMENTS: { status: 'NOT_STARTED', detail: `layout/visual pro(s) estágio(s) novo(s) — nenhum design real existe hoje pra ${newStages.join(', ')}.` },
+      TECHNICAL_REQUIREMENTS: { status: 'NOT_STARTED', detail: `página/rota real pro(s) estágio(s) novo(s) não existe no repo (${newStages.join(', ')} não confirmado em vercel.json nem como arquivo servido real).` },
+      TRACKING_REQUIREMENTS: { status: winner.tracking_readiness === 'PARTIAL' ? 'PARTIAL' : 'NOT_STARTED', detail: winner.tracking_readiness_detail ? winner.tracking_readiness_detail.reason : 'instrumentação pro(s) estágio(s) novo(s) não confirmada.' },
+      DEPLOYMENT_REQUIREMENTS: { status: 'NOT_STARTED', detail: 'nenhuma regra de host/roteamento real existe pro tratamento ainda — DEPLOY_LP_CHANGE real não ocorreu (nem pode ocorrer neste PASSO).' },
+      ASSET_REQUIREMENTS: { status: 'NOT_STARTED', detail: 'nenhum asset (imagem/vídeo/criativo) específico pro estágio novo foi produzido ou confirmado.' },
+      treatment_exists_as_real_page: false,
+      reason: 'nenhuma implementação real do vencedor foi construída ou publicada — apenas um contrato de requisitos, nunca a página em si.',
+    };
+  }
+  // PASSO 17 — treatment real construído (arquivo existe, lido do disco). CONTENT/DESIGN/
+  // TECHNICAL/ASSET viram DONE (a página/copy/layout/prints reais existem); DEPLOYMENT continua
+  // NOT_STARTED (nenhum deploy real ocorreu, write boundary proíbe); TRACKING reflete a auditoria
+  // estática real (implemented_in_code), nunca runtime_validated sem deploy.
+  const trackingReqs = treatmentBuildAudit.requirements || {};
+  const allTrackingImplemented = Object.values(trackingReqs).every((r) => r.implemented_in_code);
   return {
-    CONTENT_REQUIREMENTS: { status: 'NOT_STARTED', detail: `copy/roteiro editorial pro(s) estágio(s) novo(s) (${newStages.join(', ')}) — nada escrito ainda (item 18, nunca produzido neste PASSO).` },
-    DESIGN_REQUIREMENTS: { status: 'NOT_STARTED', detail: `layout/visual pro(s) estágio(s) novo(s) — nenhum design real existe hoje pra ${newStages.join(', ')}.` },
-    TECHNICAL_REQUIREMENTS: { status: 'NOT_STARTED', detail: `página/rota real pro(s) estágio(s) novo(s) não existe no repo (${newStages.join(', ')} não confirmado em vercel.json nem como arquivo servido real).` },
-    TRACKING_REQUIREMENTS: { status: winner.tracking_readiness === 'PARTIAL' ? 'PARTIAL' : 'NOT_STARTED', detail: winner.tracking_readiness_detail ? winner.tracking_readiness_detail.reason : 'instrumentação pro(s) estágio(s) novo(s) não confirmada.' },
+    CONTENT_REQUIREMENTS: { status: 'DONE', detail: `copy real escrita pro(s) estágio(s) novo(s) (${newStages.join(', ')}) — arquivo real no repo, nunca fabricada (prova social reaproveitada de assets/provas/ pré-existente).` },
+    DESIGN_REQUIREMENTS: { status: 'DONE', detail: 'layout mobile-first real implementado (CSS inline, sem dependência pesada nova).' },
+    TECHNICAL_REQUIREMENTS: { status: 'DONE', detail: 'página HTML real existe no repo (fora de vercel.json — nenhuma rota de produção real criada).' },
+    TRACKING_REQUIREMENTS: { status: allTrackingImplemented ? 'IMPLEMENTED_IN_CODE_NOT_RUNTIME_VALIDATED' : 'PARTIAL', detail: 'marcadores de tracking mínimos implementados no HTML/JS real — RUNTIME_VALIDATED permanece false até deploy real (item 15/19, PASSO 17).' },
     DEPLOYMENT_REQUIREMENTS: { status: 'NOT_STARTED', detail: 'nenhuma regra de host/roteamento real existe pro tratamento ainda — DEPLOY_LP_CHANGE real não ocorreu (nem pode ocorrer neste PASSO).' },
-    ASSET_REQUIREMENTS: { status: 'NOT_STARTED', detail: 'nenhum asset (imagem/vídeo/criativo) específico pro estágio novo foi produzido ou confirmado.' },
-    treatment_exists_as_real_page: false,
-    reason: 'nenhuma implementação real do vencedor foi construída ou publicada — apenas um contrato de requisitos, nunca a página em si (item 18 explicitamente proíbe construir a página neste PASSO).',
+    ASSET_REQUIREMENTS: { status: 'DONE', detail: 'assets reais copiados pro diretório do treatment (foto do autor + 4 prints de prova pré-existentes) — nenhum asset novo fabricado.' },
+    treatment_exists_as_real_page: true,
+    reason: 'treatment real construído e auditado estaticamente (PASSO 17) — DEPLOYMENT_REQUIREMENTS continua NOT_STARTED porque nenhum deploy real ocorreu.',
   };
 }
 
@@ -118,7 +140,7 @@ function determineReadinessState({ measurementBlocked, decisionRuleMissing, trea
  * Strategy Search (nunca hardcoded) + o resultado real de operationalizeExposureIdentity() já
  * executado — nunca força um estado de prontidão além do que a evidência real sustenta.
  */
-function buildFirstExperimentReadiness({ productId, dataDir, referenceDate, exposureOperationalizationResult, executionDataDir } = {}) {
+function buildFirstExperimentReadiness({ productId, dataDir, referenceDate, exposureOperationalizationResult, executionDataDir, treatmentBuildAudit = null } = {}) {
   const resolvedProductId = resolveProductId(productId);
   const refDate = referenceDate || todayBRT();
 
@@ -140,7 +162,7 @@ function buildFirstExperimentReadiness({ productId, dataDir, referenceDate, expo
 
   const mvaTest = winner.mva_test;
   const draftProposal = buildExperimentDraftProposal({ architecture: winner, mvaTest });
-  const implementationReadiness = auditImplementationReadiness({ winner, mvaTest });
+  const implementationReadiness = auditImplementationReadiness({ winner, mvaTest, treatmentBuildAudit });
   const signalSeparation = buildSignalSeparation({ measurementAnalysis });
   const controlTreatment = buildControlTreatmentExposureDesign({ exposureOperationalizationResult, winnerArchitectureId: winnerId });
 
