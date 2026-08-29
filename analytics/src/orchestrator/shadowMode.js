@@ -29,4 +29,43 @@ function enforceShadowMode(policyHandoffResult) {
   };
 }
 
-module.exports = { SHADOW_MODE, AUTONOMOUS_EXECUTION_CAPITAL, isShadowModeActive, enforceShadowMode };
+// PASSO 16, item 4 — SHADOW_MODE SEMÂNTICA. Decisão arquitetural explícita (nunca assumida):
+// SHADOW_MODE continua impedindo INCONDICIONALMENTE qualquer EXTERNAL_EXECUTION_AUTHORITY
+// (enforceShadowMode() acima permanece 100% inalterado). Uma categoria estreita de escrita
+// interna (INTERNAL_OPERATIONAL_WRITE_AUTHORITY) pode proceder DENTRO do shadow mode SE, e
+// somente se, já passou pelos critérios fechados de execution/internalWritePolicy.js
+// (whitelist, não-protegido, determinístico, auditável, bounded, idempotente, nunca externo).
+// Nunca a inversa: um candidato classificado como EXTERNAL_EXECUTION_AUTHORITY nunca passa por
+// aqui — cai sempre em enforceShadowMode() padrão.
+function classifyExecutionAuthorityDomain({ actionSemanticType, actualMutationScope }) {
+  if (actualMutationScope === 'INTERNAL_STATE_WRITE' && actionSemanticType === 'REGISTER_OBSERVED_EXPOSURE') {
+    return 'INTERNAL_OPERATIONAL_WRITE_AUTHORITY';
+  }
+  return 'EXTERNAL_EXECUTION_AUTHORITY';
+}
+
+/**
+ * enforceShadowModeForInternalWrite() — item 4. NUNCA chamada no lugar de enforceShadowMode();
+ * usada apenas como um gate ADICIONAL, estreito, específico pra candidatos já classificados como
+ * INTERNAL_OPERATIONAL_WRITE_AUTHORITY que já foram avaliados por internalWritePolicy.js. Se a
+ * policy interna negou, ou o domínio não é interno, o resultado é sempre would_execute_internal_
+ * write=false — nunca um bypass silencioso.
+ */
+function enforceShadowModeForInternalWrite({ authorityDomain, internalWriteAuthorityResult }) {
+  if (authorityDomain !== 'INTERNAL_OPERATIONAL_WRITE_AUTHORITY') {
+    return { would_execute_internal_write: false, shadow_mode_active: SHADOW_MODE, reason: 'domínio não é INTERNAL_OPERATIONAL_WRITE_AUTHORITY — cai sob a barreira padrão de enforceShadowMode(), nunca liberado por esta função.' };
+  }
+  if (!internalWriteAuthorityResult || internalWriteAuthorityResult.result !== 'ALLOW') {
+    return { would_execute_internal_write: false, shadow_mode_active: SHADOW_MODE, reason: `internalWritePolicy negou (${internalWriteAuthorityResult ? internalWriteAuthorityResult.reason : 'nenhum resultado fornecido'}) — SHADOW_MODE nunca libera uma escrita que a própria policy interna já bloqueou.` };
+  }
+  return {
+    would_execute_internal_write: true,
+    shadow_mode_active: SHADOW_MODE,
+    reason: 'SHADOW_MODE=true continua bloqueando incondicionalmente qualquer EXTERNAL_EXECUTION_AUTHORITY (enforceShadowMode() inalterado). Este candidato foi classificado como INTERNAL_OPERATIONAL_WRITE_AUTHORITY E já atende todos os critérios fechados de internalWritePolicy.js — categoria explicitamente definida como fora do escopo de bloqueio do SHADOW_MODE (PASSO 16, item 4).',
+  };
+}
+
+module.exports = {
+  SHADOW_MODE, AUTONOMOUS_EXECUTION_CAPITAL, isShadowModeActive, enforceShadowMode,
+  classifyExecutionAuthorityDomain, enforceShadowModeForInternalWrite,
+};

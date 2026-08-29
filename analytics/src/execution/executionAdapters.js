@@ -41,14 +41,20 @@ const MediaExecutionAdapter = createStubAdapter({ name: 'MediaExecutionAdapter',
 const TrackingExecutionAdapter = createStubAdapter({ name: 'TrackingExecutionAdapter', mutable: true });
 const WebsiteExecutionAdapter = createStubAdapter({ name: 'WebsiteExecutionAdapter', mutable: true });
 const OfferExecutionAdapter = createStubAdapter({ name: 'OfferExecutionAdapter', mutable: true });
+// PASSO 16, item 1-2 — escrita interna pura (registro local, nunca sistema externo). mutable:
+// false é uma afirmação estrutural real (não um relaxamento de segurança) — este adapter nunca
+// ganha capacidade de deploy/tracking/campanha; ele só sabe escrever um registro JSON local.
+const InternalRegistryAdapter = createStubAdapter({ name: 'InternalRegistryAdapter', mutable: false });
 
 const ADAPTERS_BY_ACTION_TYPE = {
   ADJUST_BUDGET: MediaExecutionAdapter, PAUSE_CAMPAIGN: MediaExecutionAdapter, ACTIVATE_CAMPAIGN: MediaExecutionAdapter, ADJUST_BID: MediaExecutionAdapter,
   UPDATE_TRACKING_CONFIG: TrackingExecutionAdapter,
   DEPLOY_LP_CHANGE: WebsiteExecutionAdapter, PUBLISH_CREATIVE: WebsiteExecutionAdapter,
   UPDATE_PRODUCT_PRICE: OfferExecutionAdapter, UPDATE_OFFER: OfferExecutionAdapter,
+  REGISTER_OBSERVED_EXPOSURE: InternalRegistryAdapter, // item 2 — nunca pode fazer deploy/alterar página/tráfego/campanha
+  CREATE_NEW_EXPOSURE: WebsiteExecutionAdapter, // item 2 — mutação externa real (colocar variante live) — nunca mascarada como registro interno
 };
 
 function resolveAdapter(actionType) { return ADAPTERS_BY_ACTION_TYPE[actionType] || null; }
 
-module.exports = { createStubAdapter, MediaExecutionAdapter, TrackingExecutionAdapter, WebsiteExecutionAdapter, OfferExecutionAdapter, ADAPTERS_BY_ACTION_TYPE, resolveAdapter };
+module.exports = { createStubAdapter, MediaExecutionAdapter, TrackingExecutionAdapter, WebsiteExecutionAdapter, OfferExecutionAdapter, InternalRegistryAdapter, ADAPTERS_BY_ACTION_TYPE, resolveAdapter };

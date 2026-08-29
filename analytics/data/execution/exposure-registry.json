@@ -1,0 +1,38 @@
+[
+  {
+    "architecture_id": "ARCH-CURRENT",
+    "confidence": "MEDIUM",
+    "deployment_evidence_type": "DEPLOYMENT_PROXY",
+    "deployment_reference": "vercel.json roteia anti-vacuo.ojogodolucro.com.br -> teste-b/index.html (regra de host explícita, não fallback filesystem).",
+    "entry_id": "ALR-00001",
+    "environment": "production",
+    "evidence_source": "cro/sourceOfTruth.js (vercel.json + LP estática) + strategy-search/currentArchitecture.js (Hotmart real) — leitura local apenas, nenhuma requisição externa.",
+    "experiment_id": null,
+    "exposure_id": "ALR-00001",
+    "live_from": "UNKNOWN",
+    "live_until": null,
+    "observation_type": "CURRENT_ARCHITECTURE_OBSERVATION",
+    "product_id": "protocolo_resposta_garantida",
+    "provenance": {
+      "evidence_audit": {
+        "architecture_id": "ARCH-CURRENT",
+        "evidence_classification": "DEPLOYMENT_PROXY",
+        "evidence_classification_reason": "registro de deploy (ex.: Vercel) existe e está linkado ao commit — evidência indireta mas razoável, nunca tratada como CONFIRMED.",
+        "evidence_facts": {
+          "host_routing_rule": "vercel.json roteia anti-vacuo.ojogodolucro.com.br -> teste-b/index.html (regra de host explícita, não fallback filesystem).",
+          "price_cross_check": "preço real na LP (R$67) bate com config/product.js TICKET (R$67).",
+          "real_transactions": "18 transação(ões) Hotmart real(is) confirmada(s) neste preço/produto no período avaliado."
+        },
+        "evidence_source": "cro/sourceOfTruth.js (vercel.json + LP estática) + strategy-search/currentArchitecture.js (Hotmart real) — leitura local apenas, nenhuma requisição externa.",
+        "family": "DIRECT_TO_OFFER",
+        "live_from_known": false,
+        "live_from_reason": "nenhuma evidência real de QUANDO esta arquitetura entrou em produção está disponível (sem log de deploy, sem timestamp de publicação confiável) — live_from fica UNKNOWN, nunca inferido só pela existência de um commit (item 7/9 — REPO_CHANGE_ONLY != prova de produção)."
+      },
+      "idempotency_key": "protocolo_resposta_garantida::ARCH-CURRENT::CURRENT_ARCHITECTURE_OBSERVATION"
+    },
+    "recorded_at": "2026-08-29T20:43:18.742Z",
+    "recorded_by": "CEO_ORCHESTRATOR_PASSO_16",
+    "status": "ACTIVE",
+    "variant_id": null
+  }
+]

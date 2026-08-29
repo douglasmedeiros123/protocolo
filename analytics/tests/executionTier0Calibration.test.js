@@ -65,9 +65,15 @@ test('5: cenário sintético 30->500 continua produzindo recommended_budget=500 
 });
 
 // 6. No duplicate read-only execution connector introduced.
-test('6: nenhum adapter de execução real foi implementado como read-only duplicado — todos continuam mutable=true/stubbed, e a separação read/write está documentada', () => {
+test('6: nenhum adapter de execução real foi implementado como read-only duplicado de collectors — a única exceção mutable=false (PASSO 16, InternalRegistryAdapter) é uma escrita interna, nunca uma leitura', () => {
+  const INTERNAL_WRITE_EXCEPTIONS = ['REGISTER_OBSERVED_EXPOSURE']; // escrita interna real, nunca um "read connector" duplicando collectors
   for (const type of Object.keys(ADAPTERS_BY_ACTION_TYPE)) {
-    assert.equal(ADAPTERS_BY_ACTION_TYPE[type].mutable, true); // nenhum virou um "read connector" nesta calibração
+    if (INTERNAL_WRITE_EXCEPTIONS.includes(type)) {
+      assert.equal(ADAPTERS_BY_ACTION_TYPE[type].mutable, false);
+      assert.equal(ADAPTERS_BY_ACTION_TYPE[type].name, 'InternalRegistryAdapter');
+    } else {
+      assert.equal(ADAPTERS_BY_ACTION_TYPE[type].mutable, true);
+    }
   }
   assert.match(READ_WRITE_PATH_SEPARATION.rule, /nunca pra re-implementar leitura/);
   assert.match(READ_WRITE_PATH_SEPARATION.read_path, /collectors/);

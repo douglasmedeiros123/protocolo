@@ -15,15 +15,33 @@ const ACTION_CLASS_TO_ACTION_TYPE = {
   HOLD_CAPITAL: 'OTHER', DO_NOT_EXECUTE: 'OTHER', KILL_HYPOTHESIS: 'OTHER', SWITCH_PRODUCT: 'OTHER',
 };
 
+// PASSO 16, item 1 — resolve o BLAST_RADIUS_ARCHITECTURAL_DEBT registrado no PASSO 15.1: um
+// candidato REGISTER_OBSERVED_EXPOSURE real (escrita interna pura) nunca deve ser submetido como
+// action_type=UPDATE_TRACKING_CONFIG/subject_type=TRACKING_CONFIG — isso é o que fazia
+// execution/blastRadius.js herdar ACCOUNT indevidamente. Usa os novos action_type/subject_type
+// dedicados (execution/enums.js, PASSO 16) quando o semantic_type real é REGISTER_OBSERVED_
+// EXPOSURE; todo o resto do mapeamento permanece exatamente como antes (nunca alterado sem razão
+// semântica real).
+function resolveActionAndSubjectType(winnerCandidate) {
+  if (winnerCandidate.action_semantics && winnerCandidate.action_semantics.semantic_type === 'REGISTER_OBSERVED_EXPOSURE') {
+    return { actionType: 'REGISTER_OBSERVED_EXPOSURE', subjectType: 'INTERNAL_REGISTRY' };
+  }
+  return {
+    actionType: ACTION_CLASS_TO_ACTION_TYPE[winnerCandidate.action_class] || 'OTHER',
+    subjectType: winnerCandidate.action_class === 'START_EXPERIMENT' ? 'EXPERIMENT' : 'TRACKING_CONFIG',
+  };
+}
+
 function handoffToPolicyEngine({ winnerCandidate, measurementSignals }) {
   if (!winnerCandidate) {
     return { ceo_recommends: null, policy_allows: null, approval_requires: null, circuit_breaker_state: null, would_execute: false, reason: 'nenhum candidato vencedor — nada a submeter à Policy Engine.' };
   }
 
   resetActionCounter();
+  const { actionType, subjectType } = resolveActionAndSubjectType(winnerCandidate);
   const action = buildActionContract({
-    actionType: ACTION_CLASS_TO_ACTION_TYPE[winnerCandidate.action_class] || 'OTHER',
-    subjectType: winnerCandidate.action_class === 'START_EXPERIMENT' ? 'EXPERIMENT' : 'TRACKING_CONFIG',
+    actionType,
+    subjectType,
     subjectId: winnerCandidate.candidate_id,
     sourceAgent: 'CEO_ORCHESTRATOR',
     requestedChange: winnerCandidate.hypothesis,
@@ -64,4 +82,4 @@ function handoffToPolicyEngine({ winnerCandidate, measurementSignals }) {
   };
 }
 
-module.exports = { handoffToPolicyEngine, ACTION_CLASS_TO_ACTION_TYPE };
+module.exports = { handoffToPolicyEngine, ACTION_CLASS_TO_ACTION_TYPE, resolveActionAndSubjectType };

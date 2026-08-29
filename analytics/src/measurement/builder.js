@@ -22,6 +22,7 @@ const { buildExperimentAttributionInterface } = require('./experimentMeasurement
 const { buildDataQualityDimensions } = require('./dataQualityDimensions');
 const { buildMeasurementDebtRegistry } = require('./measurementDebt');
 const { buildStrategyHandoffMeasurement } = require('./strategyHandoff');
+const { resolveExposureIdentityEvidence } = require('./exposureRegistryAdapter');
 const { formMeasurementRecommendation } = require('./recommendationEngine');
 const { OWNERSHIP_BOUNDARIES } = require('./boundaries');
 const { CORE_INVARIANTS } = require('./enums');
@@ -66,8 +67,12 @@ function analyzeMeasurement({ productId, dataDir, referenceDate, strategyPlanner
   // (capital já está sendo gasto hoje de qualquer forma), mas caracteriza a mesma confiança
   // estrutural que qualquer teste novo enfrentaria.
   const currentCheckoutInitiated = currentContract.required_events.find((e) => e.event === 'CHECKOUT_INITIATED');
+  // PASSO 16, item 12 — EXPOSURE_IDENTITY não é mais hardcoded false: lê o registry real
+  // (analytics/data/execution/exposure-registry.json) via adapter dedicado, nunca importando
+  // execution/ diretamente (evita dependência circular — ver exposureRegistryAdapter.js).
+  const currentExposureIdentityEvidence = resolveExposureIdentityEvidence({ productId: resolvedProductId, dataDir: strategyPlannerArgs.executionDataDir });
   const currentBlockerGraph = evaluateBlockerDependencyGraph({
-    evidence: { FINANCIAL_OUTCOME_LINKAGE: true, EXPOSURE_IDENTITY: false, CHECKOUT_INITIATED_EVENT: currentCheckoutInitiated ? ['OBSERVED', 'VALIDATED'].includes(currentCheckoutInitiated.status) : false },
+    evidence: { FINANCIAL_OUTCOME_LINKAGE: true, EXPOSURE_IDENTITY: currentExposureIdentityEvidence.has_exposure_identity, CHECKOUT_INITIATED_EVENT: currentCheckoutInitiated ? ['OBSERVED', 'VALIDATED'].includes(currentCheckoutInitiated.status) : false },
   });
   const currentAnomalyFindings = buildAnomalyFindings({ reconciliation, decisionDependsOnScopes: ['EXPERIMENT_ATTRIBUTION', 'FINANCIAL_TRUTH'] });
   const currentCapitalGate = evaluateMeasurementCapitalGate({
@@ -80,6 +85,7 @@ function analyzeMeasurement({ productId, dataDir, referenceDate, strategyPlanner
   // item 26-27 — handoff dinâmico do vencedor REAL do Strategy Search (nunca hardcoded).
   const strategyHandoff = buildStrategyHandoffMeasurement({
     strategyResult, platform, financialTruthBlocking, financialTruthHealth, reconciliationMatchRate: reconciliation.match_rate, reconciliation, productId: resolvedProductId,
+    executionDataDir: strategyPlannerArgs.executionDataDir,
   });
 
   const revenueAttribution = buildRevenueAttribution({ grossRevenue: agg.sum.gross_revenue, spend: agg.sum.spend });
@@ -118,6 +124,7 @@ function analyzeMeasurement({ productId, dataDir, referenceDate, strategyPlanner
     current_tracking_contract: currentContract,
     current_funnel_measurement_audit: currentFunnelAudit,
     current_blocker_dependency_graph: currentBlockerGraph,
+    current_exposure_identity_evidence: currentExposureIdentityEvidence,
     current_anomaly_findings: currentAnomalyFindings.findings,
     current_measurement_capital_gate: currentCapitalGate, // informativo — capital já está sendo gasto hoje de qualquer forma; isto caracteriza a CONFIANÇA por trás dos números, nunca uma recomendação de pausar operação
     current_execution_safety_signal: currentExecutionSafetySignal,

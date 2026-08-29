@@ -8,6 +8,7 @@ const { evaluateBlockerDependencyGraph } = require('./blockerDependencyGraph');
 const { buildAnomalyFindings } = require('./anomalyDetection');
 const { buildMinimumViableAttribution } = require('./minimumViableAttribution');
 const { buildExecutionSafetySignal } = require('./executionSafetySignal');
+const { resolveExposureIdentityEvidence } = require('./exposureRegistryAdapter');
 
 /**
  * buildStrategyHandoffMeasurement() — item 26-27 (PASSO 13). Consome o resultado REAL do
@@ -17,7 +18,7 @@ const { buildExecutionSafetySignal } = require('./executionSafetySignal');
  * contextualizados (item 8) + minimum viable attribution (item 5) — nunca por um único evento
  * discreto isolado (item 4).
  */
-function buildStrategyHandoffMeasurement({ strategyResult, platform, financialTruthBlocking, financialTruthHealth, reconciliationMatchRate, reconciliation, productId }) {
+function buildStrategyHandoffMeasurement({ strategyResult, platform, financialTruthBlocking, financialTruthHealth, reconciliationMatchRate, reconciliation, productId, executionDataDir }) {
   const analysis = strategyResult.analysis;
   const winnerId = analysis.recommendation.recommended_architecture_id;
   const currentIsWinner = winnerId === analysis.current_architecture.architecture_id;
@@ -44,10 +45,16 @@ function buildStrategyHandoffMeasurement({ strategyResult, platform, financialTr
   // (nenhum registro real de qual arquitetura esteve live em qual data foi encontrado no repo) —
   // é o blocker de verdade, nunca escondido atrás de CHECKOUT_INITIATED (item 4).
   const checkoutInitiatedEntry = contract.required_events.find((e) => e.event === 'CHECKOUT_INITIATED');
+  // PASSO 16, item 12 — mesma substituição do hardcode aplicada em builder.js: lê o registry real
+  // via adapter dedicado (nunca importa execution/ diretamente — evita ciclo). EXPOSURE_IDENTITY
+  // aqui responde "sabemos com evidência real qual arquitetura está live agora" (o marcador que
+  // fundamenta a comparação prospectiva uma vez que o vencedor for implantado), nunca "o vencedor
+  // já tem uma entrada própria" (impossível pra um candidato ainda não implantado).
+  const exposureIdentityEvidence = resolveExposureIdentityEvidence({ productId, dataDir: executionDataDir });
   const blockerGraph = evaluateBlockerDependencyGraph({
     evidence: {
       FINANCIAL_OUTCOME_LINKAGE: true,
-      EXPOSURE_IDENTITY: false,
+      EXPOSURE_IDENTITY: exposureIdentityEvidence.has_exposure_identity,
       CHECKOUT_INITIATED_EVENT: checkoutInitiatedEntry ? ['OBSERVED', 'VALIDATED'].includes(checkoutInitiatedEntry.status) : false,
     },
   });
@@ -84,6 +91,7 @@ function buildStrategyHandoffMeasurement({ strategyResult, platform, financialTr
     consumed_dynamically: true,
     tracking_contract: contract,
     blocker_dependency_graph: blockerGraph,
+    exposure_identity_evidence: exposureIdentityEvidence,
     anomaly_findings: anomalyResult.findings,
     capital_gate: capitalGate,
     execution_safety_signal: executionSafetySignal,

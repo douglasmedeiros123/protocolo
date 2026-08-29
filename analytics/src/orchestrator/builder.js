@@ -26,17 +26,19 @@ const { CEO_ORIENTATIONS } = require('./enums');
 const { buildScopedConfidence } = require('./confidenceScope');
 const { isOrientationConsistentWithSemanticType, AUTHORITY_SEPARATION } = require('./actionSemantics');
 
-// PASSO 15.1, item 5/13 — architectural debt registrado (nunca aplicado silenciosamente, fora
-// do write boundary de execution/): execution/blastRadius.js deveria ganhar um SUBJECT_TYPE
-// dedicado (ex.: INTERNAL_REGISTRY) mapeado pra SINGLE_ASSET, pra que ações REGISTER_OBSERVED_
-// EXPOSURE (escrita interna pura) parem de herdar blast_radius=ACCOUNT só por estarem
-// classificadas como TRACKING_CONFIG/ARCHITECTURE hoje. Não implementado aqui — auditado e
-// registrado, mesmo tratamento dado ao Planner (item 13/15 deste PASSO).
+// PASSO 15.1, item 5/13 — debt registrado originalmente aqui. RESOLVIDO no PASSO 16, item 1:
+// execution/enums.js ganhou SUBJECT_TYPES=INTERNAL_REGISTRY/INTERNAL_DECISION_LEDGER e
+// ACTION_TYPES=REGISTER_OBSERVED_EXPOSURE/CREATE_NEW_EXPOSURE; execution/blastRadius.js mapeia
+// INTERNAL_REGISTRY->SINGLE_ASSET; policyHandoff.js's resolveActionAndSubjectType() agora envia
+// um candidato REGISTER_OBSERVED_EXPOSURE real como actionType=REGISTER_OBSERVED_EXPOSURE/
+// subjectType=INTERNAL_REGISTRY, nunca mais UPDATE_TRACKING_CONFIG/TRACKING_CONFIG. Mantido aqui
+// (histórico) só como registro de auditoria — status atualizado, nunca apagado silenciosamente.
 const BLAST_RADIUS_ARCHITECTURAL_DEBT = {
-  finding: 'REGISTER_OBSERVED_EXPOSURE (escrita interna pura) herda blast_radius=ACCOUNT hoje via execution/blastRadius.js porque nenhum SUBJECT_TYPE existente representa "registro interno" — só ARCHITECTURE/TRACKING_CONFIG, ambos superdimensionados pra esse caso.',
-  recommended_fix: 'adicionar um SUBJECT_TYPE dedicado (ex.: INTERNAL_REGISTRY) em execution/enums.js/blastRadius.js mapeado pra SINGLE_ASSET — fora do write boundary deste PASSO (analytics/src/orchestrator/ apenas).',
-  current_behavior_stays_conservative: true, // intencional — mais seguro errar pro lado de exigir aprovação do que liberar de menos
-  status: 'AUDITED_NOT_FIXED',
+  finding: 'REGISTER_OBSERVED_EXPOSURE (escrita interna pura) herdava blast_radius=ACCOUNT via execution/blastRadius.js porque nenhum SUBJECT_TYPE existente representava "registro interno" — só ARCHITECTURE/TRACKING_CONFIG, ambos superdimensionados pra esse caso.',
+  recommended_fix: 'adicionar um SUBJECT_TYPE dedicado (INTERNAL_REGISTRY) em execution/enums.js/blastRadius.js mapeado pra SINGLE_ASSET, e corrigir orchestrator/policyHandoff.js pra usar o novo action_type/subject_type quando o semantic_type real for REGISTER_OBSERVED_EXPOSURE.',
+  current_behavior_stays_conservative: true,
+  status: 'RESOLVED',
+  resolved_in: 'PASSO_16_ITEM_1',
 };
 
 const ORCHESTRATOR_VERSION = 'CEO-ORCHESTRATOR-V1-SHADOW';

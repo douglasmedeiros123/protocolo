@@ -11,20 +11,34 @@
 let entryCounter = 0;
 function resetEntryCounter() { entryCounter = 0; }
 
-function buildArchitectureLiveEntry({ architectureId, experimentId = null, variantId = null, liveFrom, liveUntil = null, environment, deploymentReference, recordedBy }) {
+// PASSO 16, item 5 — Exposure Identity Contract completo. live_from/live_until aceitam
+// explicitamente 'UNKNOWN' — nunca uma data inventada (item 5/7).
+function buildArchitectureLiveEntry({
+  productId = null, architectureId, experimentId = null, variantId = null, liveFrom, liveUntil = null,
+  environment, observationType = 'CURRENT_ARCHITECTURE_OBSERVATION', deploymentEvidenceType = 'UNKNOWN',
+  deploymentReference, evidenceSource = null, confidence = 'NOT_ASSESSABLE', recordedBy, provenance = null,
+}) {
   entryCounter += 1;
+  const entryId = `ALR-${String(entryCounter).padStart(5, '0')}`;
   return {
-    entry_id: `ALR-${String(entryCounter).padStart(5, '0')}`,
+    entry_id: entryId,
+    exposure_id: entryId, // alias — item 5 pede exposure_id explicitamente
+    product_id: productId,
     architecture_id: architectureId,
     experiment_id: experimentId,
     variant_id: variantId,
-    live_from: liveFrom,
+    live_from: liveFrom == null ? 'UNKNOWN' : liveFrom, // KNOWN ou UNKNOWN, nunca inventado
     live_until: liveUntil, // null = ainda live
     environment,
+    observation_type: observationType, // ex.: CURRENT_ARCHITECTURE_OBSERVATION vs EXPERIMENT_VARIANT_DEPLOYMENT
+    deployment_evidence_type: deploymentEvidenceType, // DEPLOYMENT_CONFIRMED|DEPLOYMENT_PROXY|REPO_CHANGE_ONLY|UNKNOWN
     deployment_reference: deploymentReference,
+    evidence_source: evidenceSource, // de onde veio a evidência real (ex.: 'vercel.json + strategy-search/currentArchitecture.js')
+    confidence,
     status: liveUntil ? 'ENDED' : 'ACTIVE',
     recorded_by: recordedBy,
     recorded_at: new Date().toISOString(),
+    provenance, // trilha de auditoria — nunca omitida quando disponível
   };
 }
 

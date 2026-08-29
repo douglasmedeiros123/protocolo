@@ -134,9 +134,27 @@ test('16: confidence_scope.product_viability_confidence vem de plan.verdict_conf
 });
 
 // 17. Systemic dependency can become dominant constraint.
-test('17: real — quando o blocker é IGUAL entre arquitetura atual e vencedor, dominant_constraint=MEASUREMENT (sistêmico)', () => {
-  assert.equal(diagnosis.dominant_constraint.category, 'MEASUREMENT');
-  assert.match(diagnosis.dominant_constraint.reason, /sistêmico/);
+// PASSO 16 — mesma correção do teste 4 de orchestratorDiagnosisAndRouting.test.js: dependia do
+// EXPOSURE_IDENTITY real estar bloqueado simetricamente, o que o PASSO 16 resolveu de verdade.
+// Convertido pra fixture (mesmo padrão do teste 18 já existente neste arquivo) — testa a REGRA,
+// nunca um fato pontual do estado real que o próprio PASSO 16 mudou de propósito.
+test('17: fixture — quando o blocker é IGUAL entre arquitetura atual e vencedor, dominant_constraint=MEASUREMENT (sistêmico)', () => {
+  const fixtureState = {
+    ...stateContract,
+    data: {
+      ...stateContract.data,
+      measurement: {
+        analysis: {
+          ...stateContract.data.measurement.analysis,
+          current_measurement_capital_gate: { ...stateContract.data.measurement.analysis.current_measurement_capital_gate, current_blocker: 'TRACKING' },
+          strategy_handoff: { ...stateContract.data.measurement.analysis.strategy_handoff, found: true, capital_gate: { ...stateContract.data.measurement.analysis.strategy_handoff.capital_gate, current_blocker: 'TRACKING' } },
+        },
+      },
+    },
+  };
+  const result = deriveDominantConstraint(fixtureState, 'RELIABLE');
+  assert.equal(result.category, 'MEASUREMENT');
+  assert.match(result.reason, /sistêmico/);
 });
 
 // 18. Local irrelevant blocker does not become global dominant constraint.

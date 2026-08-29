@@ -53,12 +53,17 @@ const CAPITAL_SAFETY_KEYS = [
 ];
 
 // item 14A.10 — tipos de action_type (extensível — nunca hardcoda um único tipo de mutação).
+// PASSO 16, item 1-2 — REGISTER_OBSERVED_EXPOSURE (escrita interna: registra uma observação de
+// estado que já existe) e CREATE_NEW_EXPOSURE (mutação externa real: coloca uma arquitetura/
+// variante nova live) são tipos DELIBERADAMENTE separados — nunca a mesma ação disfarçada.
 const ACTION_TYPES = [
   'ADJUST_BUDGET', 'PAUSE_CAMPAIGN', 'ACTIVATE_CAMPAIGN', 'ADJUST_BID', 'PUBLISH_CREATIVE',
   'UPDATE_TRACKING_CONFIG', 'UPDATE_PRODUCT_PRICE', 'UPDATE_OFFER', 'DEPLOY_LP_CHANGE',
-  'START_EXPERIMENT', 'STOP_EXPERIMENT', 'OTHER',
+  'START_EXPERIMENT', 'STOP_EXPERIMENT', 'REGISTER_OBSERVED_EXPOSURE', 'CREATE_NEW_EXPOSURE', 'OTHER',
 ];
-const SUBJECT_TYPES = ['CAMPAIGN', 'AD', 'ADSET', 'ARCHITECTURE', 'EXPERIMENT', 'PRODUCT', 'OFFER', 'TRACKING_CONFIG', 'LANDING_PAGE'];
+// PASSO 16, item 1 — INTERNAL_REGISTRY/INTERNAL_DECISION_LEDGER são subjects de ESCRITA INTERNA
+// pura (nunca tocam sistema externo) — blast radius deve refletir isso (blastRadius.js).
+const SUBJECT_TYPES = ['CAMPAIGN', 'AD', 'ADSET', 'ARCHITECTURE', 'EXPERIMENT', 'PRODUCT', 'OFFER', 'TRACKING_CONFIG', 'LANDING_PAGE', 'INTERNAL_REGISTRY', 'INTERNAL_DECISION_LEDGER'];
 
 // PASSO 14B — item 1: 4 conceitos de capital deliberadamente separados. RECOMMENDED_CAPITAL
 // nunca é truncado pelos outros três.

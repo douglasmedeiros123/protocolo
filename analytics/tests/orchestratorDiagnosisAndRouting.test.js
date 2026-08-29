@@ -53,9 +53,30 @@ test('3b: resolveConflict real — o conflito real Planner/Measurement é resolv
 });
 
 // 4. Dominant constraint != worst metric automatically.
-test('4: deriveDominantConstraint real — MEASUREMENT vence mesmo com profitability_state=LOSS (métrica de lucro pior) porque é a causa raiz sistêmica, não a "pior métrica"', () => {
-  assert.equal(diagnosis.dominant_constraint.category, 'MEASUREMENT');
-  assert.notEqual(diagnosis.dominant_constraint.category, 'ECONOMICS'); // não escolhido só porque profitability_state=LOSS é a "métrica mais feia"
+// PASSO 16 — este teste dependia do estado REAL de EXPOSURE_IDENTITY estar bloqueado
+// simetricamente (arquitetura atual E vencedor) em ARCH-CURRENT/challenger, o que era verdade
+// até o PASSO 15.1. O PASSO 16 resolveu esse blocker de verdade (execution/exposureIdentityRegistry.js
+// + orchestrator/exposureIdentityOperationalization.js), então esse estado real não existe mais
+// hoje — convertido pra fixture (mesmo padrão do teste 18 já existente neste arquivo) pra
+// continuar testando a REGRA (systemic blocker -> MEASUREMENT vence "pior métrica"), nunca um
+// fato pontual do estado real que o próprio PASSO 16 mudou de propósito.
+test('4: fixture — deriveDominantConstraint: MEASUREMENT vence mesmo com profitability_state=LOSS (métrica de lucro pior) porque é a causa raiz sistêmica, não a "pior métrica"', () => {
+  const fixtureState = {
+    ...stateContract,
+    data: {
+      ...stateContract.data,
+      measurement: {
+        analysis: {
+          ...stateContract.data.measurement.analysis,
+          current_measurement_capital_gate: { ...stateContract.data.measurement.analysis.current_measurement_capital_gate, current_blocker: 'TRACKING' },
+          strategy_handoff: { ...stateContract.data.measurement.analysis.strategy_handoff, found: true, capital_gate: { ...stateContract.data.measurement.analysis.strategy_handoff.capital_gate, current_blocker: 'TRACKING' } },
+        },
+      },
+    },
+  };
+  const result = deriveDominantConstraint(fixtureState, 'RELIABLE');
+  assert.equal(result.category, 'MEASUREMENT');
+  assert.notEqual(result.category, 'ECONOMICS'); // não escolhido só porque profitability_state=LOSS é a "métrica mais feia"
 });
 
 test('4b: quando financial truth está BLOCKED, ele sempre vence sobre measurement sistêmico (prioridade documentada, não score)', () => {

@@ -25,11 +25,19 @@ test('4b: connector não-mutável nunca é forçado (sem risco de mutação de q
   assert.equal(enforcement.forced, false);
 });
 
-test('4c: todos os adapters de ação real (Media/Tracking) são marcados mutable=true — nunca escapam do enforcement', () => {
+test('4c: todos os adapters de MUTAÇÃO EXTERNA real (Media/Tracking/Website/Offer) são marcados mutable=true — nunca escapam do enforcement', () => {
   assert.equal(MediaExecutionAdapter.mutable, true);
   assert.equal(TrackingExecutionAdapter.mutable, true);
+  // PASSO 16, item 1-2 — REGISTER_OBSERVED_EXPOSURE é a ÚNICA exceção deliberada: escrita
+  // interna pura (InternalRegistryAdapter, mutable=false), nunca sistema externo. Todos os
+  // outros action_types continuam mutable=true.
+  const EXTERNAL_MUTATION_EXCEPTIONS = ['REGISTER_OBSERVED_EXPOSURE'];
   for (const type of Object.keys(ADAPTERS_BY_ACTION_TYPE)) {
-    assert.equal(resolveAdapter(type).mutable, true);
+    if (EXTERNAL_MUTATION_EXCEPTIONS.includes(type)) {
+      assert.equal(resolveAdapter(type).mutable, false);
+    } else {
+      assert.equal(resolveAdapter(type).mutable, true);
+    }
   }
 });
 
