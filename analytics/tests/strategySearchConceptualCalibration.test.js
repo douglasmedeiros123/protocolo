@@ -35,18 +35,23 @@ function currentFixture(overrides = {}) {
 // item 1 — TEST ELIGIBILITY NÃO CIRCULAR
 
 test('item 1: evidence objective (ausência de resultado do próprio teste) NÃO bloqueia o teste', () => {
-  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'READY', isCurrent: false, prerequisiteEvidenceGaps: [] });
+  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'READY', isCurrent: false, evidenceGaps: [] });
   assert.notEqual(e.eligibility, 'NEEDS_EVIDENCE');
   assert.equal(e.eligibility, 'NEEDS_IMPLEMENTATION');
 });
 
-test('item 1: prerequisite evidence real PODE bloquear o teste', () => {
-  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'READY', isCurrent: false, prerequisiteEvidenceGaps: [{ type: 'CUSTOMER_EVIDENCE_GAP', question: 'x' }] });
+test('item 1 (PASSO 12.3): gap real com blocking_classification=BLOCKING_PREREQUISITE_EVIDENCE PODE bloquear o teste', () => {
+  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'READY', isCurrent: false, evidenceGaps: [{ type: 'TECHNICAL_CONSTRAINT_GAP', gap_type: 'TECHNICAL_CONSTRAINT_GAP', blocking: true, blocking_rationale: 'sem saber se o checkout suporta o redirect, o teste é UNIMPLEMENTABLE.' }] });
   assert.equal(e.eligibility, 'NEEDS_EVIDENCE');
 });
 
+test('item 1 (PASSO 12.3): gap NON_BLOCKING (sem blocking:true) nunca bloqueia sozinho', () => {
+  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'READY', isCurrent: false, evidenceGaps: [{ type: 'MARKET_EVIDENCE_GAP', blocking: false }] });
+  assert.notEqual(e.eligibility, 'NEEDS_EVIDENCE');
+});
+
 test('item 1: candidato sem performance histórica AINDA PODE ser testável (NEEDS_TRACKING/NEEDS_IMPLEMENTATION, nunca bloqueado só por falta de histórico)', () => {
-  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'PARTIAL', isCurrent: false, prerequisiteEvidenceGaps: [] });
+  const e = evaluateArchitectureTestEligibility({ trackingReadiness: 'PARTIAL', isCurrent: false, evidenceGaps: [] });
   assert.notEqual(e.eligibility, 'BLOCKED');
   assert.equal(e.eligibility, 'NEEDS_TRACKING');
 });

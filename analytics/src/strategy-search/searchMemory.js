@@ -1,6 +1,7 @@
 'use strict';
 
 const { loadHypotheses } = require('../learning/registry');
+const { classifyEvidenceGapBlocking } = require('./evidenceGapBlocking');
 
 /**
  * buildStrategySearchMemory() — items 80-82. Lê o Memory/Learning Engine SÓ por leitura.
@@ -23,8 +24,10 @@ function buildStrategySearchMemory({ productId, architectures }) {
   };
 }
 
-// items 99-100 — se a recomendação depende de algo que não sabemos sobre cliente/mercado,
-// gera o gap explícito em vez de inventar a resposta.
+// items 99-100 (PASSO 12) — se a recomendação depende de algo que não sabemos sobre cliente/
+// mercado, gera o gap explícito em vez de inventar a resposta. PASSO 12.3, item 1-2: cada gap
+// carrega sua classificação de bloqueio real (evidenceGapBlocking.js) — nunca bloqueia o teste
+// só por "seria melhor saber".
 function buildCustomerAndMarketEvidenceGaps(architecture) {
   const gaps = [];
   if (['QUIZ', 'APPLICATION'].includes(architecture.family)) {
@@ -33,7 +36,7 @@ function buildCustomerAndMarketEvidenceGaps(architecture) {
   if (['ADVERTORIAL', 'CONTENT_TO_OFFER', 'ORGANIC_TO_OFFER'].includes(architecture.family)) {
     gaps.push({ type: 'MARKET_EVIDENCE_GAP', question: `Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.` });
   }
-  return gaps;
+  return gaps.map((g) => ({ ...g, ...classifyEvidenceGapBlocking(g) }));
 }
 
 module.exports = { buildStrategySearchMemory, buildCustomerAndMarketEvidenceGaps };

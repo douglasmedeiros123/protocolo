@@ -73,14 +73,23 @@ function enrichChallenger(challenger, { currentStageTypes, productId }) {
   };
 
   const mvaTest = buildMinimumViableArchitectureTest({ productId, architecture: enriched, currentStageTypes });
-  // PASSO 12.1, item 1 — só os gaps de evidência de cliente/mercado indispensáveis pra DEFINIR a
-  // hipótese (ex.: quais perguntas de qualificação um QUIZ precisa) contam como
-  // PREREQUISITE_EVIDENCE. A ausência de resultado de performance (o que o teste vai medir)
-  // NUNCA entra aqui — isso é EVIDENCE_OBJECTIVE, o próprio propósito do teste.
-  const testEligibility = evaluateArchitectureTestEligibility({ trackingReadiness: enriched.tracking_readiness, isCurrent: false, prerequisiteEvidenceGaps: customerMarketGaps });
+  // PASSO 12.1 item 1 + PASSO 12.3 items 1-5 — só gaps com blocking_classification=
+  // BLOCKING_PREREQUISITE_EVIDENCE (nenhum hoje — customerMarketGaps são NON_BLOCKING por
+  // padrão, item 1) entram na cadeia de blockers. A ausência de resultado de performance (o que
+  // o teste vai medir) NUNCA bloqueia — isso é EVIDENCE_OBJECTIVE, o próprio propósito do teste.
+  const testEligibility = evaluateArchitectureTestEligibility({ trackingReadiness: enriched.tracking_readiness, isCurrent: false, evidenceGaps: customerMarketGaps });
   const experimentDraft = buildExperimentDraftProposal({ architecture: enriched, mvaTest });
 
-  return { ...enriched, mva_test: mvaTest, test_eligibility: testEligibility.eligibility, test_eligibility_detail: testEligibility, experiment_draft_proposal: experimentDraft };
+  return {
+    ...enriched, mva_test: mvaTest, experiment_draft_proposal: experimentDraft,
+    test_eligibility: testEligibility.eligibility,
+    // item 5 (PASSO 12.3) — cadeia de blockers explícita no nível do challenger, nunca escondida
+    // dentro de um campo aninhado só.
+    current_blocker: testEligibility.current_blocker,
+    remaining_blockers: testEligibility.remaining_blockers,
+    next_unlock: testEligibility.next_unlock,
+    test_eligibility_detail: testEligibility,
+  };
 }
 
 function buildCurrentEntry({ currentArchitecture, currentStageTypes, financialRoas, structuralFrictionSignals, hasCompletedComparativeExperiment }) {

@@ -29,6 +29,7 @@
         "reason": "a ausência do componente é um FATO real (STRUCTURAL_ABSENCE) — isso só GERA a hipótese de que é o gargalo (item 1/2), nunca prova. Nenhum sinal comportamental específico observado ainda que eleve pra OBSERVED_BOTTLENECK.",
         "structural_absence": true
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [],
       "distance": "MEDIUM",
       "distance_detail": {
@@ -141,9 +142,13 @@
         "test_id": "MVA-protocolo_resposta_garantida-001",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Produto de entrada desenhado pra alimentar um backend de maior ticket.",
       "primary_mechanism": "INCREASE_AOV",
       "product_id": "protocolo_resposta_garantida",
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "MONETIZATION_LAYER",
@@ -163,8 +168,23 @@
       "strategic_diversification_value": false,
       "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
         "eligibility": "NEEDS_TRACKING",
-        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -238,9 +258,15 @@
         "reason": "a ausência do componente é um FATO real (STRUCTURAL_ABSENCE) — isso só GERA a hipótese de que é o gargalo (item 1/2), nunca prova. Nenhum sinal comportamental específico observado ainda que eleve pra OBSERVED_BOTTLENECK.",
         "structural_absence": true
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [
         {
+          "blocking": false,
+          "blocking_rationale": null,
+          "classification": "NON_BLOCKING_STRATEGIC_EVIDENCE_GAP",
+          "gap_type": "MARKET_EVIDENCE_GAP",
           "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "reason": "sofisticação/consciência de mercado melhora a qualidade da mensagem do advertorial, mas não torna o teste inválido/ininterpretável/inimplementável sem ela — dá pra escrever e medir com o entendimento atual (item 1-2).",
           "type": "MARKET_EVIDENCE_GAP"
         }
       ],
@@ -359,9 +385,13 @@
         "test_id": "MVA-protocolo_resposta_garantida-002",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Conteúdo em formato editorial pré-qualifica e constrói contexto antes da oferta.",
       "primary_mechanism": "INCREASE_COMPREHENSION",
       "product_id": "protocolo_resposta_garantida",
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "COMPREHENSION_BUILDING_STAGE",
@@ -379,10 +409,25 @@
       ],
       "status": "CANDIDATE",
       "strategic_diversification_value": false,
-      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
-        "eligibility": "NEEDS_EVIDENCE",
-        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
+        "eligibility": "NEEDS_TRACKING",
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -459,6 +504,7 @@
       },
       "channel_eligibility_status": "UNKNOWN",
       "contactability_status": "UNKNOWN",
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [],
       "distance": "MEDIUM",
       "distance_detail": {
@@ -571,10 +617,14 @@
         "test_id": "MVA-protocolo_resposta_garantida-003",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Atendimento humano/assistido via WhatsApp remove objeção antes da compra.",
       "primary_mechanism": "REDUCE_FRICTION",
       "product_id": "protocolo_resposta_garantida",
       "recoverable_population_status": "UNKNOWN",
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "INCOMPLETE_PURCHASE_RECOVERY",
@@ -594,8 +644,23 @@
       "strategic_diversification_value": false,
       "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
         "eligibility": "NEEDS_TRACKING",
-        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -673,9 +738,15 @@
         "reason": "este challenger não é gerado por uma ausência estrutural de componente — a escala STRUCTURAL_ABSENCE→BOTTLENECK não se aplica.",
         "structural_absence": false
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [
         {
+          "blocking": false,
+          "blocking_rationale": null,
+          "classification": "NON_BLOCKING_STRATEGIC_EVIDENCE_GAP",
+          "gap_type": "MARKET_EVIDENCE_GAP",
           "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "reason": "sofisticação/consciência de mercado melhora a qualidade da mensagem do advertorial, mas não torna o teste inválido/ininterpretável/inimplementável sem ela — dá pra escrever e medir com o entendimento atual (item 1-2).",
           "type": "MARKET_EVIDENCE_GAP"
         }
       ],
@@ -791,9 +862,13 @@
         "test_id": "MVA-protocolo_resposta_garantida-004",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Tráfego orgânico/conteúdo alimenta a oferta, reduzindo dependência de mídia paga.",
       "primary_mechanism": "REDUCE_CPA",
       "product_id": "protocolo_resposta_garantida",
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "STRATEGIC_DIVERSIFICATION_ORGANIC",
@@ -811,10 +886,25 @@
       ],
       "status": "CANDIDATE",
       "strategic_diversification_value": true,
-      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
-        "eligibility": "NEEDS_EVIDENCE",
-        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
+        "eligibility": "NEEDS_TRACKING",
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -877,7 +967,7 @@
     "answer": "PROBABLY_NO",
     "basis": "perdeu o ranking real para ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE nos fatores comparáveis hoje — mas sem experimento concluído, resposta cai pra PROBABLY_NO. Diagnóstico estrutural também aponta na mesma direção: ROAS financeiro real 0.6416700264301395 vs target 3, known_path_to_target=NO_KNOWN_PATH, comparative_evidence=NOT_ESTABLISHED — a decisão não se apoia só na posição do ranking."
   },
-  "created_at": "2026-08-29T17:19:26.398Z",
+  "created_at": "2026-08-29T17:31:48.855Z",
   "current_architecture": {
     "architecture_id": "ARCH-CURRENT",
     "family": "DIRECT_TO_OFFER",
@@ -1404,9 +1494,15 @@
         "strategic_diversification_rank": 0,
         "tracking_readiness_rank": 2
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [
         {
+          "blocking": false,
+          "blocking_rationale": null,
+          "classification": "NON_BLOCKING_STRATEGIC_EVIDENCE_GAP",
+          "gap_type": "MARKET_EVIDENCE_GAP",
           "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "reason": "sofisticação/consciência de mercado melhora a qualidade da mensagem do advertorial, mas não torna o teste inválido/ininterpretável/inimplementável sem ela — dá pra escrever e medir com o entendimento atual (item 1-2).",
           "type": "MARKET_EVIDENCE_GAP"
         }
       ],
@@ -1526,10 +1622,14 @@
         "test_id": "MVA-protocolo_resposta_garantida-002",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Conteúdo em formato editorial pré-qualifica e constrói contexto antes da oferta.",
       "primary_mechanism": "INCREASE_COMPREHENSION",
       "product_id": "protocolo_resposta_garantida",
       "rank": 1,
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "COMPREHENSION_BUILDING_STAGE",
@@ -1547,10 +1647,25 @@
       ],
       "status": "CANDIDATE",
       "strategic_diversification_value": false,
-      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
-        "eligibility": "NEEDS_EVIDENCE",
-        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
+        "eligibility": "NEEDS_TRACKING",
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -1701,6 +1816,7 @@
         "strategic_diversification_rank": 0,
         "tracking_readiness_rank": 2
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [],
       "distance": "MEDIUM",
       "distance_detail": {
@@ -1814,10 +1930,14 @@
         "test_id": "MVA-protocolo_resposta_garantida-001",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Produto de entrada desenhado pra alimentar um backend de maior ticket.",
       "primary_mechanism": "INCREASE_AOV",
       "product_id": "protocolo_resposta_garantida",
       "rank": 3,
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "MONETIZATION_LAYER",
@@ -1837,8 +1957,23 @@
       "strategic_diversification_value": false,
       "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
         "eligibility": "NEEDS_TRACKING",
-        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -1932,6 +2067,7 @@
         "tracking_readiness_rank": 2
       },
       "contactability_status": "UNKNOWN",
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [],
       "distance": "MEDIUM",
       "distance_detail": {
@@ -2045,11 +2181,15 @@
         "test_id": "MVA-protocolo_resposta_garantida-003",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Atendimento humano/assistido via WhatsApp remove objeção antes da compra.",
       "primary_mechanism": "REDUCE_FRICTION",
       "product_id": "protocolo_resposta_garantida",
       "rank": 4,
       "recoverable_population_status": "UNKNOWN",
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "INCOMPLETE_PURCHASE_RECOVERY",
@@ -2069,8 +2209,23 @@
       "strategic_diversification_value": false,
       "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
         "eligibility": "NEEDS_TRACKING",
-        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
@@ -2164,9 +2319,15 @@
         "strategic_diversification_rank": 1,
         "tracking_readiness_rank": 2
       },
+      "current_blocker": "TRACKING",
       "customer_market_evidence_gaps": [
         {
+          "blocking": false,
+          "blocking_rationale": null,
+          "classification": "NON_BLOCKING_STRATEGIC_EVIDENCE_GAP",
+          "gap_type": "MARKET_EVIDENCE_GAP",
           "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "reason": "sofisticação/consciência de mercado melhora a qualidade da mensagem do advertorial, mas não torna o teste inválido/ininterpretável/inimplementável sem ela — dá pra escrever e medir com o entendimento atual (item 1-2).",
           "type": "MARKET_EVIDENCE_GAP"
         }
       ],
@@ -2283,10 +2444,14 @@
         "test_id": "MVA-protocolo_resposta_garantida-004",
         "test_type": "SINGLE_VARIABLE_TEST"
       },
+      "next_unlock": "IMPLEMENTATION",
       "pattern_description": "Tráfego orgânico/conteúdo alimenta a oferta, reduzindo dependência de mídia paga.",
       "primary_mechanism": "REDUCE_CPA",
       "product_id": "protocolo_resposta_garantida",
       "rank": 5,
+      "remaining_blockers": [
+        "IMPLEMENTATION"
+      ],
       "reversibility": "REVERSIBLE",
       "risks": [],
       "rule_id": "STRATEGIC_DIVERSIFICATION_ORGANIC",
@@ -2304,10 +2469,25 @@
       ],
       "status": "CANDIDATE",
       "strategic_diversification_value": true,
-      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility": "NEEDS_TRACKING",
       "test_eligibility_detail": {
-        "eligibility": "NEEDS_EVIDENCE",
-        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+        "blockers_detail": [
+          {
+            "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+            "type": "TRACKING"
+          },
+          {
+            "reason": "o(s) componente(s) novo(s) desta arquitetura ainda não foram implementados de fato.",
+            "type": "IMPLEMENTATION"
+          }
+        ],
+        "current_blocker": "TRACKING",
+        "eligibility": "NEEDS_TRACKING",
+        "next_unlock": "IMPLEMENTATION",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto.",
+        "remaining_blockers": [
+          "IMPLEMENTATION"
+        ]
       },
       "tracking_contract_requirements": {
         "attribution_requirements": [
