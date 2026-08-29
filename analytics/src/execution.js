@@ -10,6 +10,7 @@ const { loadCapitalSafetyConfig } = require('./execution/capitalSafety');
 const { evaluateCircuitBreaker } = require('./execution/circuitBreaker');
 const { loadActions, loadApprovals, loadExposureRegistry, loadCircuitBreakerState } = require('./execution/registry');
 const { SAFE_MODE } = require('./execution/safeMode');
+const { runSyntheticR30ToR500Scenarios } = require('./execution/syntheticBudgetScenario');
 
 function parseArgs(argv) {
   const args = {};
@@ -23,6 +24,12 @@ function parseArgs(argv) {
     else if (argv[i] === '--approvals') args.approvals = true;
     else if (argv[i] === '--exposure-registry') args.exposureRegistry = true;
     else if (argv[i] === '--safety') args.safety = true;
+    else if (argv[i] === '--authority') args.authority = true;
+    else if (argv[i] === '--buckets') args.buckets = true;
+    else if (argv[i] === '--scale-ladder') args.scaleLadder = true;
+    else if (argv[i] === '--limits') args.limits = true;
+    else if (argv[i] === '--synthetic-scenario') args.syntheticScenario = true;
+    else if (argv[i] === '--posture') args.posture = true;
   }
   return args;
 }
@@ -60,11 +67,18 @@ function run(argv) {
   if (args.approvals) { process.stdout.write(JSON.stringify(loadApprovals(), null, 2) + '\n'); return; }
   if (args.exposureRegistry) { process.stdout.write(JSON.stringify(loadExposureRegistry(), null, 2) + '\n'); return; }
   if (args.safety) { process.stdout.write(JSON.stringify({ safe_mode: SAFE_MODE, external_mutations: 'FORBIDDEN' }, null, 2) + '\n'); return; }
+  if (args.syntheticScenario) { process.stdout.write(JSON.stringify(runSyntheticR30ToR500Scenarios(), null, 2) + '\n'); return; }
 
   // --dry-run e --summary (e default) fazem a mesma coisa: propõem a próxima ação real do
   // sistema e rodam o dry-run completo sobre ela. NUNCA executam nada.
   const result = proposeAndDryRunNextAction({ productId });
-  const out = args.summary ? summaryOf(result) : result;
+  const out = args.summary ? summaryOf(result)
+    : args.authority ? { posture_recommendation: result.authority_posture_recommendation, tiers: result.authority_tiers }
+    : args.buckets ? result.capital_buckets
+    : args.scaleLadder ? result.scale_ladder
+    : args.limits ? result.real_limit_recommendations
+    : args.posture ? result.capital_posture_simulation
+    : result;
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
   return out;
 }

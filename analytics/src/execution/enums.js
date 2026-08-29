@@ -60,9 +60,58 @@ const ACTION_TYPES = [
 ];
 const SUBJECT_TYPES = ['CAMPAIGN', 'AD', 'ADSET', 'ARCHITECTURE', 'EXPERIMENT', 'PRODUCT', 'OFFER', 'TRACKING_CONFIG', 'LANDING_PAGE'];
 
+// PASSO 14B — item 1: 4 conceitos de capital deliberadamente separados. RECOMMENDED_CAPITAL
+// nunca é truncado pelos outros três.
+const CAPITAL_CONCEPTS = ['RECOMMENDED_CAPITAL', 'AUTONOMOUS_EXECUTION_CAPITAL', 'HUMAN_APPROVED_CAPITAL', 'ABSOLUTE_PROHIBITED_CAPITAL'];
+
+// item 2 — tiers de autoridade, do menor pro maior.
+const AUTHORITY_TIERS_V2 = ['TIER_0_ANALYZE_ONLY', 'TIER_1_MICRO_AUTONOMY', 'TIER_2_CONTROLLED_AUTONOMY', 'TIER_3_SCALED_AUTONOMY', 'TIER_4_HUMAN_OVERRIDE'];
+
+// item 4-5 — gates de promoção/rebaixamento de autoridade.
+const PROMOTION_GATE_RESULTS = ['NOT_READY', 'ELIGIBLE_FOR_REVIEW', 'PROMOTE', 'HOLD', 'DEMOTE'];
+
+// item 6 — buckets de capital.
+const CAPITAL_BUCKETS = ['VALIDATION_CAPITAL', 'EXPLOITATION_CAPITAL', 'EXPLORATION_CAPITAL', 'MEASUREMENT_CAPITAL', 'RESERVE_CAPITAL'];
+
+// item 8 — decisões de escalonamento de orçamento.
+const BUDGET_ESCALATION_DECISIONS = ['DIRECT_JUMP', 'STEPWISE_SCALE', 'HOLD', 'REDUCE', 'STOP', 'REQUIRE_HUMAN_APPROVAL', 'DENY'];
+
+// item 9 — escada de escala.
+const SCALE_LADDER_STAGES = ['STAGE_0_VALIDATION', 'STAGE_1_SIGNAL_CONFIRMED', 'STAGE_2_ECONOMIC_CONFIRMATION', 'STAGE_3_CONTROLLED_SCALE', 'STAGE_4_AGGRESSIVE_SCALE'];
+
+// item 11 — categorias de custo/perda, nunca fundidas.
+const LOSS_CATEGORIES = ['BUSINESS_LOSS', 'EXPERIMENT_LEARNING_COST', 'MEASUREMENT_COST', 'EXECUTION_COST'];
+
+// item 14 — a máquina precisa poder recomendar não-ação, sem viés de "sempre gastar".
+const NO_ACTION_RECOMMENDATIONS = ['DO_NOT_SPEND', 'HOLD_CAPITAL', 'COLLECT_EVIDENCE', 'KILL_HYPOTHESIS', 'SWITCH_PRODUCT'];
+
+// item 19 — categorias de limite reais a recomendar.
+const LIMIT_CATEGORIES = ['HARD_SAFETY_LIMIT', 'AUTONOMOUS_LIMIT', 'HUMAN_APPROVAL_THRESHOLD', 'EXPERIMENT_LOSS_LIMIT'];
+// PASSO 14B, calibração final — CURRENT_AUTHORITY_STATE != PERMANENT_ECONOMIC_POLICY.
+// DEFENSIBLE_CURRENT_TIER_LIMIT: um valor real, mas só válido ENQUANTO o tier atual for TIER_0
+// (não é uma política econômica permanente, é um reflexo do estado atual). NOT_APPLICABLE_AT_
+// TIER_0: o próprio conceito não se aplica ainda (ex.: HUMAN_APPROVAL_THRESHOLD não existe
+// enquanto não há execução autônoma pra aprovar).
+const LIMIT_DEFENSIBILITY = ['DEFENSIBLE', 'DEFENSIBLE_CURRENT_TIER_LIMIT', 'NOT_APPLICABLE_AT_TIER_0', 'NOT_DEFENSIBLE_TO_SET'];
+
+// item 3 — o que TIER_0_ANALYZE_ONLY PODE e NÃO PODE fazer, explícito (nunca implícito).
+const TIER_0_ALLOWED_CAPABILITIES = ['ANALYZE', 'DIAGNOSE', 'RANK', 'RECOMMEND', 'PROPOSE', 'DRY_RUN', 'SIMULATE'];
+const TIER_0_FORBIDDEN_CAPABILITIES = ['EXECUTE_EXTERNAL_MUTATION', 'SPEND_AUTONOMOUSLY'];
+
+// item 2 — critérios que decidirão o HUMAN_APPROVAL_THRESHOLD real quando a máquina subir de
+// tier — nunca inventado agora, só documentado como dependência futura.
+const FUTURE_HUMAN_APPROVAL_THRESHOLD_CRITERIA = [
+  'capital_disponivel', 'tolerancia_de_risco_do_operador', 'historico_da_maquina', 'experiment_performance',
+  'loss_containment', 'reversibility', 'authority_tier', 'measurement_quality', 'action_type', 'blast_radius',
+];
+
 module.exports = {
   ACTION_STATES, EXECUTION_MODES, POLICY_RESULTS, POLICY_CATEGORIES,
   CIRCUIT_BREAKER_STATES, CIRCUIT_BREAKER_ACTIONS, CIRCUIT_BREAKER_TRIGGERS,
   RISK_LEVELS, BLAST_RADII, ROLLBACK_STATUSES, APPROVAL_STATUSES,
   CAPITAL_SAFETY_KEYS, ACTION_TYPES, SUBJECT_TYPES,
+  CAPITAL_CONCEPTS, AUTHORITY_TIERS_V2, PROMOTION_GATE_RESULTS, CAPITAL_BUCKETS,
+  BUDGET_ESCALATION_DECISIONS, SCALE_LADDER_STAGES, LOSS_CATEGORIES, NO_ACTION_RECOMMENDATIONS,
+  LIMIT_CATEGORIES, LIMIT_DEFENSIBILITY, TIER_0_ALLOWED_CAPABILITIES, TIER_0_FORBIDDEN_CAPABILITIES,
+  FUTURE_HUMAN_APPROVAL_THRESHOLD_CRITERIA,
 };

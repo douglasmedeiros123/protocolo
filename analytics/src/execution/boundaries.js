@@ -43,4 +43,27 @@ const ARCHITECTURAL_DEBT = {
   EXECUTION_AUTHORITY_GROWTH: 'autonomia financeira (autonomous_execution_limit crescendo além de NOT_CONFIGURED) deve crescer por evidência histórica real (execuções bem-sucedidas, rollback validado, medição confiável) — nunca por decisão da própria LLM/Orchestrator elevando seu próprio limite (reforça selfModificationProtection.js).',
 };
 
-module.exports = { OWNERSHIP_BOUNDARIES, ARCHITECTURAL_DEBT };
+// PASSO 14B calibração final, item 5 — decisão arquitetural registrada: o sistema JÁ possui
+// Data Agent/collectors (analytics/src/collectors/) responsáveis pela leitura das fontes
+// externas existentes (Meta Insights, Hotmart, Clarity, GitHub) — o futuro Execution Layer NÃO
+// deve duplicar essa coleta read-only só pra ter um connector próprio. executionAdapters.js
+// (MediaExecutionAdapter/TrackingExecutionAdapter/etc.) devem ganhar implementação real só
+// quando adicionarem uma CAPACIDADE DE EXECUÇÃO (escrita) que ainda não existe — nunca pra
+// replicar uma leitura que os collectors já fazem. READ_PATH (collectors -> normalizers ->
+// Measurement/Strategy Search) e WRITE_PATH (Action Contract -> Policy Engine -> Execution
+// Adapter -> External Connector) permanecem arquiteturas separadas — melhora segurança
+// (comprometer o write path nunca compromete a leitura) e responsabilidade (cada caminho tem um
+// dono claro).
+const READ_WRITE_PATH_SEPARATION = {
+  read_path: 'collectors/*.js -> normalizers/*.js -> Measurement/Strategy Search/Decision/Planner — já existe, nunca duplicado pelo Execution Layer.',
+  write_path: 'Action Contract -> Policy Engine -> Execution Adapter -> External Connector (não implementado ainda) — só ganha um connector real quando uma capacidade de ESCRITA genuinamente nova for necessária.',
+  rule: 'Execution adapters existem pra adicionar capacidade de execução, nunca pra re-implementar leitura que os collectors já fazem. READ_PATH e WRITE_PATH permanecem deliberadamente separados.',
+};
+
+// item 6 — próximo passo recomendado, registrado explicitamente (não implementado neste PASSO).
+const NEXT_RECOMMENDED_STEP = {
+  step: 'PASSO_15_CEO_ORCHESTRATOR_V1_SHADOW_MODE',
+  reason: 'já existem inteligência (Measurement/Strategy Search/Decision/Planner), Policy Engine, Approval Policy, Circuit Breaker e Execution simulation suficientes pra construir o loop de coordenação (CEO/Orchestrator) sem conceder autoridade financeira real. O CEO deve nascer em SHADOW_MODE: zero mutações externas, zero capital autônomo, recomendações completas, avaliação de política completa, simulação de dry-run completa — o mesmo princípio SAFE_MODE/DRY_RUN já estabelecido nos PASSOs 14A/14A.1/14B, aplicado agora à camada de coordenação, não só às camadas individuais.',
+};
+
+module.exports = { OWNERSHIP_BOUNDARIES, ARCHITECTURAL_DEBT, READ_WRITE_PATH_SEPARATION, NEXT_RECOMMENDED_STEP };
