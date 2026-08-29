@@ -1,0 +1,166 @@
+[
+  {
+    "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+    "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+    "changed_components": [
+      "UPSELL"
+    ],
+    "estimated_implementation_cost": "NOT_ESTIMABLE",
+    "estimated_measurement_capital": "NOT_ESTIMABLE",
+    "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+    "hypothesis": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+    "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+    "minimum_changes": [
+      "UPSELL"
+    ],
+    "minimum_evidence": {
+      "checkouts": null,
+      "compras": 15,
+      "duration_days": 14,
+      "lpv": null,
+      "spend": null
+    },
+    "preserved_components": [
+      "AD",
+      "SALES_PAGE",
+      "CHECKOUT",
+      "ORDER_BUMP",
+      "ORDER_BUMP"
+    ],
+    "primary_metric": "net_aov",
+    "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+    "required_tracking": [
+      "UPSELL"
+    ],
+    "secondary_metrics": [
+      "financial_roas",
+      "refund_rate"
+    ],
+    "success_condition": "net_aov melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+    "test_id": "MVA-protocolo_resposta_garantida-001",
+    "test_type": "SINGLE_VARIABLE_TEST"
+  },
+  {
+    "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+    "changed_components": [
+      "ADVERTORIAL"
+    ],
+    "estimated_implementation_cost": "NOT_ESTIMABLE",
+    "estimated_measurement_capital": "NOT_ESTIMABLE",
+    "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+    "hypothesis": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+    "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+    "minimum_changes": [
+      "ADVERTORIAL"
+    ],
+    "minimum_evidence": {
+      "checkouts": 10,
+      "compras": null,
+      "duration_days": 7,
+      "lpv": 100,
+      "spend": null
+    },
+    "preserved_components": [
+      "AD",
+      "SALES_PAGE",
+      "CHECKOUT",
+      "ORDER_BUMP",
+      "ORDER_BUMP"
+    ],
+    "primary_metric": "lpv_to_checkout_rate",
+    "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+    "required_tracking": [
+      "ADVERTORIAL"
+    ],
+    "secondary_metrics": [
+      "financial_roas",
+      "refund_rate"
+    ],
+    "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+    "test_id": "MVA-protocolo_resposta_garantida-002",
+    "test_type": "SINGLE_VARIABLE_TEST"
+  },
+  {
+    "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+    "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+    "changed_components": [
+      "WHATSAPP"
+    ],
+    "estimated_implementation_cost": "NOT_ESTIMABLE",
+    "estimated_measurement_capital": "NOT_ESTIMABLE",
+    "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+    "hypothesis": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+    "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+    "minimum_changes": [
+      "WHATSAPP"
+    ],
+    "minimum_evidence": {
+      "checkouts": 10,
+      "compras": null,
+      "duration_days": 7,
+      "lpv": 100,
+      "spend": null
+    },
+    "preserved_components": [
+      "AD",
+      "SALES_PAGE",
+      "CHECKOUT",
+      "ORDER_BUMP",
+      "ORDER_BUMP"
+    ],
+    "primary_metric": "lpv_to_checkout_rate",
+    "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+    "required_tracking": [
+      "WHATSAPP"
+    ],
+    "secondary_metrics": [
+      "financial_roas",
+      "refund_rate"
+    ],
+    "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+    "test_id": "MVA-protocolo_resposta_garantida-003",
+    "test_type": "SINGLE_VARIABLE_TEST"
+  },
+  {
+    "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+    "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+    "changed_components": [
+      "CONTENT"
+    ],
+    "estimated_implementation_cost": "NOT_ESTIMABLE",
+    "estimated_measurement_capital": "NOT_ESTIMABLE",
+    "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+    "hypothesis": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+    "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+    "minimum_changes": [
+      "CONTENT"
+    ],
+    "minimum_evidence": {
+      "checkouts": 10,
+      "compras": null,
+      "duration_days": 7,
+      "lpv": 100,
+      "spend": null
+    },
+    "preserved_components": [
+      "AD",
+      "SALES_PAGE",
+      "CHECKOUT",
+      "ORDER_BUMP",
+      "ORDER_BUMP"
+    ],
+    "primary_metric": "lpv_to_checkout_rate",
+    "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+    "required_tracking": [
+      "CONTENT"
+    ],
+    "secondary_metrics": [
+      "financial_roas",
+      "refund_rate"
+    ],
+    "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+    "test_id": "MVA-protocolo_resposta_garantida-004",
+    "test_type": "SINGLE_VARIABLE_TEST"
+  }
+]

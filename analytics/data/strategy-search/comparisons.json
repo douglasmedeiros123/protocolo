@@ -1,0 +1,1013 @@
+{
+  "decision_tie": false,
+  "ranking": [
+    {
+      "architecture_hypothesis": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+      "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+      "automation_fitness": "HIGH",
+      "automation_fitness_detail": {
+        "fitness": "HIGH",
+        "human_dependency": [],
+        "reason": "nenhum estágio com dependência humana direta identificada."
+      },
+      "bottleneck_classification": "HYPOTHESIZED_BOTTLENECK",
+      "bottleneck_classification_detail": {
+        "classification": "HYPOTHESIZED_BOTTLENECK",
+        "reason": "a ausência do componente é um FATO real (STRUCTURAL_ABSENCE) — isso só GERA a hipótese de que é o gargalo (item 1/2), nunca prova. Nenhum sinal comportamental específico observado ainda que eleve pra OBSERVED_BOTTLENECK.",
+        "structural_absence": true
+      },
+      "comparison_dimensions": {
+        "automation_fitness_rank": 3,
+        "causal_plausibility_rank": 2,
+        "decision_relevance_rank": 3,
+        "economic_relevance_rank": 2,
+        "implementation_cost_rank": 0,
+        "information_gain_rank": 2,
+        "measurement_capital_rank": 0,
+        "prior_learning_rank": 0,
+        "product_specific_evidence_rank": 0,
+        "reversibility_rank": 3,
+        "risk_rank": 3,
+        "scale_potential_rank": 0,
+        "strategic_diversification_rank": 0,
+        "tracking_readiness_rank": 2
+      },
+      "customer_market_evidence_gaps": [
+        {
+          "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "type": "MARKET_EVIDENCE_GAP"
+        }
+      ],
+      "distance": "MEDIUM",
+      "distance_detail": {
+        "distance": "MEDIUM",
+        "new_stage_ratio": 0.2,
+        "new_stages": [
+          "ADVERTORIAL"
+        ],
+        "reason": "1 de 5 estágios são novos em relação à arquitetura atual (20%)."
+      },
+      "evidence_basis": [
+        {
+          "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+          "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+          "statement": "{\"reason\":\"economic_gap+customer_journey\",\"ref\":\"known_path_to_target=NO_KNOWN_PATH (gap real: ROAS 0.6416700264301395 vs target); arquitetura atual vai direto de anúncio pra página de venda, sem estágio intermediário de compreensão do mecanismo — STRUCTURAL_ABSENCE, não prova de que compreensão é o gargalo (item 1).\"}",
+          "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+        },
+        {
+          "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+          "statement": "Conteúdo em formato editorial pré-qualifica e constrói contexto antes da oferta.",
+          "type": "GENERAL_MARKETING_KNOWLEDGE"
+        },
+        {
+          "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+          "statement": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+          "type": "HYPOTHESIS"
+        }
+      ],
+      "expected_economic_mechanism": "conversion (LP→checkout) ↑ → CPA efetivo ↓ → ROAS ↑ (magnitude: UNKNOWN).",
+      "experiment_draft_proposal": {
+        "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+        "baseline": "arquitetura atual real (ARCH-CURRENT).",
+        "budget_limit": null,
+        "category": "CRO",
+        "category_note": "aproximação mais próxima de experiments/schema.js CATEGORIES — nenhuma categoria dedicada a teste de arquitetura de funil existe ainda (dívida documentada, não implementada agora).",
+        "expected_effect": "INCREASE_COMPREHENSION",
+        "experiment_id": null,
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "mva_test_id": "MVA-protocolo_resposta_garantida-002",
+        "note": "EXPERIMENT_DRAFT_PROPOSAL — nunca registrado automaticamente via experiments/registry.js saveExperiment() (item 93). Requer decisão humana antes de virar experimento real.",
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "status": "DRAFT_PROPOSAL_NOT_REGISTERED",
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "family": "ADVERTORIAL",
+      "family_selection": {
+        "family": "ADVERTORIAL",
+        "reason": "nenhum asset de vídeo confirmado hoje — formato editorial/texto (ADVERTORIAL) cobre o mesmo mecanismo de compreensão com menor complexidade de implementação, sem exigir produção de vídeo do zero.",
+        "stage_type": "ADVERTORIAL"
+      },
+      "final_rank_reason": "topo do ranking.",
+      "is_current": false,
+      "lifecycle_placeholder": {
+        "lifecycle_layer": "OPTIONAL",
+        "note": "Lifecycle nunca recebe receita atribuída sem o agente real (item 97).",
+        "revenue_attributed": 0
+      },
+      "message_architecture_requirements": {
+        "awareness_stage_hypothesis": null,
+        "mechanism_requirement": null,
+        "message_requirement": "NOT_IMPLEMENTED — reservado para Copy Intelligence Agent futuro (item 54).",
+        "objection_requirement": null,
+        "proof_requirement": null
+      },
+      "mva_test": {
+        "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+        "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+        "changed_components": [
+          "ADVERTORIAL"
+        ],
+        "estimated_implementation_cost": "NOT_ESTIMABLE",
+        "estimated_measurement_capital": "NOT_ESTIMABLE",
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+        "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+        "minimum_changes": [
+          "ADVERTORIAL"
+        ],
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "preserved_components": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "ORDER_BUMP"
+        ],
+        "primary_metric": "lpv_to_checkout_rate",
+        "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+        "required_tracking": [
+          "ADVERTORIAL"
+        ],
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "test_id": "MVA-protocolo_resposta_garantida-002",
+        "test_type": "SINGLE_VARIABLE_TEST"
+      },
+      "pattern_description": "Conteúdo em formato editorial pré-qualifica e constrói contexto antes da oferta.",
+      "primary_mechanism": "INCREASE_COMPREHENSION",
+      "product_id": "protocolo_resposta_garantida",
+      "rank": 1,
+      "reversibility": "REVERSIBLE",
+      "risks": [],
+      "rule_id": "COMPREHENSION_BUILDING_STAGE",
+      "scale_fitness": "UNKNOWN",
+      "scale_fitness_detail": {
+        "fitness": "UNKNOWN",
+        "reason": "sem experimento real validando volume/estabilidade em escala ainda — nunca HIGH sem evidência (item 51)."
+      },
+      "stage_types": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ADVERTORIAL"
+      ],
+      "status": "CANDIDATE",
+      "strategic_diversification_value": false,
+      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility_detail": {
+        "eligibility": "NEEDS_EVIDENCE",
+        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+      },
+      "tracking_contract_requirements": {
+        "attribution_requirements": [
+          "UTM_CONTINUITY"
+        ],
+        "behavioral_measurement_surfaces": [
+          "SALES_PAGE",
+          "ADVERTORIAL"
+        ],
+        "events": [
+          "ad_impression/ad_click",
+          "page_view/scroll_depth",
+          "checkout_initiated/purchase",
+          "bump_offered/bump_accepted",
+          "advertorial_view"
+        ],
+        "identifiers": [
+          "session_id",
+          "click_id",
+          "transaction_id",
+          "customer_id"
+        ],
+        "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+        "revenue_events": [
+          "CHECKOUT",
+          "ORDER_BUMP"
+        ],
+        "stages": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "ADVERTORIAL"
+        ]
+      },
+      "tracking_readiness": "PARTIAL",
+      "tracking_readiness_detail": {
+        "missing": [
+          "ADVERTORIAL"
+        ],
+        "readiness": "PARTIAL",
+        "reason": "1 de 5 estágio(s) sem instrumentação real confirmada hoje."
+      },
+      "traffic_assumptions": {
+        "assumed_source": "Meta Ads (canal real hoje)",
+        "note": "Media Buying Agent não implementado — suposições de tráfego são hipótese, nunca dado real (item 98).",
+        "status": "HYPOTHESIS",
+        "volume_assumption": "UNKNOWN"
+      },
+      "unknowns": [
+        "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado."
+      ],
+      "why_generated": {
+        "reason": "economic_gap+customer_journey",
+        "ref": "known_path_to_target=NO_KNOWN_PATH (gap real: ROAS 0.6416700264301395 vs target); arquitetura atual vai direto de anúncio pra página de venda, sem estágio intermediário de compreensão do mecanismo — STRUCTURAL_ABSENCE, não prova de que compreensão é o gargalo (item 1)."
+      }
+    },
+    {
+      "architecture_hypothesis": null,
+      "architecture_id": "ARCH-CURRENT",
+      "automation_fitness": "HIGH",
+      "comparison_dimensions": {
+        "automation_fitness_rank": 3,
+        "causal_plausibility_rank": 1,
+        "decision_relevance_rank": 2,
+        "economic_relevance_rank": 0,
+        "implementation_cost_rank": 3,
+        "information_gain_rank": 1,
+        "measurement_capital_rank": 3,
+        "prior_learning_rank": 0,
+        "product_specific_evidence_rank": 2,
+        "reversibility_rank": 3,
+        "risk_rank": 3,
+        "scale_potential_rank": 0,
+        "strategic_diversification_rank": 0,
+        "tracking_readiness_rank": 3
+      },
+      "distance": "LOW",
+      "evidence_basis": [
+        {
+          "source": "profit/aggregate.js + profit/financials.js.",
+          "statement": "financial ROAS real = 0.6416700264301395 — evidência OPERACIONAL (a arquitetura funciona e gera receita real), não evidência COMPARATIVA (não prova que é a melhor opção disponível, item 4).",
+          "type": "OBSERVED_EVIDENCE"
+        },
+        {
+          "source": "CRO diagnóstico real: CRO-DIAG-DUPLICATE-ID-OFERTA.",
+          "statement": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+          "type": "OBSERVED_EVIDENCE"
+        },
+        {
+          "source": "CRO diagnóstico real: CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML.",
+          "statement": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte).",
+          "type": "HYPOTHESIS"
+        }
+      ],
+      "family": "DIRECT_TO_OFFER",
+      "final_rank_reason": "venceu ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE no fator: decision_relevance_rank.",
+      "is_current": true,
+      "primary_mechanism": "OTHER",
+      "rank": 2,
+      "reversibility": "REVERSIBLE",
+      "risks": [
+        "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+        "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte)."
+      ],
+      "scale_fitness": "UNKNOWN",
+      "stage_types": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ORDER_BUMP"
+      ],
+      "status": "CURRENT",
+      "strategic_diversification_value": false,
+      "tracking_readiness": "READY",
+      "unknowns": [],
+      "why_generated": null
+    },
+    {
+      "architecture_hypothesis": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+      "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+      "automation_fitness": "HIGH",
+      "automation_fitness_detail": {
+        "fitness": "HIGH",
+        "human_dependency": [],
+        "reason": "nenhum estágio com dependência humana direta identificada."
+      },
+      "bottleneck_classification": "HYPOTHESIZED_BOTTLENECK",
+      "bottleneck_classification_detail": {
+        "classification": "HYPOTHESIZED_BOTTLENECK",
+        "reason": "a ausência do componente é um FATO real (STRUCTURAL_ABSENCE) — isso só GERA a hipótese de que é o gargalo (item 1/2), nunca prova. Nenhum sinal comportamental específico observado ainda que eleve pra OBSERVED_BOTTLENECK.",
+        "structural_absence": true
+      },
+      "comparison_dimensions": {
+        "automation_fitness_rank": 3,
+        "causal_plausibility_rank": 2,
+        "decision_relevance_rank": 2,
+        "economic_relevance_rank": 3,
+        "implementation_cost_rank": 0,
+        "information_gain_rank": 2,
+        "measurement_capital_rank": 0,
+        "prior_learning_rank": 0,
+        "product_specific_evidence_rank": 0,
+        "reversibility_rank": 3,
+        "risk_rank": 3,
+        "scale_potential_rank": 0,
+        "strategic_diversification_rank": 0,
+        "tracking_readiness_rank": 2
+      },
+      "customer_market_evidence_gaps": [],
+      "distance": "MEDIUM",
+      "distance_detail": {
+        "distance": "MEDIUM",
+        "new_stage_ratio": 0.2,
+        "new_stages": [
+          "UPSELL"
+        ],
+        "reason": "1 de 5 estágios são novos em relação à arquitetura atual (20%)."
+      },
+      "evidence_basis": [
+        {
+          "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+          "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+          "statement": "{\"reason\":\"missing_monetization\",\"ref\":[\"OFFER-DIAG-MISSING-MONETIZATION-LAYER\"]}",
+          "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+        },
+        {
+          "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+          "statement": "Produto de entrada desenhado pra alimentar um backend de maior ticket.",
+          "type": "GENERAL_MARKETING_KNOWLEDGE"
+        },
+        {
+          "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+          "statement": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+          "type": "HYPOTHESIS"
+        }
+      ],
+      "expected_economic_mechanism": "AOV/receita-por-comprador ↑ → ROAS financeiro ↑, sem alterar CPA (magnitude: UNKNOWN — nenhuma taxa de conversão real da nova camada existe ainda).",
+      "experiment_draft_proposal": {
+        "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+        "baseline": "arquitetura atual real (ARCH-CURRENT).",
+        "budget_limit": null,
+        "category": "OFFER",
+        "category_note": "aproximação mais próxima de experiments/schema.js CATEGORIES — nenhuma categoria dedicada a teste de arquitetura de funil existe ainda (dívida documentada, não implementada agora).",
+        "expected_effect": "INCREASE_AOV",
+        "experiment_id": null,
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+        "minimum_evidence": {
+          "checkouts": null,
+          "compras": 15,
+          "duration_days": 14,
+          "lpv": null,
+          "spend": null
+        },
+        "mva_test_id": "MVA-protocolo_resposta_garantida-001",
+        "note": "EXPERIMENT_DRAFT_PROPOSAL — nunca registrado automaticamente via experiments/registry.js saveExperiment() (item 93). Requer decisão humana antes de virar experimento real.",
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "status": "DRAFT_PROPOSAL_NOT_REGISTERED",
+        "success_condition": "net_aov melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "target_metric": "net_aov"
+      },
+      "family": "FRONTEND_BACKEND",
+      "family_selection": null,
+      "final_rank_reason": "venceu ARCH-CURRENT no fator: product_specific_evidence_rank.",
+      "is_current": false,
+      "lifecycle_placeholder": {
+        "lifecycle_layer": "OPTIONAL",
+        "note": "Lifecycle nunca recebe receita atribuída sem o agente real (item 97).",
+        "revenue_attributed": 0
+      },
+      "message_architecture_requirements": {
+        "awareness_stage_hypothesis": null,
+        "mechanism_requirement": null,
+        "message_requirement": "NOT_IMPLEMENTED — reservado para Copy Intelligence Agent futuro (item 54).",
+        "objection_requirement": null,
+        "proof_requirement": null
+      },
+      "mva_test": {
+        "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+        "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+        "changed_components": [
+          "UPSELL"
+        ],
+        "estimated_implementation_cost": "NOT_ESTIMABLE",
+        "estimated_measurement_capital": "NOT_ESTIMABLE",
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+        "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+        "minimum_changes": [
+          "UPSELL"
+        ],
+        "minimum_evidence": {
+          "checkouts": null,
+          "compras": 15,
+          "duration_days": 14,
+          "lpv": null,
+          "spend": null
+        },
+        "preserved_components": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "ORDER_BUMP"
+        ],
+        "primary_metric": "net_aov",
+        "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+        "required_tracking": [
+          "UPSELL"
+        ],
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "success_condition": "net_aov melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "test_id": "MVA-protocolo_resposta_garantida-001",
+        "test_type": "SINGLE_VARIABLE_TEST"
+      },
+      "pattern_description": "Produto de entrada desenhado pra alimentar um backend de maior ticket.",
+      "primary_mechanism": "INCREASE_AOV",
+      "product_id": "protocolo_resposta_garantida",
+      "rank": 3,
+      "reversibility": "REVERSIBLE",
+      "risks": [],
+      "rule_id": "MONETIZATION_LAYER",
+      "scale_fitness": "UNKNOWN",
+      "scale_fitness_detail": {
+        "fitness": "UNKNOWN",
+        "reason": "sem experimento real validando volume/estabilidade em escala ainda — nunca HIGH sem evidência (item 51)."
+      },
+      "stage_types": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "UPSELL"
+      ],
+      "status": "CANDIDATE",
+      "strategic_diversification_value": false,
+      "test_eligibility": "NEEDS_TRACKING",
+      "test_eligibility_detail": {
+        "eligibility": "NEEDS_TRACKING",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+      },
+      "tracking_contract_requirements": {
+        "attribution_requirements": [
+          "UTM_CONTINUITY"
+        ],
+        "behavioral_measurement_surfaces": [
+          "SALES_PAGE",
+          "UPSELL"
+        ],
+        "events": [
+          "ad_impression/ad_click",
+          "page_view/scroll_depth",
+          "checkout_initiated/purchase",
+          "bump_offered/bump_accepted",
+          "upsell_offered/upsell_accepted"
+        ],
+        "identifiers": [
+          "session_id",
+          "click_id",
+          "transaction_id",
+          "customer_id"
+        ],
+        "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+        "revenue_events": [
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "UPSELL"
+        ],
+        "stages": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "UPSELL"
+        ]
+      },
+      "tracking_readiness": "PARTIAL",
+      "tracking_readiness_detail": {
+        "missing": [
+          "UPSELL"
+        ],
+        "readiness": "PARTIAL",
+        "reason": "1 de 5 estágio(s) sem instrumentação real confirmada hoje."
+      },
+      "traffic_assumptions": {
+        "assumed_source": "Meta Ads (canal real hoje)",
+        "note": "Media Buying Agent não implementado — suposições de tráfego são hipótese, nunca dado real (item 98).",
+        "status": "HYPOTHESIS",
+        "volume_assumption": "UNKNOWN"
+      },
+      "unknowns": [],
+      "why_generated": {
+        "reason": "missing_monetization",
+        "ref": [
+          "OFFER-DIAG-MISSING-MONETIZATION-LAYER"
+        ]
+      }
+    },
+    {
+      "architecture_hypothesis": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+      "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+      "automation_fitness": "LOW",
+      "automation_fitness_detail": {
+        "fitness": "LOW",
+        "human_dependency": [
+          "WHATSAPP"
+        ],
+        "reason": "inclui estágio(s) com dependência humana real: WHATSAPP — reduz automation_fitness (item 49), mesmo que a economia seja favorável (item 49: lucro vence elegância, mas o custo operacional é real)."
+      },
+      "bottleneck_classification": "NOT_APPLICABLE",
+      "bottleneck_classification_detail": {
+        "classification": "NOT_APPLICABLE",
+        "reason": "este challenger não é gerado por uma ausência estrutural de componente — a escala STRUCTURAL_ABSENCE→BOTTLENECK não se aplica.",
+        "structural_absence": false
+      },
+      "channel_eligibility_status": "UNKNOWN",
+      "comparison_dimensions": {
+        "automation_fitness_rank": 1,
+        "causal_plausibility_rank": 2,
+        "decision_relevance_rank": 2,
+        "economic_relevance_rank": 2,
+        "implementation_cost_rank": 0,
+        "information_gain_rank": 2,
+        "measurement_capital_rank": 0,
+        "prior_learning_rank": 0,
+        "product_specific_evidence_rank": 0,
+        "reversibility_rank": 3,
+        "risk_rank": 3,
+        "scale_potential_rank": 0,
+        "strategic_diversification_rank": 0,
+        "tracking_readiness_rank": 2
+      },
+      "contactability_status": "UNKNOWN",
+      "customer_market_evidence_gaps": [],
+      "distance": "MEDIUM",
+      "distance_detail": {
+        "distance": "MEDIUM",
+        "new_stage_ratio": 0.2,
+        "new_stages": [
+          "WHATSAPP"
+        ],
+        "reason": "1 de 5 estágios são novos em relação à arquitetura atual (20%)."
+      },
+      "evidence_basis": [
+        {
+          "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+          "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+          "statement": "{\"reason\":\"conversion_friction\",\"ref\":\"TRANSACTION_STATE_EVIDENCE: 4 transação(ões) real(is) em status CANCELLED/EXPIRED (Hotmart) — prova que a transação ficou incompleta, NÃO prova de abandono recuperável confirmado nem de contactabilidade (item 6).\"}",
+          "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+        },
+        {
+          "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+          "statement": "Atendimento humano/assistido via WhatsApp remove objeção antes da compra.",
+          "type": "GENERAL_MARKETING_KNOWLEDGE"
+        },
+        {
+          "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+          "statement": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+          "type": "HYPOTHESIS"
+        }
+      ],
+      "expected_economic_mechanism": "recuperar transação incompleta → transação adicional realizada → receita ↑ (mesmo CPA de mídia já pago) — magnitude/taxa: UNKNOWN, nunca inventada (item 9).",
+      "experiment_draft_proposal": {
+        "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+        "baseline": "arquitetura atual real (ARCH-CURRENT).",
+        "budget_limit": null,
+        "category": "CRO",
+        "category_note": "aproximação mais próxima de experiments/schema.js CATEGORIES — nenhuma categoria dedicada a teste de arquitetura de funil existe ainda (dívida documentada, não implementada agora).",
+        "expected_effect": "REDUCE_FRICTION",
+        "experiment_id": null,
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "mva_test_id": "MVA-protocolo_resposta_garantida-003",
+        "note": "EXPERIMENT_DRAFT_PROPOSAL — nunca registrado automaticamente via experiments/registry.js saveExperiment() (item 93). Requer decisão humana antes de virar experimento real.",
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "status": "DRAFT_PROPOSAL_NOT_REGISTERED",
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "family": "WHATSAPP_ASSISTED",
+      "family_selection": null,
+      "final_rank_reason": "venceu ARCH-CAND-01-MONETIZATION_LAYER no fator: economic_relevance_rank.",
+      "is_current": false,
+      "lifecycle_placeholder": {
+        "lifecycle_layer": "OPTIONAL",
+        "note": "Lifecycle nunca recebe receita atribuída sem o agente real (item 97).",
+        "revenue_attributed": 0
+      },
+      "message_architecture_requirements": {
+        "awareness_stage_hypothesis": null,
+        "mechanism_requirement": null,
+        "message_requirement": "NOT_IMPLEMENTED — reservado para Copy Intelligence Agent futuro (item 54).",
+        "objection_requirement": null,
+        "proof_requirement": null
+      },
+      "mva_test": {
+        "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+        "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+        "changed_components": [
+          "WHATSAPP"
+        ],
+        "estimated_implementation_cost": "NOT_ESTIMABLE",
+        "estimated_measurement_capital": "NOT_ESTIMABLE",
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+        "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+        "minimum_changes": [
+          "WHATSAPP"
+        ],
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "preserved_components": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "ORDER_BUMP"
+        ],
+        "primary_metric": "lpv_to_checkout_rate",
+        "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+        "required_tracking": [
+          "WHATSAPP"
+        ],
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "test_id": "MVA-protocolo_resposta_garantida-003",
+        "test_type": "SINGLE_VARIABLE_TEST"
+      },
+      "pattern_description": "Atendimento humano/assistido via WhatsApp remove objeção antes da compra.",
+      "primary_mechanism": "REDUCE_FRICTION",
+      "product_id": "protocolo_resposta_garantida",
+      "rank": 4,
+      "recoverable_population_status": "UNKNOWN",
+      "reversibility": "REVERSIBLE",
+      "risks": [],
+      "rule_id": "INCOMPLETE_PURCHASE_RECOVERY",
+      "scale_fitness": "UNKNOWN",
+      "scale_fitness_detail": {
+        "fitness": "UNKNOWN",
+        "reason": "sem experimento real validando volume/estabilidade em escala ainda — nunca HIGH sem evidência (item 51)."
+      },
+      "stage_types": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "WHATSAPP"
+      ],
+      "status": "CANDIDATE",
+      "strategic_diversification_value": false,
+      "test_eligibility": "NEEDS_TRACKING",
+      "test_eligibility_detail": {
+        "eligibility": "NEEDS_TRACKING",
+        "reason": "parte dos estágios novos ainda sem instrumentação real — sem isso o teste geraria dado incompleto (item 1)."
+      },
+      "tracking_contract_requirements": {
+        "attribution_requirements": [
+          "UTM_CONTINUITY"
+        ],
+        "behavioral_measurement_surfaces": [
+          "SALES_PAGE"
+        ],
+        "events": [
+          "ad_impression/ad_click",
+          "page_view/scroll_depth",
+          "checkout_initiated/purchase",
+          "bump_offered/bump_accepted",
+          "whatsapp_message_sent/whatsapp_reply"
+        ],
+        "identifiers": [
+          "session_id",
+          "click_id",
+          "transaction_id",
+          "customer_id"
+        ],
+        "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+        "revenue_events": [
+          "CHECKOUT",
+          "ORDER_BUMP"
+        ],
+        "stages": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "WHATSAPP"
+        ]
+      },
+      "tracking_readiness": "PARTIAL",
+      "tracking_readiness_detail": {
+        "missing": [
+          "WHATSAPP"
+        ],
+        "readiness": "PARTIAL",
+        "reason": "1 de 5 estágio(s) sem instrumentação real confirmada hoje."
+      },
+      "traffic_assumptions": {
+        "assumed_source": "Meta Ads (canal real hoje)",
+        "note": "Media Buying Agent não implementado — suposições de tráfego são hipótese, nunca dado real (item 98).",
+        "status": "HYPOTHESIS",
+        "volume_assumption": "UNKNOWN"
+      },
+      "transaction_state_evidence": {
+        "cancelled_or_expired_count": 4,
+        "source": "Hotmart real (analytics/data/daily/*.json) — fato de estado de transação, não de comportamento do comprador.",
+        "status_types_observed": [
+          "CANCELLED",
+          "EXPIRED"
+        ]
+      },
+      "unknowns": [],
+      "why_generated": {
+        "reason": "conversion_friction",
+        "ref": "TRANSACTION_STATE_EVIDENCE: 4 transação(ões) real(is) em status CANCELLED/EXPIRED (Hotmart) — prova que a transação ficou incompleta, NÃO prova de abandono recuperável confirmado nem de contactabilidade (item 6)."
+      }
+    },
+    {
+      "architecture_hypothesis": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+      "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+      "automation_fitness": "HIGH",
+      "automation_fitness_detail": {
+        "fitness": "HIGH",
+        "human_dependency": [],
+        "reason": "nenhum estágio com dependência humana direta identificada."
+      },
+      "bottleneck_classification": "NOT_APPLICABLE",
+      "bottleneck_classification_detail": {
+        "classification": "NOT_APPLICABLE",
+        "reason": "este challenger não é gerado por uma ausência estrutural de componente — a escala STRUCTURAL_ABSENCE→BOTTLENECK não se aplica.",
+        "structural_absence": false
+      },
+      "comparison_dimensions": {
+        "automation_fitness_rank": 3,
+        "causal_plausibility_rank": 2,
+        "decision_relevance_rank": 1,
+        "economic_relevance_rank": 3,
+        "implementation_cost_rank": 0,
+        "information_gain_rank": 2,
+        "measurement_capital_rank": 0,
+        "prior_learning_rank": 0,
+        "product_specific_evidence_rank": 1,
+        "reversibility_rank": 3,
+        "risk_rank": 3,
+        "scale_potential_rank": 0,
+        "strategic_diversification_rank": 1,
+        "tracking_readiness_rank": 2
+      },
+      "customer_market_evidence_gaps": [
+        {
+          "question": "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado.",
+          "type": "MARKET_EVIDENCE_GAP"
+        }
+      ],
+      "distance": "MEDIUM",
+      "distance_detail": {
+        "distance": "MEDIUM",
+        "new_stage_ratio": 0.2,
+        "new_stages": [
+          "CONTENT"
+        ],
+        "reason": "1 de 5 estágios são novos em relação à arquitetura atual (20%)."
+      },
+      "diversification_evidence_status": "NOT_AVAILABLE",
+      "evidence_basis": [
+        {
+          "note": null,
+          "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+          "statement": "{\"reason\":\"strategic_diversification\",\"ref\":\"toda a arquitetura atual depende 100% de mídia paga Meta — testar um caminho orgânico/conteúdo gera informação ortogonal (item 37), independente de o mecanismo de anúncio pago estar certo ou errado.\"}",
+          "type": "PRODUCT_SPECIFIC_EVIDENCE"
+        },
+        {
+          "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+          "statement": "Tráfego orgânico/conteúdo alimenta a oferta, reduzindo dependência de mídia paga.",
+          "type": "GENERAL_MARKETING_KNOWLEDGE"
+        },
+        {
+          "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+          "statement": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+          "type": "HYPOTHESIS"
+        }
+      ],
+      "expected_economic_mechanism": "CPA agregado (mídia+conteúdo) ↓ → ROAS agregado ↑ — mas com velocidade de resultado muito mais lenta (conteúdo não escala como mídia paga). Magnitude: UNKNOWN.",
+      "experiment_draft_proposal": {
+        "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+        "baseline": "arquitetura atual real (ARCH-CURRENT).",
+        "budget_limit": null,
+        "category": "MEDIA_BUYING",
+        "category_note": "aproximação mais próxima de experiments/schema.js CATEGORIES — nenhuma categoria dedicada a teste de arquitetura de funil existe ainda (dívida documentada, não implementada agora).",
+        "expected_effect": "REDUCE_CPA",
+        "experiment_id": null,
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "mva_test_id": "MVA-protocolo_resposta_garantida-004",
+        "note": "EXPERIMENT_DRAFT_PROPOSAL — nunca registrado automaticamente via experiments/registry.js saveExperiment() (item 93). Requer decisão humana antes de virar experimento real.",
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "status": "DRAFT_PROPOSAL_NOT_REGISTERED",
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "target_metric": "lpv_to_checkout_rate"
+      },
+      "family": "CONTENT_TO_OFFER",
+      "family_selection": null,
+      "final_rank_reason": "venceu ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY no fator: decision_relevance_rank.",
+      "is_current": false,
+      "lifecycle_placeholder": {
+        "lifecycle_layer": "OPTIONAL",
+        "note": "Lifecycle nunca recebe receita atribuída sem o agente real (item 97).",
+        "revenue_attributed": 0
+      },
+      "message_architecture_requirements": {
+        "awareness_stage_hypothesis": null,
+        "mechanism_requirement": null,
+        "message_requirement": "NOT_IMPLEMENTED — reservado para Copy Intelligence Agent futuro (item 54).",
+        "objection_requirement": null,
+        "proof_requirement": null
+      },
+      "mva_test": {
+        "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+        "causal_confidence_note": "mudança isolada em 1 componente — confiança causal alta se o resultado for claro.",
+        "changed_components": [
+          "CONTENT"
+        ],
+        "estimated_implementation_cost": "NOT_ESTIMABLE",
+        "estimated_measurement_capital": "NOT_ESTIMABLE",
+        "failure_condition": "métrica primária não melhora, ou piora, vs baseline, com amostra mínima atingida.",
+        "hypothesis": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+        "kill_condition": "refund_rate sobe de forma desproporcional ao ganho observado, ou custo operacional (se houver dependência humana) inviabiliza o teste antes da amostra mínima.",
+        "minimum_changes": [
+          "CONTENT"
+        ],
+        "minimum_evidence": {
+          "checkouts": 10,
+          "compras": null,
+          "duration_days": 7,
+          "lpv": 100,
+          "spend": null
+        },
+        "preserved_components": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "ORDER_BUMP"
+        ],
+        "primary_metric": "lpv_to_checkout_rate",
+        "redecision_condition": "resultado (SUCCESS/FAILURE/INCONCLUSIVE) real disponível — reexecutar Strategy Search pra recalcular ranking/recomendação.",
+        "required_tracking": [
+          "CONTENT"
+        ],
+        "secondary_metrics": [
+          "financial_roas",
+          "refund_rate"
+        ],
+        "success_condition": "lpv_to_checkout_rate melhora na direção esperada vs baseline da arquitetura atual, com amostra mínima atingida.",
+        "test_id": "MVA-protocolo_resposta_garantida-004",
+        "test_type": "SINGLE_VARIABLE_TEST"
+      },
+      "pattern_description": "Tráfego orgânico/conteúdo alimenta a oferta, reduzindo dependência de mídia paga.",
+      "primary_mechanism": "REDUCE_CPA",
+      "product_id": "protocolo_resposta_garantida",
+      "rank": 5,
+      "reversibility": "REVERSIBLE",
+      "risks": [],
+      "rule_id": "STRATEGIC_DIVERSIFICATION_ORGANIC",
+      "scale_fitness": "UNKNOWN",
+      "scale_fitness_detail": {
+        "fitness": "UNKNOWN",
+        "reason": "sem experimento real validando volume/estabilidade em escala ainda — nunca HIGH sem evidência (item 51)."
+      },
+      "stage_types": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "CONTENT"
+      ],
+      "status": "CANDIDATE",
+      "strategic_diversification_value": true,
+      "test_eligibility": "NEEDS_EVIDENCE",
+      "test_eligibility_detail": {
+        "eligibility": "NEEDS_EVIDENCE",
+        "reason": "evidência prévia indispensável pra definir a hipótese/implementação corretamente ainda não coletada: MARKET_EVIDENCE_GAP."
+      },
+      "tracking_contract_requirements": {
+        "attribution_requirements": [
+          "UTM_CONTINUITY"
+        ],
+        "behavioral_measurement_surfaces": [
+          "SALES_PAGE",
+          "CONTENT"
+        ],
+        "events": [
+          "ad_impression/ad_click",
+          "page_view/scroll_depth",
+          "checkout_initiated/purchase",
+          "bump_offered/bump_accepted",
+          "content_view"
+        ],
+        "identifiers": [
+          "session_id",
+          "click_id",
+          "transaction_id",
+          "customer_id"
+        ],
+        "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+        "revenue_events": [
+          "CHECKOUT",
+          "ORDER_BUMP"
+        ],
+        "stages": [
+          "AD",
+          "SALES_PAGE",
+          "CHECKOUT",
+          "ORDER_BUMP",
+          "CONTENT"
+        ]
+      },
+      "tracking_readiness": "PARTIAL",
+      "tracking_readiness_detail": {
+        "missing": [
+          "CONTENT"
+        ],
+        "readiness": "PARTIAL",
+        "reason": "1 de 5 estágio(s) sem instrumentação real confirmada hoje."
+      },
+      "traffic_assumptions": {
+        "assumed_source": "Meta Ads (canal real hoje)",
+        "note": "Media Buying Agent não implementado — suposições de tráfego são hipótese, nunca dado real (item 98).",
+        "status": "HYPOTHESIS",
+        "volume_assumption": "UNKNOWN"
+      },
+      "unknowns": [
+        "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado."
+      ],
+      "why_generated": {
+        "reason": "strategic_diversification",
+        "ref": "toda a arquitetura atual depende 100% de mídia paga Meta — testar um caminho orgânico/conteúdo gera informação ortogonal (item 37), independente de o mecanismo de anúncio pago estar certo ou errado."
+      }
+    }
+  ],
+  "tie_break_factor_order": [
+    "decision_relevance_rank",
+    "product_specific_evidence_rank",
+    "economic_relevance_rank",
+    "causal_plausibility_rank",
+    "information_gain_rank",
+    "strategic_diversification_rank",
+    "implementation_cost_rank",
+    "measurement_capital_rank",
+    "tracking_readiness_rank",
+    "reversibility_rank",
+    "risk_rank",
+    "automation_fitness_rank",
+    "scale_potential_rank",
+    "prior_learning_rank"
+  ]
+}

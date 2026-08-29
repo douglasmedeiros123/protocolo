@@ -1,0 +1,529 @@
+[
+  {
+    "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+    "conversion_events": [
+      "ad_impression/ad_click",
+      "page_view/scroll_depth",
+      "checkout_initiated/purchase",
+      "bump_offered/bump_accepted",
+      "upsell_offered/upsell_accepted"
+    ],
+    "created_at": "2026-08-29T13:45:45.742Z",
+    "dependencies": [],
+    "evidence_basis": [
+      {
+        "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+        "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+        "statement": "{\"reason\":\"missing_monetization\",\"ref\":[\"OFFER-DIAG-MISSING-MONETIZATION-LAYER\"]}",
+        "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+      },
+      {
+        "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+        "statement": "Produto de entrada desenhado pra alimentar um backend de maior ticket.",
+        "type": "GENERAL_MARKETING_KNOWLEDGE"
+      },
+      {
+        "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+        "statement": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+        "type": "HYPOTHESIS"
+      }
+    ],
+    "family": "FRONTEND_BACKEND",
+    "followup_layers": [],
+    "hypothesis": "Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo.",
+    "implementation_complexity": "MEDIUM",
+    "measurement_complexity": "PARTIAL",
+    "monetization_layers": [
+      "ORDER_BUMP",
+      "UPSELL"
+    ],
+    "name": "FRONTEND_BACKEND — MONETIZATION_LAYER",
+    "product_id": "protocolo_resposta_garantida",
+    "risks": [],
+    "stages": [
+      {
+        "type": "AD"
+      },
+      {
+        "type": "SALES_PAGE"
+      },
+      {
+        "type": "CHECKOUT"
+      },
+      {
+        "type": "ORDER_BUMP"
+      },
+      {
+        "type": "UPSELL"
+      }
+    ],
+    "status": "CANDIDATE",
+    "tracking_requirements": {
+      "attribution_requirements": [
+        "UTM_CONTINUITY"
+      ],
+      "behavioral_measurement_surfaces": [
+        "SALES_PAGE",
+        "UPSELL"
+      ],
+      "events": [
+        "ad_impression/ad_click",
+        "page_view/scroll_depth",
+        "checkout_initiated/purchase",
+        "bump_offered/bump_accepted",
+        "upsell_offered/upsell_accepted"
+      ],
+      "identifiers": [
+        "session_id",
+        "click_id",
+        "transaction_id",
+        "customer_id"
+      ],
+      "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+      "revenue_events": [
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "UPSELL"
+      ],
+      "stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "UPSELL"
+      ]
+    },
+    "unknowns": [],
+    "updated_at": "2026-08-29T17:19:26.403Z",
+    "version": 1
+  },
+  {
+    "architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    "conversion_events": [
+      "ad_impression/ad_click",
+      "page_view/scroll_depth",
+      "checkout_initiated/purchase",
+      "bump_offered/bump_accepted",
+      "advertorial_view"
+    ],
+    "created_at": "2026-08-29T13:45:45.742Z",
+    "dependencies": [],
+    "evidence_basis": [
+      {
+        "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+        "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+        "statement": "{\"reason\":\"economic_gap+customer_journey\",\"ref\":\"known_path_to_target=NO_KNOWN_PATH (gap real: ROAS 0.6416700264301395 vs target); arquitetura atual vai direto de anúncio pra página de venda, sem estágio intermediário de compreensão do mecanismo — STRUCTURAL_ABSENCE, não prova de que compreensão é o gargalo (item 1).\"}",
+        "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+      },
+      {
+        "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+        "statement": "Conteúdo em formato editorial pré-qualifica e constrói contexto antes da oferta.",
+        "type": "GENERAL_MARKETING_KNOWLEDGE"
+      },
+      {
+        "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+        "statement": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+        "type": "HYPOTHESIS"
+      }
+    ],
+    "family": "ADVERTORIAL",
+    "followup_layers": [],
+    "hypothesis": "Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3).",
+    "implementation_complexity": "MEDIUM",
+    "measurement_complexity": "PARTIAL",
+    "monetization_layers": [
+      "ORDER_BUMP"
+    ],
+    "name": "ADVERTORIAL — COMPREHENSION_BUILDING_STAGE",
+    "product_id": "protocolo_resposta_garantida",
+    "risks": [],
+    "stages": [
+      {
+        "type": "AD"
+      },
+      {
+        "type": "SALES_PAGE"
+      },
+      {
+        "type": "CHECKOUT"
+      },
+      {
+        "type": "ORDER_BUMP"
+      },
+      {
+        "type": "ADVERTORIAL"
+      }
+    ],
+    "status": "CANDIDATE",
+    "tracking_requirements": {
+      "attribution_requirements": [
+        "UTM_CONTINUITY"
+      ],
+      "behavioral_measurement_surfaces": [
+        "SALES_PAGE",
+        "ADVERTORIAL"
+      ],
+      "events": [
+        "ad_impression/ad_click",
+        "page_view/scroll_depth",
+        "checkout_initiated/purchase",
+        "bump_offered/bump_accepted",
+        "advertorial_view"
+      ],
+      "identifiers": [
+        "session_id",
+        "click_id",
+        "transaction_id",
+        "customer_id"
+      ],
+      "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+      "revenue_events": [
+        "CHECKOUT",
+        "ORDER_BUMP"
+      ],
+      "stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ADVERTORIAL"
+      ]
+    },
+    "unknowns": [
+      "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado."
+    ],
+    "updated_at": "2026-08-29T17:19:26.403Z",
+    "version": 1
+  },
+  {
+    "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+    "conversion_events": [
+      "ad_impression/ad_click",
+      "page_view/scroll_depth",
+      "checkout_initiated/purchase",
+      "bump_offered/bump_accepted",
+      "whatsapp_message_sent/whatsapp_reply"
+    ],
+    "created_at": "2026-08-29T17:14:57.075Z",
+    "dependencies": [],
+    "evidence_basis": [
+      {
+        "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+        "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+        "statement": "{\"reason\":\"conversion_friction\",\"ref\":\"TRANSACTION_STATE_EVIDENCE: 4 transação(ões) real(is) em status CANCELLED/EXPIRED (Hotmart) — prova que a transação ficou incompleta, NÃO prova de abandono recuperável confirmado nem de contactabilidade (item 6).\"}",
+        "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+      },
+      {
+        "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+        "statement": "Atendimento humano/assistido via WhatsApp remove objeção antes da compra.",
+        "type": "GENERAL_MARKETING_KNOWLEDGE"
+      },
+      {
+        "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+        "statement": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+        "type": "HYPOTHESIS"
+      }
+    ],
+    "family": "WHATSAPP_ASSISTED",
+    "followup_layers": [
+      "WHATSAPP"
+    ],
+    "hypothesis": "Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas.",
+    "implementation_complexity": "MEDIUM",
+    "measurement_complexity": "PARTIAL",
+    "monetization_layers": [
+      "ORDER_BUMP"
+    ],
+    "name": "WHATSAPP_ASSISTED — INCOMPLETE_PURCHASE_RECOVERY",
+    "product_id": "protocolo_resposta_garantida",
+    "risks": [],
+    "stages": [
+      {
+        "type": "AD"
+      },
+      {
+        "type": "SALES_PAGE"
+      },
+      {
+        "type": "CHECKOUT"
+      },
+      {
+        "type": "ORDER_BUMP"
+      },
+      {
+        "type": "WHATSAPP"
+      }
+    ],
+    "status": "CANDIDATE",
+    "tracking_requirements": {
+      "attribution_requirements": [
+        "UTM_CONTINUITY"
+      ],
+      "behavioral_measurement_surfaces": [
+        "SALES_PAGE"
+      ],
+      "events": [
+        "ad_impression/ad_click",
+        "page_view/scroll_depth",
+        "checkout_initiated/purchase",
+        "bump_offered/bump_accepted",
+        "whatsapp_message_sent/whatsapp_reply"
+      ],
+      "identifiers": [
+        "session_id",
+        "click_id",
+        "transaction_id",
+        "customer_id"
+      ],
+      "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+      "revenue_events": [
+        "CHECKOUT",
+        "ORDER_BUMP"
+      ],
+      "stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "WHATSAPP"
+      ]
+    },
+    "unknowns": [],
+    "updated_at": "2026-08-29T17:19:26.403Z",
+    "version": 1
+  },
+  {
+    "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+    "conversion_events": [
+      "ad_impression/ad_click",
+      "page_view/scroll_depth",
+      "checkout_initiated/purchase",
+      "bump_offered/bump_accepted",
+      "content_view"
+    ],
+    "created_at": "2026-08-29T13:45:45.742Z",
+    "dependencies": [],
+    "evidence_basis": [
+      {
+        "note": null,
+        "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+        "statement": "{\"reason\":\"strategic_diversification\",\"ref\":\"toda a arquitetura atual depende 100% de mídia paga Meta — testar um caminho orgânico/conteúdo gera informação ortogonal (item 37), independente de o mecanismo de anúncio pago estar certo ou errado.\"}",
+        "type": "PRODUCT_SPECIFIC_EVIDENCE"
+      },
+      {
+        "source": "patternLibrary.js — conhecimento estrutural, nunca evidência do produto (item 24).",
+        "statement": "Tráfego orgânico/conteúdo alimenta a oferta, reduzindo dependência de mídia paga.",
+        "type": "GENERAL_MARKETING_KNOWLEDGE"
+      },
+      {
+        "source": "gerado por challengerGenerator.js — nunca afirma resultado (item 28).",
+        "statement": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+        "type": "HYPOTHESIS"
+      }
+    ],
+    "family": "CONTENT_TO_OFFER",
+    "followup_layers": [],
+    "hypothesis": "Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas.",
+    "implementation_complexity": "MEDIUM",
+    "measurement_complexity": "PARTIAL",
+    "monetization_layers": [
+      "ORDER_BUMP"
+    ],
+    "name": "CONTENT_TO_OFFER — STRATEGIC_DIVERSIFICATION_ORGANIC",
+    "product_id": "protocolo_resposta_garantida",
+    "risks": [],
+    "stages": [
+      {
+        "type": "AD"
+      },
+      {
+        "type": "SALES_PAGE"
+      },
+      {
+        "type": "CHECKOUT"
+      },
+      {
+        "type": "ORDER_BUMP"
+      },
+      {
+        "type": "CONTENT"
+      }
+    ],
+    "status": "CANDIDATE",
+    "tracking_requirements": {
+      "attribution_requirements": [
+        "UTM_CONTINUITY"
+      ],
+      "behavioral_measurement_surfaces": [
+        "SALES_PAGE",
+        "CONTENT"
+      ],
+      "events": [
+        "ad_impression/ad_click",
+        "page_view/scroll_depth",
+        "checkout_initiated/purchase",
+        "bump_offered/bump_accepted",
+        "content_view"
+      ],
+      "identifiers": [
+        "session_id",
+        "click_id",
+        "transaction_id",
+        "customer_id"
+      ],
+      "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+      "revenue_events": [
+        "CHECKOUT",
+        "ORDER_BUMP"
+      ],
+      "stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "CONTENT"
+      ]
+    },
+    "unknowns": [
+      "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado."
+    ],
+    "updated_at": "2026-08-29T17:19:26.403Z",
+    "version": 1
+  },
+  {
+    "architecture_id": "ARCH-CURRENT",
+    "conversion_events": [],
+    "created_at": "2026-08-29T13:45:45.742Z",
+    "dependencies": [],
+    "evidence_basis": [
+      {
+        "source": "profit/aggregate.js + profit/financials.js.",
+        "statement": "financial ROAS real = 0.6416700264301395 — evidência OPERACIONAL (a arquitetura funciona e gera receita real), não evidência COMPARATIVA (não prova que é a melhor opção disponível, item 4).",
+        "type": "OBSERVED_EVIDENCE"
+      },
+      {
+        "source": "CRO diagnóstico real: CRO-DIAG-DUPLICATE-ID-OFERTA.",
+        "statement": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+        "type": "OBSERVED_EVIDENCE"
+      },
+      {
+        "source": "CRO diagnóstico real: CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML.",
+        "statement": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte).",
+        "type": "HYPOTHESIS"
+      }
+    ],
+    "family": "DIRECT_TO_OFFER",
+    "followup_layers": [],
+    "hypothesis": null,
+    "implementation_complexity": "LOW",
+    "measurement_complexity": "LOW",
+    "monetization_layers": [
+      "ORDER_BUMP",
+      "ORDER_BUMP",
+      "BUNDLE",
+      "UPSELL",
+      "DOWNSELL"
+    ],
+    "name": "Arquitetura atual real",
+    "product_id": "protocolo_resposta_garantida",
+    "risks": [
+      "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP.",
+      "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte)."
+    ],
+    "stages": [
+      {
+        "order": 1,
+        "source": "Meta Ads real (analytics/data/creatives/assets.json) — anúncios ativos hoje.",
+        "stage_id": "STAGE-AD",
+        "status": "ACTIVE",
+        "type": "AD"
+      },
+      {
+        "order": 2,
+        "source": "C:\\Users\\dougl\\AppData\\Local\\Temp\\claude\\C--Users-dougl-OneDrive--rea-de-Trabalho-edicaovideo\\851296c3-125e-499f-9fa8-e245c4be081c\\scratchpad\\protocolo_repo\\teste-b\\index.html — confirmado via vercel.json host rule (anti-vacuo.ojogodolucro.com.br).",
+        "stage_id": "STAGE-SALES-PAGE",
+        "status": "ACTIVE",
+        "type": "SALES_PAGE"
+      },
+      {
+        "order": 3,
+        "source": "Hotmart real — produto principal \"Protocolo da Resposta Garantida\" (R$67), 18 transações no período.",
+        "stage_id": "STAGE-CHECKOUT",
+        "status": "ACTIVE",
+        "type": "CHECKOUT"
+      },
+      {
+        "order": 4,
+        "source": "Hotmart real — \"Pack Objeções\", 2 transações no período.",
+        "stage_id": "STAGE-ORDER-BUMP-1",
+        "status": "ACTIVE",
+        "type": "ORDER_BUMP"
+      },
+      {
+        "order": 5,
+        "source": "Hotmart real — \"Pack Cobrança\", 1 transações no período.",
+        "stage_id": "STAGE-ORDER-BUMP-2",
+        "status": "ACTIVE",
+        "type": "ORDER_BUMP"
+      },
+      {
+        "order": null,
+        "source": "Estratégia descrita (PASSO 10, item 8) de 3 order bumps de R$29 cada (ou bundle com desconto), 1 upsell e 2 downsells é PLANNED — nenhum preço, take rate ou nome desses componentes futuros existe em transação real. NUNCA promovida a ACTIVE/componente existente por este agente.",
+        "stage_id": "STAGE-BUNDLE-PLANNED",
+        "status": "PLANNED",
+        "type": "BUNDLE"
+      },
+      {
+        "order": null,
+        "source": "Estratégia descrita (PASSO 10, item 8) de 3 order bumps de R$29 cada (ou bundle com desconto), 1 upsell e 2 downsells é PLANNED — nenhum preço, take rate ou nome desses componentes futuros existe em transação real. NUNCA promovida a ACTIVE/componente existente por este agente.",
+        "stage_id": "STAGE-UPSELL-PLANNED",
+        "status": "PLANNED",
+        "type": "UPSELL"
+      },
+      {
+        "order": null,
+        "source": "Estratégia descrita (PASSO 10, item 8) de 3 order bumps de R$29 cada (ou bundle com desconto), 1 upsell e 2 downsells é PLANNED — nenhum preço, take rate ou nome desses componentes futuros existe em transação real. NUNCA promovida a ACTIVE/componente existente por este agente.",
+        "stage_id": "STAGE-DOWNSELL-PLANNED",
+        "status": "PLANNED",
+        "type": "DOWNSELL"
+      }
+    ],
+    "status": "CURRENT",
+    "tracking_requirements": {
+      "attribution_requirements": [
+        "UTM_CONTINUITY"
+      ],
+      "behavioral_measurement_surfaces": [
+        "SALES_PAGE"
+      ],
+      "events": [
+        "ad_impression/ad_click",
+        "page_view/scroll_depth",
+        "checkout_initiated/purchase",
+        "bump_offered/bump_accepted"
+      ],
+      "identifiers": [
+        "session_id",
+        "click_id",
+        "transaction_id",
+        "customer_id"
+      ],
+      "note": "requisitos futuros de instrumentação — não afirma que já existem hoje (item 75/79).",
+      "revenue_events": [
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ORDER_BUMP"
+      ],
+      "stages": [
+        "AD",
+        "SALES_PAGE",
+        "CHECKOUT",
+        "ORDER_BUMP",
+        "ORDER_BUMP"
+      ]
+    },
+    "unknowns": [],
+    "updated_at": "2026-08-29T17:19:26.403Z",
+    "version": 1
+  }
+]

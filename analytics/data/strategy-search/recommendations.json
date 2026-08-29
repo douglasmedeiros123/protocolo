@@ -1,0 +1,61 @@
+[
+  {
+    "confidence": "LOW",
+    "confidence_basis": "a base do vencedor é só STRUCTURAL_EXISTENCE_EVIDENCE/GENERAL_MARKETING_KNOWLEDGE/HYPOTHESIS — existência estrutural + hipótese/mecanismo, nunca evidência de performance real. Nunca MEDIUM/HIGH só por vencer um fator de ranking de alta prioridade (item 2).",
+    "counterfactual": {
+      "answer": "PROBABLY_NO",
+      "basis": "perdeu o ranking real para ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE nos fatores comparáveis hoje — mas sem experimento concluído, resposta cai pra PROBABLY_NO. Diagnóstico estrutural também aponta na mesma direção: ROAS financeiro real 0.6416700264301395 vs target 3, known_path_to_target=NO_KNOWN_PATH, comparative_evidence=NOT_ESTABLISHED — a decisão não se apoia só na posição do ranking."
+    },
+    "created_at": "2026-08-29T13:45:45.761Z",
+    "downside_if_wrong": "moderado — parcialmente reversível.",
+    "evidence_against": [],
+    "evidence_supporting": [
+      {
+        "note": "fato de existência/ausência — NUNCA prova de performance futura (item 3/9).",
+        "source": "diagnóstico real (Planner/CRO/Offer, read-only).",
+        "statement": "{\"reason\":\"economic_gap+customer_journey\",\"ref\":\"known_path_to_target=NO_KNOWN_PATH (gap real: ROAS 0.6416700264301395 vs target); arquitetura atual vai direto de anúncio pra página de venda, sem estágio intermediário de compreensão do mecanismo — STRUCTURAL_ABSENCE, não prova de que compreensão é o gargalo (item 1).\"}",
+        "type": "STRUCTURAL_EXISTENCE_EVIDENCE"
+      }
+    ],
+    "fallback_architecture_id": "ARCH-CURRENT",
+    "pre_mortem": {
+      "early_warning_signals": [
+        "eventos esperados do tracking_contract_requirements não aparecendo nos dados coletados."
+      ],
+      "top_failure_modes": [
+        "medição incompleta pode gerar resultado inconclusivo mesmo que a hipótese estrutural esteja correta."
+      ]
+    },
+    "recommendation_id": "STRATEGY-SEARCH-protocolo_resposta_garantida-2026-08-29",
+    "recommendation_type": "TEST_ALTERNATIVE_ARCHITECTURE",
+    "recommended_architecture_id": "ARCH-CAND-02-COMPREHENSION_BUILDING_STAGE",
+    "regret_basis": "derivado da reversibilidade real (REVERSIBLE).",
+    "regret_if_wrong": "LOW",
+    "unknowns": [
+      "Qual é o nível de sofisticação/consciência real deste mercado específico? Não sabemos ainda (item 100) — Market Intelligence Agent não implementado."
+    ],
+    "updated_at": "2026-08-29T17:19:26.492Z",
+    "upside_if_right": "moderado — pode mover uma métrica-chave de forma perceptível.",
+    "what_would_change_my_mind": [
+      "resultado real (SUCCESS/FAILURE/INCONCLUSIVE) do MVA test desta recomendação.",
+      "novo diagnóstico estrutural real (CRO/Offer/Creative) que mude o ranking dos 14 fatores.",
+      "evidência de que a arquitetura atual, se testada de novo, teria performado melhor do que o histórico sugere."
+    ],
+    "why_not_alternatives": [
+      {
+        "architecture_id": "ARCH-CAND-01-MONETIZATION_LAYER",
+        "why_not": "ARCH-CAND-01-MONETIZATION_LAYER propõe: Adicionar uma camada de monetização pós-compra (upsell) pode aumentar a receita por comprador sem depender de mais tráfego novo. perde no fator técnico: decision_relevance_rank."
+      },
+      {
+        "architecture_id": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY",
+        "why_not": "ARCH-CAND-03-INCOMPLETE_PURCHASE_RECOVERY propõe: Contato assistido via WhatsApp direcionado a transações incompletas (CANCELLED/EXPIRED) PODE recuperar uma fração NÃO CONHECIDA dessas transações — taxa de recuperação, contactabilidade e elegibilidade de canal são desconhecidas hoje (item 9), nunca assumidas. perde no fator técnico: decision_relevance_rank."
+      },
+      {
+        "architecture_id": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC",
+        "why_not": "ARCH-CAND-04-STRATEGIC_DIVERSIFICATION_ORGANIC propõe: Um caminho de conteúdo/orgânico até a oferta reduz a dependência total de CPA de mídia paga e testa uma alavanca economicamente ortogonal às já conhecidas. perde no fator técnico: decision_relevance_rank."
+      }
+    ],
+    "why_not_current": "tem evidência operacional real (receita/funil observados), mas nenhuma evidência comparativa estabelecendo que é superior ao vencedor. perde no fator técnico: decision_relevance_rank.",
+    "why_this_architecture": "resolve \"known_path_to_target=NO_KNOWN_PATH (gap real: ROAS 0.6416700264301395 vs target); arquitetura atual vai direto de anúncio pra página de venda, sem estágio intermediário de compreensão do mecanismo — STRUCTURAL_ABSENCE, não prova de que compreensão é o gargalo (item 1).\". Hipótese: Introduzir um estágio de compreensão do mecanismo antes da página de oferta PODE aumentar a taxa de LP→checkout — hipótese gerada pela ausência estrutural + gap econômico não fechado pelas alavancas conhecidas, NÃO por evidência real de que compreensão é o gargalo específico (item 3). Mecanismo econômico esperado: conversion (LP→checkout) ↑ → CPA efetivo ↓ → ROAS ↑ (magnitude: UNKNOWN).. Vale testar agora porque as alavancas já conhecidas da arquitetura atual não fecham o gap sozinhas — este teste produz uma informação que hoje não temos. (Vantagem técnica no ranking: topo do ranking.)"
+  }
+]
