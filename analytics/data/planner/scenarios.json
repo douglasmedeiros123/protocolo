@@ -1,0 +1,175 @@
+{
+  "known_path_to_target": {
+    "gap_closure_pct": 0.2334,
+    "reason": "com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.",
+    "status": "NO_KNOWN_PATH"
+  },
+  "path_to_roas3": {
+    "candidate_paths": "ver strategic_paths no plano completo — não duplicado aqui.",
+    "confidence": "MEDIUM",
+    "current_roas": 0.6416700264301395,
+    "known_levers": [
+      {
+        "estimated_potential": "NOT_ESTIMABLE",
+        "evidence_level": "CANDIDATE_ANALYSIS",
+        "lever_id": "CREATIVE",
+        "state": "AVAILABLE"
+      },
+      {
+        "estimated_potential": "NOT_ESTIMABLE",
+        "evidence_level": "CANDIDATE_ANALYSIS",
+        "lever_id": "CRO",
+        "state": "AVAILABLE"
+      },
+      {
+        "estimated_potential": "NOT_ESTIMABLE",
+        "evidence_level": "CANDIDATE_ANALYSIS",
+        "lever_id": "OFFER",
+        "state": "AVAILABLE"
+      },
+      {
+        "estimated_potential": "NOT_ESTIMABLE",
+        "evidence_level": "NONE",
+        "lever_id": "MEDIA_BUYING",
+        "state": "UNEXPLORED"
+      }
+    ],
+    "known_path_to_target": "NO_KNOWN_PATH",
+    "known_path_to_target_reason": "com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.",
+    "known_quantified_gap": 2.3583,
+    "note": "O cenário CPA/AOV combinado (offer/scenarioEngine.js) é agregado — não decompõe QUAL lever produziria a melhora de CPA ou de AOV. estimated_potential de cada lever é sempre NOT_ESTIMABLE até existir taxa/resultado real pós-mudança (item 15).",
+    "required_improvement": {
+      "aov_gap_to_roas3": 239.29,
+      "aov_gap_to_roas3_percent": 3.6752,
+      "cpa_gap_to_roas3": 79.77,
+      "current_financial_cpa": 101.4681818181818,
+      "current_financial_roas": 0.6416700264301394,
+      "current_net_revenue_per_buyer": 65.10909090909091,
+      "formula": "financial_roas = net_revenue_per_buyer / financial_cpa (mesma identidade usada no North Star do Decision Engine).",
+      "required_cpa_at_current_net_revenue_per_buyer": 21.7,
+      "required_net_revenue_per_buyer_at_current_cpa": 304.4,
+      "target_roas": 3
+    },
+    "target_roas": 3,
+    "unquantified_levers": [
+      {
+        "lever_id": "PRICING",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      },
+      {
+        "lever_id": "CHECKOUT",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      },
+      {
+        "lever_id": "LIFECYCLE",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      },
+      {
+        "lever_id": "ORGANIC",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      },
+      {
+        "lever_id": "PRODUCT",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      },
+      {
+        "lever_id": "OTHER",
+        "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+        "status": "UNQUANTIFIED"
+      }
+    ]
+  },
+  "scenarios": {
+    "aov_only_scenarios": [
+      {
+        "aov_change_pct": 0,
+        "cpa_change_pct": 0,
+        "expected_financial_roas": 0.642,
+        "label": "CPA +0%, AOV +0%",
+        "projected_cpa": 101.47,
+        "projected_net_revenue_per_buyer": 65.11,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.1,
+        "cpa_change_pct": 0,
+        "expected_financial_roas": 0.706,
+        "label": "CPA +0%, AOV +10%",
+        "projected_cpa": 101.47,
+        "projected_net_revenue_per_buyer": 71.62,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.2,
+        "cpa_change_pct": 0,
+        "expected_financial_roas": 0.77,
+        "label": "CPA +0%, AOV +20%",
+        "projected_cpa": 101.47,
+        "projected_net_revenue_per_buyer": 78.13,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.3,
+        "cpa_change_pct": 0,
+        "expected_financial_roas": 0.834,
+        "label": "CPA +0%, AOV +30%",
+        "projected_cpa": 101.47,
+        "projected_net_revenue_per_buyer": 84.64,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.5,
+        "cpa_change_pct": 0,
+        "expected_financial_roas": 0.963,
+        "label": "CPA +0%, AOV +50%",
+        "projected_cpa": 101.47,
+        "projected_net_revenue_per_buyer": 97.66,
+        "status": "SCENARIO_NOT_FORECAST"
+      }
+    ],
+    "combined_scenarios": [
+      {
+        "aov_change_pct": 0.1,
+        "cpa_change_pct": -0.1,
+        "expected_financial_roas": 0.784,
+        "label": "CPA -10%, AOV +10%",
+        "projected_cpa": 91.32,
+        "projected_net_revenue_per_buyer": 71.62,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.2,
+        "cpa_change_pct": -0.2,
+        "expected_financial_roas": 0.963,
+        "label": "CPA -20%, AOV +20%",
+        "projected_cpa": 81.17,
+        "projected_net_revenue_per_buyer": 78.13,
+        "status": "SCENARIO_NOT_FORECAST"
+      },
+      {
+        "aov_change_pct": 0.3,
+        "cpa_change_pct": -0.3,
+        "expected_financial_roas": 1.192,
+        "label": "CPA -30%, AOV +30%",
+        "projected_cpa": 71.03,
+        "projected_net_revenue_per_buyer": 84.64,
+        "status": "SCENARIO_NOT_FORECAST"
+      }
+    ],
+    "current": {
+      "aov_change_pct": 0,
+      "cpa_change_pct": 0,
+      "expected_financial_roas": 0.642,
+      "label": "CPA +0%, AOV +0%",
+      "projected_cpa": 101.47,
+      "projected_net_revenue_per_buyer": 65.11,
+      "status": "SCENARIO_NOT_FORECAST"
+    },
+    "note": "Todo cenário é uma simulação determinística (fórmula ROAS = net_revenue_per_buyer / CPA aplicada aos deltas informados) — NUNCA uma previsão do que vai acontecer de fato."
+  }
+}

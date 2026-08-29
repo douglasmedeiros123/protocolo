@@ -1,0 +1,13 @@
+{
+  "later": [],
+  "next": [
+    "PLAN-ACTION-protocolo_resposta_garantida-001"
+  ],
+  "note": "NOW/NEXT/LATER deterministicamente derivado do ranking real + grafo de dependência — nunca hardcoded (item 72). Muda automaticamente quando a evidência real mudar.",
+  "now": [
+    "PLAN-ACTION-protocolo_resposta_garantida-002",
+    "PLAN-ACTION-protocolo_resposta_garantida-003",
+    "PLAN-ACTION-protocolo_resposta_garantida-004",
+    "PLAN-ACTION-protocolo_resposta_garantida-005"
+  ]
+}

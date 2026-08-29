@@ -1,0 +1,874 @@
+[
+  {
+    "analysis_period": {
+      "data_completeness": 0.9333333333333333,
+      "dates_requested": 30,
+      "days_found": 28,
+      "days_missing": [
+        "2026-08-28",
+        "2026-08-29"
+      ],
+      "reference_date": "2026-08-29"
+    },
+    "capital_plan": {
+      "available": null,
+      "committed": null,
+      "max_loss_before_redecision": null,
+      "reason": "validation_budget não configurado — nenhum plano de capital pode ser derivado sem essa referência explícita (item 30). NÃO assumir R$1.000 por padrão (item 31).",
+      "recommended_next_release": null,
+      "spent": null,
+      "stop_loss": null,
+      "validation_budget": null,
+      "validation_capital_reference": null
+    },
+    "capital_posture": "OPEN",
+    "capital_posture_reason": "4 ação(ões) READY, nenhum blocker de tracking amplo — capital pode fluir pras ações priorizadas normalmente (ainda sujeito ao switch/scale gate pra decisões maiores).",
+    "created_at": "2026-08-29T13:10:21.275Z",
+    "current_state": {
+      "financial_cpa": 101.4681818181818,
+      "financial_milestone": {
+        "milestone": "NONE_YET",
+        "reached": []
+      },
+      "financial_roas": 0.6416700264301395,
+      "milestone_progress": {
+        "current_roas": 0.6416700264301395,
+        "gap_to_next_milestone": 0.1083,
+        "gap_to_north_star": 2.3583,
+        "ladder": [
+          0.75,
+          0.9,
+          1,
+          1.2,
+          1.5,
+          2,
+          2.5,
+          3
+        ],
+        "next_milestone": 0.75,
+        "reason": "próximo degrau é ROAS 0.75 — degrau intermediário, NÃO o objetivo final (item 6)."
+      },
+      "net_revenue_per_buyer": 65.10909090909091,
+      "profit_status": {
+        "reason": "0.5 <= roas_financeiro (0.642) < 0.9",
+        "status": "LOSS"
+      }
+    },
+    "evidence_gaps": [
+      {
+        "category": "PRODUCT_VIABILITY",
+        "collection_method": "CONTROLLED_EXPERIMENT",
+        "current_knowledge": "com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.",
+        "data_inspection_limitation": false,
+        "decision_changing_evidence": true,
+        "decision_classification": "DECISION_CRITICAL",
+        "decision_it_could_change": "determina se o verdict pode legitimamente evoluir para SWITCH_PRODUCT (exige exaustão real das alavancas) ou deve permanecer CONTINUE_VALIDATION/OPTIMIZE.",
+        "estimated_cost": 300,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-005",
+        "information_gain_per_real": 0.3,
+        "missing_evidence": "resultado real de alavancas ainda não exploradas/exhaustadas (ver lever_exhaustion_score).",
+        "plausible_consequences": [
+          "verdict",
+          "viability_status",
+          "switch_gate"
+        ],
+        "priority": 1,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "Existe uma combinação de alavancas AINDA NÃO quantificadas (novos criativos, CRO mais agressivo, nova arquitetura de oferta, mídia/audiência diferente) capaz de fechar o gap até ROAS 3?",
+        "status": "OPEN",
+        "why_it_matters": "os cenários já modelados (CPA/AOV combinados) não fecham o gap — mas isso reflete o que já foi TESTADO, não o espaço total de possibilidades (item 10)."
+      },
+      {
+        "category": "PRODUCT_VIABILITY",
+        "collection_method": "CONTROLLED_EXPERIMENT",
+        "current_knowledge": "nenhum lever atingiu EXHAUSTED com evidência adequada ainda — score de exaustão não é metodologicamente defensável antes disso (item 17: nunca \"testamos 3 de 5, logo 60%\").",
+        "data_inspection_limitation": false,
+        "decision_changing_evidence": true,
+        "decision_classification": "DECISION_CRITICAL",
+        "decision_it_could_change": "viabiliza ou não uma futura reavaliação de SWITCH_PRODUCT com base real.",
+        "estimated_cost": 300,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-006",
+        "information_gain_per_real": 0.3,
+        "missing_evidence": "mais experimentos concluídos por categoria (ver experiment_coverage).",
+        "plausible_consequences": [
+          "switch_gate",
+          "viability_status"
+        ],
+        "priority": 2,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "Quais alavancas (Creative/CRO/Offer/Media Buying) já foram exploradas o suficiente para serem descartadas com confiança?",
+        "status": "OPEN",
+        "why_it_matters": "sem isso, lever_exhaustion_score não é calculável — e sem ele, SWITCH_PRODUCT nunca pode passar no gate (item 19-21)."
+      },
+      {
+        "category": "DATA_QUALITY",
+        "collection_method": "BEHAVIORAL_DATA",
+        "current_knowledge": "diagnóstico real: OFFER-DIAG-BUMP-BUYER-ATTRIBUTION-FLAG.",
+        "data_inspection_limitation": false,
+        "decision_changing_evidence": false,
+        "decision_classification": "DECISION_RELEVANT",
+        "decision_it_could_change": "confidence de candidatos de oferta específicos (não o verdict).",
+        "estimated_cost": 0,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-003",
+        "information_gain_per_real": 50,
+        "missing_evidence": "Reduz confidence de hipóteses/candidatos cujo target_metric dependa diretamente de attach rate buyer-level — não afeta métricas de receita agregada (gross/net revenue, AOV), que permanecem confiáveis.",
+        "plausible_consequences": [],
+        "priority": 3,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "Atribuição buyer-level parcial: 1 de 3 transação(ões) de bump sem ligação estrutural confirmada — buyer_level_attach_rate (18.2%) é um LIMITE INFERIOR, não o valor final.",
+        "status": "OPEN",
+        "why_it_matters": "afeta a confiança de candidatos de oferta que dependem desta métrica — não o verdict geral do produto."
+      },
+      {
+        "category": "DATA_QUALITY",
+        "collection_method": "BEHAVIORAL_DATA",
+        "current_knowledge": "diagnóstico real: OFFER-DIAG-BUMP-BUYER-GRANULARITY.",
+        "data_inspection_limitation": false,
+        "decision_changing_evidence": false,
+        "decision_classification": "DECISION_RELEVANT",
+        "decision_it_could_change": "confidence de candidatos de oferta específicos (não o verdict).",
+        "estimated_cost": 0,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-004",
+        "information_gain_per_real": 50,
+        "missing_evidence": "Ver offer/buyerAttribution.js — ligação via buyer_name+data é reportada como sinal heurístico, nunca promovida a fato buyer-level confirmado (PASSO 10.1, item 3).",
+        "plausible_consequences": [],
+        "priority": 4,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "order_bump_attach_rate (27.3%) é um proxy no nível de TRANSAÇÃO (linhas de bump / pedidos financeiros). No nível de comprador único, a ligação estrutural (mesmo transaction_id-base do checkout) confirma 2 comprador(es) de 11 elegíveis (buyer_level_attach_rate = 18.2%), com 1 transação(ões) de bump sem ligação estrutural confirmada (status: PARTIAL_ATTRIBUTION_LOWER_BOUND).",
+        "status": "OPEN",
+        "why_it_matters": "afeta a confiança de candidatos de oferta que dependem desta métrica — não o verdict geral do produto."
+      },
+      {
+        "category": "LOCAL_OPTIMIZATION",
+        "collection_method": "STATIC_CODE_CHECK",
+        "current_knowledge": "diagnóstico real: CRO-DIAG-DUPLICATE-ID-OFERTA (TECHNICAL_ISSUE, causal_status=OBSERVED).",
+        "data_inspection_limitation": false,
+        "decision_changing_evidence": false,
+        "decision_classification": "DECISION_RELEVANT",
+        "decision_it_could_change": "prioridade de um candidato de otimização local do CRO — NÃO o verdict/viability_status do produto.",
+        "estimated_cost": 0,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-001",
+        "information_gain_per_real": 40,
+        "missing_evidence": "medição real do comportamento/impacto (teste funcional em navegador real).",
+        "plausible_consequences": [],
+        "priority": 5,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP. — isso está realmente reduzindo conversão?",
+        "status": "OPEN",
+        "why_it_matters": "existe com certeza (existence_confidence HIGH), mas o IMPACTO na conversão não foi medido (impact_confidence LOW) — investigar é quase grátis antes de gastar mídia assumindo que é a causa."
+      },
+      {
+        "category": "LOCAL_OPTIMIZATION",
+        "collection_method": "FUNCTIONAL_TEST",
+        "current_knowledge": "diagnóstico real: CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML (FUNCTIONAL_FRICTION, causal_status=HYPOTHESIZED).",
+        "data_inspection_limitation": true,
+        "decision_changing_evidence": false,
+        "decision_classification": "INFORMATIONAL",
+        "decision_it_could_change": "prioridade de um candidato de otimização local do CRO — NÃO o verdict/viability_status do produto.",
+        "estimated_cost": 0,
+        "estimated_time_to_evidence": null,
+        "evidence_gap_id": "EVGAP-protocolo_resposta_garantida-002",
+        "information_gain_per_real": 60,
+        "missing_evidence": "medição real do comportamento/impacto (teste funcional em navegador real).",
+        "plausible_consequences": [],
+        "priority": 6,
+        "product_id": "protocolo_resposta_garantida",
+        "question": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte). — isso é um problema real de conteúdo, ou só uma limitação do método de inspeção (HTML estático não confirma comportamento pós-hidratação)?",
+        "status": "OPEN",
+        "why_it_matters": "a ausência no HTML estático NÃO prova ausência pro usuário real (pode ser hidratação normal de SPA) — precisa de teste funcional em navegador real antes de qualquer conclusão (DATA_INSPECTION_LIMITATION, item 14)."
+      }
+    ],
+    "kill_conditions": {
+      "experiment": {
+        "max_loss": "NOT_CONFIGURED",
+        "reason": "nenhum limite de perda por experimento configurado."
+      },
+      "product_validation": {
+        "max_spend": "NOT_CONFIGURED",
+        "reason": "nenhum teto de gasto de validação de produto configurado."
+      },
+      "validation_cycle": {
+        "reason": "nenhum stop-loss de ciclo configurado.",
+        "stop_loss": "NOT_CONFIGURED"
+      }
+    },
+    "milestones": {
+      "current_roas": 0.6416700264301395,
+      "gap_to_next_milestone": 0.1083,
+      "gap_to_north_star": 2.3583,
+      "ladder": [
+        0.75,
+        0.9,
+        1,
+        1.2,
+        1.5,
+        2,
+        2.5,
+        3
+      ],
+      "next_milestone": 0.75,
+      "reason": "próximo degrau é ROAS 0.75 — degrau intermediário, NÃO o objetivo final (item 6)."
+    },
+    "north_star": {
+      "current_roas": 0.6416700264301395,
+      "milestones": [
+        1,
+        1.5,
+        2,
+        3
+      ],
+      "next_milestone": 1,
+      "reason": "roas_financeiro atual: 0.642. Próximo marco: 1. North Star permanece 3.",
+      "roas_gap_absolute": 2.3583299735698606,
+      "roas_gap_percent": 0.7861099911899535,
+      "target_financial_roas": 3,
+      "target_roas": 3
+    },
+    "plan_id": "PLAN-protocolo_resposta_garantida-2026-08-29",
+    "product_id": "protocolo_resposta_garantida",
+    "recommended_actions": [
+      {
+        "action_id": "PLAN-ACTION-protocolo_resposta_garantida-002",
+        "action_type": "VALIDATE",
+        "capital_required": 0,
+        "confidence": null,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": 0,
+          "total_known_cost": 0
+        },
+        "dependency_ids": [],
+        "estimated_cost": 0,
+        "expected_economic_impact": "NOT_ESTIMABLE",
+        "expected_information_gain": "ALTO — custo ~R$0, resolve incerteza sobre um achado técnico real (item 14).",
+        "failure_condition": "achado técnico não confirmado ou correção não resolve o sintoma observado.",
+        "final_rank_reason": "topo do grupo de status READY.",
+        "kill_condition": null,
+        "objective": "O atributo id=\"oferta\" aparece 2 vezes no HTML da LP. — existence_confidence=HIGH, impact_confidence=LOW.",
+        "priority": null,
+        "product_id": "protocolo_resposta_garantida",
+        "rank": 1,
+        "source_agent": "CRO",
+        "source_candidate_id": "CRO-DIAG-DUPLICATE-ID-OFERTA",
+        "status": "READY",
+        "success_condition": "achado técnico confirmado/corrigido e validado.",
+        "target_metric": null,
+        "tie_break_components": {
+          "capital_required_rank": 0,
+          "confidence_rank": 0,
+          "cost_rank": 0,
+          "decision_changing_evidence_rank": 1,
+          "dependency_rank": 0,
+          "economic_impact_rank": 0,
+          "information_gain_rank": 3,
+          "learning_value_rank": 2,
+          "risk_rank": -1,
+          "speed_to_evidence_rank": 0
+        },
+        "tracking_eligibility": {
+          "eligible": true,
+          "reason": "esta ação não depende de nenhum escopo de tracking financeiro/attribution.",
+          "required_tracking_scope": null,
+          "tracking_status": null
+        }
+      },
+      {
+        "action_id": "PLAN-ACTION-protocolo_resposta_garantida-003",
+        "action_type": "VALIDATE",
+        "capital_required": 0,
+        "confidence": null,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": 0,
+          "total_known_cost": 0
+        },
+        "dependency_ids": [],
+        "estimated_cost": 0,
+        "expected_economic_impact": "NOT_ESTIMABLE",
+        "expected_information_gain": "ALTO — custo ~R$0, resolve incerteza sobre um achado técnico real (item 14).",
+        "failure_condition": "achado técnico não confirmado ou correção não resolve o sintoma observado.",
+        "final_rank_reason": "venceu PLAN-ACTION-protocolo_resposta_garantida-002 no fator: DECISION_TIE — DECISION_TIE com o vizinho (todos os 10 fatores iguais).",
+        "kill_condition": null,
+        "objective": "6 perguntas de FAQ encontradas no HTML, mas o conteúdo da resposta não está presente no HTML estático (accordion fica \"hidden\" sem texto visível na fonte). — existence_confidence=HIGH, impact_confidence=LOW.",
+        "priority": null,
+        "product_id": "protocolo_resposta_garantida",
+        "rank": 2,
+        "source_agent": "CRO",
+        "source_candidate_id": "CRO-DIAG-FAQ-ANSWERS-NOT-IN-STATIC-HTML",
+        "status": "READY",
+        "success_condition": "achado técnico confirmado/corrigido e validado.",
+        "target_metric": null,
+        "tie_break_components": {
+          "capital_required_rank": 0,
+          "confidence_rank": 0,
+          "cost_rank": 0,
+          "decision_changing_evidence_rank": 1,
+          "dependency_rank": 0,
+          "economic_impact_rank": 0,
+          "information_gain_rank": 3,
+          "learning_value_rank": 2,
+          "risk_rank": -1,
+          "speed_to_evidence_rank": 0
+        },
+        "tracking_eligibility": {
+          "eligible": true,
+          "reason": "esta ação não depende de nenhum escopo de tracking financeiro/attribution.",
+          "required_tracking_scope": null,
+          "tracking_status": null
+        }
+      },
+      {
+        "action_id": "PLAN-ACTION-protocolo_resposta_garantida-004",
+        "action_type": "RUN_EXPERIMENT",
+        "capital_required": null,
+        "confidence": 0.6,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": "NOT_ESTIMABLE",
+          "total_known_cost": "NOT_ESTIMABLE"
+        },
+        "dependency_ids": [],
+        "estimated_cost": null,
+        "expected_economic_impact": "NOT_ESTIMABLE",
+        "expected_information_gain": null,
+        "failure_condition": null,
+        "final_rank_reason": "venceu PLAN-ACTION-protocolo_resposta_garantida-003 no fator: decision_changing_evidence_rank.",
+        "kill_condition": null,
+        "objective": "Testar candidato criativo: CREATIVE-05-V3.",
+        "priority": null,
+        "product_id": "protocolo_resposta_garantida",
+        "rank": 3,
+        "source_agent": "CREATIVE",
+        "source_candidate_id": "CREATIVE-05-V3",
+        "status": "READY",
+        "success_condition": null,
+        "target_metric": "lpv_to_checkout_rate",
+        "tie_break_components": {
+          "capital_required_rank": 0,
+          "confidence_rank": 0.6,
+          "cost_rank": 0,
+          "decision_changing_evidence_rank": 0,
+          "dependency_rank": 0,
+          "economic_impact_rank": 0,
+          "information_gain_rank": 1,
+          "learning_value_rank": 2,
+          "risk_rank": -2,
+          "speed_to_evidence_rank": 0
+        },
+        "tracking_eligibility": {
+          "eligible": true,
+          "reason": "CREATIVE_ATTRIBUTION=DEGRADED — não bloqueia (só BLOCKED bloqueia; DEGRADED só reduz confiança).",
+          "required_tracking_scope": "CREATIVE_ATTRIBUTION",
+          "tracking_status": "DEGRADED"
+        }
+      },
+      {
+        "action_id": "PLAN-ACTION-protocolo_resposta_garantida-005",
+        "action_type": "RUN_EXPERIMENT",
+        "capital_required": null,
+        "confidence": 0.46,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": "NOT_ESTIMABLE",
+          "total_known_cost": "NOT_ESTIMABLE"
+        },
+        "dependency_ids": [],
+        "estimated_cost": null,
+        "expected_economic_impact": "NOT_ESTIMABLE",
+        "expected_information_gain": null,
+        "failure_condition": null,
+        "final_rank_reason": "venceu PLAN-ACTION-protocolo_resposta_garantida-004 no fator: confidence_rank.",
+        "kill_condition": null,
+        "objective": "Testar candidato de oferta: BUMP_COPY.",
+        "priority": null,
+        "product_id": "protocolo_resposta_garantida",
+        "rank": 4,
+        "source_agent": "OFFER",
+        "source_candidate_id": "OFFER-CAND-001",
+        "status": "READY",
+        "success_condition": null,
+        "target_metric": "order_bump_attach_rate",
+        "tie_break_components": {
+          "capital_required_rank": 0,
+          "confidence_rank": 0.46,
+          "cost_rank": 0,
+          "decision_changing_evidence_rank": 0,
+          "dependency_rank": 0,
+          "economic_impact_rank": 0,
+          "information_gain_rank": 1,
+          "learning_value_rank": 2,
+          "risk_rank": -2,
+          "speed_to_evidence_rank": 0
+        },
+        "tracking_eligibility": {
+          "eligible": true,
+          "reason": "FINANCIAL_TRUTH=DEGRADED — não bloqueia (só BLOCKED bloqueia; DEGRADED só reduz confiança).",
+          "required_tracking_scope": "FINANCIAL_TRUTH",
+          "tracking_status": "DEGRADED"
+        }
+      },
+      {
+        "action_id": "PLAN-ACTION-protocolo_resposta_garantida-001",
+        "action_type": "RUN_EXPERIMENT",
+        "blocked_reason": "validar o achado técnico (quase custo zero) antes de comprometer mídia num experimento CRO que pode estar confundido por ele (item 14/26).",
+        "capital_required": null,
+        "confidence": 0.6,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": "NOT_ESTIMABLE",
+          "total_known_cost": "NOT_ESTIMABLE"
+        },
+        "dependency_ids": [
+          "PLAN-ACTION-protocolo_resposta_garantida-002",
+          "PLAN-ACTION-protocolo_resposta_garantida-003"
+        ],
+        "estimated_cost": null,
+        "expected_economic_impact": "NOT_ESTIMABLE",
+        "expected_information_gain": null,
+        "failure_condition": null,
+        "final_rank_reason": "topo do grupo de status BLOCKED.",
+        "kill_condition": null,
+        "objective": "Rodar experimento CRO: CTA_VISIBILITY.",
+        "priority": null,
+        "product_id": "protocolo_resposta_garantida",
+        "rank": 5,
+        "source_agent": "CRO",
+        "source_candidate_id": "CRO-CAND-001",
+        "status": "BLOCKED",
+        "success_condition": null,
+        "target_metric": "lpv_to_checkout_rate",
+        "tie_break_components": {
+          "capital_required_rank": 0,
+          "confidence_rank": 0.6,
+          "cost_rank": 0,
+          "decision_changing_evidence_rank": 0,
+          "dependency_rank": -2,
+          "economic_impact_rank": 0,
+          "information_gain_rank": 1,
+          "learning_value_rank": 2,
+          "risk_rank": -2,
+          "speed_to_evidence_rank": 0
+        },
+        "tracking_eligibility": {
+          "eligible": true,
+          "reason": "FINANCIAL_TRUTH=DEGRADED — não bloqueia (só BLOCKED bloqueia; DEGRADED só reduz confiança).",
+          "required_tracking_scope": "FINANCIAL_TRUTH",
+          "tracking_status": "DEGRADED"
+        }
+      }
+    ],
+    "risks": {
+      "contradictions": [],
+      "financial_truth_status": "DEGRADED",
+      "tracking_scopes": {
+        "CAMPAIGN_ATTRIBUTION": {
+          "affected_decisions": [
+            "decisão de orçamento por campanha baseada em roas_meta/cpa_meta agregado."
+          ],
+          "confidence": 0.8,
+          "issues": [
+            "META_PURCHASE_WITHOUT_HOTMART_SALE"
+          ],
+          "reason": "mesmo rollup de compra_meta usado no nível de campanha herda a mesma poluição.",
+          "status": "DEGRADED"
+        },
+        "CREATIVE_ATTRIBUTION": {
+          "affected_decisions": [
+            "DECLARE_CREATIVE_FINANCIAL_WINNER — meta.by_ad[].compra_meta/receita_meta não tem reconciliação por anúncio contra Hotmart (Hotmart não carrega ad_id)."
+          ],
+          "confidence": 0.8,
+          "issues": [
+            "META_PURCHASE_WITHOUT_HOTMART_SALE"
+          ],
+          "reason": "compra_meta/receita_meta por anúncio podem incluir compra(s) fantasma.",
+          "status": "DEGRADED"
+        },
+        "EXPERIMENT_MEASUREMENT": {
+          "affected_decisions": [
+            "medição de experimentos CREATIVE (dependem de compra_meta por anúncio) — CRO/OFFER/AOV/MEDIA_BUYING medem via Hotmart/funil e não são afetados."
+          ],
+          "confidence": 0.8,
+          "issues": [
+            "META_PURCHASE_WITHOUT_HOTMART_SALE"
+          ],
+          "reason": "experimento(s) CREATIVE registrado(s); a métrica financeira por anúncio está degradada.",
+          "status": "DEGRADED"
+        },
+        "FINANCIAL_TRUTH": {
+          "affected_decisions": [],
+          "confidence": 0.8,
+          "issues": [
+            "META_PURCHASE_WITHOUT_HOTMART_SALE"
+          ],
+          "reason": "2 ocorrência(s) de flag degradante (META_PURCHASE_WITHOUT_HOTMART_SALE) — Hotmart continua íntegra, confiança reduzida.",
+          "status": "DEGRADED"
+        },
+        "FUNNEL_MEASUREMENT": {
+          "affected_decisions": [],
+          "confidence": 1,
+          "issues": [],
+          "reason": "LPV/checkout/CTR/CPM são eventos independentes do evento Purchase — não afetados por META_PURCHASE_WITHOUT_HOTMART_SALE.",
+          "status": "RELIABLE"
+        },
+        "PLATFORM_ATTRIBUTION": {
+          "affected_decisions": [
+            "roas_meta/cpa_meta não são confiáveis isoladamente — usar sempre o financeiro Hotmart (metrics.economics.roas_financeiro)."
+          ],
+          "confidence": 0.8,
+          "issues": [
+            "META_PURCHASE_WITHOUT_HOTMART_SALE"
+          ],
+          "reason": "2 dia(s) com Meta reportando mais compras que a Hotmart confirma.",
+          "status": "DEGRADED"
+        }
+      }
+    },
+    "scale_conditions": {
+      "marginal_return": "NOT_ESTIMABLE",
+      "note": "scale_conditions espelha o scale gate real (evaluateScaleGate) — nunca uma lógica paralela.",
+      "reason": "FINANCIAL_TRUTH=DEGRADED — escalar capital real exige confiança máxima na fonte de verdade financeira (diferente de VALIDATE/MEASURE/FIX, que não dependem disso).",
+      "status": "BLOCKED"
+    },
+    "scenario_analysis": {
+      "known_path_to_target": {
+        "gap_closure_pct": 0.2334,
+        "reason": "com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.",
+        "status": "NO_KNOWN_PATH"
+      },
+      "path_to_roas3": {
+        "candidate_paths": "ver strategic_paths no plano completo — não duplicado aqui.",
+        "confidence": "MEDIUM",
+        "current_roas": 0.6416700264301395,
+        "known_levers": [
+          {
+            "estimated_potential": "NOT_ESTIMABLE",
+            "evidence_level": "CANDIDATE_ANALYSIS",
+            "lever_id": "CREATIVE",
+            "state": "AVAILABLE"
+          },
+          {
+            "estimated_potential": "NOT_ESTIMABLE",
+            "evidence_level": "CANDIDATE_ANALYSIS",
+            "lever_id": "CRO",
+            "state": "AVAILABLE"
+          },
+          {
+            "estimated_potential": "NOT_ESTIMABLE",
+            "evidence_level": "CANDIDATE_ANALYSIS",
+            "lever_id": "OFFER",
+            "state": "AVAILABLE"
+          },
+          {
+            "estimated_potential": "NOT_ESTIMABLE",
+            "evidence_level": "NONE",
+            "lever_id": "MEDIA_BUYING",
+            "state": "UNEXPLORED"
+          }
+        ],
+        "known_path_to_target": "NO_KNOWN_PATH",
+        "known_path_to_target_reason": "com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.",
+        "known_quantified_gap": 2.3583,
+        "note": "O cenário CPA/AOV combinado (offer/scenarioEngine.js) é agregado — não decompõe QUAL lever produziria a melhora de CPA ou de AOV. estimated_potential de cada lever é sempre NOT_ESTIMABLE até existir taxa/resultado real pós-mudança (item 15).",
+        "required_improvement": {
+          "aov_gap_to_roas3": 239.29,
+          "aov_gap_to_roas3_percent": 3.6752,
+          "cpa_gap_to_roas3": 79.77,
+          "current_financial_cpa": 101.4681818181818,
+          "current_financial_roas": 0.6416700264301394,
+          "current_net_revenue_per_buyer": 65.10909090909091,
+          "formula": "financial_roas = net_revenue_per_buyer / financial_cpa (mesma identidade usada no North Star do Decision Engine).",
+          "required_cpa_at_current_net_revenue_per_buyer": 21.7,
+          "required_net_revenue_per_buyer_at_current_cpa": 304.4,
+          "target_roas": 3
+        },
+        "target_roas": 3,
+        "unquantified_levers": [
+          {
+            "lever_id": "PRICING",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          },
+          {
+            "lever_id": "CHECKOUT",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          },
+          {
+            "lever_id": "LIFECYCLE",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          },
+          {
+            "lever_id": "ORGANIC",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          },
+          {
+            "lever_id": "PRODUCT",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          },
+          {
+            "lever_id": "OTHER",
+            "reason": "nenhum agente dedicado instrumenta este lever ainda.",
+            "status": "UNQUANTIFIED"
+          }
+        ]
+      },
+      "scenarios": {
+        "aov_only_scenarios": [
+          {
+            "aov_change_pct": 0,
+            "cpa_change_pct": 0,
+            "expected_financial_roas": 0.642,
+            "label": "CPA +0%, AOV +0%",
+            "projected_cpa": 101.47,
+            "projected_net_revenue_per_buyer": 65.11,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.1,
+            "cpa_change_pct": 0,
+            "expected_financial_roas": 0.706,
+            "label": "CPA +0%, AOV +10%",
+            "projected_cpa": 101.47,
+            "projected_net_revenue_per_buyer": 71.62,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.2,
+            "cpa_change_pct": 0,
+            "expected_financial_roas": 0.77,
+            "label": "CPA +0%, AOV +20%",
+            "projected_cpa": 101.47,
+            "projected_net_revenue_per_buyer": 78.13,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.3,
+            "cpa_change_pct": 0,
+            "expected_financial_roas": 0.834,
+            "label": "CPA +0%, AOV +30%",
+            "projected_cpa": 101.47,
+            "projected_net_revenue_per_buyer": 84.64,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.5,
+            "cpa_change_pct": 0,
+            "expected_financial_roas": 0.963,
+            "label": "CPA +0%, AOV +50%",
+            "projected_cpa": 101.47,
+            "projected_net_revenue_per_buyer": 97.66,
+            "status": "SCENARIO_NOT_FORECAST"
+          }
+        ],
+        "combined_scenarios": [
+          {
+            "aov_change_pct": 0.1,
+            "cpa_change_pct": -0.1,
+            "expected_financial_roas": 0.784,
+            "label": "CPA -10%, AOV +10%",
+            "projected_cpa": 91.32,
+            "projected_net_revenue_per_buyer": 71.62,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.2,
+            "cpa_change_pct": -0.2,
+            "expected_financial_roas": 0.963,
+            "label": "CPA -20%, AOV +20%",
+            "projected_cpa": 81.17,
+            "projected_net_revenue_per_buyer": 78.13,
+            "status": "SCENARIO_NOT_FORECAST"
+          },
+          {
+            "aov_change_pct": 0.3,
+            "cpa_change_pct": -0.3,
+            "expected_financial_roas": 1.192,
+            "label": "CPA -30%, AOV +30%",
+            "projected_cpa": 71.03,
+            "projected_net_revenue_per_buyer": 84.64,
+            "status": "SCENARIO_NOT_FORECAST"
+          }
+        ],
+        "current": {
+          "aov_change_pct": 0,
+          "cpa_change_pct": 0,
+          "expected_financial_roas": 0.642,
+          "label": "CPA +0%, AOV +0%",
+          "projected_cpa": 101.47,
+          "projected_net_revenue_per_buyer": 65.11,
+          "status": "SCENARIO_NOT_FORECAST"
+        },
+        "note": "Todo cenário é uma simulação determinística (fórmula ROAS = net_revenue_per_buyer / CPA aplicada aos deltas informados) — NUNCA uma previsão do que vai acontecer de fato."
+      }
+    },
+    "strategy": {
+      "best_next_strategic_action": {
+        "action": "PLAN-ACTION-protocolo_resposta_garantida-002",
+        "capital_required": 0,
+        "cost_model": {
+          "analysis_cost": 0,
+          "implementation_cost": 0,
+          "measurement_capital": 0,
+          "total_known_cost": 0
+        },
+        "decision_it_can_change": "se o verdict pode evoluir de CONTINUE_VALIDATION pra OPTIMIZE nesta alavanca.",
+        "decision_relevance": "resolve uma incerteza técnica de custo ~R$0 antes de comprometer capital em experimento — decision-changing porque pode confirmar/descartar um confundidor real antes de gastar mídia.",
+        "dependency_unlock": [
+          "PLAN-ACTION-protocolo_resposta_garantida-001"
+        ],
+        "economic_relevance": "NOT_ESTIMABLE",
+        "failure_condition": "achado técnico não confirmado ou correção não resolve o sintoma observado.",
+        "information_value": "ALTO — custo zero, resolve incerteza decisiva.",
+        "success_condition": "achado técnico confirmado/corrigido e validado.",
+        "what_happens_after_failure": "a hipótese correspondente fica INVALIDATED/CONTRADICTED no Learning Engine — reduz confidence de candidatos futuros que dependam dela (prior learning).",
+        "what_happens_after_success": "a evidência entra no Learning Engine, hypothesis_space_status avança, e o Planner deve ser reexecutado pra recalcular verdict/roadmap.",
+        "why_not_other_actions": [
+          {
+            "action_id": "PLAN-ACTION-protocolo_resposta_garantida-003",
+            "why_not": "topo do grupo de status READY."
+          },
+          {
+            "action_id": "PLAN-ACTION-protocolo_resposta_garantida-004",
+            "why_not": "topo do grupo de status READY."
+          },
+          {
+            "action_id": "PLAN-ACTION-protocolo_resposta_garantida-005",
+            "why_not": "topo do grupo de status READY."
+          }
+        ],
+        "why_now": "topo do grupo de status READY."
+      },
+      "roadmap": {
+        "later": [],
+        "next": [
+          "PLAN-ACTION-protocolo_resposta_garantida-001"
+        ],
+        "note": "NOW/NEXT/LATER deterministicamente derivado do ranking real + grafo de dependência — nunca hardcoded (item 72). Muda automaticamente quando a evidência real mudar.",
+        "now": [
+          "PLAN-ACTION-protocolo_resposta_garantida-002",
+          "PLAN-ACTION-protocolo_resposta_garantida-003",
+          "PLAN-ACTION-protocolo_resposta_garantida-004",
+          "PLAN-ACTION-protocolo_resposta_garantida-005"
+        ]
+      },
+      "strategic_paths": [
+        {
+          "actions": [
+            "PLAN-ACTION-protocolo_resposta_garantida-002",
+            "PLAN-ACTION-protocolo_resposta_garantida-003",
+            "PLAN-ACTION-protocolo_resposta_garantida-001"
+          ],
+          "confidence": 0.6,
+          "cost_model": {
+            "analysis_cost": 0,
+            "implementation_cost": 0,
+            "measurement_capital": "NOT_ESTIMABLE",
+            "total_known_cost": "NOT_ESTIMABLE"
+          },
+          "dependencies": [
+            "PLAN-ACTION-protocolo_resposta_garantida-002",
+            "PLAN-ACTION-protocolo_resposta_garantida-003"
+          ],
+          "economic_potential": "NOT_ESTIMABLE",
+          "information_gain": "ALTO — inclui validação/correção de custo ~R$0 antes de comprometer capital.",
+          "objective": "CAPITAL EFFICIENT VALIDATION (CRO)",
+          "path_id": "PATH-A",
+          "risk": "MEDIUM",
+          "source_agent": "CRO"
+        },
+        {
+          "actions": [
+            "PLAN-ACTION-protocolo_resposta_garantida-004"
+          ],
+          "confidence": 0.6,
+          "cost_model": {
+            "analysis_cost": 0,
+            "implementation_cost": 0,
+            "measurement_capital": "NOT_ESTIMABLE",
+            "total_known_cost": "NOT_ESTIMABLE"
+          },
+          "dependencies": [],
+          "economic_potential": "NOT_ESTIMABLE",
+          "information_gain": "MEDIUM — depende do resultado do experimento real.",
+          "objective": "CREATIVE IMPROVEMENT",
+          "path_id": "PATH-B",
+          "risk": "MEDIUM",
+          "source_agent": "CREATIVE"
+        },
+        {
+          "actions": [
+            "PLAN-ACTION-protocolo_resposta_garantida-005"
+          ],
+          "confidence": 0.46,
+          "cost_model": {
+            "analysis_cost": 0,
+            "implementation_cost": 0,
+            "measurement_capital": "NOT_ESTIMABLE",
+            "total_known_cost": "NOT_ESTIMABLE"
+          },
+          "dependencies": [],
+          "economic_potential": "NOT_ESTIMABLE",
+          "information_gain": "MEDIUM — depende do resultado do experimento real.",
+          "objective": "MONETIZATION (OFFER)",
+          "path_id": "PATH-C",
+          "risk": "MEDIUM",
+          "source_agent": "OFFER"
+        }
+      ]
+    },
+    "switch_conditions": {
+      "all_met": false,
+      "conditions": [
+        {
+          "condition": "tracking suficiente",
+          "met": true
+        },
+        {
+          "condition": "evidência mínima atingida (dados/experimentos/amostra)",
+          "met": false
+        },
+        {
+          "condition": "alavancas-chave adequadamente exploradas",
+          "met": false
+        },
+        {
+          "condition": "gap econômico permanece implausível mesmo assim",
+          "met": true
+        },
+        {
+          "condition": "expected_value_of_continuing <= expected_value_of_switching (switching pode estar UNKNOWN — item 23)",
+          "met": false
+        }
+      ],
+      "note": "switch_conditions espelha o switch gate real (evaluateSwitchProductGate) — nunca uma lógica paralela. A alternativa (produto B) permanece UNKNOWN até existir Product Selection Agent."
+    },
+    "target_state": {
+      "required_cpa_at_current_net_revenue_per_buyer": 21.7,
+      "required_net_revenue_per_buyer_at_current_cpa": 304.4,
+      "target_roas": 3
+    },
+    "updated_at": "2026-08-29T13:13:13.067Z",
+    "verdict": "CONTINUE_VALIDATION",
+    "verdict_confidence": "MEDIUM",
+    "verdict_reasoning": {
+      "what_remains_unknown": "se alguma das alavancas com candidato real (ver lever_registry) realmente move a métrica quando testada — isso é, por definição, o que ainda não sabemos até rodar o experimento.",
+      "what_would_change_it": "o primeiro experimento concluído (SUCCESS/FAILURE/INCONCLUSIVE) em qualquer alavanca-chave (Creative/CRO/Offer) muda hypothesis_space_status e reabre a avaliação de OPTIMIZE.",
+      "why_this_verdict": "hypothesis_space_status=LARGELY_UNEXPLORED, known_path_to_target=NO_KNOWN_PATH, expected_economic_value_of_continuing=UNKNOWN — ainda não há evidência real suficiente pra afirmar um caminho plausível OU pra descartar o produto. \"com as alavancas atualmente quantificadas (cenário combinado CPA/AOV mais agressivo já modelado), o gap fecha apenas 23.3% até o target — os caminhos MODELADOS não chegam ao ROAS 3. Isso NÃO significa que não existe caminho real (item 10) — significa que os alavancas quantificados hoje não bastam sozinhos.\""
+    },
+    "version": "PLAN-V1",
+    "viability_status": "INSUFFICIENT_EVIDENCE"
+  }
+]

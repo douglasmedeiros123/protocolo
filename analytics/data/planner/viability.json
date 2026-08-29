@@ -1,0 +1,97 @@
+{
+  "evidence_matrix": {
+    "CREATIVE": {
+      "confidence": 0.6,
+      "contradictory_evidence": [],
+      "state": "AVAILABLE",
+      "supporting_evidence": [
+        "4 candidato(s) real(is) gerado(s)"
+      ],
+      "unknowns": []
+    },
+    "CRO": {
+      "confidence": 0.6,
+      "contradictory_evidence": [],
+      "state": "AVAILABLE",
+      "supporting_evidence": [
+        "4 candidato(s) real(is) gerado(s)"
+      ],
+      "unknowns": []
+    },
+    "DATA_QUALITY": {
+      "confidence": 0.9333333333333333,
+      "contradictory_evidence": [
+        "2 dia(s) sem snapshot no período"
+      ],
+      "state": "PARTIAL",
+      "supporting_evidence": [
+        "data_completeness=0.9333333333333333 (28/30 dias)"
+      ],
+      "unknowns": []
+    },
+    "EXPERIMENT_COVERAGE": {
+      "confidence": null,
+      "contradictory_evidence": [],
+      "state": "NONE_COMPLETED",
+      "supporting_evidence": [],
+      "unknowns": [
+        "4 experimento(s) ainda em DRAFT — não conta como testado"
+      ]
+    },
+    "FINANCIAL_ECONOMICS": {
+      "confidence": 0.9333333333333333,
+      "contradictory_evidence": [
+        "cenários combinados já modelados (CPA-30%+AOV+30%) não fecham o gap pro ROAS 3"
+      ],
+      "state": {
+        "reason": "0.5 <= roas_financeiro (0.642) < 0.9",
+        "status": "LOSS"
+      },
+      "supporting_evidence": [
+        "financial ROAS real = 0.6416700264301395"
+      ],
+      "unknowns": []
+    },
+    "LEARNING_COVERAGE": {
+      "confidence": null,
+      "contradictory_evidence": [],
+      "state": "LARGELY_UNEXPLORED",
+      "supporting_evidence": [],
+      "unknowns": [
+        "nenhuma hipótese com resultado real registrada ainda"
+      ]
+    },
+    "MEDIA_BUYING": {
+      "confidence": null,
+      "contradictory_evidence": [],
+      "state": "UNEXPLORED",
+      "supporting_evidence": [],
+      "unknowns": [
+        "nenhuma evidência real coletada ainda nesta alavanca"
+      ]
+    },
+    "OFFER": {
+      "confidence": 0.46,
+      "contradictory_evidence": [],
+      "state": "AVAILABLE",
+      "supporting_evidence": [
+        "4 candidato(s) real(is) gerado(s)"
+      ],
+      "unknowns": []
+    },
+    "TRACKING": {
+      "confidence": null,
+      "contradictory_evidence": [
+        "2 dia(s) com flag crítica de tracking"
+      ],
+      "state": "CRITICAL_ISSUES_PRESENT",
+      "supporting_evidence": [],
+      "unknowns": []
+    }
+  },
+  "generated_at": "2026-08-29T13:13:13.065Z",
+  "product_id": "protocolo_resposta_garantida",
+  "verdict": "CONTINUE_VALIDATION",
+  "verdict_confidence": "MEDIUM",
+  "viability_status": "INSUFFICIENT_EVIDENCE"
+}
