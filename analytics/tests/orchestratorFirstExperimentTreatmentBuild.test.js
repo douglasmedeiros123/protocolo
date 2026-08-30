@@ -297,10 +297,13 @@ test('extra28b: real — sem treatmentBuildAudit, buildFirstExperimentReadiness(
 });
 
 // 40. Write boundary.
-test('40: real — git status só mostra arquivos dentro do write boundary permitido (advertorial-comprehension/, analytics/src/orchestrator/, analytics/tests/, analytics/data/orchestrator/)', () => {
+// PASSO 18.5 ampliou legitimamente o write boundary (connectors/segurança, item 22 daquele
+// PASSO) — allowlist atualizada pra refletir o boundary real vigente, nunca pra esconder um
+// arquivo fora de escopo genuíno.
+test('40: real — git status só mostra arquivos dentro do write boundary permitido (PASSO 17/17.1/18/18.5)', () => {
   const status = execSync('git status --short', { cwd: REPO_ROOT }).toString();
   const lines = status.split('\n').map((l) => l.trim()).filter(Boolean);
-  const allowedPrefixes = ['advertorial-comprehension/', 'analytics/src/orchestrator/', 'analytics/tests/', 'analytics/data/orchestrator/'];
+  const allowedPrefixes = ['advertorial-comprehension/', 'analytics/src/orchestrator/', 'analytics/tests/', 'analytics/data/orchestrator/', 'analytics/src/execution/', 'analytics/data/security/', '.gitignore'];
   for (const line of lines) {
     const filePath = line.replace(/^\?\?\s+|^[AM]+\s+/, '');
     assert.ok(allowedPrefixes.some((p) => filePath.startsWith(p)), `arquivo fora do write boundary: ${filePath}`);
