@@ -15,6 +15,29 @@ async function readInsights(dateStr) {
   return { available: true, platform: 'META', date: dateStr, ad_account_id: raw.ad_account_id, rows: raw.rows, fetched_at: raw.fetched_at };
 }
 
+/**
+ * meta.readCampaignStatus() — item 7/9. READ_ONLY (Graph API .../campaigns, fields=status,
+ * effective_status,budget) — nunca muda estado, nunca exige aprovação. Complementa readInsights()
+ * (que só traz insights de gasto/performance, nunca o status real ACTIVE/PAUSED da campanha).
+ */
+async function readCampaignStatus() {
+  const { ok } = env.status().meta;
+  if (!ok) return { available: false, reason: 'CREDENTIAL_SETUP_REQUIRED', platform: 'META' };
+  const { META_ACCESS_TOKEN, META_AD_ACCOUNT_ID } = env.get('meta');
+  const url = new URL(`https://graph.facebook.com/v20.0/${META_AD_ACCOUNT_ID}/campaigns`);
+  url.searchParams.set('fields', 'name,status,effective_status,daily_budget,lifetime_budget');
+  url.searchParams.set('access_token', META_ACCESS_TOKEN);
+  const res = await fetch(url);
+  const json = await res.json();
+  if (json.error) return { available: false, platform: 'META', reason: 'API_ERROR', detail: json.error.message };
+  return {
+    available: true,
+    platform: 'META',
+    fetched_at: new Date().toISOString(),
+    campaigns: (json.data || []).map((c) => ({ id: c.id, name: c.name, status: c.status, effective_status: c.effective_status, daily_budget: c.daily_budget || null, lifetime_budget: c.lifetime_budget || null })),
+  };
+}
+
 // item 10 — cada ação proposta carrega o contrato completo exigido. NUNCA executa — sempre
 // retorna status=AWAITING_HUMAN_APPROVAL, mesmo que a credencial usada tivesse permissão de
 // escrita (capability != authority, item 24).
@@ -63,4 +86,4 @@ async function executeApprovedBudgetChange() {
   return { executed: false, blocked: true, reason: 'NOT_IMPLEMENTED_THIS_PASSO — execução real de mutação Meta está fora do escopo do PASSO 18.5 (só arquitetura de proposta/aprovação, nunca execução).' };
 }
 
-module.exports = { readInsights, proposeBudgetChange, proposeCampaignStatusChange, executeApprovedBudgetChange };
+module.exports = { readInsights, readCampaignStatus, proposeBudgetChange, proposeCampaignStatusChange, executeApprovedBudgetChange };
